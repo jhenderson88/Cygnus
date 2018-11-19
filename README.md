@@ -88,20 +88,20 @@ Can set actual nuclear masses using:
 
 Class: PointCoulEx
 
-Performs a Coulomb excitation calculation for a single energy at a single theta value. Requires a Nucleus and Reaction:
-> PointCoulEx *poin = new PointCoulEx(nucl,reac)
+Performs a Coulomb excitation calculation for a single energy at a single theta value. Requires a Nucleus and Reaction:  
+> PointCoulEx *poin = new PointCoulEx(nucl,reac)  
 
-To run the calculation:
-> poin->CalculatePointProbabilities(theta)
+To run the calculation:  
+> poin->CalculatePointProbabilities(theta)  
 - theta in the center of mass frame, in units of degrees
 
-To get the excitation probabilities:
+To get the excitation probabilities:  
 > TVectorD vec = point->GetProbabilitiesVector()
 
 Class: StoppingPower
 
 Holder class for stopping power information. Performs a cubic fit to stopping power data. 
-> StoppingPower dEdX; 
+> StoppingPower dEdX;  
 > dEdX.AddStoppingPower(E,SP)
 - E and SP are the energy (MeV) and stopping power (MeV/mg/cm2) meshpoint
 > dEdX.FitStoppingPowers()
