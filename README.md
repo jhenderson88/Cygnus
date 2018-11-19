@@ -119,18 +119,14 @@ Cygnus uses the ROOT::Minimizer package. This comes with a number of minimizatio
 |	     |	Combined        |
 |	     |	Scan            |
 |	     |	Fumili2         |
-|------------|------------------|
-|Genetic     |                  |
-|------------|------------------|	
+|Genetic     |                  -	
 |GSLMultiMin |	ConjugateFR     |
 |	     |	ConjugatePR     |
 |            |	BFGS            |
 |            |	BFGS2           |
 |            |	SteepestDescent |
-|------------|------------------|
 |GSLMultiFit |                  |
 |GSLSimAn    |	                |
-|------------|------------------|
 
 License
 -----------------------
