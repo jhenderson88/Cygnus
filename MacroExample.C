@@ -1,4 +1,4 @@
-void PointRun(){
+void MacroExample(){
 
 	NucleusReader *reader_mg = new NucleusReader("NucleusFile_Mg22.txt");
 	Nucleus *nucl_mg = reader_mg->GetNucleus();
