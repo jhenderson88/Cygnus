@@ -3,6 +3,10 @@ CYGNUS
 A CODE FOR COULOMB-EXCITATION ANALYSIS IN C++
 ==================================================================
 
+Note that CYGNUS is still in a testing phase and should not be used for analysis in isolation, but should be used alongside a traditional code such as GOSIA. 
+
+Note that kinematics calculations differ from those in GOSIA. This difference is typically less than 0.1 degrees and results in a difference in excitation probability of less than 0.1%. Typically this will lie beyond experimental sensitivities, however it should be considered when comparing to GOSIA calculations.
+
 Requirements
 -----------------------
 
