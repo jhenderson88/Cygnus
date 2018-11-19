@@ -112,20 +112,25 @@ Fitting Data
 
 Cygnus uses the ROOT::Minimizer package. This comes with a number of minimization options. The user can define a minimizer choice and select an algorithm for that minimizer. The options are:
 
-MINIMIZER:	ALGORITHM:
-Minuit2 	Migrad
-		Simplex
-		Combined
-		Scan
-		Fumili2
-Genetic		-
-GSLMultiMin	ConjugateFR
-		ConjugatePR
-		BFGS
-		BFGS2
-		SteepestDescent
-GSLMultiFit	-
-GSLSimAn	-
+| MINIMIZER: |	ALGORITHM:      |
+|------------|------------------|
+|Minuit2     |	Migrad          |
+|	     |	Simplex         |
+|	     |	Combined        |
+|	     |	Scan            |
+|	     |	Fumili2         |
+|------------|------------------|
+|Genetic     |                  |
+|------------|------------------|	
+|GSLMultiMin |	ConjugateFR     |
+|	     |	ConjugatePR     |
+|            |	BFGS            |
+|            |	BFGS2           |
+|            |	SteepestDescent |
+|------------|------------------|
+|GSLMultiFit |                  |
+|GSLSimAn    |	                |
+|------------|------------------|
 
 License
 -----------------------
