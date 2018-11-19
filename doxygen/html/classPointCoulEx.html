@@ -155,7 +155,7 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Calculate point Coulomb excitation amplitudes and associated statistical tensors. </p>
 <p>This class does the majority of the heavy lifting, calculating the Coulomb-excitation amplitudes and probabilities. The syntax borrows heavily from both GOSIA and CLX methods, but is organized rather differently.</p>
-<p><a class="el" href="classConnection.html" title="Holder for connections between substates (see Substate class). Contains information relevant to point...">Connection</a> information, rather than being stored in a number of matrices (as in CLX and GOSIA) is collected in a vector of <a class="el" href="classSubstate.html" title="Holder class for substate information. ">Substate</a> objects.</p>
+<p><a class="el" href="classConnection.html" title="Holder for connections between substates (see Substate class). Contains information relevant to point...">Connection</a> information, rather than being stored in a number of matrices (as in CLX and GOSIA) is collected in a vector of <a class="el" href="classSubstate.html">Substate</a> objects.</p>
 <p>The program then cycles through these substates during amplitude calculation.</p>
 <p>The numerical integration of the coupled-differential equations is performed using the CLX method:<br/>
 A Runge-Kutta algorithm is used to determine four initial points, before the Adams-Moulton method is employed. This differs from GOSIA, in which a pertubative technique is used to determine initial points. In practice, differences between methods are insignificant.</p>
