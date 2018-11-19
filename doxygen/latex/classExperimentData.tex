@@ -1,0 +1,170 @@
+\hypertarget{classExperimentData}{\section{Experiment\-Data Class Reference}
+\label{classExperimentData}\index{Experiment\-Data@{Experiment\-Data}}
+}
+
+
+Holder class containing experimental data, stored in a vector of \hyperlink{classExptData}{Expt\-Data} objects.  
+
+
+
+
+{\ttfamily \#include $<$Experimental\-Input.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classExperimentData_a4fd4e938e3e2d3e19c764e5435adf853}{Experiment\-Data} (const \hyperlink{classExperimentData}{Experiment\-Data} \&e)
+\item 
+\hyperlink{classExperimentData}{Experiment\-Data} \& \hyperlink{classExperimentData_a3b9f3d2634e00fa6d1a56867ae78fb99}{operator=} (const \hyperlink{classExperimentData}{Experiment\-Data} \&e)
+\item 
+void \hyperlink{classExperimentData_aee3122de344975999799d74e7e7e0624}{Add\-Data} (int i, int f, double c, double e)
+\item 
+void \hyperlink{classExperimentData_a81531d8462a74362d35794fe05018baa}{Set\-Data} (int i, \hyperlink{classExptData}{Expt\-Data} exp)
+\item 
+void \hyperlink{classExperimentData_a1366e023080099fea2c8ead233e4f778}{Clear\-Data} ()
+\item 
+\hyperlink{classExptData}{Expt\-Data} \hyperlink{classExperimentData_aebfccd487301e728c1cb00bbe970c2bb}{Get\-Data\-Point} (int i) const 
+\item 
+std\-::vector$<$ \hyperlink{classExptData}{Expt\-Data} $>$ \hyperlink{classExperimentData_a99aa8a266594cf9211c5cbdd8f2c7708}{Get\-Data} () const 
+\item 
+void \hyperlink{classExperimentData_a00ed9f57750edbef3cc06ed1dca546d0}{Set\-Theta\-C\-M} (double t)
+\item 
+double \hyperlink{classExperimentData_a5ce1ebcd4abc1a9bceba0368612da008}{Get\-Theta\-C\-M} () const 
+\item 
+void \hyperlink{classExperimentData_a2f42d1368c3d2dd96c1cc8ecd3755325}{Print} () const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Holder class containing experimental data, stored in a vector of \hyperlink{classExptData}{Expt\-Data} objects. 
+
+The mean theta in the center-\/of-\/mass frame is also held in this class for convenience later 
+
+Definition at line 90 of file Experimental\-Input.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classExperimentData_a4fd4e938e3e2d3e19c764e5435adf853}{\index{Experiment\-Data@{Experiment\-Data}!Experiment\-Data@{Experiment\-Data}}
+\index{Experiment\-Data@{Experiment\-Data}!ExperimentData@{Experiment\-Data}}
+\subsubsection[{Experiment\-Data}]{\setlength{\rightskip}{0pt plus 5cm}Experiment\-Data\-::\-Experiment\-Data (
+\begin{DoxyParamCaption}
+\item[{const {\bf Experiment\-Data} \&}]{e}
+\end{DoxyParamCaption}
+)}}\label{classExperimentData_a4fd4e938e3e2d3e19c764e5435adf853}
+Copy constructor 
+
+Definition at line 24 of file Experimental\-Input.\-cxx.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classExperimentData_aee3122de344975999799d74e7e7e0624}{\index{Experiment\-Data@{Experiment\-Data}!Add\-Data@{Add\-Data}}
+\index{Add\-Data@{Add\-Data}!ExperimentData@{Experiment\-Data}}
+\subsubsection[{Add\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void Experiment\-Data\-::\-Add\-Data (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{f, }
+\item[{double}]{c, }
+\item[{double}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentData_aee3122de344975999799d74e7e7e0624}
+Add a new \hyperlink{classExptData}{Expt\-Data} value with\-: initial state = i final state = f yield = c uncertainty = e 
+
+Definition at line 105 of file Experimental\-Input.\-h.
+
+\hypertarget{classExperimentData_a1366e023080099fea2c8ead233e4f778}{\index{Experiment\-Data@{Experiment\-Data}!Clear\-Data@{Clear\-Data}}
+\index{Clear\-Data@{Clear\-Data}!ExperimentData@{Experiment\-Data}}
+\subsubsection[{Clear\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void Experiment\-Data\-::\-Clear\-Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentData_a1366e023080099fea2c8ead233e4f778}
+Clear experimental data 
+
+Definition at line 107 of file Experimental\-Input.\-h.
+
+\hypertarget{classExperimentData_a99aa8a266594cf9211c5cbdd8f2c7708}{\index{Experiment\-Data@{Experiment\-Data}!Get\-Data@{Get\-Data}}
+\index{Get\-Data@{Get\-Data}!ExperimentData@{Experiment\-Data}}
+\subsubsection[{Get\-Data}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Expt\-Data}$>$ Experiment\-Data\-::\-Get\-Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentData_a99aa8a266594cf9211c5cbdd8f2c7708}
+Return vector of \hyperlink{classExptData}{Expt\-Data} 
+
+Definition at line 110 of file Experimental\-Input.\-h.
+
+\hypertarget{classExperimentData_aebfccd487301e728c1cb00bbe970c2bb}{\index{Experiment\-Data@{Experiment\-Data}!Get\-Data\-Point@{Get\-Data\-Point}}
+\index{Get\-Data\-Point@{Get\-Data\-Point}!ExperimentData@{Experiment\-Data}}
+\subsubsection[{Get\-Data\-Point}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Expt\-Data} Experiment\-Data\-::\-Get\-Data\-Point (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentData_aebfccd487301e728c1cb00bbe970c2bb}
+Return \hyperlink{classExptData}{Expt\-Data} object at index i 
+
+Definition at line 109 of file Experimental\-Input.\-h.
+
+\hypertarget{classExperimentData_a5ce1ebcd4abc1a9bceba0368612da008}{\index{Experiment\-Data@{Experiment\-Data}!Get\-Theta\-C\-M@{Get\-Theta\-C\-M}}
+\index{Get\-Theta\-C\-M@{Get\-Theta\-C\-M}!ExperimentData@{Experiment\-Data}}
+\subsubsection[{Get\-Theta\-C\-M}]{\setlength{\rightskip}{0pt plus 5cm}double Experiment\-Data\-::\-Get\-Theta\-C\-M (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentData_a5ce1ebcd4abc1a9bceba0368612da008}
+Return theta C\-M 
+
+Definition at line 113 of file Experimental\-Input.\-h.
+
+\hypertarget{classExperimentData_a3b9f3d2634e00fa6d1a56867ae78fb99}{\index{Experiment\-Data@{Experiment\-Data}!operator=@{operator=}}
+\index{operator=@{operator=}!ExperimentData@{Experiment\-Data}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Experiment\-Data} \& Experiment\-Data\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Experiment\-Data} \&}]{e}
+\end{DoxyParamCaption}
+)}}\label{classExperimentData_a3b9f3d2634e00fa6d1a56867ae78fb99}
+Assignment operator 
+
+Definition at line 33 of file Experimental\-Input.\-cxx.
+
+\hypertarget{classExperimentData_a2f42d1368c3d2dd96c1cc8ecd3755325}{\index{Experiment\-Data@{Experiment\-Data}!Print@{Print}}
+\index{Print@{Print}!ExperimentData@{Experiment\-Data}}
+\subsubsection[{Print}]{\setlength{\rightskip}{0pt plus 5cm}void Experiment\-Data\-::\-Print (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classExperimentData_a2f42d1368c3d2dd96c1cc8ecd3755325}
+Print all experimental data 
+
+Definition at line 44 of file Experimental\-Input.\-cxx.
+
+\hypertarget{classExperimentData_a81531d8462a74362d35794fe05018baa}{\index{Experiment\-Data@{Experiment\-Data}!Set\-Data@{Set\-Data}}
+\index{Set\-Data@{Set\-Data}!ExperimentData@{Experiment\-Data}}
+\subsubsection[{Set\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void Experiment\-Data\-::\-Set\-Data (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{{\bf Expt\-Data}}]{exp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentData_a81531d8462a74362d35794fe05018baa}
+Set experimental yield, index i to \hyperlink{classExptData}{Expt\-Data} object exp 
+
+Definition at line 106 of file Experimental\-Input.\-h.
+
+\hypertarget{classExperimentData_a00ed9f57750edbef3cc06ed1dca546d0}{\index{Experiment\-Data@{Experiment\-Data}!Set\-Theta\-C\-M@{Set\-Theta\-C\-M}}
+\index{Set\-Theta\-C\-M@{Set\-Theta\-C\-M}!ExperimentData@{Experiment\-Data}}
+\subsubsection[{Set\-Theta\-C\-M}]{\setlength{\rightskip}{0pt plus 5cm}void Experiment\-Data\-::\-Set\-Theta\-C\-M (
+\begin{DoxyParamCaption}
+\item[{double}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentData_a00ed9f57750edbef3cc06ed1dca546d0}
+Define theta C\-M 
+
+Definition at line 112 of file Experimental\-Input.\-h.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Experimental\-Input.\-h\item 
+Experimental\-Input.\-cxx\end{DoxyCompactItemize}

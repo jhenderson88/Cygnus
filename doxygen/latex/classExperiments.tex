@@ -1,0 +1,365 @@
+\hypertarget{classExperiments}{\section{Experiments Class Reference}
+\label{classExperiments}\index{Experiments@{Experiments}}
+}
+
+
+The \hyperlink{classExperiments}{Experiments} class is the umbrella class into which all defined experiments are stored.  
+
+
+
+
+{\ttfamily \#include $<$Experiments.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classExperiments_a5eb52e04ded64f6c80f6c149d7b0ef50}{Experiments} (\hyperlink{classNucleus}{Nucleus} $\ast$, \hyperlink{classReaction}{Reaction} $\ast$)
+\item 
+\hyperlink{classExperiments_aa443f070178209bb45171fafc4aa1823}{Experiments} (const \hyperlink{classExperiments}{Experiments} \&)
+\item 
+\hyperlink{classExperiments}{Experiments} \& \hyperlink{classExperiments_afee4f319e5380461a1894759c9968b60}{operator=} (const \hyperlink{classExperiments}{Experiments} \&)
+\item 
+void \hyperlink{classExperiments_a4fd0834a194d323b6c75dea8c9645884}{New\-Experiment\-Range} (double theta\-Min, double theta\-Max, int n\-Theta, double energy\-Min, double energy\-Max, int n\-Energy, bool target\-Detection=false)
+\item 
+void \hyperlink{classExperiments_a17d47b581e1f6247799b54c2ef1c3652}{Clear\-Experiments} ()
+\item 
+void \hyperlink{classExperiments_afdfa4aa08db9ec85ca899439bdcd813a}{Point\-Corrections} ()
+\item 
+void \hyperlink{classExperiments_ae668ff4f1bf3a6d6ae04d0e1a05aecf2}{Print\-Details} () const 
+\item 
+void \hyperlink{classExperiments_a3f5c399a9ef5a852fc7045669ca05f74}{Print\-Point\-Corrections} ()
+\item 
+\hyperlink{classExperimentRange}{Experiment\-Range} \hyperlink{classExperiments_ab853c2acdd99546b962371f2d55cf2d2}{Get\-Experiment\-Range} (int i) const 
+\item 
+std\-::vector$<$ T\-Vector\-D $>$ \hyperlink{classExperiments_aeff55245693c52c828c4f193174a4095}{Get\-Correction\-Factors} () const 
+\item 
+std\-::vector$<$ T\-Vector\-D $>$ \hyperlink{classExperiments_a536e796fba4df63d62c9f3277f910a73}{Get\-Point\-Cross\-Sections} () const 
+\item 
+std\-::vector$<$ T\-Vector\-D $>$ \hyperlink{classExperiments_a47a82e8b042491288d6b900ad9198c35}{Get\-Integrated\-Cross\-Sections} () const 
+\item 
+\hyperlink{classPointCoulEx}{Point\-Coul\-Ex} \hyperlink{classExperiments_ad4c9c3bcb227b9982d52654e28dab360}{Get\-Point\-Calculation} (int i) const 
+\item 
+std\-::vector$<$ \hyperlink{classPointCoulEx}{Point\-Coul\-Ex} $>$ \hyperlink{classExperiments_aed971cdffd3863f01d1246b3810ad190}{Get\-Point\-Calculations} () const 
+\item 
+int \hyperlink{classExperiments_a6e6df0546be0608c2ff936f7bbf3a0bb}{Get\-Nexpts} () const 
+\item 
+void \hyperlink{classExperiments_a5bc069b7d1388ed1aac87600bff18b43}{Set\-Verbose} (bool b=true)
+\item 
+void \hyperlink{classExperiments_add6a2b8636244411a03515f396b3603d}{Write\-Integral\-Fits} (const char $\ast$, const char $\ast$opt=\char`\"{}U\-P\-D\-A\-T\-E\char`\"{})
+\item 
+void \hyperlink{classExperiments_ac8f99d06ff63f2e0fda80ad647edd3b6}{Set\-Nthreads} (int n)
+\item 
+int \hyperlink{classExperiments_a0b5789577937188a891a2c5e70b3c8e6}{Get\-Nthreads} () const 
+\item 
+void \hyperlink{classExperiments_a8aa4eb6fa6131902a90a4c602bb055f7}{Set\-Accuracy} (double acc)
+\item 
+void \hyperlink{classExperiments_a777e9756290797247971042c4e64ed9e}{Set\-Stopping} (\hyperlink{classStoppingPower}{Stopping\-Power} s)
+\item 
+void \hyperlink{classExperiments_a50e179731fa9b2c693badaefd9b698cc}{Set\-Particle\-Detector\-Eff} (int i, T\-H1\-F $\ast$p)
+\item 
+void \hyperlink{classExperiments_a7902dd87eee8cf24ded441ba889f97fb}{Use\-Efficiency} (bool b=true)
+\item 
+void \hyperlink{classExperiments_a2766ab644312a272bde08e4abfa02c18}{Set\-Projectile\-Excitation} (bool b=true)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classExperiments}{Experiments} class is the umbrella class into which all defined experiments are stored. 
+
+Each \char`\"{}\-Experiment\char`\"{} does not need to be a different physical experiment, but might be a different theta range on a detector, for example.
+
+The Experiment class then contains a vector of \hyperlink{classExperimentRange}{Experiment\-Range} objects, in which theta-\/enegry integrals are evaluated to determined an integrated cross section. \hyperlink{classPointCoulEx}{Point\-Coul\-Ex} calculations are also performed, and a correction factor can thereby be determined\-: effectively correcting point calcula-\/ tions to reproduce integrated yields. This varies state-\/by-\/state, depending upon the angular distr-\/ ibution of the cross section, and is therefore reported accordingly. 
+
+Definition at line 46 of file Experiments.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classExperiments_a5eb52e04ded64f6c80f6c149d7b0ef50}{\index{Experiments@{Experiments}!Experiments@{Experiments}}
+\index{Experiments@{Experiments}!Experiments@{Experiments}}
+\subsubsection[{Experiments}]{\setlength{\rightskip}{0pt plus 5cm}Experiments\-::\-Experiments (
+\begin{DoxyParamCaption}
+\item[{{\bf Nucleus} $\ast$}]{nucl, }
+\item[{{\bf Reaction} $\ast$}]{reac}
+\end{DoxyParamCaption}
+)}}\label{classExperiments_a5eb52e04ded64f6c80f6c149d7b0ef50}
+Constructor passing a \hyperlink{classNucleus}{Nucleus} and \hyperlink{classReaction}{Reaction} kinematics to the object 
+
+Definition at line 15 of file Experiments.\-cxx.
+
+\hypertarget{classExperiments_aa443f070178209bb45171fafc4aa1823}{\index{Experiments@{Experiments}!Experiments@{Experiments}}
+\index{Experiments@{Experiments}!Experiments@{Experiments}}
+\subsubsection[{Experiments}]{\setlength{\rightskip}{0pt plus 5cm}Experiments\-::\-Experiments (
+\begin{DoxyParamCaption}
+\item[{const {\bf Experiments} \&}]{e}
+\end{DoxyParamCaption}
+)}}\label{classExperiments_aa443f070178209bb45171fafc4aa1823}
+Copy constructor 
+
+Definition at line 33 of file Experiments.\-cxx.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classExperiments_a17d47b581e1f6247799b54c2ef1c3652}{\index{Experiments@{Experiments}!Clear\-Experiments@{Clear\-Experiments}}
+\index{Clear\-Experiments@{Clear\-Experiments}!Experiments@{Experiments}}
+\subsubsection[{Clear\-Experiments}]{\setlength{\rightskip}{0pt plus 5cm}void Experiments\-::\-Clear\-Experiments (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperiments_a17d47b581e1f6247799b54c2ef1c3652}
+Delete all previously defined experimental ranges 
+
+Definition at line 74 of file Experiments.\-h.
+
+\hypertarget{classExperiments_aeff55245693c52c828c4f193174a4095}{\index{Experiments@{Experiments}!Get\-Correction\-Factors@{Get\-Correction\-Factors}}
+\index{Get\-Correction\-Factors@{Get\-Correction\-Factors}!Experiments@{Experiments}}
+\subsubsection[{Get\-Correction\-Factors}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$T\-Vector\-D$>$ Experiments\-::\-Get\-Correction\-Factors (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperiments_aeff55245693c52c828c4f193174a4095}
+Returns the vector of correction factors (T\-Vector\-D) 
+
+Definition at line 82 of file Experiments.\-h.
+
+\hypertarget{classExperiments_ab853c2acdd99546b962371f2d55cf2d2}{\index{Experiments@{Experiments}!Get\-Experiment\-Range@{Get\-Experiment\-Range}}
+\index{Get\-Experiment\-Range@{Get\-Experiment\-Range}!Experiments@{Experiments}}
+\subsubsection[{Get\-Experiment\-Range}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Experiment\-Range} Experiments\-::\-Get\-Experiment\-Range (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperiments_ab853c2acdd99546b962371f2d55cf2d2}
+Returns an experimental range by index 
+
+Definition at line 81 of file Experiments.\-h.
+
+\hypertarget{classExperiments_a47a82e8b042491288d6b900ad9198c35}{\index{Experiments@{Experiments}!Get\-Integrated\-Cross\-Sections@{Get\-Integrated\-Cross\-Sections}}
+\index{Get\-Integrated\-Cross\-Sections@{Get\-Integrated\-Cross\-Sections}!Experiments@{Experiments}}
+\subsubsection[{Get\-Integrated\-Cross\-Sections}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$T\-Vector\-D$>$ Experiments\-::\-Get\-Integrated\-Cross\-Sections (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperiments_a47a82e8b042491288d6b900ad9198c35}
+Returns the vector of integrated cross sections (T\-Vector\-D) 
+
+Definition at line 84 of file Experiments.\-h.
+
+\hypertarget{classExperiments_a6e6df0546be0608c2ff936f7bbf3a0bb}{\index{Experiments@{Experiments}!Get\-Nexpts@{Get\-Nexpts}}
+\index{Get\-Nexpts@{Get\-Nexpts}!Experiments@{Experiments}}
+\subsubsection[{Get\-Nexpts}]{\setlength{\rightskip}{0pt plus 5cm}int Experiments\-::\-Get\-Nexpts (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperiments_a6e6df0546be0608c2ff936f7bbf3a0bb}
+Returns the number of experimental ranges defined 
+
+Definition at line 89 of file Experiments.\-h.
+
+\hypertarget{classExperiments_a0b5789577937188a891a2c5e70b3c8e6}{\index{Experiments@{Experiments}!Get\-Nthreads@{Get\-Nthreads}}
+\index{Get\-Nthreads@{Get\-Nthreads}!Experiments@{Experiments}}
+\subsubsection[{Get\-Nthreads}]{\setlength{\rightskip}{0pt plus 5cm}int Experiments\-::\-Get\-Nthreads (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperiments_a0b5789577937188a891a2c5e70b3c8e6}
+Returns the number of cores the code is allowed to use 
+
+Definition at line 96 of file Experiments.\-h.
+
+\hypertarget{classExperiments_ad4c9c3bcb227b9982d52654e28dab360}{\index{Experiments@{Experiments}!Get\-Point\-Calculation@{Get\-Point\-Calculation}}
+\index{Get\-Point\-Calculation@{Get\-Point\-Calculation}!Experiments@{Experiments}}
+\subsubsection[{Get\-Point\-Calculation}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Point\-Coul\-Ex} Experiments\-::\-Get\-Point\-Calculation (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperiments_ad4c9c3bcb227b9982d52654e28dab360}
+Returns a point calculation by index 
+
+Definition at line 86 of file Experiments.\-h.
+
+\hypertarget{classExperiments_aed971cdffd3863f01d1246b3810ad190}{\index{Experiments@{Experiments}!Get\-Point\-Calculations@{Get\-Point\-Calculations}}
+\index{Get\-Point\-Calculations@{Get\-Point\-Calculations}!Experiments@{Experiments}}
+\subsubsection[{Get\-Point\-Calculations}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Point\-Coul\-Ex}$>$ Experiments\-::\-Get\-Point\-Calculations (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperiments_aed971cdffd3863f01d1246b3810ad190}
+Returns the vector of point calculations 
+
+Definition at line 87 of file Experiments.\-h.
+
+\hypertarget{classExperiments_a536e796fba4df63d62c9f3277f910a73}{\index{Experiments@{Experiments}!Get\-Point\-Cross\-Sections@{Get\-Point\-Cross\-Sections}}
+\index{Get\-Point\-Cross\-Sections@{Get\-Point\-Cross\-Sections}!Experiments@{Experiments}}
+\subsubsection[{Get\-Point\-Cross\-Sections}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$T\-Vector\-D$>$ Experiments\-::\-Get\-Point\-Cross\-Sections (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperiments_a536e796fba4df63d62c9f3277f910a73}
+Returns the vector of point cross sections (T\-Vector\-D) 
+
+Definition at line 83 of file Experiments.\-h.
+
+\hypertarget{classExperiments_a4fd0834a194d323b6c75dea8c9645884}{\index{Experiments@{Experiments}!New\-Experiment\-Range@{New\-Experiment\-Range}}
+\index{New\-Experiment\-Range@{New\-Experiment\-Range}!Experiments@{Experiments}}
+\subsubsection[{New\-Experiment\-Range}]{\setlength{\rightskip}{0pt plus 5cm}void Experiments\-::\-New\-Experiment\-Range (
+\begin{DoxyParamCaption}
+\item[{double}]{theta\-Min, }
+\item[{double}]{theta\-Max, }
+\item[{int}]{n\-Theta, }
+\item[{double}]{energy\-Min, }
+\item[{double}]{energy\-Max, }
+\item[{int}]{n\-Energy, }
+\item[{bool}]{target\-Detection = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}}\label{classExperiments_a4fd0834a194d323b6c75dea8c9645884}
+Define a new experimental range (for which data will be provided, or yields are required).
+
+theta\-Min and theta\-Max define the range in theta over which the integration will be performed, with n\-Theta defining the number of theta meshpoints to be used.
+
+energy\-Min and energy\-Max define the energy range over which the integration will be performed, with n\-Energy defining the number of energy meshpoints to be used.
+
+target\-Detection (default = false) determines whether the beam-\/ or target-\/like nucleus was detected, allowing for the correct kinematic conversion. 
+
+Definition at line 121 of file Experiments.\-cxx.
+
+\hypertarget{classExperiments_afee4f319e5380461a1894759c9968b60}{\index{Experiments@{Experiments}!operator=@{operator=}}
+\index{operator=@{operator=}!Experiments@{Experiments}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Experiments} \& Experiments\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Experiments} \&}]{e}
+\end{DoxyParamCaption}
+)}}\label{classExperiments_afee4f319e5380461a1894759c9968b60}
+Assignment operator 
+
+Definition at line 76 of file Experiments.\-cxx.
+
+\hypertarget{classExperiments_afdfa4aa08db9ec85ca899439bdcd813a}{\index{Experiments@{Experiments}!Point\-Corrections@{Point\-Corrections}}
+\index{Point\-Corrections@{Point\-Corrections}!Experiments@{Experiments}}
+\subsubsection[{Point\-Corrections}]{\setlength{\rightskip}{0pt plus 5cm}void Experiments\-::\-Point\-Corrections (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classExperiments_afdfa4aa08db9ec85ca899439bdcd813a}
+Determine the correction factor required to convert a point to an energy and angle integrated calculation 
+
+Definition at line 136 of file Experiments.\-cxx.
+
+\hypertarget{classExperiments_ae668ff4f1bf3a6d6ae04d0e1a05aecf2}{\index{Experiments@{Experiments}!Print\-Details@{Print\-Details}}
+\index{Print\-Details@{Print\-Details}!Experiments@{Experiments}}
+\subsubsection[{Print\-Details}]{\setlength{\rightskip}{0pt plus 5cm}void Experiments\-::\-Print\-Details (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classExperiments_ae668ff4f1bf3a6d6ae04d0e1a05aecf2}
+Print the details of the experimental ranges stored within the class 
+
+Definition at line 185 of file Experiments.\-cxx.
+
+\hypertarget{classExperiments_a3f5c399a9ef5a852fc7045669ca05f74}{\index{Experiments@{Experiments}!Print\-Point\-Corrections@{Print\-Point\-Corrections}}
+\index{Print\-Point\-Corrections@{Print\-Point\-Corrections}!Experiments@{Experiments}}
+\subsubsection[{Print\-Point\-Corrections}]{\setlength{\rightskip}{0pt plus 5cm}void Experiments\-::\-Print\-Point\-Corrections (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classExperiments_a3f5c399a9ef5a852fc7045669ca05f74}
+Print the correction factors as determined by Point\-Corrections 
+
+Definition at line 196 of file Experiments.\-cxx.
+
+\hypertarget{classExperiments_a8aa4eb6fa6131902a90a4c602bb055f7}{\index{Experiments@{Experiments}!Set\-Accuracy@{Set\-Accuracy}}
+\index{Set\-Accuracy@{Set\-Accuracy}!Experiments@{Experiments}}
+\subsubsection[{Set\-Accuracy}]{\setlength{\rightskip}{0pt plus 5cm}void Experiments\-::\-Set\-Accuracy (
+\begin{DoxyParamCaption}
+\item[{double}]{acc}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperiments_a8aa4eb6fa6131902a90a4c602bb055f7}
+Define the accuracy of the Coul\-Ex calculations to be performed 
+
+Definition at line 98 of file Experiments.\-h.
+
+\hypertarget{classExperiments_ac8f99d06ff63f2e0fda80ad647edd3b6}{\index{Experiments@{Experiments}!Set\-Nthreads@{Set\-Nthreads}}
+\index{Set\-Nthreads@{Set\-Nthreads}!Experiments@{Experiments}}
+\subsubsection[{Set\-Nthreads}]{\setlength{\rightskip}{0pt plus 5cm}void Experiments\-::\-Set\-Nthreads (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperiments_ac8f99d06ff63f2e0fda80ad647edd3b6}
+Set the number of cores the code can use for integration 
+
+Definition at line 95 of file Experiments.\-h.
+
+\hypertarget{classExperiments_a50e179731fa9b2c693badaefd9b698cc}{\index{Experiments@{Experiments}!Set\-Particle\-Detector\-Eff@{Set\-Particle\-Detector\-Eff}}
+\index{Set\-Particle\-Detector\-Eff@{Set\-Particle\-Detector\-Eff}!Experiments@{Experiments}}
+\subsubsection[{Set\-Particle\-Detector\-Eff}]{\setlength{\rightskip}{0pt plus 5cm}void Experiments\-::\-Set\-Particle\-Detector\-Eff (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{T\-H1\-F $\ast$}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperiments_a50e179731fa9b2c693badaefd9b698cc}
+Define the detection efficiency of the particle detector vs theta (lab) 
+
+Definition at line 102 of file Experiments.\-h.
+
+\hypertarget{classExperiments_a2766ab644312a272bde08e4abfa02c18}{\index{Experiments@{Experiments}!Set\-Projectile\-Excitation@{Set\-Projectile\-Excitation}}
+\index{Set\-Projectile\-Excitation@{Set\-Projectile\-Excitation}!Experiments@{Experiments}}
+\subsubsection[{Set\-Projectile\-Excitation}]{\setlength{\rightskip}{0pt plus 5cm}void Experiments\-::\-Set\-Projectile\-Excitation (
+\begin{DoxyParamCaption}
+\item[{bool}]{b = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperiments_a2766ab644312a272bde08e4abfa02c18}
+Determines whether the beam or target is being excited 
+
+Definition at line 106 of file Experiments.\-h.
+
+\hypertarget{classExperiments_a777e9756290797247971042c4e64ed9e}{\index{Experiments@{Experiments}!Set\-Stopping@{Set\-Stopping}}
+\index{Set\-Stopping@{Set\-Stopping}!Experiments@{Experiments}}
+\subsubsection[{Set\-Stopping}]{\setlength{\rightskip}{0pt plus 5cm}void Experiments\-::\-Set\-Stopping (
+\begin{DoxyParamCaption}
+\item[{{\bf Stopping\-Power}}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperiments_a777e9756290797247971042c4e64ed9e}
+Define the stopping powers to be used in the integration process 
+
+Definition at line 100 of file Experiments.\-h.
+
+\hypertarget{classExperiments_a5bc069b7d1388ed1aac87600bff18b43}{\index{Experiments@{Experiments}!Set\-Verbose@{Set\-Verbose}}
+\index{Set\-Verbose@{Set\-Verbose}!Experiments@{Experiments}}
+\subsubsection[{Set\-Verbose}]{\setlength{\rightskip}{0pt plus 5cm}void Experiments\-::\-Set\-Verbose (
+\begin{DoxyParamCaption}
+\item[{bool}]{b = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperiments_a5bc069b7d1388ed1aac87600bff18b43}
+Set the verbocity of the calculation (for debugging) 
+
+Definition at line 91 of file Experiments.\-h.
+
+\hypertarget{classExperiments_a7902dd87eee8cf24ded441ba889f97fb}{\index{Experiments@{Experiments}!Use\-Efficiency@{Use\-Efficiency}}
+\index{Use\-Efficiency@{Use\-Efficiency}!Experiments@{Experiments}}
+\subsubsection[{Use\-Efficiency}]{\setlength{\rightskip}{0pt plus 5cm}void Experiments\-::\-Use\-Efficiency (
+\begin{DoxyParamCaption}
+\item[{bool}]{b = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperiments_a7902dd87eee8cf24ded441ba889f97fb}
+Use the efficiencies of the particle detector 
+
+Definition at line 104 of file Experiments.\-h.
+
+\hypertarget{classExperiments_add6a2b8636244411a03515f396b3603d}{\index{Experiments@{Experiments}!Write\-Integral\-Fits@{Write\-Integral\-Fits}}
+\index{Write\-Integral\-Fits@{Write\-Integral\-Fits}!Experiments@{Experiments}}
+\subsubsection[{Write\-Integral\-Fits}]{\setlength{\rightskip}{0pt plus 5cm}void Experiments\-::\-Write\-Integral\-Fits (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{outfilename, }
+\item[{const char $\ast$}]{opt = {\ttfamily \char`\"{}UPDATE\char`\"{}}}
+\end{DoxyParamCaption}
+)}}\label{classExperiments_add6a2b8636244411a03515f396b3603d}
+Writes the theta-\/energy cross section surfaces (T\-Graph \& T\-Graph2\-D) to a R\-O\-O\-T file 
+
+Definition at line 218 of file Experiments.\-cxx.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Experiments.\-h\item 
+Experiments.\-cxx\end{DoxyCompactItemize}

@@ -1,0 +1,183 @@
+\hypertarget{classLitBranchingRatio}{\section{Lit\-Branching\-Ratio Class Reference}
+\label{classLitBranchingRatio}\index{Lit\-Branching\-Ratio@{Lit\-Branching\-Ratio}}
+}
+
+
+Holder for literature branching ratio information for fitting.  
+
+
+
+
+{\ttfamily \#include $<$Literature.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classLitBranchingRatio_ac912cc11c733e036c02e7998a98b1348}{Lit\-Branching\-Ratio} (int i1, int f1, int f2, double br, double e)
+\item 
+\hyperlink{classLitBranchingRatio_ad7ff19ffc8ed21443761d0f79d6cb7b4}{Lit\-Branching\-Ratio} (int i1, int f1, int f2, double br, double ue, double de)
+\item 
+\hyperlink{classLitBranchingRatio_a359ce7f1dae8243ba387aed7e8c65b42}{Lit\-Branching\-Ratio} (const \hyperlink{classLitBranchingRatio}{Lit\-Branching\-Ratio} \&lb)
+\item 
+\hyperlink{classLitBranchingRatio}{Lit\-Branching\-Ratio} \& \hyperlink{classLitBranchingRatio_a7546efad9cdc30b703a21eb2eb8b9531}{operator=} (const \hyperlink{classLitBranchingRatio}{Lit\-Branching\-Ratio} \&lb)
+\item 
+double \hyperlink{classLitBranchingRatio_ac8425f351405a281999de01ae7b40bee}{Get\-Initial\-Index} () const 
+\item 
+double \hyperlink{classLitBranchingRatio_a78725adc163c51cddf435326e193ff19}{Get\-Final\-Index\-\_\-1} () const 
+\item 
+double \hyperlink{classLitBranchingRatio_a4427c6d9384e9a0642b733eb4f92a25f}{Get\-Final\-Index\-\_\-2} () const 
+\item 
+double \hyperlink{classLitBranchingRatio_a88ac4dc9e863cb58d8fde407f5c46950}{Get\-Branching\-Ratio} () const 
+\item 
+double \hyperlink{classLitBranchingRatio_a6518a8331e8e6e3bf8ed1b971dfd08b2}{Get\-Dn\-Unc} () const 
+\item 
+double \hyperlink{classLitBranchingRatio_a408ad2f1bcb2599e837dbaa2f7a56737}{Get\-Up\-Unc} () const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Holder for literature branching ratio information for fitting. 
+
+Definition at line 51 of file Literature.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classLitBranchingRatio_ac912cc11c733e036c02e7998a98b1348}{\index{Lit\-Branching\-Ratio@{Lit\-Branching\-Ratio}!Lit\-Branching\-Ratio@{Lit\-Branching\-Ratio}}
+\index{Lit\-Branching\-Ratio@{Lit\-Branching\-Ratio}!LitBranchingRatio@{Lit\-Branching\-Ratio}}
+\subsubsection[{Lit\-Branching\-Ratio}]{\setlength{\rightskip}{0pt plus 5cm}Lit\-Branching\-Ratio\-::\-Lit\-Branching\-Ratio (
+\begin{DoxyParamCaption}
+\item[{int}]{i1, }
+\item[{int}]{f1, }
+\item[{int}]{f2, }
+\item[{double}]{br, }
+\item[{double}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLitBranchingRatio_ac912cc11c733e036c02e7998a98b1348}
+Construct literature branching ratio with symmetric uncertainties\-:\par
+Initial state index = i1 \par
+Final state (1) index = f1 \par
+Final state (2) index = f2 \par
+Branching ratio (i1-\/$>$f1)/(i1-\/$>$f2) = br \par
+Uncertainty = e 
+
+Definition at line 63 of file Literature.\-h.
+
+\hypertarget{classLitBranchingRatio_ad7ff19ffc8ed21443761d0f79d6cb7b4}{\index{Lit\-Branching\-Ratio@{Lit\-Branching\-Ratio}!Lit\-Branching\-Ratio@{Lit\-Branching\-Ratio}}
+\index{Lit\-Branching\-Ratio@{Lit\-Branching\-Ratio}!LitBranchingRatio@{Lit\-Branching\-Ratio}}
+\subsubsection[{Lit\-Branching\-Ratio}]{\setlength{\rightskip}{0pt plus 5cm}Lit\-Branching\-Ratio\-::\-Lit\-Branching\-Ratio (
+\begin{DoxyParamCaption}
+\item[{int}]{i1, }
+\item[{int}]{f1, }
+\item[{int}]{f2, }
+\item[{double}]{br, }
+\item[{double}]{ue, }
+\item[{double}]{de}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLitBranchingRatio_ad7ff19ffc8ed21443761d0f79d6cb7b4}
+Construct literature branching ratio with symmetric uncertainties\-:\par
+Initial state index = i1 \par
+Final state (1) index = f1 \par
+Final state (2) index = f2 \par
+Branching ratio (i1-\/$>$f1)/(i1-\/$>$f2) = br \par
+Positive uncertainty = ue Negative uncertainty = de 
+
+Definition at line 73 of file Literature.\-h.
+
+\hypertarget{classLitBranchingRatio_a359ce7f1dae8243ba387aed7e8c65b42}{\index{Lit\-Branching\-Ratio@{Lit\-Branching\-Ratio}!Lit\-Branching\-Ratio@{Lit\-Branching\-Ratio}}
+\index{Lit\-Branching\-Ratio@{Lit\-Branching\-Ratio}!LitBranchingRatio@{Lit\-Branching\-Ratio}}
+\subsubsection[{Lit\-Branching\-Ratio}]{\setlength{\rightskip}{0pt plus 5cm}Lit\-Branching\-Ratio\-::\-Lit\-Branching\-Ratio (
+\begin{DoxyParamCaption}
+\item[{const {\bf Lit\-Branching\-Ratio} \&}]{lb}
+\end{DoxyParamCaption}
+)}}\label{classLitBranchingRatio_a359ce7f1dae8243ba387aed7e8c65b42}
+Copy constructor 
+
+Definition at line 22 of file Literature.\-cxx.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classLitBranchingRatio_a88ac4dc9e863cb58d8fde407f5c46950}{\index{Lit\-Branching\-Ratio@{Lit\-Branching\-Ratio}!Get\-Branching\-Ratio@{Get\-Branching\-Ratio}}
+\index{Get\-Branching\-Ratio@{Get\-Branching\-Ratio}!LitBranchingRatio@{Lit\-Branching\-Ratio}}
+\subsubsection[{Get\-Branching\-Ratio}]{\setlength{\rightskip}{0pt plus 5cm}double Lit\-Branching\-Ratio\-::\-Get\-Branching\-Ratio (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLitBranchingRatio_a88ac4dc9e863cb58d8fde407f5c46950}
+Return branching ratio, (i-\/$>$f1)/(i-\/$>$f2) 
+
+Definition at line 81 of file Literature.\-h.
+
+\hypertarget{classLitBranchingRatio_a6518a8331e8e6e3bf8ed1b971dfd08b2}{\index{Lit\-Branching\-Ratio@{Lit\-Branching\-Ratio}!Get\-Dn\-Unc@{Get\-Dn\-Unc}}
+\index{Get\-Dn\-Unc@{Get\-Dn\-Unc}!LitBranchingRatio@{Lit\-Branching\-Ratio}}
+\subsubsection[{Get\-Dn\-Unc}]{\setlength{\rightskip}{0pt plus 5cm}double Lit\-Branching\-Ratio\-::\-Get\-Dn\-Unc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLitBranchingRatio_a6518a8331e8e6e3bf8ed1b971dfd08b2}
+Return negative uncertainty 
+
+Definition at line 82 of file Literature.\-h.
+
+\hypertarget{classLitBranchingRatio_a78725adc163c51cddf435326e193ff19}{\index{Lit\-Branching\-Ratio@{Lit\-Branching\-Ratio}!Get\-Final\-Index\-\_\-1@{Get\-Final\-Index\-\_\-1}}
+\index{Get\-Final\-Index\-\_\-1@{Get\-Final\-Index\-\_\-1}!LitBranchingRatio@{Lit\-Branching\-Ratio}}
+\subsubsection[{Get\-Final\-Index\-\_\-1}]{\setlength{\rightskip}{0pt plus 5cm}double Lit\-Branching\-Ratio\-::\-Get\-Final\-Index\-\_\-1 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLitBranchingRatio_a78725adc163c51cddf435326e193ff19}
+Return final state (1) 
+
+Definition at line 79 of file Literature.\-h.
+
+\hypertarget{classLitBranchingRatio_a4427c6d9384e9a0642b733eb4f92a25f}{\index{Lit\-Branching\-Ratio@{Lit\-Branching\-Ratio}!Get\-Final\-Index\-\_\-2@{Get\-Final\-Index\-\_\-2}}
+\index{Get\-Final\-Index\-\_\-2@{Get\-Final\-Index\-\_\-2}!LitBranchingRatio@{Lit\-Branching\-Ratio}}
+\subsubsection[{Get\-Final\-Index\-\_\-2}]{\setlength{\rightskip}{0pt plus 5cm}double Lit\-Branching\-Ratio\-::\-Get\-Final\-Index\-\_\-2 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLitBranchingRatio_a4427c6d9384e9a0642b733eb4f92a25f}
+Return final state (2) 
+
+Definition at line 80 of file Literature.\-h.
+
+\hypertarget{classLitBranchingRatio_ac8425f351405a281999de01ae7b40bee}{\index{Lit\-Branching\-Ratio@{Lit\-Branching\-Ratio}!Get\-Initial\-Index@{Get\-Initial\-Index}}
+\index{Get\-Initial\-Index@{Get\-Initial\-Index}!LitBranchingRatio@{Lit\-Branching\-Ratio}}
+\subsubsection[{Get\-Initial\-Index}]{\setlength{\rightskip}{0pt plus 5cm}double Lit\-Branching\-Ratio\-::\-Get\-Initial\-Index (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLitBranchingRatio_ac8425f351405a281999de01ae7b40bee}
+Return initial state index 
+
+Definition at line 78 of file Literature.\-h.
+
+\hypertarget{classLitBranchingRatio_a408ad2f1bcb2599e837dbaa2f7a56737}{\index{Lit\-Branching\-Ratio@{Lit\-Branching\-Ratio}!Get\-Up\-Unc@{Get\-Up\-Unc}}
+\index{Get\-Up\-Unc@{Get\-Up\-Unc}!LitBranchingRatio@{Lit\-Branching\-Ratio}}
+\subsubsection[{Get\-Up\-Unc}]{\setlength{\rightskip}{0pt plus 5cm}double Lit\-Branching\-Ratio\-::\-Get\-Up\-Unc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLitBranchingRatio_a408ad2f1bcb2599e837dbaa2f7a56737}
+Return positive uncertainty 
+
+Definition at line 83 of file Literature.\-h.
+
+\hypertarget{classLitBranchingRatio_a7546efad9cdc30b703a21eb2eb8b9531}{\index{Lit\-Branching\-Ratio@{Lit\-Branching\-Ratio}!operator=@{operator=}}
+\index{operator=@{operator=}!LitBranchingRatio@{Lit\-Branching\-Ratio}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lit\-Branching\-Ratio} \& Lit\-Branching\-Ratio\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Lit\-Branching\-Ratio} \&}]{lb}
+\end{DoxyParamCaption}
+)}}\label{classLitBranchingRatio_a7546efad9cdc30b703a21eb2eb8b9531}
+Assignment operator 
+
+Definition at line 32 of file Literature.\-cxx.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Literature.\-h\item 
+Literature.\-cxx\end{DoxyCompactItemize}

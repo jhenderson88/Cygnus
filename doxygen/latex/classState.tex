@@ -1,0 +1,182 @@
+\hypertarget{classState}{\section{State Class Reference}
+\label{classState}\index{State@{State}}
+}
+
+
+Holder class for state information.  
+
+
+
+
+{\ttfamily \#include $<$State.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classState_a06762f18825189d2a4989032e0dc3221}{State} (double E, double J)
+\item 
+\hyperlink{classState_a42ff89d16d3480c356d1cf00ce85342a}{State} (const \hyperlink{classState}{State} \&s)
+\item 
+\hyperlink{classState}{State} \& \hyperlink{classState_a22116d79ea23af902edf470de6308d11}{operator=} (const \hyperlink{classState}{State} \&s)
+\item 
+void \hyperlink{classState_af9327320b85b0346608095099dbcc3df}{Set\-Psi} (double p)
+\item 
+void \hyperlink{classState_a70d9a5247aac1ddd41a6807077592cae}{Set\-Eta} (double e)
+\item 
+void \hyperlink{classState_a191bed7513e32f0882ea4efd7f131209}{Set\-Phase} (int p)
+\item 
+double \hyperlink{classState_a1f71fa7f455524e50c49623f9b8ccd28}{Get\-J} () const 
+\item 
+double \hyperlink{classState_a63e6f0dddee6794b23d2c0c50427f9cc}{Get\-State\-Energy} () const 
+\item 
+double \hyperlink{classState_a19ccbecb81b883362d8b5add5fccd2af}{Get\-Eta} () const 
+\item 
+double \hyperlink{classState_afe099aeeef5a233f9b2a9cd2b9d37080}{Get\-Psi} () const 
+\item 
+int \hyperlink{classState_afa9487319bba788836d50618cff9261a}{Get\-Phase} () const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Holder class for state information. 
+
+\begin{DoxyVerb}Holder class for information on nuclear states. In Coulomb 
+\end{DoxyVerb}
+ excitation, each substate is treated independently, so the state only holds information co mmon to all substates. 
+
+Definition at line 14 of file State.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classState_a06762f18825189d2a4989032e0dc3221}{\index{State@{State}!State@{State}}
+\index{State@{State}!State@{State}}
+\subsubsection[{State}]{\setlength{\rightskip}{0pt plus 5cm}State\-::\-State (
+\begin{DoxyParamCaption}
+\item[{double}]{E, }
+\item[{double}]{J}
+\end{DoxyParamCaption}
+)}}\label{classState_a06762f18825189d2a4989032e0dc3221}
+Construct a \hyperlink{classState}{State} of energy, E (Me\-V) and spin, J 
+
+Definition at line 3 of file State.\-cxx.
+
+\hypertarget{classState_a42ff89d16d3480c356d1cf00ce85342a}{\index{State@{State}!State@{State}}
+\index{State@{State}!State@{State}}
+\subsubsection[{State}]{\setlength{\rightskip}{0pt plus 5cm}State\-::\-State (
+\begin{DoxyParamCaption}
+\item[{const {\bf State} \&}]{s}
+\end{DoxyParamCaption}
+)}}\label{classState_a42ff89d16d3480c356d1cf00ce85342a}
+Copy constructor 
+
+Definition at line 11 of file State.\-cxx.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classState_a19ccbecb81b883362d8b5add5fccd2af}{\index{State@{State}!Get\-Eta@{Get\-Eta}}
+\index{Get\-Eta@{Get\-Eta}!State@{State}}
+\subsubsection[{Get\-Eta}]{\setlength{\rightskip}{0pt plus 5cm}double State\-::\-Get\-Eta (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classState_a19ccbecb81b883362d8b5add5fccd2af}
+Return state eta 
+
+Definition at line 29 of file State.\-h.
+
+\hypertarget{classState_a1f71fa7f455524e50c49623f9b8ccd28}{\index{State@{State}!Get\-J@{Get\-J}}
+\index{Get\-J@{Get\-J}!State@{State}}
+\subsubsection[{Get\-J}]{\setlength{\rightskip}{0pt plus 5cm}double State\-::\-Get\-J (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classState_a1f71fa7f455524e50c49623f9b8ccd28}
+Return state J 
+
+Definition at line 27 of file State.\-h.
+
+\hypertarget{classState_afa9487319bba788836d50618cff9261a}{\index{State@{State}!Get\-Phase@{Get\-Phase}}
+\index{Get\-Phase@{Get\-Phase}!State@{State}}
+\subsubsection[{Get\-Phase}]{\setlength{\rightskip}{0pt plus 5cm}int State\-::\-Get\-Phase (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classState_afa9487319bba788836d50618cff9261a}
+Return the spin and parity phase factor 
+
+Definition at line 31 of file State.\-h.
+
+\hypertarget{classState_afe099aeeef5a233f9b2a9cd2b9d37080}{\index{State@{State}!Get\-Psi@{Get\-Psi}}
+\index{Get\-Psi@{Get\-Psi}!State@{State}}
+\subsubsection[{Get\-Psi}]{\setlength{\rightskip}{0pt plus 5cm}double State\-::\-Get\-Psi (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classState_afe099aeeef5a233f9b2a9cd2b9d37080}
+Return state psi 
+
+Definition at line 30 of file State.\-h.
+
+\hypertarget{classState_a63e6f0dddee6794b23d2c0c50427f9cc}{\index{State@{State}!Get\-State\-Energy@{Get\-State\-Energy}}
+\index{Get\-State\-Energy@{Get\-State\-Energy}!State@{State}}
+\subsubsection[{Get\-State\-Energy}]{\setlength{\rightskip}{0pt plus 5cm}double State\-::\-Get\-State\-Energy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classState_a63e6f0dddee6794b23d2c0c50427f9cc}
+Return state energy (Me\-V) 
+
+Definition at line 28 of file State.\-h.
+
+\hypertarget{classState_a22116d79ea23af902edf470de6308d11}{\index{State@{State}!operator=@{operator=}}
+\index{operator=@{operator=}!State@{State}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf State} \& State\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf State} \&}]{s}
+\end{DoxyParamCaption}
+)}}\label{classState_a22116d79ea23af902edf470de6308d11}
+Assignment operator 
+
+Definition at line 20 of file State.\-cxx.
+
+\hypertarget{classState_a70d9a5247aac1ddd41a6807077592cae}{\index{State@{State}!Set\-Eta@{Set\-Eta}}
+\index{Set\-Eta@{Set\-Eta}!State@{State}}
+\subsubsection[{Set\-Eta}]{\setlength{\rightskip}{0pt plus 5cm}void State\-::\-Set\-Eta (
+\begin{DoxyParamCaption}
+\item[{double}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classState_a70d9a5247aac1ddd41a6807077592cae}
+Define eta, the wavenumber of the state 
+
+Definition at line 24 of file State.\-h.
+
+\hypertarget{classState_a191bed7513e32f0882ea4efd7f131209}{\index{State@{State}!Set\-Phase@{Set\-Phase}}
+\index{Set\-Phase@{Set\-Phase}!State@{State}}
+\subsubsection[{Set\-Phase}]{\setlength{\rightskip}{0pt plus 5cm}void State\-::\-Set\-Phase (
+\begin{DoxyParamCaption}
+\item[{int}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classState_a191bed7513e32f0882ea4efd7f131209}
+Define the spin and parity phase factor 
+
+Definition at line 25 of file State.\-h.
+
+\hypertarget{classState_af9327320b85b0346608095099dbcc3df}{\index{State@{State}!Set\-Psi@{Set\-Psi}}
+\index{Set\-Psi@{Set\-Psi}!State@{State}}
+\subsubsection[{Set\-Psi}]{\setlength{\rightskip}{0pt plus 5cm}void State\-::\-Set\-Psi (
+\begin{DoxyParamCaption}
+\item[{double}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classState_af9327320b85b0346608095099dbcc3df}
+Define psi, state-\/by-\/state parameter feeding into the coupling parameters 
+
+Definition at line 23 of file State.\-h.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+State.\-h\item 
+State.\-cxx\end{DoxyCompactItemize}

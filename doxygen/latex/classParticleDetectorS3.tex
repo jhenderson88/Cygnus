@@ -1,0 +1,65 @@
+\hypertarget{classParticleDetectorS3}{\section{Particle\-Detector\-S3 Class Reference}
+\label{classParticleDetectorS3}\index{Particle\-Detector\-S3@{Particle\-Detector\-S3}}
+}
+
+
+Example class inheriting from the \hyperlink{classParticleDetector}{Particle\-Detector} class to define coverage based on an S3 detector.  
+
+
+
+
+{\ttfamily \#include $<$Particle\-Detector\-S3.\-h$>$}
+
+Inheritance diagram for Particle\-Detector\-S3\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classParticleDetectorS3}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classParticleDetectorS3_a002873e132856865a40151e976974ad6}{Particle\-Detector\-S3} (int id, double z, double x\-\_\-off, double y\-\_\-off, int ring\-\_\-in, int ring\-\_\-out, double tmin=0, double tmax=180)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Example class inheriting from the \hyperlink{classParticleDetector}{Particle\-Detector} class to define coverage based on an S3 detector. 
+
+Definition at line 18 of file Particle\-Detector\-S3.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classParticleDetectorS3_a002873e132856865a40151e976974ad6}{\index{Particle\-Detector\-S3@{Particle\-Detector\-S3}!Particle\-Detector\-S3@{Particle\-Detector\-S3}}
+\index{Particle\-Detector\-S3@{Particle\-Detector\-S3}!ParticleDetectorS3@{Particle\-Detector\-S3}}
+\subsubsection[{Particle\-Detector\-S3}]{\setlength{\rightskip}{0pt plus 5cm}Particle\-Detector\-S3\-::\-Particle\-Detector\-S3 (
+\begin{DoxyParamCaption}
+\item[{int}]{id, }
+\item[{double}]{z, }
+\item[{double}]{x\-\_\-off, }
+\item[{double}]{y\-\_\-off, }
+\item[{int}]{ring\-\_\-in, }
+\item[{int}]{ring\-\_\-out, }
+\item[{double}]{tmin = {\ttfamily 0}, }
+\item[{double}]{tmax = {\ttfamily 180}}
+\end{DoxyParamCaption}
+)}}\label{classParticleDetectorS3_a002873e132856865a40151e976974ad6}
+Define an S3 detector (or subset thereof) \par
+id -\/ define the experiment index, for use in naming conventions of histograms \par
+z -\/ the offset in z of the detector from the target position \par
+x\-\_\-off -\/ the offset (from the beam axis) of the S3 detector in the x-\/direction \par
+y\-\_\-off -\/ the offset (from the beam axis) of the S3 detector in the y-\/direction \par
+ring\-\_\-in -\/ the innermost ring of the S3 in the experimental range \par
+ring\-\_\-out -\/ the outermost ring of the S3 in this experimental range \par
+tmin \& tmax -\/ define the maximum and minimum theta values in the efficiency histograms, this must cover a larger range than the detector 
+
+Definition at line 3 of file Particle\-Detector\-S3.\-cxx.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Particle\-Detector\-S3.\-h\item 
+Particle\-Detector\-S3.\-cxx\end{DoxyCompactItemize}

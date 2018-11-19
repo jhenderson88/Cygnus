@@ -1,0 +1,127 @@
+\hypertarget{classTransitionRates}{\section{Transition\-Rates Class Reference}
+\label{classTransitionRates}\index{Transition\-Rates@{Transition\-Rates}}
+}
+
+
+Determine spectroscopic information from matrix elements.  
+
+
+
+
+{\ttfamily \#include $<$Transition\-Rates.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTransitionRates_ad00aaf48b7c94926a5c9f0b0d03b42c8}{Transition\-Rates} (\hyperlink{classNucleus}{Nucleus} $\ast$)
+\item 
+void \hyperlink{classTransitionRates_a7601fbf2a719b9da760224c6204157fa}{Set\-Matrix\-Elements} ()
+\item 
+void \hyperlink{classTransitionRates_aa6b4319cdf1d3fe9a983df698b3a4b20}{Print} () const 
+\item 
+T\-Vector\-D \hyperlink{classTransitionRates_afe1e8c779441b1d54debf169fcd6936e}{Get\-Lifetimes} () const 
+\item 
+T\-Matrix\-D \hyperlink{classTransitionRates_a187b19b9f3da2d284644455ece9b5204}{Get\-Branching\-Ratios} () const 
+\item 
+T\-Matrix\-D \hyperlink{classTransitionRates_a7bd21177c625ea6e51c45ef66bd28275}{Get\-Mixing\-Ratios} () const 
+\item 
+void \hyperlink{classTransitionRates_a667cc48402a7a5b06826b3c9993d0ca2}{Set\-Nucleus} (\hyperlink{classNucleus}{Nucleus} $\ast$nucl)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Determine spectroscopic information from matrix elements. 
+
+From the matrix elements and energies defined in the \hyperlink{classNucleus}{Nucleus} class this class determines transition rates, lifetimes, mixing ratios and branching ratios. Specifically, this is for comparison with input experimental (literature) values in the minimization process. 
+
+Definition at line 24 of file Transition\-Rates.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classTransitionRates_ad00aaf48b7c94926a5c9f0b0d03b42c8}{\index{Transition\-Rates@{Transition\-Rates}!Transition\-Rates@{Transition\-Rates}}
+\index{Transition\-Rates@{Transition\-Rates}!TransitionRates@{Transition\-Rates}}
+\subsubsection[{Transition\-Rates}]{\setlength{\rightskip}{0pt plus 5cm}Transition\-Rates\-::\-Transition\-Rates (
+\begin{DoxyParamCaption}
+\item[{{\bf Nucleus} $\ast$}]{nucl}
+\end{DoxyParamCaption}
+)}}\label{classTransitionRates_ad00aaf48b7c94926a5c9f0b0d03b42c8}
+Constructor with a \hyperlink{classNucleus}{Nucleus} class 
+
+Definition at line 7 of file Transition\-Rates.\-cxx.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classTransitionRates_a187b19b9f3da2d284644455ece9b5204}{\index{Transition\-Rates@{Transition\-Rates}!Get\-Branching\-Ratios@{Get\-Branching\-Ratios}}
+\index{Get\-Branching\-Ratios@{Get\-Branching\-Ratios}!TransitionRates@{Transition\-Rates}}
+\subsubsection[{Get\-Branching\-Ratios}]{\setlength{\rightskip}{0pt plus 5cm}T\-Matrix\-D Transition\-Rates\-::\-Get\-Branching\-Ratios (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classTransitionRates_a187b19b9f3da2d284644455ece9b5204}
+Return a T\-Vector\-D of branching ratios 
+
+Definition at line 36 of file Transition\-Rates.\-h.
+
+\hypertarget{classTransitionRates_afe1e8c779441b1d54debf169fcd6936e}{\index{Transition\-Rates@{Transition\-Rates}!Get\-Lifetimes@{Get\-Lifetimes}}
+\index{Get\-Lifetimes@{Get\-Lifetimes}!TransitionRates@{Transition\-Rates}}
+\subsubsection[{Get\-Lifetimes}]{\setlength{\rightskip}{0pt plus 5cm}T\-Vector\-D Transition\-Rates\-::\-Get\-Lifetimes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classTransitionRates_afe1e8c779441b1d54debf169fcd6936e}
+Return a T\-Vector\-D of state lifetimes (ps) 
+
+Definition at line 35 of file Transition\-Rates.\-h.
+
+\hypertarget{classTransitionRates_a7bd21177c625ea6e51c45ef66bd28275}{\index{Transition\-Rates@{Transition\-Rates}!Get\-Mixing\-Ratios@{Get\-Mixing\-Ratios}}
+\index{Get\-Mixing\-Ratios@{Get\-Mixing\-Ratios}!TransitionRates@{Transition\-Rates}}
+\subsubsection[{Get\-Mixing\-Ratios}]{\setlength{\rightskip}{0pt plus 5cm}T\-Matrix\-D Transition\-Rates\-::\-Get\-Mixing\-Ratios (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classTransitionRates_a7bd21177c625ea6e51c45ef66bd28275}
+Return a T\-Matrix\-D of mixing ratios (E/\-M) 
+
+Definition at line 37 of file Transition\-Rates.\-h.
+
+\hypertarget{classTransitionRates_aa6b4319cdf1d3fe9a983df698b3a4b20}{\index{Transition\-Rates@{Transition\-Rates}!Print@{Print}}
+\index{Print@{Print}!TransitionRates@{Transition\-Rates}}
+\subsubsection[{Print}]{\setlength{\rightskip}{0pt plus 5cm}void Transition\-Rates\-::\-Print (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classTransitionRates_aa6b4319cdf1d3fe9a983df698b3a4b20}
+Print the data, as determined from energies and matrix elements 
+
+Definition at line 102 of file Transition\-Rates.\-cxx.
+
+\hypertarget{classTransitionRates_a7601fbf2a719b9da760224c6204157fa}{\index{Transition\-Rates@{Transition\-Rates}!Set\-Matrix\-Elements@{Set\-Matrix\-Elements}}
+\index{Set\-Matrix\-Elements@{Set\-Matrix\-Elements}!TransitionRates@{Transition\-Rates}}
+\subsubsection[{Set\-Matrix\-Elements}]{\setlength{\rightskip}{0pt plus 5cm}void Transition\-Rates\-::\-Set\-Matrix\-Elements (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classTransitionRates_a7601fbf2a719b9da760224c6204157fa}
+Set up the experimental data based on the provided \hyperlink{classNucleus}{Nucleus} class 
+
+Definition at line 22 of file Transition\-Rates.\-cxx.
+
+\hypertarget{classTransitionRates_a667cc48402a7a5b06826b3c9993d0ca2}{\index{Transition\-Rates@{Transition\-Rates}!Set\-Nucleus@{Set\-Nucleus}}
+\index{Set\-Nucleus@{Set\-Nucleus}!TransitionRates@{Transition\-Rates}}
+\subsubsection[{Set\-Nucleus}]{\setlength{\rightskip}{0pt plus 5cm}void Transition\-Rates\-::\-Set\-Nucleus (
+\begin{DoxyParamCaption}
+\item[{{\bf Nucleus} $\ast$}]{nucl}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classTransitionRates_a667cc48402a7a5b06826b3c9993d0ca2}
+Define the nucleus (energies and matrix elements) 
+
+Definition at line 39 of file Transition\-Rates.\-h.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Transition\-Rates.\-h\item 
+Transition\-Rates.\-cxx\end{DoxyCompactItemize}

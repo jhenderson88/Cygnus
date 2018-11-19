@@ -1,0 +1,158 @@
+\hypertarget{classScalingParameter}{\section{Scaling\-Parameter Class Reference}
+\label{classScalingParameter}\index{Scaling\-Parameter@{Scaling\-Parameter}}
+}
+
+
+Define common scaling parameters for calculation to experimental data.  
+
+
+
+
+{\ttfamily \#include $<$Scaling\-Parameter.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classScalingParameter_a145bb832eed013418dcc2d1206e716c2}{Set\-Scaling\-Value} (double v, double vll, double vul)
+\item 
+void \hyperlink{classScalingParameter_a0df5af5ed8792882f967e63809e00a25}{Add\-Experiment} (int i)
+\item 
+void \hyperlink{classScalingParameter_aab921d6b200c9710ce094528c1f031a1}{Clear\-Experiments} ()
+\item 
+void \hyperlink{classScalingParameter_a4955775390f2d1c2b702f93ff5dd7386}{Set\-Experiment\-Vector} (std\-::vector$<$ int $>$ s)
+\item 
+double \hyperlink{classScalingParameter_a1b12c556f85254c57d3c245f787d85cf}{Get\-Scaling\-Parameter} () const 
+\item 
+double \hyperlink{classScalingParameter_ae6b4e7b3e43533ad4c602179f8dcaa5c}{Get\-Scaling\-Lower\-Limit} () const 
+\item 
+double \hyperlink{classScalingParameter_a8f08c1bb7dbbc652bb6068c06967a31c}{Get\-Scaling\-Upper\-Limit} () const 
+\item 
+std\-::vector$<$ int $>$ \hyperlink{classScalingParameter_a2c16f259c2b67a1ebd234f59dc4a8f8d}{Get\-Experiment\-Numbers} () const 
+\item 
+int \hyperlink{classScalingParameter_a0f160ce9db963a1cb57efd722d430030}{Get\-Experiment\-Number} (int i) const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Define common scaling parameters for calculation to experimental data. 
+
+\begin{DoxyVerb}Due to a typical lack of absolute scaling information Coulomb excitation 
+\end{DoxyVerb}
+ fits require some degree of scaling to reproduce the data. This class defines these scaling parameters in a sensible way. \begin{DoxyVerb}A single scaling parameter can be coupled to one or more experiments, 
+\end{DoxyVerb}
+ identified in the experiment\-Number vector, containing the indices of the relevant experiments. \begin{DoxyVerb}Upper and lower limits can also be defined for the purposes of aiding 
+\end{DoxyVerb}
+ the fit. 
+
+Definition at line 25 of file Scaling\-Parameter.\-h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classScalingParameter_a0df5af5ed8792882f967e63809e00a25}{\index{Scaling\-Parameter@{Scaling\-Parameter}!Add\-Experiment@{Add\-Experiment}}
+\index{Add\-Experiment@{Add\-Experiment}!ScalingParameter@{Scaling\-Parameter}}
+\subsubsection[{Add\-Experiment}]{\setlength{\rightskip}{0pt plus 5cm}void Scaling\-Parameter\-::\-Add\-Experiment (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classScalingParameter_a0df5af5ed8792882f967e63809e00a25}
+Add experiment of index, i, to this common scaling 
+
+Definition at line 34 of file Scaling\-Parameter.\-h.
+
+\hypertarget{classScalingParameter_aab921d6b200c9710ce094528c1f031a1}{\index{Scaling\-Parameter@{Scaling\-Parameter}!Clear\-Experiments@{Clear\-Experiments}}
+\index{Clear\-Experiments@{Clear\-Experiments}!ScalingParameter@{Scaling\-Parameter}}
+\subsubsection[{Clear\-Experiments}]{\setlength{\rightskip}{0pt plus 5cm}void Scaling\-Parameter\-::\-Clear\-Experiments (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classScalingParameter_aab921d6b200c9710ce094528c1f031a1}
+Delete all experiments coupled to this scaling 
+
+Definition at line 35 of file Scaling\-Parameter.\-h.
+
+\hypertarget{classScalingParameter_a0f160ce9db963a1cb57efd722d430030}{\index{Scaling\-Parameter@{Scaling\-Parameter}!Get\-Experiment\-Number@{Get\-Experiment\-Number}}
+\index{Get\-Experiment\-Number@{Get\-Experiment\-Number}!ScalingParameter@{Scaling\-Parameter}}
+\subsubsection[{Get\-Experiment\-Number}]{\setlength{\rightskip}{0pt plus 5cm}int Scaling\-Parameter\-::\-Get\-Experiment\-Number (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classScalingParameter_a0f160ce9db963a1cb57efd722d430030}
+Get the experiment number for index i 
+
+Definition at line 42 of file Scaling\-Parameter.\-h.
+
+\hypertarget{classScalingParameter_a2c16f259c2b67a1ebd234f59dc4a8f8d}{\index{Scaling\-Parameter@{Scaling\-Parameter}!Get\-Experiment\-Numbers@{Get\-Experiment\-Numbers}}
+\index{Get\-Experiment\-Numbers@{Get\-Experiment\-Numbers}!ScalingParameter@{Scaling\-Parameter}}
+\subsubsection[{Get\-Experiment\-Numbers}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$int$>$ Scaling\-Parameter\-::\-Get\-Experiment\-Numbers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classScalingParameter_a2c16f259c2b67a1ebd234f59dc4a8f8d}
+Return the vector of experimental indices coupled to this common scaling 
+
+Definition at line 41 of file Scaling\-Parameter.\-h.
+
+\hypertarget{classScalingParameter_ae6b4e7b3e43533ad4c602179f8dcaa5c}{\index{Scaling\-Parameter@{Scaling\-Parameter}!Get\-Scaling\-Lower\-Limit@{Get\-Scaling\-Lower\-Limit}}
+\index{Get\-Scaling\-Lower\-Limit@{Get\-Scaling\-Lower\-Limit}!ScalingParameter@{Scaling\-Parameter}}
+\subsubsection[{Get\-Scaling\-Lower\-Limit}]{\setlength{\rightskip}{0pt plus 5cm}double Scaling\-Parameter\-::\-Get\-Scaling\-Lower\-Limit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classScalingParameter_ae6b4e7b3e43533ad4c602179f8dcaa5c}
+Return common scaling lower allowed limit 
+
+Definition at line 39 of file Scaling\-Parameter.\-h.
+
+\hypertarget{classScalingParameter_a1b12c556f85254c57d3c245f787d85cf}{\index{Scaling\-Parameter@{Scaling\-Parameter}!Get\-Scaling\-Parameter@{Get\-Scaling\-Parameter}}
+\index{Get\-Scaling\-Parameter@{Get\-Scaling\-Parameter}!ScalingParameter@{Scaling\-Parameter}}
+\subsubsection[{Get\-Scaling\-Parameter}]{\setlength{\rightskip}{0pt plus 5cm}double Scaling\-Parameter\-::\-Get\-Scaling\-Parameter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classScalingParameter_a1b12c556f85254c57d3c245f787d85cf}
+Return common scaling 
+
+Definition at line 38 of file Scaling\-Parameter.\-h.
+
+\hypertarget{classScalingParameter_a8f08c1bb7dbbc652bb6068c06967a31c}{\index{Scaling\-Parameter@{Scaling\-Parameter}!Get\-Scaling\-Upper\-Limit@{Get\-Scaling\-Upper\-Limit}}
+\index{Get\-Scaling\-Upper\-Limit@{Get\-Scaling\-Upper\-Limit}!ScalingParameter@{Scaling\-Parameter}}
+\subsubsection[{Get\-Scaling\-Upper\-Limit}]{\setlength{\rightskip}{0pt plus 5cm}double Scaling\-Parameter\-::\-Get\-Scaling\-Upper\-Limit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classScalingParameter_a8f08c1bb7dbbc652bb6068c06967a31c}
+Return common scaling upper allowed limit 
+
+Definition at line 40 of file Scaling\-Parameter.\-h.
+
+\hypertarget{classScalingParameter_a4955775390f2d1c2b702f93ff5dd7386}{\index{Scaling\-Parameter@{Scaling\-Parameter}!Set\-Experiment\-Vector@{Set\-Experiment\-Vector}}
+\index{Set\-Experiment\-Vector@{Set\-Experiment\-Vector}!ScalingParameter@{Scaling\-Parameter}}
+\subsubsection[{Set\-Experiment\-Vector}]{\setlength{\rightskip}{0pt plus 5cm}void Scaling\-Parameter\-::\-Set\-Experiment\-Vector (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ int $>$}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classScalingParameter_a4955775390f2d1c2b702f93ff5dd7386}
+Define the vector experimental indices coupled to this common scaling 
+
+Definition at line 36 of file Scaling\-Parameter.\-h.
+
+\hypertarget{classScalingParameter_a145bb832eed013418dcc2d1206e716c2}{\index{Scaling\-Parameter@{Scaling\-Parameter}!Set\-Scaling\-Value@{Set\-Scaling\-Value}}
+\index{Set\-Scaling\-Value@{Set\-Scaling\-Value}!ScalingParameter@{Scaling\-Parameter}}
+\subsubsection[{Set\-Scaling\-Value}]{\setlength{\rightskip}{0pt plus 5cm}void Scaling\-Parameter\-::\-Set\-Scaling\-Value (
+\begin{DoxyParamCaption}
+\item[{double}]{v, }
+\item[{double}]{vll, }
+\item[{double}]{vul}
+\end{DoxyParamCaption}
+)}}\label{classScalingParameter_a145bb832eed013418dcc2d1206e716c2}
+Define the scaling value, v, with lower and upper limits of vll and vul 
+
+Definition at line 3 of file Scaling\-Parameter.\-cxx.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Scaling\-Parameter.\-h\item 
+Scaling\-Parameter.\-cxx\end{DoxyCompactItemize}

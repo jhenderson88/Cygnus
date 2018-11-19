@@ -1,0 +1,117 @@
+\hypertarget{classMiscFunctions}{\section{Misc\-Functions Class Reference}
+\label{classMiscFunctions}\index{Misc\-Functions@{Misc\-Functions}}
+}
+
+
+Useful static functions for use elsewhere in the software package.  
+
+
+
+
+{\ttfamily \#include $<$Misc\-Functions.\-h$>$}
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static double \hyperlink{classMiscFunctions_a94aa5dcad8b420d3b3e09554d42d8fc8}{Get\-Max\-Matrix} (T\-Matrix\-D)
+\item 
+static double \hyperlink{classMiscFunctions_a013c73579d32d966d225b96304d39dda}{Get\-Max\-Abs\-Matrix} (T\-Matrix\-D)
+\item 
+static void \hyperlink{classMiscFunctions_a53cef6044e7ce41d37789c2c76948226}{Write\-Matrix\-Nucleus} (std\-::ofstream \&, T\-Matrix\-D, \hyperlink{classNucleus}{Nucleus})
+\item 
+static void \hyperlink{classMiscFunctions_af49d629dced5a9125091a92bed3a4a0e}{Print\-Matrix\-Nucleus} (T\-Matrix\-D, \hyperlink{classNucleus}{Nucleus})
+\item 
+static void \hyperlink{classMiscFunctions_a6c137b98015696ba93abab4f31bcbb6b}{Print\-Vector\-Nucleus} (T\-Vector\-D, \hyperlink{classNucleus}{Nucleus}, const char $\ast$)
+\item 
+static double \hyperlink{classMiscFunctions_a91d1bb1bc78782da9523392de913efe9}{Rotation\-Function} (double, int, int, int)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Useful static functions for use elsewhere in the software package. 
+
+Definition at line 16 of file Misc\-Functions.\-h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classMiscFunctions_a013c73579d32d966d225b96304d39dda}{\index{Misc\-Functions@{Misc\-Functions}!Get\-Max\-Abs\-Matrix@{Get\-Max\-Abs\-Matrix}}
+\index{Get\-Max\-Abs\-Matrix@{Get\-Max\-Abs\-Matrix}!MiscFunctions@{Misc\-Functions}}
+\subsubsection[{Get\-Max\-Abs\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}double Misc\-Functions\-::\-Get\-Max\-Abs\-Matrix (
+\begin{DoxyParamCaption}
+\item[{T\-Matrix\-D}]{mat}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classMiscFunctions_a013c73579d32d966d225b96304d39dda}
+Return the maximum absolute value in a T\-Matrix\-D 
+
+Definition at line 15 of file Misc\-Functions.\-cxx.
+
+\hypertarget{classMiscFunctions_a94aa5dcad8b420d3b3e09554d42d8fc8}{\index{Misc\-Functions@{Misc\-Functions}!Get\-Max\-Matrix@{Get\-Max\-Matrix}}
+\index{Get\-Max\-Matrix@{Get\-Max\-Matrix}!MiscFunctions@{Misc\-Functions}}
+\subsubsection[{Get\-Max\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}double Misc\-Functions\-::\-Get\-Max\-Matrix (
+\begin{DoxyParamCaption}
+\item[{T\-Matrix\-D}]{mat}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classMiscFunctions_a94aa5dcad8b420d3b3e09554d42d8fc8}
+Return the maximum value in a T\-Matrix\-D 
+
+Definition at line 3 of file Misc\-Functions.\-cxx.
+
+\hypertarget{classMiscFunctions_af49d629dced5a9125091a92bed3a4a0e}{\index{Misc\-Functions@{Misc\-Functions}!Print\-Matrix\-Nucleus@{Print\-Matrix\-Nucleus}}
+\index{Print\-Matrix\-Nucleus@{Print\-Matrix\-Nucleus}!MiscFunctions@{Misc\-Functions}}
+\subsubsection[{Print\-Matrix\-Nucleus}]{\setlength{\rightskip}{0pt plus 5cm}void Misc\-Functions\-::\-Print\-Matrix\-Nucleus (
+\begin{DoxyParamCaption}
+\item[{T\-Matrix\-D}]{tmp\-Mat, }
+\item[{{\bf Nucleus}}]{nucl}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classMiscFunctions_af49d629dced5a9125091a92bed3a4a0e}
+Print a well formatted T\-Matrix\-D based on states from a \hyperlink{classNucleus}{Nucleus} object 
+
+Definition at line 52 of file Misc\-Functions.\-cxx.
+
+\hypertarget{classMiscFunctions_a6c137b98015696ba93abab4f31bcbb6b}{\index{Misc\-Functions@{Misc\-Functions}!Print\-Vector\-Nucleus@{Print\-Vector\-Nucleus}}
+\index{Print\-Vector\-Nucleus@{Print\-Vector\-Nucleus}!MiscFunctions@{Misc\-Functions}}
+\subsubsection[{Print\-Vector\-Nucleus}]{\setlength{\rightskip}{0pt plus 5cm}void Misc\-Functions\-::\-Print\-Vector\-Nucleus (
+\begin{DoxyParamCaption}
+\item[{T\-Vector\-D}]{tmp\-Vec, }
+\item[{{\bf Nucleus}}]{nucl, }
+\item[{const char $\ast$}]{var}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classMiscFunctions_a6c137b98015696ba93abab4f31bcbb6b}
+Print a well formatted T\-Vector\-D based on states from a \hyperlink{classNucleus}{Nucleus} object 
+
+Definition at line 77 of file Misc\-Functions.\-cxx.
+
+\hypertarget{classMiscFunctions_a91d1bb1bc78782da9523392de913efe9}{\index{Misc\-Functions@{Misc\-Functions}!Rotation\-Function@{Rotation\-Function}}
+\index{Rotation\-Function@{Rotation\-Function}!MiscFunctions@{Misc\-Functions}}
+\subsubsection[{Rotation\-Function}]{\setlength{\rightskip}{0pt plus 5cm}double Misc\-Functions\-::\-Rotation\-Function (
+\begin{DoxyParamCaption}
+\item[{double}]{beta, }
+\item[{int}]{k, }
+\item[{int}]{kpp, }
+\item[{int}]{kp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classMiscFunctions_a91d1bb1bc78782da9523392de913efe9}
+Rotation function to convert \hyperlink{classReaction}{Reaction} frame tensors to laboratory frame 
+
+Definition at line 92 of file Misc\-Functions.\-cxx.
+
+\hypertarget{classMiscFunctions_a53cef6044e7ce41d37789c2c76948226}{\index{Misc\-Functions@{Misc\-Functions}!Write\-Matrix\-Nucleus@{Write\-Matrix\-Nucleus}}
+\index{Write\-Matrix\-Nucleus@{Write\-Matrix\-Nucleus}!MiscFunctions@{Misc\-Functions}}
+\subsubsection[{Write\-Matrix\-Nucleus}]{\setlength{\rightskip}{0pt plus 5cm}void Misc\-Functions\-::\-Write\-Matrix\-Nucleus (
+\begin{DoxyParamCaption}
+\item[{std\-::ofstream \&}]{outfile, }
+\item[{T\-Matrix\-D}]{tmp\-Mat, }
+\item[{{\bf Nucleus}}]{nucl}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classMiscFunctions_a53cef6044e7ce41d37789c2c76948226}
+Write a well formatted T\-Matrix\-D based on states from a \hyperlink{classNucleus}{Nucleus} object 
+
+Definition at line 27 of file Misc\-Functions.\-cxx.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Misc\-Functions.\-h\item 
+Misc\-Functions.\-cxx\end{DoxyCompactItemize}

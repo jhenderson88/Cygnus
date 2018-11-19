@@ -1,0 +1,149 @@
+\hypertarget{classLitLifetime}{\section{Lit\-Lifetime Class Reference}
+\label{classLitLifetime}\index{Lit\-Lifetime@{Lit\-Lifetime}}
+}
+
+
+Holder for literature lifetime information for fitting.  
+
+
+
+
+{\ttfamily \#include $<$Literature.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classLitLifetime_a461df27aca4153f0a7a11ea968c4f5ed}{Lit\-Lifetime} (int i, double l, double e)
+\item 
+\hyperlink{classLitLifetime_ad1cbc0e2f4146fc4b8149a223cd3774f}{Lit\-Lifetime} (int i, double l, double ue, double de)
+\item 
+\hyperlink{classLitLifetime_ab6452e2bbc9184de31298f570932ea84}{Lit\-Lifetime} (const \hyperlink{classLitLifetime}{Lit\-Lifetime} \&lt)
+\item 
+\hyperlink{classLitLifetime}{Lit\-Lifetime} \& \hyperlink{classLitLifetime_ac3320ac4c642ddab673b38b20fbadaa7}{operator=} (const \hyperlink{classLitLifetime}{Lit\-Lifetime} \&lt)
+\item 
+double \hyperlink{classLitLifetime_acd291195395d2e3526aa86e151831b4e}{Get\-Index} () const 
+\item 
+double \hyperlink{classLitLifetime_a3cd6a91b3d6168507b5c5d4bffe4fe20}{Get\-Lifetime} () const 
+\item 
+double \hyperlink{classLitLifetime_ae7429d976ab3dd9c37d5c5eee581d94e}{Get\-Dn\-Unc} () const 
+\item 
+double \hyperlink{classLitLifetime_a481f6762e4230fa67a05ce2a591f1088}{Get\-Up\-Unc} () const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Holder for literature lifetime information for fitting. 
+
+Definition at line 10 of file Literature.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classLitLifetime_a461df27aca4153f0a7a11ea968c4f5ed}{\index{Lit\-Lifetime@{Lit\-Lifetime}!Lit\-Lifetime@{Lit\-Lifetime}}
+\index{Lit\-Lifetime@{Lit\-Lifetime}!LitLifetime@{Lit\-Lifetime}}
+\subsubsection[{Lit\-Lifetime}]{\setlength{\rightskip}{0pt plus 5cm}Lit\-Lifetime\-::\-Lit\-Lifetime (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{double}]{l, }
+\item[{double}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLitLifetime_a461df27aca4153f0a7a11ea968c4f5ed}
+Construct literature lifetime with symmetric uncertainties\-:\par
+\hyperlink{classState}{State} index = i \par
+\hyperlink{classState}{State} lifetime = l \par
+Uncertainty = e 
+
+Definition at line 20 of file Literature.\-h.
+
+\hypertarget{classLitLifetime_ad1cbc0e2f4146fc4b8149a223cd3774f}{\index{Lit\-Lifetime@{Lit\-Lifetime}!Lit\-Lifetime@{Lit\-Lifetime}}
+\index{Lit\-Lifetime@{Lit\-Lifetime}!LitLifetime@{Lit\-Lifetime}}
+\subsubsection[{Lit\-Lifetime}]{\setlength{\rightskip}{0pt plus 5cm}Lit\-Lifetime\-::\-Lit\-Lifetime (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{double}]{l, }
+\item[{double}]{ue, }
+\item[{double}]{de}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLitLifetime_ad1cbc0e2f4146fc4b8149a223cd3774f}
+Construct literature lifetime with asymmetric uncertainties\-:\par
+\hyperlink{classState}{State} index = i \par
+\hyperlink{classState}{State} lifetime = l \par
+Positive uncertainty = ue Negative uncertainty = de 
+
+Definition at line 28 of file Literature.\-h.
+
+\hypertarget{classLitLifetime_ab6452e2bbc9184de31298f570932ea84}{\index{Lit\-Lifetime@{Lit\-Lifetime}!Lit\-Lifetime@{Lit\-Lifetime}}
+\index{Lit\-Lifetime@{Lit\-Lifetime}!LitLifetime@{Lit\-Lifetime}}
+\subsubsection[{Lit\-Lifetime}]{\setlength{\rightskip}{0pt plus 5cm}Lit\-Lifetime\-::\-Lit\-Lifetime (
+\begin{DoxyParamCaption}
+\item[{const {\bf Lit\-Lifetime} \&}]{lt}
+\end{DoxyParamCaption}
+)}}\label{classLitLifetime_ab6452e2bbc9184de31298f570932ea84}
+Copy constructor 
+
+Definition at line 3 of file Literature.\-cxx.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classLitLifetime_ae7429d976ab3dd9c37d5c5eee581d94e}{\index{Lit\-Lifetime@{Lit\-Lifetime}!Get\-Dn\-Unc@{Get\-Dn\-Unc}}
+\index{Get\-Dn\-Unc@{Get\-Dn\-Unc}!LitLifetime@{Lit\-Lifetime}}
+\subsubsection[{Get\-Dn\-Unc}]{\setlength{\rightskip}{0pt plus 5cm}double Lit\-Lifetime\-::\-Get\-Dn\-Unc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLitLifetime_ae7429d976ab3dd9c37d5c5eee581d94e}
+Return negative uncertainty 
+
+Definition at line 35 of file Literature.\-h.
+
+\hypertarget{classLitLifetime_acd291195395d2e3526aa86e151831b4e}{\index{Lit\-Lifetime@{Lit\-Lifetime}!Get\-Index@{Get\-Index}}
+\index{Get\-Index@{Get\-Index}!LitLifetime@{Lit\-Lifetime}}
+\subsubsection[{Get\-Index}]{\setlength{\rightskip}{0pt plus 5cm}double Lit\-Lifetime\-::\-Get\-Index (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLitLifetime_acd291195395d2e3526aa86e151831b4e}
+Return state index 
+
+Definition at line 33 of file Literature.\-h.
+
+\hypertarget{classLitLifetime_a3cd6a91b3d6168507b5c5d4bffe4fe20}{\index{Lit\-Lifetime@{Lit\-Lifetime}!Get\-Lifetime@{Get\-Lifetime}}
+\index{Get\-Lifetime@{Get\-Lifetime}!LitLifetime@{Lit\-Lifetime}}
+\subsubsection[{Get\-Lifetime}]{\setlength{\rightskip}{0pt plus 5cm}double Lit\-Lifetime\-::\-Get\-Lifetime (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLitLifetime_a3cd6a91b3d6168507b5c5d4bffe4fe20}
+Return literature lifetime 
+
+Definition at line 34 of file Literature.\-h.
+
+\hypertarget{classLitLifetime_a481f6762e4230fa67a05ce2a591f1088}{\index{Lit\-Lifetime@{Lit\-Lifetime}!Get\-Up\-Unc@{Get\-Up\-Unc}}
+\index{Get\-Up\-Unc@{Get\-Up\-Unc}!LitLifetime@{Lit\-Lifetime}}
+\subsubsection[{Get\-Up\-Unc}]{\setlength{\rightskip}{0pt plus 5cm}double Lit\-Lifetime\-::\-Get\-Up\-Unc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLitLifetime_a481f6762e4230fa67a05ce2a591f1088}
+Return positive uncertainty 
+
+Definition at line 36 of file Literature.\-h.
+
+\hypertarget{classLitLifetime_ac3320ac4c642ddab673b38b20fbadaa7}{\index{Lit\-Lifetime@{Lit\-Lifetime}!operator=@{operator=}}
+\index{operator=@{operator=}!LitLifetime@{Lit\-Lifetime}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lit\-Lifetime} \& Lit\-Lifetime\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Lit\-Lifetime} \&}]{lt}
+\end{DoxyParamCaption}
+)}}\label{classLitLifetime_ac3320ac4c642ddab673b38b20fbadaa7}
+Assignment operator 
+
+Definition at line 11 of file Literature.\-cxx.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Literature.\-h\item 
+Literature.\-cxx\end{DoxyCompactItemize}

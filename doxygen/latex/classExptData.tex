@@ -1,0 +1,221 @@
+\hypertarget{classExptData}{\section{Expt\-Data Class Reference}
+\label{classExptData}\index{Expt\-Data@{Expt\-Data}}
+}
+
+
+Single transition information, stored within \hyperlink{classExperimentData}{Experiment\-Data}.  
+
+
+
+
+{\ttfamily \#include $<$Experimental\-Input.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classExptData_a45516a1c812eb98a2c9161822fdb5bdc}{Expt\-Data} (int i, int f, double c, double e)
+\item 
+\hyperlink{classExptData_abe44c3dd192ecaed02dcbe9c251c30f1}{Expt\-Data} (int i, int f, double c, double ue, double de)
+\item 
+\hyperlink{classExptData_a030026d0796125e06287555160752abe}{Expt\-Data} (const \hyperlink{classExptData}{Expt\-Data} \&e)
+\item 
+\hyperlink{classExptData}{Expt\-Data} \& \hyperlink{classExptData_abaec133873ceee3e02d77951451bcdc6}{operator=} (const \hyperlink{classExptData}{Expt\-Data} \&e)
+\item 
+void \hyperlink{classExptData_a9f1982e8e8471bf8b99017d60e0bdd02}{Set} (int i, int f, double c, double e)
+\item 
+void \hyperlink{classExptData_aabe3d956a3235307f474ab08b78c1fcb}{Set} (int i, int f, double c, double ue, double de)
+\item 
+void \hyperlink{classExptData_ad624ee2122e68682cc169837c1ca8982}{Set\-Counts} (double c)
+\item 
+int \hyperlink{classExptData_a706e630776c6a7631bf9262ad1a80106}{Get\-Initial\-Index} () const 
+\item 
+int \hyperlink{classExptData_a0c78fa191eb42a996b54b626bc1cbfaf}{Get\-Final\-Index} () const 
+\item 
+double \hyperlink{classExptData_af1cb66118a2f20e87cc83168417ff5db}{Get\-Counts} () const 
+\item 
+double \hyperlink{classExptData_a8439a7e32034c37e59634166a107d324}{Get\-Up\-Unc} () const 
+\item 
+double \hyperlink{classExptData_a127c06dc6111a694bbe07bd7de9f9dd8}{Get\-Dn\-Unc} () const 
+\item 
+void \hyperlink{classExptData_a68d25d343b572b676a14fb3d79b211ae}{Print} () const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Single transition information, stored within \hyperlink{classExperimentData}{Experiment\-Data}. 
+
+The \hyperlink{classExptData}{Expt\-Data} class is contains the yield information for a single transition. Each \hyperlink{classExperimentData}{Experiment\-Data} class object can then contain a vector of \hyperlink{classExptData}{Expt\-Data} objects which includes all experimental data.
+
+Compatible with asymmetric uncertainties. 
+
+Definition at line 20 of file Experimental\-Input.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classExptData_a45516a1c812eb98a2c9161822fdb5bdc}{\index{Expt\-Data@{Expt\-Data}!Expt\-Data@{Expt\-Data}}
+\index{Expt\-Data@{Expt\-Data}!ExptData@{Expt\-Data}}
+\subsubsection[{Expt\-Data}]{\setlength{\rightskip}{0pt plus 5cm}Expt\-Data\-::\-Expt\-Data (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{f, }
+\item[{double}]{c, }
+\item[{double}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExptData_a45516a1c812eb98a2c9161822fdb5bdc}
+Constructor containing data with symmetric uncertainties\-: Initial state = i Final state = f Yield = c Uncertainty = e 
+
+Definition at line 31 of file Experimental\-Input.\-h.
+
+\hypertarget{classExptData_abe44c3dd192ecaed02dcbe9c251c30f1}{\index{Expt\-Data@{Expt\-Data}!Expt\-Data@{Expt\-Data}}
+\index{Expt\-Data@{Expt\-Data}!ExptData@{Expt\-Data}}
+\subsubsection[{Expt\-Data}]{\setlength{\rightskip}{0pt plus 5cm}Expt\-Data\-::\-Expt\-Data (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{f, }
+\item[{double}]{c, }
+\item[{double}]{ue, }
+\item[{double}]{de}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExptData_abe44c3dd192ecaed02dcbe9c251c30f1}
+Constructor containing data with asymmetric uncertainties\-: Initial state = i Final state = f Yield = c Positive uncertainty = ue Negative uncertainty = de 
+
+Definition at line 40 of file Experimental\-Input.\-h.
+
+\hypertarget{classExptData_a030026d0796125e06287555160752abe}{\index{Expt\-Data@{Expt\-Data}!Expt\-Data@{Expt\-Data}}
+\index{Expt\-Data@{Expt\-Data}!ExptData@{Expt\-Data}}
+\subsubsection[{Expt\-Data}]{\setlength{\rightskip}{0pt plus 5cm}Expt\-Data\-::\-Expt\-Data (
+\begin{DoxyParamCaption}
+\item[{const {\bf Expt\-Data} \&}]{e}
+\end{DoxyParamCaption}
+)}}\label{classExptData_a030026d0796125e06287555160752abe}
+Copy constructor 
+
+Definition at line 3 of file Experimental\-Input.\-cxx.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classExptData_af1cb66118a2f20e87cc83168417ff5db}{\index{Expt\-Data@{Expt\-Data}!Get\-Counts@{Get\-Counts}}
+\index{Get\-Counts@{Get\-Counts}!ExptData@{Expt\-Data}}
+\subsubsection[{Get\-Counts}]{\setlength{\rightskip}{0pt plus 5cm}double Expt\-Data\-::\-Get\-Counts (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExptData_af1cb66118a2f20e87cc83168417ff5db}
+Return yield 
+
+Definition at line 66 of file Experimental\-Input.\-h.
+
+\hypertarget{classExptData_a127c06dc6111a694bbe07bd7de9f9dd8}{\index{Expt\-Data@{Expt\-Data}!Get\-Dn\-Unc@{Get\-Dn\-Unc}}
+\index{Get\-Dn\-Unc@{Get\-Dn\-Unc}!ExptData@{Expt\-Data}}
+\subsubsection[{Get\-Dn\-Unc}]{\setlength{\rightskip}{0pt plus 5cm}double Expt\-Data\-::\-Get\-Dn\-Unc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExptData_a127c06dc6111a694bbe07bd7de9f9dd8}
+Return negative uncertainty 
+
+Definition at line 68 of file Experimental\-Input.\-h.
+
+\hypertarget{classExptData_a0c78fa191eb42a996b54b626bc1cbfaf}{\index{Expt\-Data@{Expt\-Data}!Get\-Final\-Index@{Get\-Final\-Index}}
+\index{Get\-Final\-Index@{Get\-Final\-Index}!ExptData@{Expt\-Data}}
+\subsubsection[{Get\-Final\-Index}]{\setlength{\rightskip}{0pt plus 5cm}int Expt\-Data\-::\-Get\-Final\-Index (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExptData_a0c78fa191eb42a996b54b626bc1cbfaf}
+Return final state index 
+
+Definition at line 65 of file Experimental\-Input.\-h.
+
+\hypertarget{classExptData_a706e630776c6a7631bf9262ad1a80106}{\index{Expt\-Data@{Expt\-Data}!Get\-Initial\-Index@{Get\-Initial\-Index}}
+\index{Get\-Initial\-Index@{Get\-Initial\-Index}!ExptData@{Expt\-Data}}
+\subsubsection[{Get\-Initial\-Index}]{\setlength{\rightskip}{0pt plus 5cm}int Expt\-Data\-::\-Get\-Initial\-Index (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExptData_a706e630776c6a7631bf9262ad1a80106}
+Return initial state index 
+
+Definition at line 64 of file Experimental\-Input.\-h.
+
+\hypertarget{classExptData_a8439a7e32034c37e59634166a107d324}{\index{Expt\-Data@{Expt\-Data}!Get\-Up\-Unc@{Get\-Up\-Unc}}
+\index{Get\-Up\-Unc@{Get\-Up\-Unc}!ExptData@{Expt\-Data}}
+\subsubsection[{Get\-Up\-Unc}]{\setlength{\rightskip}{0pt plus 5cm}double Expt\-Data\-::\-Get\-Up\-Unc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExptData_a8439a7e32034c37e59634166a107d324}
+Return positive uncertainty 
+
+Definition at line 67 of file Experimental\-Input.\-h.
+
+\hypertarget{classExptData_abaec133873ceee3e02d77951451bcdc6}{\index{Expt\-Data@{Expt\-Data}!operator=@{operator=}}
+\index{operator=@{operator=}!ExptData@{Expt\-Data}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Expt\-Data} \& Expt\-Data\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Expt\-Data} \&}]{e}
+\end{DoxyParamCaption}
+)}}\label{classExptData_abaec133873ceee3e02d77951451bcdc6}
+Assignment operator 
+
+Definition at line 13 of file Experimental\-Input.\-cxx.
+
+\hypertarget{classExptData_a68d25d343b572b676a14fb3d79b211ae}{\index{Expt\-Data@{Expt\-Data}!Print@{Print}}
+\index{Print@{Print}!ExptData@{Expt\-Data}}
+\subsubsection[{Print}]{\setlength{\rightskip}{0pt plus 5cm}void Expt\-Data\-::\-Print (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classExptData_a68d25d343b572b676a14fb3d79b211ae}
+Print yield information 
+
+Definition at line 62 of file Experimental\-Input.\-cxx.
+
+\hypertarget{classExptData_a9f1982e8e8471bf8b99017d60e0bdd02}{\index{Expt\-Data@{Expt\-Data}!Set@{Set}}
+\index{Set@{Set}!ExptData@{Expt\-Data}}
+\subsubsection[{Set}]{\setlength{\rightskip}{0pt plus 5cm}void Expt\-Data\-::\-Set (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{f, }
+\item[{double}]{c, }
+\item[{double}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExptData_a9f1982e8e8471bf8b99017d60e0bdd02}
+Set data with symmetric uncertainties\-: Initial state = i Final state = f Yield = c Uncertainty = e 
+
+Definition at line 52 of file Experimental\-Input.\-h.
+
+\hypertarget{classExptData_aabe3d956a3235307f474ab08b78c1fcb}{\index{Expt\-Data@{Expt\-Data}!Set@{Set}}
+\index{Set@{Set}!ExptData@{Expt\-Data}}
+\subsubsection[{Set}]{\setlength{\rightskip}{0pt plus 5cm}void Expt\-Data\-::\-Set (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{f, }
+\item[{double}]{c, }
+\item[{double}]{ue, }
+\item[{double}]{de}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExptData_aabe3d956a3235307f474ab08b78c1fcb}
+Set data with asymmetric uncertainties\-: Initial state = i Final state = f Yield = c Positive uncertainty = ue Negative uncertainty = de 
+
+Definition at line 61 of file Experimental\-Input.\-h.
+
+\hypertarget{classExptData_ad624ee2122e68682cc169837c1ca8982}{\index{Expt\-Data@{Expt\-Data}!Set\-Counts@{Set\-Counts}}
+\index{Set\-Counts@{Set\-Counts}!ExptData@{Expt\-Data}}
+\subsubsection[{Set\-Counts}]{\setlength{\rightskip}{0pt plus 5cm}void Expt\-Data\-::\-Set\-Counts (
+\begin{DoxyParamCaption}
+\item[{double}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExptData_ad624ee2122e68682cc169837c1ca8982}
+Set experimental yield, c 
+
+Definition at line 62 of file Experimental\-Input.\-h.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Experimental\-Input.\-h\item 
+Experimental\-Input.\-cxx\end{DoxyCompactItemize}

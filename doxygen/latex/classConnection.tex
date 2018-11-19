@@ -1,0 +1,212 @@
+\hypertarget{classConnection}{\section{Connection Class Reference}
+\label{classConnection}\index{Connection@{Connection}}
+}
+
+
+Holder for connections between substates (see \hyperlink{classSubstate}{Substate} class). Contains information relevant to point Coulomb excitation calculations.  
+
+
+
+
+{\ttfamily \#include $<$Connection.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classConnection_aa865a13af12c712d04723871157205ae}{Connection} (const \hyperlink{classConnection}{Connection} \&c)
+\item 
+\hyperlink{classConnection}{Connection} \& \hyperlink{classConnection_ad94faca8f94e2aef5e5ec0fef4c171b1}{operator=} (const \hyperlink{classConnection}{Connection} \&c)
+\item 
+void \hyperlink{classConnection_a3fc2edf336a940aa0ae93886a70c2d4f}{Set\-Connected\-State} (int s)
+\item 
+int \hyperlink{classConnection_a98179af0c3cf421500ddb095a4e0aa71}{Get\-Connected\-State} ()
+\item 
+bool \hyperlink{classConnection_a7296661e007941a581b5a7b32dc722fc}{Is\-Set} (int i)
+\item 
+double \hyperlink{classConnection_a6caa7ed9c73cdc55e8c87585c657a292}{Get\-Psi} (int i)
+\item 
+double \hyperlink{classConnection_ab8fb4d8780bb8c3cf6d447c5a024ea2c}{Get\-Xi} (int i)
+\item 
+double \hyperlink{classConnection_a87c8c8047b8ed35484720d9215369e4c}{Get\-Zeta} (int i)
+\item 
+int \hyperlink{classConnection_ae4cc254ca49944f7b97bd4ab16b045b4}{Get\-N} () const 
+\item 
+int \hyperlink{classConnection_a1d5bb4da619aecc139979bab5040a250}{Get\-Max\-Lambda} () const 
+\item 
+void \hyperlink{classConnection_a446218e68c957f14d07b0b5241889b79}{Set\-Max\-Lambda} (int L)
+\item 
+void \hyperlink{classConnection_a72732be03e5f2670f2c9d61b9fd65bc0}{Add\-Lambda} (int l, double xi, double psi, double zeta)
+\item 
+void \hyperlink{classConnection_aa806e6b461fa206f933c7275cf100e94}{Clear} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Holder for connections between substates (see \hyperlink{classSubstate}{Substate} class). Contains information relevant to point Coulomb excitation calculations. 
+
+Contains vectors of connection information. Only one \hyperlink{classConnection}{Connection} is defined for any connection between substates, which contains all multipolarities in that connection.
+
+Size of the vectors is defined using \hyperlink{classConnection_a446218e68c957f14d07b0b5241889b79}{Set\-Max\-Lambda()}, for convenience the vectors between all substates are given the same length.
+
+Because each connection is attached to a \hyperlink{classSubstate}{Substate}, the f\-Connected\-State index defines the other end of the connection only (i.\-e. the \hyperlink{classConnection}{Connection} does not contain information about the index of the state it is attached to). 
+
+Definition at line 25 of file Connection.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classConnection_aa865a13af12c712d04723871157205ae}{\index{Connection@{Connection}!Connection@{Connection}}
+\index{Connection@{Connection}!Connection@{Connection}}
+\subsubsection[{Connection}]{\setlength{\rightskip}{0pt plus 5cm}Connection\-::\-Connection (
+\begin{DoxyParamCaption}
+\item[{const {\bf Connection} \&}]{c}
+\end{DoxyParamCaption}
+)}}\label{classConnection_aa865a13af12c712d04723871157205ae}
+Copy constructor 
+
+Definition at line 3 of file Connection.\-cxx.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classConnection_a72732be03e5f2670f2c9d61b9fd65bc0}{\index{Connection@{Connection}!Add\-Lambda@{Add\-Lambda}}
+\index{Add\-Lambda@{Add\-Lambda}!Connection@{Connection}}
+\subsubsection[{Add\-Lambda}]{\setlength{\rightskip}{0pt plus 5cm}void Connection\-::\-Add\-Lambda (
+\begin{DoxyParamCaption}
+\item[{int}]{l, }
+\item[{double}]{xi, }
+\item[{double}]{psi, }
+\item[{double}]{zeta}
+\end{DoxyParamCaption}
+)}}\label{classConnection_a72732be03e5f2670f2c9d61b9fd65bc0}
+Define xi, psi and zeta for multipolarity defined by l 
+
+Definition at line 40 of file Connection.\-cxx.
+
+\hypertarget{classConnection_aa806e6b461fa206f933c7275cf100e94}{\index{Connection@{Connection}!Clear@{Clear}}
+\index{Clear@{Clear}!Connection@{Connection}}
+\subsubsection[{Clear}]{\setlength{\rightskip}{0pt plus 5cm}void Connection\-::\-Clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classConnection_aa806e6b461fa206f933c7275cf100e94}
+Clears all vectors 
+
+Definition at line 49 of file Connection.\-cxx.
+
+\hypertarget{classConnection_a98179af0c3cf421500ddb095a4e0aa71}{\index{Connection@{Connection}!Get\-Connected\-State@{Get\-Connected\-State}}
+\index{Get\-Connected\-State@{Get\-Connected\-State}!Connection@{Connection}}
+\subsubsection[{Get\-Connected\-State}]{\setlength{\rightskip}{0pt plus 5cm}int Connection\-::\-Get\-Connected\-State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classConnection_a98179af0c3cf421500ddb095a4e0aa71}
+Return the index of the substate the holder substate is connected to by this object 
+
+Definition at line 35 of file Connection.\-h.
+
+\hypertarget{classConnection_a1d5bb4da619aecc139979bab5040a250}{\index{Connection@{Connection}!Get\-Max\-Lambda@{Get\-Max\-Lambda}}
+\index{Get\-Max\-Lambda@{Get\-Max\-Lambda}!Connection@{Connection}}
+\subsubsection[{Get\-Max\-Lambda}]{\setlength{\rightskip}{0pt plus 5cm}int Connection\-::\-Get\-Max\-Lambda (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classConnection_a1d5bb4da619aecc139979bab5040a250}
+Safer check on the number of multipolarities defined 
+
+Definition at line 43 of file Connection.\-h.
+
+\hypertarget{classConnection_ae4cc254ca49944f7b97bd4ab16b045b4}{\index{Connection@{Connection}!Get\-N@{Get\-N}}
+\index{Get\-N@{Get\-N}!Connection@{Connection}}
+\subsubsection[{Get\-N}]{\setlength{\rightskip}{0pt plus 5cm}int Connection\-::\-Get\-N (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classConnection_ae4cc254ca49944f7b97bd4ab16b045b4}
+Returns the number of multipolarites defined (including empty) 
+
+Definition at line 40 of file Connection.\-h.
+
+\hypertarget{classConnection_a6caa7ed9c73cdc55e8c87585c657a292}{\index{Connection@{Connection}!Get\-Psi@{Get\-Psi}}
+\index{Get\-Psi@{Get\-Psi}!Connection@{Connection}}
+\subsubsection[{Get\-Psi}]{\setlength{\rightskip}{0pt plus 5cm}double Connection\-::\-Get\-Psi (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classConnection_a6caa7ed9c73cdc55e8c87585c657a292}
+Returns the psi value of the connection 
+
+Definition at line 37 of file Connection.\-h.
+
+\hypertarget{classConnection_ab8fb4d8780bb8c3cf6d447c5a024ea2c}{\index{Connection@{Connection}!Get\-Xi@{Get\-Xi}}
+\index{Get\-Xi@{Get\-Xi}!Connection@{Connection}}
+\subsubsection[{Get\-Xi}]{\setlength{\rightskip}{0pt plus 5cm}double Connection\-::\-Get\-Xi (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classConnection_ab8fb4d8780bb8c3cf6d447c5a024ea2c}
+Returns the xi value of the connection 
+
+Definition at line 38 of file Connection.\-h.
+
+\hypertarget{classConnection_a87c8c8047b8ed35484720d9215369e4c}{\index{Connection@{Connection}!Get\-Zeta@{Get\-Zeta}}
+\index{Get\-Zeta@{Get\-Zeta}!Connection@{Connection}}
+\subsubsection[{Get\-Zeta}]{\setlength{\rightskip}{0pt plus 5cm}double Connection\-::\-Get\-Zeta (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classConnection_a87c8c8047b8ed35484720d9215369e4c}
+Returns the zeta value of the connection 
+
+Definition at line 39 of file Connection.\-h.
+
+\hypertarget{classConnection_a7296661e007941a581b5a7b32dc722fc}{\index{Connection@{Connection}!Is\-Set@{Is\-Set}}
+\index{Is\-Set@{Is\-Set}!Connection@{Connection}}
+\subsubsection[{Is\-Set}]{\setlength{\rightskip}{0pt plus 5cm}bool Connection\-::\-Is\-Set (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classConnection_a7296661e007941a581b5a7b32dc722fc}
+Returns true if the connection for the multipolarity defined by i is being used, else false 
+
+Definition at line 36 of file Connection.\-h.
+
+\hypertarget{classConnection_ad94faca8f94e2aef5e5ec0fef4c171b1}{\index{Connection@{Connection}!operator=@{operator=}}
+\index{operator=@{operator=}!Connection@{Connection}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Connection} \& Connection\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Connection} \&}]{c}
+\end{DoxyParamCaption}
+)}}\label{classConnection_ad94faca8f94e2aef5e5ec0fef4c171b1}
+Assignment operator 
+
+Definition at line 20 of file Connection.\-cxx.
+
+\hypertarget{classConnection_a3fc2edf336a940aa0ae93886a70c2d4f}{\index{Connection@{Connection}!Set\-Connected\-State@{Set\-Connected\-State}}
+\index{Set\-Connected\-State@{Set\-Connected\-State}!Connection@{Connection}}
+\subsubsection[{Set\-Connected\-State}]{\setlength{\rightskip}{0pt plus 5cm}void Connection\-::\-Set\-Connected\-State (
+\begin{DoxyParamCaption}
+\item[{int}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classConnection_a3fc2edf336a940aa0ae93886a70c2d4f}
+Define the index of the substate the holder substate is connected to by this object 
+
+Definition at line 33 of file Connection.\-h.
+
+\hypertarget{classConnection_a446218e68c957f14d07b0b5241889b79}{\index{Connection@{Connection}!Set\-Max\-Lambda@{Set\-Max\-Lambda}}
+\index{Set\-Max\-Lambda@{Set\-Max\-Lambda}!Connection@{Connection}}
+\subsubsection[{Set\-Max\-Lambda}]{\setlength{\rightskip}{0pt plus 5cm}void Connection\-::\-Set\-Max\-Lambda (
+\begin{DoxyParamCaption}
+\item[{int}]{L}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classConnection_a446218e68c957f14d07b0b5241889b79}
+Define maximum multipolarity\-: sets the size of the vectors in the class 
+
+Definition at line 49 of file Connection.\-h.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Connection.\-h\item 
+Connection.\-cxx\end{DoxyCompactItemize}

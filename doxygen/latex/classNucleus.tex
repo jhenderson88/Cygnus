@@ -1,0 +1,349 @@
+\hypertarget{classNucleus}{\section{Nucleus Class Reference}
+\label{classNucleus}\index{Nucleus@{Nucleus}}
+}
+
+
+Holds information about the nucleus for which the Coul\-Ex calculation will be performed.  
+
+
+
+
+{\ttfamily \#include $<$Nucleus.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classNucleus_ac2742378563d80008df3826b95395643}{Nucleus} (int Z, int A, int n\-S, int n\-L=7)
+\item 
+\hyperlink{classNucleus_afc84ef7342c70caec505fe56d765e4ae}{Nucleus} (const \hyperlink{classNucleus}{Nucleus} \&n)
+\item 
+\hyperlink{classNucleus}{Nucleus} \& \hyperlink{classNucleus_ab093d4b22255c1d37199707cc90ed404}{operator=} (const \hyperlink{classNucleus}{Nucleus} \&n)
+\item 
+void \hyperlink{classNucleus_aa48a728dcb4dc35dc13786d33bb21bc5}{Set\-Nstates} (int)
+\item 
+void \hyperlink{classNucleus_ae25ff1bec73c4beb4f8dfb4f849da450}{Set\-Max\-Lambda} (int)
+\item 
+void \hyperlink{classNucleus_a768c3938464bbd81c8d74ce2e1aa19ea}{Set\-State} (int s, double E, double J, int P)
+\item 
+void \hyperlink{classNucleus_ac8385f9efc4969b5f8c8eafea85d10fe}{Set\-State\-E} (int s, double E)
+\item 
+void \hyperlink{classNucleus_a001e9aa70fa2c89203596763527ca21a}{Set\-State\-J} (int s, double J)
+\item 
+void \hyperlink{classNucleus_a81b9a661f8e7cf4a36a8c73054bac261}{Set\-State\-P} (int s, int P)
+\item 
+void \hyperlink{classNucleus_a1b149518d6eaf8c5c8b222318cafb7ef}{Set\-Matrix\-Element} (int l, int s1, int s2, double me)
+\item 
+void \hyperlink{classNucleus_a33eaf2fef4f8980753be2b4ec787a8f9}{Set\-Z} (int z)
+\item 
+void \hyperlink{classNucleus_ae830f7fce83a6d6d77f2ea81fdde2546}{Set\-A} (int a)
+\item 
+void \hyperlink{classNucleus_acae853f19a3a2e9c089f434913c6855a}{Multipolarity\-Reminder} () const 
+\item 
+int \hyperlink{classNucleus_a6fe587b2187666c9a30af4a3ead73044}{Get\-Z} () const 
+\item 
+int \hyperlink{classNucleus_a91c1cfdcc70b3c881401cbdc719a1c90}{Get\-A} () const 
+\item 
+int \hyperlink{classNucleus_acca7f2ea95c6c5df97bff8c32a9d4f7b}{Get\-Nstates} () const 
+\item 
+int \hyperlink{classNucleus_a189fea3c915a2311acb4aa8539d75e7b}{Get\-Max\-Lambda} () const 
+\item 
+std\-::vector$<$ double $>$ \hyperlink{classNucleus_acd87e98f8bae53e1071388f2e3be2189}{Get\-Level\-Energies} () const 
+\item 
+std\-::vector$<$ double $>$ \hyperlink{classNucleus_a8d708b6c13686a9dbb381db367e2534d}{Get\-Level\-J} () const 
+\item 
+std\-::vector$<$ int $>$ \hyperlink{classNucleus_a7ddb3794e8524fd202b9cdeecb6f49c4}{Get\-Level\-P} () const 
+\item 
+std\-::vector$<$ T\-Matrix\-D $>$ \hyperlink{classNucleus_a59031576c72363d132171b94bb6dbf35}{Get\-Matrix\-Elements} () const 
+\item 
+void \hyperlink{classNucleus_a9f56da19abf5b3a42998a44cab1f5c9f}{Print\-Nucleus} () const 
+\item 
+void \hyperlink{classNucleus_a4d923782b47e0b7e5dbac58c1b12394b}{Print\-State} (int) const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Holds information about the nucleus for which the Coul\-Ex calculation will be performed. 
+
+This class stores the information for the nucleus being investigated.
+
+In particular, state energies, spins, parities and matrix elements are stored here. 
+
+Definition at line 21 of file Nucleus.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classNucleus_ac2742378563d80008df3826b95395643}{\index{Nucleus@{Nucleus}!Nucleus@{Nucleus}}
+\index{Nucleus@{Nucleus}!Nucleus@{Nucleus}}
+\subsubsection[{Nucleus}]{\setlength{\rightskip}{0pt plus 5cm}Nucleus\-::\-Nucleus (
+\begin{DoxyParamCaption}
+\item[{int}]{Z, }
+\item[{int}]{A, }
+\item[{int}]{n\-S, }
+\item[{int}]{n\-L = {\ttfamily 7}}
+\end{DoxyParamCaption}
+)}}\label{classNucleus_ac2742378563d80008df3826b95395643}
+Construct nucleus with Z protons, A nucleons, n\-S total states and n\-L multipolarities allowed 
+
+Definition at line 8 of file Nucleus.\-cxx.
+
+\hypertarget{classNucleus_afc84ef7342c70caec505fe56d765e4ae}{\index{Nucleus@{Nucleus}!Nucleus@{Nucleus}}
+\index{Nucleus@{Nucleus}!Nucleus@{Nucleus}}
+\subsubsection[{Nucleus}]{\setlength{\rightskip}{0pt plus 5cm}Nucleus\-::\-Nucleus (
+\begin{DoxyParamCaption}
+\item[{const {\bf Nucleus} \&}]{n}
+\end{DoxyParamCaption}
+)}}\label{classNucleus_afc84ef7342c70caec505fe56d765e4ae}
+Copy constructor 
+
+Definition at line 14 of file Nucleus.\-cxx.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classNucleus_a91c1cfdcc70b3c881401cbdc719a1c90}{\index{Nucleus@{Nucleus}!Get\-A@{Get\-A}}
+\index{Get\-A@{Get\-A}!Nucleus@{Nucleus}}
+\subsubsection[{Get\-A}]{\setlength{\rightskip}{0pt plus 5cm}int Nucleus\-::\-Get\-A (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classNucleus_a91c1cfdcc70b3c881401cbdc719a1c90}
+Return nucleus mass number 
+
+Definition at line 47 of file Nucleus.\-h.
+
+\hypertarget{classNucleus_acd87e98f8bae53e1071388f2e3be2189}{\index{Nucleus@{Nucleus}!Get\-Level\-Energies@{Get\-Level\-Energies}}
+\index{Get\-Level\-Energies@{Get\-Level\-Energies}!Nucleus@{Nucleus}}
+\subsubsection[{Get\-Level\-Energies}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$double$>$ Nucleus\-::\-Get\-Level\-Energies (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classNucleus_acd87e98f8bae53e1071388f2e3be2189}
+Return vector of level energies 
+
+Definition at line 52 of file Nucleus.\-h.
+
+\hypertarget{classNucleus_a8d708b6c13686a9dbb381db367e2534d}{\index{Nucleus@{Nucleus}!Get\-Level\-J@{Get\-Level\-J}}
+\index{Get\-Level\-J@{Get\-Level\-J}!Nucleus@{Nucleus}}
+\subsubsection[{Get\-Level\-J}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$double$>$ Nucleus\-::\-Get\-Level\-J (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classNucleus_a8d708b6c13686a9dbb381db367e2534d}
+Return vector of level spins 
+
+Definition at line 53 of file Nucleus.\-h.
+
+\hypertarget{classNucleus_a7ddb3794e8524fd202b9cdeecb6f49c4}{\index{Nucleus@{Nucleus}!Get\-Level\-P@{Get\-Level\-P}}
+\index{Get\-Level\-P@{Get\-Level\-P}!Nucleus@{Nucleus}}
+\subsubsection[{Get\-Level\-P}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$int$>$ Nucleus\-::\-Get\-Level\-P (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classNucleus_a7ddb3794e8524fd202b9cdeecb6f49c4}
+Return vector of level parities 
+
+Definition at line 54 of file Nucleus.\-h.
+
+\hypertarget{classNucleus_a59031576c72363d132171b94bb6dbf35}{\index{Nucleus@{Nucleus}!Get\-Matrix\-Elements@{Get\-Matrix\-Elements}}
+\index{Get\-Matrix\-Elements@{Get\-Matrix\-Elements}!Nucleus@{Nucleus}}
+\subsubsection[{Get\-Matrix\-Elements}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$T\-Matrix\-D$>$ Nucleus\-::\-Get\-Matrix\-Elements (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classNucleus_a59031576c72363d132171b94bb6dbf35}
+Return vector of transition matrices (one per multipolarity) 
+
+Definition at line 55 of file Nucleus.\-h.
+
+\hypertarget{classNucleus_a189fea3c915a2311acb4aa8539d75e7b}{\index{Nucleus@{Nucleus}!Get\-Max\-Lambda@{Get\-Max\-Lambda}}
+\index{Get\-Max\-Lambda@{Get\-Max\-Lambda}!Nucleus@{Nucleus}}
+\subsubsection[{Get\-Max\-Lambda}]{\setlength{\rightskip}{0pt plus 5cm}int Nucleus\-::\-Get\-Max\-Lambda (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classNucleus_a189fea3c915a2311acb4aa8539d75e7b}
+Return maximum lambda (default = 7) 
+
+Definition at line 50 of file Nucleus.\-h.
+
+\hypertarget{classNucleus_acca7f2ea95c6c5df97bff8c32a9d4f7b}{\index{Nucleus@{Nucleus}!Get\-Nstates@{Get\-Nstates}}
+\index{Get\-Nstates@{Get\-Nstates}!Nucleus@{Nucleus}}
+\subsubsection[{Get\-Nstates}]{\setlength{\rightskip}{0pt plus 5cm}int Nucleus\-::\-Get\-Nstates (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classNucleus_acca7f2ea95c6c5df97bff8c32a9d4f7b}
+Return number of state 
+
+Definition at line 49 of file Nucleus.\-h.
+
+\hypertarget{classNucleus_a6fe587b2187666c9a30af4a3ead73044}{\index{Nucleus@{Nucleus}!Get\-Z@{Get\-Z}}
+\index{Get\-Z@{Get\-Z}!Nucleus@{Nucleus}}
+\subsubsection[{Get\-Z}]{\setlength{\rightskip}{0pt plus 5cm}int Nucleus\-::\-Get\-Z (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classNucleus_a6fe587b2187666c9a30af4a3ead73044}
+Return nucleus proton number 
+
+Definition at line 46 of file Nucleus.\-h.
+
+\hypertarget{classNucleus_acae853f19a3a2e9c089f434913c6855a}{\index{Nucleus@{Nucleus}!Multipolarity\-Reminder@{Multipolarity\-Reminder}}
+\index{Multipolarity\-Reminder@{Multipolarity\-Reminder}!Nucleus@{Nucleus}}
+\subsubsection[{Multipolarity\-Reminder}]{\setlength{\rightskip}{0pt plus 5cm}void Nucleus\-::\-Multipolarity\-Reminder (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classNucleus_acae853f19a3a2e9c089f434913c6855a}
+Prints a reminder regarding multipolarity indexing 
+
+Definition at line 181 of file Nucleus.\-cxx.
+
+\hypertarget{classNucleus_ab093d4b22255c1d37199707cc90ed404}{\index{Nucleus@{Nucleus}!operator=@{operator=}}
+\index{operator=@{operator=}!Nucleus@{Nucleus}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Nucleus} \& Nucleus\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Nucleus} \&}]{n}
+\end{DoxyParamCaption}
+)}}\label{classNucleus_ab093d4b22255c1d37199707cc90ed404}
+Assignment operator 
+
+Definition at line 43 of file Nucleus.\-cxx.
+
+\hypertarget{classNucleus_a9f56da19abf5b3a42998a44cab1f5c9f}{\index{Nucleus@{Nucleus}!Print\-Nucleus@{Print\-Nucleus}}
+\index{Print\-Nucleus@{Print\-Nucleus}!Nucleus@{Nucleus}}
+\subsubsection[{Print\-Nucleus}]{\setlength{\rightskip}{0pt plus 5cm}void Nucleus\-::\-Print\-Nucleus (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classNucleus_a9f56da19abf5b3a42998a44cab1f5c9f}
+Print \hyperlink{classNucleus}{Nucleus} information 
+
+Definition at line 185 of file Nucleus.\-cxx.
+
+\hypertarget{classNucleus_a4d923782b47e0b7e5dbac58c1b12394b}{\index{Nucleus@{Nucleus}!Print\-State@{Print\-State}}
+\index{Print\-State@{Print\-State}!Nucleus@{Nucleus}}
+\subsubsection[{Print\-State}]{\setlength{\rightskip}{0pt plus 5cm}void Nucleus\-::\-Print\-State (
+\begin{DoxyParamCaption}
+\item[{int}]{s}
+\end{DoxyParamCaption}
+) const}}\label{classNucleus_a4d923782b47e0b7e5dbac58c1b12394b}
+Print \hyperlink{classState}{State} information 
+
+Definition at line 216 of file Nucleus.\-cxx.
+
+\hypertarget{classNucleus_ae830f7fce83a6d6d77f2ea81fdde2546}{\index{Nucleus@{Nucleus}!Set\-A@{Set\-A}}
+\index{Set\-A@{Set\-A}!Nucleus@{Nucleus}}
+\subsubsection[{Set\-A}]{\setlength{\rightskip}{0pt plus 5cm}void Nucleus\-::\-Set\-A (
+\begin{DoxyParamCaption}
+\item[{int}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classNucleus_ae830f7fce83a6d6d77f2ea81fdde2546}
+Define nucleus mass number, A 
+
+Definition at line 42 of file Nucleus.\-h.
+
+\hypertarget{classNucleus_a1b149518d6eaf8c5c8b222318cafb7ef}{\index{Nucleus@{Nucleus}!Set\-Matrix\-Element@{Set\-Matrix\-Element}}
+\index{Set\-Matrix\-Element@{Set\-Matrix\-Element}!Nucleus@{Nucleus}}
+\subsubsection[{Set\-Matrix\-Element}]{\setlength{\rightskip}{0pt plus 5cm}void Nucleus\-::\-Set\-Matrix\-Element (
+\begin{DoxyParamCaption}
+\item[{int}]{l, }
+\item[{int}]{s1, }
+\item[{int}]{s2, }
+\item[{double}]{me}
+\end{DoxyParamCaption}
+)}}\label{classNucleus_a1b149518d6eaf8c5c8b222318cafb7ef}
+Define matrix element me, of multipolarity l, between states s1 and s2 
+
+Definition at line 126 of file Nucleus.\-cxx.
+
+\hypertarget{classNucleus_ae25ff1bec73c4beb4f8dfb4f849da450}{\index{Nucleus@{Nucleus}!Set\-Max\-Lambda@{Set\-Max\-Lambda}}
+\index{Set\-Max\-Lambda@{Set\-Max\-Lambda}!Nucleus@{Nucleus}}
+\subsubsection[{Set\-Max\-Lambda}]{\setlength{\rightskip}{0pt plus 5cm}void Nucleus\-::\-Set\-Max\-Lambda (
+\begin{DoxyParamCaption}
+\item[{int}]{m\-L}
+\end{DoxyParamCaption}
+)}}\label{classNucleus_ae25ff1bec73c4beb4f8dfb4f849da450}
+Define the maximum multipolarity to be used\-: Recommended to use default = 7 
+
+Definition at line 79 of file Nucleus.\-cxx.
+
+\hypertarget{classNucleus_aa48a728dcb4dc35dc13786d33bb21bc5}{\index{Nucleus@{Nucleus}!Set\-Nstates@{Set\-Nstates}}
+\index{Set\-Nstates@{Set\-Nstates}!Nucleus@{Nucleus}}
+\subsubsection[{Set\-Nstates}]{\setlength{\rightskip}{0pt plus 5cm}void Nucleus\-::\-Set\-Nstates (
+\begin{DoxyParamCaption}
+\item[{int}]{n\-S}
+\end{DoxyParamCaption}
+)}}\label{classNucleus_aa48a728dcb4dc35dc13786d33bb21bc5}
+Define the number of states in the calculation 
+
+Definition at line 86 of file Nucleus.\-cxx.
+
+\hypertarget{classNucleus_a768c3938464bbd81c8d74ce2e1aa19ea}{\index{Nucleus@{Nucleus}!Set\-State@{Set\-State}}
+\index{Set\-State@{Set\-State}!Nucleus@{Nucleus}}
+\subsubsection[{Set\-State}]{\setlength{\rightskip}{0pt plus 5cm}void Nucleus\-::\-Set\-State (
+\begin{DoxyParamCaption}
+\item[{int}]{s, }
+\item[{double}]{E, }
+\item[{double}]{J, }
+\item[{int}]{P}
+\end{DoxyParamCaption}
+)}}\label{classNucleus_a768c3938464bbd81c8d74ce2e1aa19ea}
+Define state of index s, energy E, spin J and parity P 
+
+Definition at line 101 of file Nucleus.\-cxx.
+
+\hypertarget{classNucleus_ac8385f9efc4969b5f8c8eafea85d10fe}{\index{Nucleus@{Nucleus}!Set\-State\-E@{Set\-State\-E}}
+\index{Set\-State\-E@{Set\-State\-E}!Nucleus@{Nucleus}}
+\subsubsection[{Set\-State\-E}]{\setlength{\rightskip}{0pt plus 5cm}void Nucleus\-::\-Set\-State\-E (
+\begin{DoxyParamCaption}
+\item[{int}]{s, }
+\item[{double}]{E}
+\end{DoxyParamCaption}
+)}}\label{classNucleus_ac8385f9efc4969b5f8c8eafea85d10fe}
+Define energy E of state with index s 
+
+Definition at line 107 of file Nucleus.\-cxx.
+
+\hypertarget{classNucleus_a001e9aa70fa2c89203596763527ca21a}{\index{Nucleus@{Nucleus}!Set\-State\-J@{Set\-State\-J}}
+\index{Set\-State\-J@{Set\-State\-J}!Nucleus@{Nucleus}}
+\subsubsection[{Set\-State\-J}]{\setlength{\rightskip}{0pt plus 5cm}void Nucleus\-::\-Set\-State\-J (
+\begin{DoxyParamCaption}
+\item[{int}]{s, }
+\item[{double}]{J}
+\end{DoxyParamCaption}
+)}}\label{classNucleus_a001e9aa70fa2c89203596763527ca21a}
+Define spin J of state with index s 
+
+Definition at line 119 of file Nucleus.\-cxx.
+
+\hypertarget{classNucleus_a81b9a661f8e7cf4a36a8c73054bac261}{\index{Nucleus@{Nucleus}!Set\-State\-P@{Set\-State\-P}}
+\index{Set\-State\-P@{Set\-State\-P}!Nucleus@{Nucleus}}
+\subsubsection[{Set\-State\-P}]{\setlength{\rightskip}{0pt plus 5cm}void Nucleus\-::\-Set\-State\-P (
+\begin{DoxyParamCaption}
+\item[{int}]{s, }
+\item[{int}]{P}
+\end{DoxyParamCaption}
+)}}\label{classNucleus_a81b9a661f8e7cf4a36a8c73054bac261}
+Define parity P of state with index s 
+
+Definition at line 113 of file Nucleus.\-cxx.
+
+\hypertarget{classNucleus_a33eaf2fef4f8980753be2b4ec787a8f9}{\index{Nucleus@{Nucleus}!Set\-Z@{Set\-Z}}
+\index{Set\-Z@{Set\-Z}!Nucleus@{Nucleus}}
+\subsubsection[{Set\-Z}]{\setlength{\rightskip}{0pt plus 5cm}void Nucleus\-::\-Set\-Z (
+\begin{DoxyParamCaption}
+\item[{int}]{z}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classNucleus_a33eaf2fef4f8980753be2b4ec787a8f9}
+Define nucleus proton number, Z 
+
+Definition at line 41 of file Nucleus.\-h.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Nucleus.\-h\item 
+Nucleus.\-cxx\end{DoxyCompactItemize}

@@ -1,0 +1,138 @@
+\hypertarget{classStateTensor}{\section{State\-Tensor Class Reference}
+\label{classStateTensor}\index{State\-Tensor@{State\-Tensor}}
+}
+
+
+Statistical tensor information for a single state.  
+
+
+
+
+{\ttfamily \#include $<$Statistical\-Tensor.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classStateTensor_a969a220f6a5be9b01afa78b6292e01d7}{Set\-State} (int i)
+\item 
+void \hyperlink{classStateTensor_a830dc885eb4aa28cd39c144f07c2ec06}{Add\-Element} (double rho, double k, double kappa)
+\item 
+int \hyperlink{classStateTensor_ad297f8b055e24255c184e1aa3cba9813}{Get\-Nelements} () const 
+\item 
+int \hyperlink{classStateTensor_a007e86a82445e082bc1b183805990039}{Get\-State} () const 
+\item 
+double \hyperlink{classStateTensor_a5e6589749f471fab682594e8df6c7da7}{Get\-Tensor} (int i) const 
+\item 
+double \hyperlink{classStateTensor_adbef5f333e1f020354f400c6e70c510f}{Get\-K} (int i) const 
+\item 
+double \hyperlink{classStateTensor_a596ba29aacb7231b5d9cef84071115de}{Get\-Kappa} (int i) const 
+\item 
+size\-\_\-t \hyperlink{classStateTensor_a10cd06b8aadf80ee0041f198bf1bbde4}{Index\-From\-Kkappa} (double, double)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Statistical tensor information for a single state. 
+
+Definition at line 14 of file Statistical\-Tensor.\-h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classStateTensor_a830dc885eb4aa28cd39c144f07c2ec06}{\index{State\-Tensor@{State\-Tensor}!Add\-Element@{Add\-Element}}
+\index{Add\-Element@{Add\-Element}!StateTensor@{State\-Tensor}}
+\subsubsection[{Add\-Element}]{\setlength{\rightskip}{0pt plus 5cm}void State\-Tensor\-::\-Add\-Element (
+\begin{DoxyParamCaption}
+\item[{double}]{rho, }
+\item[{double}]{k, }
+\item[{double}]{kappa}
+\end{DoxyParamCaption}
+)}}\label{classStateTensor_a830dc885eb4aa28cd39c144f07c2ec06}
+Define the density matrix component, rho for given k and kappa 
+
+Definition at line 3 of file Statistical\-Tensor.\-cxx.
+
+\hypertarget{classStateTensor_adbef5f333e1f020354f400c6e70c510f}{\index{State\-Tensor@{State\-Tensor}!Get\-K@{Get\-K}}
+\index{Get\-K@{Get\-K}!StateTensor@{State\-Tensor}}
+\subsubsection[{Get\-K}]{\setlength{\rightskip}{0pt plus 5cm}double State\-Tensor\-::\-Get\-K (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classStateTensor_adbef5f333e1f020354f400c6e70c510f}
+Return the k value for element i 
+
+Definition at line 27 of file Statistical\-Tensor.\-h.
+
+\hypertarget{classStateTensor_a596ba29aacb7231b5d9cef84071115de}{\index{State\-Tensor@{State\-Tensor}!Get\-Kappa@{Get\-Kappa}}
+\index{Get\-Kappa@{Get\-Kappa}!StateTensor@{State\-Tensor}}
+\subsubsection[{Get\-Kappa}]{\setlength{\rightskip}{0pt plus 5cm}double State\-Tensor\-::\-Get\-Kappa (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classStateTensor_a596ba29aacb7231b5d9cef84071115de}
+Return the kappa value for element i 
+
+Definition at line 28 of file Statistical\-Tensor.\-h.
+
+\hypertarget{classStateTensor_ad297f8b055e24255c184e1aa3cba9813}{\index{State\-Tensor@{State\-Tensor}!Get\-Nelements@{Get\-Nelements}}
+\index{Get\-Nelements@{Get\-Nelements}!StateTensor@{State\-Tensor}}
+\subsubsection[{Get\-Nelements}]{\setlength{\rightskip}{0pt plus 5cm}int State\-Tensor\-::\-Get\-Nelements (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classStateTensor_ad297f8b055e24255c184e1aa3cba9813}
+Return the number of components to the tensor 
+
+Definition at line 23 of file Statistical\-Tensor.\-h.
+
+\hypertarget{classStateTensor_a007e86a82445e082bc1b183805990039}{\index{State\-Tensor@{State\-Tensor}!Get\-State@{Get\-State}}
+\index{Get\-State@{Get\-State}!StateTensor@{State\-Tensor}}
+\subsubsection[{Get\-State}]{\setlength{\rightskip}{0pt plus 5cm}int State\-Tensor\-::\-Get\-State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classStateTensor_a007e86a82445e082bc1b183805990039}
+Return the state index 
+
+Definition at line 25 of file Statistical\-Tensor.\-h.
+
+\hypertarget{classStateTensor_a5e6589749f471fab682594e8df6c7da7}{\index{State\-Tensor@{State\-Tensor}!Get\-Tensor@{Get\-Tensor}}
+\index{Get\-Tensor@{Get\-Tensor}!StateTensor@{State\-Tensor}}
+\subsubsection[{Get\-Tensor}]{\setlength{\rightskip}{0pt plus 5cm}double State\-Tensor\-::\-Get\-Tensor (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classStateTensor_a5e6589749f471fab682594e8df6c7da7}
+Return the tensor for element i 
+
+Definition at line 26 of file Statistical\-Tensor.\-h.
+
+\hypertarget{classStateTensor_a10cd06b8aadf80ee0041f198bf1bbde4}{\index{State\-Tensor@{State\-Tensor}!Index\-From\-Kkappa@{Index\-From\-Kkappa}}
+\index{Index\-From\-Kkappa@{Index\-From\-Kkappa}!StateTensor@{State\-Tensor}}
+\subsubsection[{Index\-From\-Kkappa}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t State\-Tensor\-::\-Index\-From\-Kkappa (
+\begin{DoxyParamCaption}
+\item[{double}]{k, }
+\item[{double}]{kappa}
+\end{DoxyParamCaption}
+)}}\label{classStateTensor_a10cd06b8aadf80ee0041f198bf1bbde4}
+For a given k and kappa combination, find the element index 
+
+Definition at line 11 of file Statistical\-Tensor.\-cxx.
+
+\hypertarget{classStateTensor_a969a220f6a5be9b01afa78b6292e01d7}{\index{State\-Tensor@{State\-Tensor}!Set\-State@{Set\-State}}
+\index{Set\-State@{Set\-State}!StateTensor@{State\-Tensor}}
+\subsubsection[{Set\-State}]{\setlength{\rightskip}{0pt plus 5cm}void State\-Tensor\-::\-Set\-State (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classStateTensor_a969a220f6a5be9b01afa78b6292e01d7}
+Define the state 
+
+Definition at line 20 of file Statistical\-Tensor.\-h.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Statistical\-Tensor.\-h\item 
+Statistical\-Tensor.\-cxx\end{DoxyCompactItemize}

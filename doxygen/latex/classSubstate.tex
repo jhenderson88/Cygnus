@@ -1,0 +1,176 @@
+\hypertarget{classSubstate}{\section{Substate Class Reference}
+\label{classSubstate}\index{Substate@{Substate}}
+}
+
+
+Holder class for substate information.  
+
+
+
+
+{\ttfamily \#include $<$Substate.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSubstate_adc55a0114f54fd9e2e0b284e77177077}{Substate} (double M, int ss, int s)
+\item 
+\hyperlink{classSubstate_a094e9816b8d0e1ca8a925060aa666a10}{Substate} (const \hyperlink{classSubstate}{Substate} \&s)
+\item 
+\hyperlink{classSubstate}{Substate} \& \hyperlink{classSubstate_a1fdb1a8a82baf2d03f42a1b7ce37421d}{operator=} (const \hyperlink{classSubstate}{Substate} \&s)
+\item 
+int \hyperlink{classSubstate_abb2e99735df6a7f342236b08d6845f19}{Get\-State\-Index} () const 
+\item 
+void \hyperlink{classSubstate_ae5dc83066f50c796155954d7f9c3c1b8}{Set\-State\-Index} (int i)
+\item 
+double \hyperlink{classSubstate_aa24ecbfaab39eeeb1bbefeb833031930}{Get\-M} () const 
+\item 
+void \hyperlink{classSubstate_ab36c3c3b2a3862f67d8f0ca69c79b625}{Set\-M} (double m)
+\item 
+unsigned int \hyperlink{classSubstate_a720d7bdf9c506bde448c9dd68eaa2914}{Get\-Nconnections} () const 
+\item 
+\hyperlink{classConnection}{Connection} \hyperlink{classSubstate_af5850558a667f170661f5fcb7bcc9f28}{Get\-Connection} (int i) const 
+\item 
+void \hyperlink{classSubstate_a14f86d11fdf7540b3a6efd5006900cea}{Add\-Connection} (\hyperlink{classConnection}{Connection} c)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Holder class for substate information. 
+
+\begin{DoxyVerb}Holder class for information on magnetic substates including M, 
+\end{DoxyVerb}
+ connection information, etc.
+
+Excitation calculations are performed substate-\/by-\/substate, so this class (rather than the \hyperlink{classState}{State} class) contains the majority of the important coupling information.
+
+Contained within this class is a list of connections to other substates, defined by the Connections class.
+
+Also included is an index for the \hyperlink{classState}{State} object, of which the substate is a... substate. 
+
+Definition at line 27 of file Substate.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classSubstate_adc55a0114f54fd9e2e0b284e77177077}{\index{Substate@{Substate}!Substate@{Substate}}
+\index{Substate@{Substate}!Substate@{Substate}}
+\subsubsection[{Substate}]{\setlength{\rightskip}{0pt plus 5cm}Substate\-::\-Substate (
+\begin{DoxyParamCaption}
+\item[{double}]{M, }
+\item[{int}]{ss, }
+\item[{int}]{s}
+\end{DoxyParamCaption}
+)}}\label{classSubstate_adc55a0114f54fd9e2e0b284e77177077}
+Constructor defining the magnetic quantum number, M, the substate index, ss, and the parent state index, s. 
+
+Definition at line 3 of file Substate.\-cxx.
+
+\hypertarget{classSubstate_a094e9816b8d0e1ca8a925060aa666a10}{\index{Substate@{Substate}!Substate@{Substate}}
+\index{Substate@{Substate}!Substate@{Substate}}
+\subsubsection[{Substate}]{\setlength{\rightskip}{0pt plus 5cm}Substate\-::\-Substate (
+\begin{DoxyParamCaption}
+\item[{const {\bf Substate} \&}]{s}
+\end{DoxyParamCaption}
+)}}\label{classSubstate_a094e9816b8d0e1ca8a925060aa666a10}
+Copy constructor 
+
+Definition at line 12 of file Substate.\-cxx.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classSubstate_a14f86d11fdf7540b3a6efd5006900cea}{\index{Substate@{Substate}!Add\-Connection@{Add\-Connection}}
+\index{Add\-Connection@{Add\-Connection}!Substate@{Substate}}
+\subsubsection[{Add\-Connection}]{\setlength{\rightskip}{0pt plus 5cm}void Substate\-::\-Add\-Connection (
+\begin{DoxyParamCaption}
+\item[{{\bf Connection}}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSubstate_a14f86d11fdf7540b3a6efd5006900cea}
+Define a new connection to another substate 
+
+Definition at line 49 of file Substate.\-h.
+
+\hypertarget{classSubstate_af5850558a667f170661f5fcb7bcc9f28}{\index{Substate@{Substate}!Get\-Connection@{Get\-Connection}}
+\index{Get\-Connection@{Get\-Connection}!Substate@{Substate}}
+\subsubsection[{Get\-Connection}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Connection} Substate\-::\-Get\-Connection (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSubstate_af5850558a667f170661f5fcb7bcc9f28}
+Return the connection (indexed i) to another substate 
+
+Definition at line 47 of file Substate.\-h.
+
+\hypertarget{classSubstate_aa24ecbfaab39eeeb1bbefeb833031930}{\index{Substate@{Substate}!Get\-M@{Get\-M}}
+\index{Get\-M@{Get\-M}!Substate@{Substate}}
+\subsubsection[{Get\-M}]{\setlength{\rightskip}{0pt plus 5cm}double Substate\-::\-Get\-M (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSubstate_aa24ecbfaab39eeeb1bbefeb833031930}
+Return the magnetic quantum number 
+
+Definition at line 43 of file Substate.\-h.
+
+\hypertarget{classSubstate_a720d7bdf9c506bde448c9dd68eaa2914}{\index{Substate@{Substate}!Get\-Nconnections@{Get\-Nconnections}}
+\index{Get\-Nconnections@{Get\-Nconnections}!Substate@{Substate}}
+\subsubsection[{Get\-Nconnections}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Substate\-::\-Get\-Nconnections (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSubstate_a720d7bdf9c506bde448c9dd68eaa2914}
+Return the number of connections to other substates 
+
+Definition at line 46 of file Substate.\-h.
+
+\hypertarget{classSubstate_abb2e99735df6a7f342236b08d6845f19}{\index{Substate@{Substate}!Get\-State\-Index@{Get\-State\-Index}}
+\index{Get\-State\-Index@{Get\-State\-Index}!Substate@{Substate}}
+\subsubsection[{Get\-State\-Index}]{\setlength{\rightskip}{0pt plus 5cm}int Substate\-::\-Get\-State\-Index (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSubstate_abb2e99735df6a7f342236b08d6845f19}
+Return the parent state index 
+
+Definition at line 40 of file Substate.\-h.
+
+\hypertarget{classSubstate_a1fdb1a8a82baf2d03f42a1b7ce37421d}{\index{Substate@{Substate}!operator=@{operator=}}
+\index{operator=@{operator=}!Substate@{Substate}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Substate} \& Substate\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Substate} \&}]{s}
+\end{DoxyParamCaption}
+)}}\label{classSubstate_a1fdb1a8a82baf2d03f42a1b7ce37421d}
+Assignment operator 
+
+Definition at line 24 of file Substate.\-cxx.
+
+\hypertarget{classSubstate_ab36c3c3b2a3862f67d8f0ca69c79b625}{\index{Substate@{Substate}!Set\-M@{Set\-M}}
+\index{Set\-M@{Set\-M}!Substate@{Substate}}
+\subsubsection[{Set\-M}]{\setlength{\rightskip}{0pt plus 5cm}void Substate\-::\-Set\-M (
+\begin{DoxyParamCaption}
+\item[{double}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSubstate_ab36c3c3b2a3862f67d8f0ca69c79b625}
+Define the magnetic quantum number 
+
+Definition at line 44 of file Substate.\-h.
+
+\hypertarget{classSubstate_ae5dc83066f50c796155954d7f9c3c1b8}{\index{Substate@{Substate}!Set\-State\-Index@{Set\-State\-Index}}
+\index{Set\-State\-Index@{Set\-State\-Index}!Substate@{Substate}}
+\subsubsection[{Set\-State\-Index}]{\setlength{\rightskip}{0pt plus 5cm}void Substate\-::\-Set\-State\-Index (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSubstate_ae5dc83066f50c796155954d7f9c3c1b8}
+Define the parent state index 
+
+Definition at line 41 of file Substate.\-h.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Substate.\-h\item 
+Substate.\-cxx\end{DoxyCompactItemize}

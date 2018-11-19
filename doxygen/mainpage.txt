@@ -1,0 +1,45 @@
+/*!
+\mainpage
+
+\section discrepancies Known GOSIA discrepancies & to-do
+
+CYGNUS is still in a testing phase and should not yet be used in isolation for analysis.
+
+A few known problems/differences with GOSIA:
+
+Kinematics treatments disagree with those in GOSIA. Conversion from the lab to the center-of-mass sometimes differ by up to 0.1 degrees. This can translate to a 0.1% discrepancy in excitation probabilities. In all likelihood this is below experimental sensitivity, but should be remembered when preparing outputs. The kinematics used in CYGNUS have been tested against (for example) CatKin, and agree well.
+
+Tensors are currently calculated but are not yet used. 
+
+\section install_sec Installation
+
+\subsection prereq Prerequisites
+
+Cygnus requires C++11 and ROOT6, with the MathMore and MathCore libraries. Currently it has only been tested on Linux machines.
+
+\subsection inst Installing
+
+Download and unpack the repository (.tar) or clone from github.
+
+In the Cygnus directory ($CYGNUS_DIR, henceforth): \n
+> make -j
+
+To compile the scripts ($CYGNUS_DIR/scripts)
+> cd $CYGNUS_DIR/scripts \n
+> make -j
+
+\section running Running the code
+
+Cygnus can be run either in a compiled C++ code, or through the ROOT interpreter (line-by-line or in a macro).
+
+To run through ROOT, the rootstart.C macro should be called first, loading the relevant libraries:
+> root -l rootstart.C MacroName.C
+
+Examples of compileable programs using CYGNUS are included in the scripts directory. In order to successfully run compiled code, $CYGNUS_DIR/bin must be added to the LD_LIBRARY_PATH. For repeated use, it is 
+advisable to perform this step in the user's .bashrc file.
+
+\section Cygnus Logic
+
+The semi-classical Coulomb excitation method is used to determine point Coulomb excitation (PointCoulEx) amplitudes and probabilities. In reality, experiments do not probe a single energy and center-of-mass angle, but rather a range over both values. To integrate this range (and in a similar logic to the GOSIA code), ExperimentRange objects are defined. Here, using the Integral class, multiple meshpoints in theta and energy are calculated. These are then fitted to provide a cross-section surface in theta and energy, which can then be integrated to determine an experimental cross section. The integration step can be enhanced through the use of the ParticleDetector class, in which a 2D theta-phi efficiency histogram is defined to allow for the yields to be corrected for particle detection (in)efficiencies.
+
+*/

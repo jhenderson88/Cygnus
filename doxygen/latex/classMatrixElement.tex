@@ -1,0 +1,241 @@
+\hypertarget{classMatrixElement}{\section{Matrix\-Element Class Reference}
+\label{classMatrixElement}\index{Matrix\-Element@{Matrix\-Element}}
+}
+
+
+Holder class for matrix element information for use in fitting routines.  
+
+
+
+
+{\ttfamily \#include $<$Matrix\-Element.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMatrixElement_a83d60e7b205272e6f4094c9fc8cb4c4d}{Matrix\-Element} (int i, int l, int s1, int s2, double me, double mell, double meul)
+\item 
+\hyperlink{classMatrixElement}{Matrix\-Element} \& \hyperlink{classMatrixElement_a2d864d100fbfbd103fcd67875914db38}{operator=} (const \hyperlink{classMatrixElement}{Matrix\-Element} \&m)
+\item 
+\hyperlink{classMatrixElement_a30ac58221e03277afad4eed3adc09a0b}{Matrix\-Element} (const \hyperlink{classMatrixElement}{Matrix\-Element} \&m)
+\item 
+void \hyperlink{classMatrixElement_a540bcf73f6d9e18b30e66952b834e020}{Setup\-M\-E} (int i, int l, int s1, int s2, double me, double mell, double meul)
+\item 
+void \hyperlink{classMatrixElement_ad0794f7ee58205f378f282d3fc8f40bb}{Set\-Matrix\-Element} (double M\-E)
+\item 
+void \hyperlink{classMatrixElement_a9ec4a725c296b92e51f988001387c4e9}{Set\-Matrix\-Element\-Lower\-Limit} (double M\-E\-\_\-\-L\-L)
+\item 
+void \hyperlink{classMatrixElement_a65803cfefe893738af216b6c9f4018c0}{Set\-Matrix\-Element\-Upper\-Limit} (double M\-E\-\_\-\-U\-L)
+\item 
+double \hyperlink{classMatrixElement_a518a9a4711e4b2ee2b4a534f1bafc8d3}{Get\-Matrix\-Element} () const 
+\item 
+double \hyperlink{classMatrixElement_a5b8f8968deb10d9ed0ca18ad0273010c}{Get\-Matrix\-Element\-Lower\-Limit} () const 
+\item 
+double \hyperlink{classMatrixElement_ae8fd6df0ed51b6eddda1de3b41491b22}{Get\-Matrix\-Element\-Upper\-Limit} () const 
+\item 
+int \hyperlink{classMatrixElement_a9138d9787110084ed9306cf9018fb143}{Get\-Index} () const 
+\item 
+int \hyperlink{classMatrixElement_a7a22d3d44c12217bd4a890806657eeb3}{Get\-Lambda} () const 
+\item 
+int \hyperlink{classMatrixElement_a2604e3745d3558a26c9d39d14de84ba8}{Get\-Initial\-State} () const 
+\item 
+int \hyperlink{classMatrixElement_ab4bc3c2a312951403d15742903467cca}{Get\-Final\-State} () const 
+\item 
+void \hyperlink{classMatrixElement_a0129631b95fb3ac2f82c2266bf7ada7c}{Print} () const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Holder class for matrix element information for use in fitting routines. 
+
+Definition at line 14 of file Matrix\-Element.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classMatrixElement_a83d60e7b205272e6f4094c9fc8cb4c4d}{\index{Matrix\-Element@{Matrix\-Element}!Matrix\-Element@{Matrix\-Element}}
+\index{Matrix\-Element@{Matrix\-Element}!MatrixElement@{Matrix\-Element}}
+\subsubsection[{Matrix\-Element}]{\setlength{\rightskip}{0pt plus 5cm}Matrix\-Element\-::\-Matrix\-Element (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{l, }
+\item[{int}]{s1, }
+\item[{int}]{s2, }
+\item[{double}]{me, }
+\item[{double}]{mell, }
+\item[{double}]{meul}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classMatrixElement_a83d60e7b205272e6f4094c9fc8cb4c4d}
+Construct matrix element me, of index i, multipolarity l, between states s1 and s2 with lower and upper limits of mell and meul 
+
+Definition at line 18 of file Matrix\-Element.\-h.
+
+\hypertarget{classMatrixElement_a30ac58221e03277afad4eed3adc09a0b}{\index{Matrix\-Element@{Matrix\-Element}!Matrix\-Element@{Matrix\-Element}}
+\index{Matrix\-Element@{Matrix\-Element}!MatrixElement@{Matrix\-Element}}
+\subsubsection[{Matrix\-Element}]{\setlength{\rightskip}{0pt plus 5cm}Matrix\-Element\-::\-Matrix\-Element (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matrix\-Element} \&}]{m}
+\end{DoxyParamCaption}
+)}}\label{classMatrixElement_a30ac58221e03277afad4eed3adc09a0b}
+Copy constructor 
+
+Definition at line 17 of file Matrix\-Element.\-cxx.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classMatrixElement_ab4bc3c2a312951403d15742903467cca}{\index{Matrix\-Element@{Matrix\-Element}!Get\-Final\-State@{Get\-Final\-State}}
+\index{Get\-Final\-State@{Get\-Final\-State}!MatrixElement@{Matrix\-Element}}
+\subsubsection[{Get\-Final\-State}]{\setlength{\rightskip}{0pt plus 5cm}int Matrix\-Element\-::\-Get\-Final\-State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classMatrixElement_ab4bc3c2a312951403d15742903467cca}
+Return final state index 
+
+Definition at line 49 of file Matrix\-Element.\-h.
+
+\hypertarget{classMatrixElement_a9138d9787110084ed9306cf9018fb143}{\index{Matrix\-Element@{Matrix\-Element}!Get\-Index@{Get\-Index}}
+\index{Get\-Index@{Get\-Index}!MatrixElement@{Matrix\-Element}}
+\subsubsection[{Get\-Index}]{\setlength{\rightskip}{0pt plus 5cm}int Matrix\-Element\-::\-Get\-Index (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classMatrixElement_a9138d9787110084ed9306cf9018fb143}
+Return matrix element index 
+
+Definition at line 46 of file Matrix\-Element.\-h.
+
+\hypertarget{classMatrixElement_a2604e3745d3558a26c9d39d14de84ba8}{\index{Matrix\-Element@{Matrix\-Element}!Get\-Initial\-State@{Get\-Initial\-State}}
+\index{Get\-Initial\-State@{Get\-Initial\-State}!MatrixElement@{Matrix\-Element}}
+\subsubsection[{Get\-Initial\-State}]{\setlength{\rightskip}{0pt plus 5cm}int Matrix\-Element\-::\-Get\-Initial\-State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classMatrixElement_a2604e3745d3558a26c9d39d14de84ba8}
+Return initial state index 
+
+Definition at line 48 of file Matrix\-Element.\-h.
+
+\hypertarget{classMatrixElement_a7a22d3d44c12217bd4a890806657eeb3}{\index{Matrix\-Element@{Matrix\-Element}!Get\-Lambda@{Get\-Lambda}}
+\index{Get\-Lambda@{Get\-Lambda}!MatrixElement@{Matrix\-Element}}
+\subsubsection[{Get\-Lambda}]{\setlength{\rightskip}{0pt plus 5cm}int Matrix\-Element\-::\-Get\-Lambda (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classMatrixElement_a7a22d3d44c12217bd4a890806657eeb3}
+Return matrix element mulitpolarity 
+
+Definition at line 47 of file Matrix\-Element.\-h.
+
+\hypertarget{classMatrixElement_a518a9a4711e4b2ee2b4a534f1bafc8d3}{\index{Matrix\-Element@{Matrix\-Element}!Get\-Matrix\-Element@{Get\-Matrix\-Element}}
+\index{Get\-Matrix\-Element@{Get\-Matrix\-Element}!MatrixElement@{Matrix\-Element}}
+\subsubsection[{Get\-Matrix\-Element}]{\setlength{\rightskip}{0pt plus 5cm}double Matrix\-Element\-::\-Get\-Matrix\-Element (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classMatrixElement_a518a9a4711e4b2ee2b4a534f1bafc8d3}
+Return matrix element value 
+
+Definition at line 43 of file Matrix\-Element.\-h.
+
+\hypertarget{classMatrixElement_a5b8f8968deb10d9ed0ca18ad0273010c}{\index{Matrix\-Element@{Matrix\-Element}!Get\-Matrix\-Element\-Lower\-Limit@{Get\-Matrix\-Element\-Lower\-Limit}}
+\index{Get\-Matrix\-Element\-Lower\-Limit@{Get\-Matrix\-Element\-Lower\-Limit}!MatrixElement@{Matrix\-Element}}
+\subsubsection[{Get\-Matrix\-Element\-Lower\-Limit}]{\setlength{\rightskip}{0pt plus 5cm}double Matrix\-Element\-::\-Get\-Matrix\-Element\-Lower\-Limit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classMatrixElement_a5b8f8968deb10d9ed0ca18ad0273010c}
+Return matrix element lower limit 
+
+Definition at line 44 of file Matrix\-Element.\-h.
+
+\hypertarget{classMatrixElement_ae8fd6df0ed51b6eddda1de3b41491b22}{\index{Matrix\-Element@{Matrix\-Element}!Get\-Matrix\-Element\-Upper\-Limit@{Get\-Matrix\-Element\-Upper\-Limit}}
+\index{Get\-Matrix\-Element\-Upper\-Limit@{Get\-Matrix\-Element\-Upper\-Limit}!MatrixElement@{Matrix\-Element}}
+\subsubsection[{Get\-Matrix\-Element\-Upper\-Limit}]{\setlength{\rightskip}{0pt plus 5cm}double Matrix\-Element\-::\-Get\-Matrix\-Element\-Upper\-Limit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classMatrixElement_ae8fd6df0ed51b6eddda1de3b41491b22}
+Return matrix element upper limit 
+
+Definition at line 45 of file Matrix\-Element.\-h.
+
+\hypertarget{classMatrixElement_a2d864d100fbfbd103fcd67875914db38}{\index{Matrix\-Element@{Matrix\-Element}!operator=@{operator=}}
+\index{operator=@{operator=}!MatrixElement@{Matrix\-Element}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix\-Element} \& Matrix\-Element\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matrix\-Element} \&}]{m}
+\end{DoxyParamCaption}
+)}}\label{classMatrixElement_a2d864d100fbfbd103fcd67875914db38}
+Assignment operator 
+
+Definition at line 4 of file Matrix\-Element.\-cxx.
+
+\hypertarget{classMatrixElement_a0129631b95fb3ac2f82c2266bf7ada7c}{\index{Matrix\-Element@{Matrix\-Element}!Print@{Print}}
+\index{Print@{Print}!MatrixElement@{Matrix\-Element}}
+\subsubsection[{Print}]{\setlength{\rightskip}{0pt plus 5cm}void Matrix\-Element\-::\-Print (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classMatrixElement_a0129631b95fb3ac2f82c2266bf7ada7c}
+Print matrix element information 
+
+Definition at line 28 of file Matrix\-Element.\-cxx.
+
+\hypertarget{classMatrixElement_ad0794f7ee58205f378f282d3fc8f40bb}{\index{Matrix\-Element@{Matrix\-Element}!Set\-Matrix\-Element@{Set\-Matrix\-Element}}
+\index{Set\-Matrix\-Element@{Set\-Matrix\-Element}!MatrixElement@{Matrix\-Element}}
+\subsubsection[{Set\-Matrix\-Element}]{\setlength{\rightskip}{0pt plus 5cm}void Matrix\-Element\-::\-Set\-Matrix\-Element (
+\begin{DoxyParamCaption}
+\item[{double}]{M\-E}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classMatrixElement_ad0794f7ee58205f378f282d3fc8f40bb}
+Define matrix element value 
+
+Definition at line 40 of file Matrix\-Element.\-h.
+
+\hypertarget{classMatrixElement_a9ec4a725c296b92e51f988001387c4e9}{\index{Matrix\-Element@{Matrix\-Element}!Set\-Matrix\-Element\-Lower\-Limit@{Set\-Matrix\-Element\-Lower\-Limit}}
+\index{Set\-Matrix\-Element\-Lower\-Limit@{Set\-Matrix\-Element\-Lower\-Limit}!MatrixElement@{Matrix\-Element}}
+\subsubsection[{Set\-Matrix\-Element\-Lower\-Limit}]{\setlength{\rightskip}{0pt plus 5cm}void Matrix\-Element\-::\-Set\-Matrix\-Element\-Lower\-Limit (
+\begin{DoxyParamCaption}
+\item[{double}]{M\-E\-\_\-\-L\-L}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classMatrixElement_a9ec4a725c296b92e51f988001387c4e9}
+Define matrix element lower limit 
+
+Definition at line 41 of file Matrix\-Element.\-h.
+
+\hypertarget{classMatrixElement_a65803cfefe893738af216b6c9f4018c0}{\index{Matrix\-Element@{Matrix\-Element}!Set\-Matrix\-Element\-Upper\-Limit@{Set\-Matrix\-Element\-Upper\-Limit}}
+\index{Set\-Matrix\-Element\-Upper\-Limit@{Set\-Matrix\-Element\-Upper\-Limit}!MatrixElement@{Matrix\-Element}}
+\subsubsection[{Set\-Matrix\-Element\-Upper\-Limit}]{\setlength{\rightskip}{0pt plus 5cm}void Matrix\-Element\-::\-Set\-Matrix\-Element\-Upper\-Limit (
+\begin{DoxyParamCaption}
+\item[{double}]{M\-E\-\_\-\-U\-L}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classMatrixElement_a65803cfefe893738af216b6c9f4018c0}
+Define matrix element upper limit 
+
+Definition at line 42 of file Matrix\-Element.\-h.
+
+\hypertarget{classMatrixElement_a540bcf73f6d9e18b30e66952b834e020}{\index{Matrix\-Element@{Matrix\-Element}!Setup\-M\-E@{Setup\-M\-E}}
+\index{Setup\-M\-E@{Setup\-M\-E}!MatrixElement@{Matrix\-Element}}
+\subsubsection[{Setup\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}void Matrix\-Element\-::\-Setup\-M\-E (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{l, }
+\item[{int}]{s1, }
+\item[{int}]{s2, }
+\item[{double}]{me, }
+\item[{double}]{mell, }
+\item[{double}]{meul}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classMatrixElement_a540bcf73f6d9e18b30e66952b834e020}
+Define matrix element me, of index i, multipolarity l, between states s1 and s2 with lower and upper limits of mell and meul 
+
+Definition at line 31 of file Matrix\-Element.\-h.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Matrix\-Element.\-h\item 
+Matrix\-Element.\-cxx\end{DoxyCompactItemize}

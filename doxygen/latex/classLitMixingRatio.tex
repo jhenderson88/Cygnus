@@ -1,0 +1,166 @@
+\hypertarget{classLitMixingRatio}{\section{Lit\-Mixing\-Ratio Class Reference}
+\label{classLitMixingRatio}\index{Lit\-Mixing\-Ratio@{Lit\-Mixing\-Ratio}}
+}
+
+
+Holder for literature mixing ratio information for fitting.  
+
+
+
+
+{\ttfamily \#include $<$Literature.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classLitMixingRatio_acc81b7cc846a020243c5614b62e718e3}{Lit\-Mixing\-Ratio} (int i, int f, double d, double e)
+\item 
+\hyperlink{classLitMixingRatio_a647762d11abd8df832b8520e20a467ea}{Lit\-Mixing\-Ratio} (int i, int f, double d, double ue, double de)
+\item 
+\hyperlink{classLitMixingRatio_a091f73652ff6c8b44618cfa92b0c00af}{Lit\-Mixing\-Ratio} (const \hyperlink{classLitMixingRatio}{Lit\-Mixing\-Ratio} \&lm)
+\item 
+\hyperlink{classLitMixingRatio}{Lit\-Mixing\-Ratio} \& \hyperlink{classLitMixingRatio_a81ec58f8ca7d4e67b844293891a63fa9}{operator=} (const \hyperlink{classLitMixingRatio}{Lit\-Mixing\-Ratio} \&lm)
+\item 
+double \hyperlink{classLitMixingRatio_a0c62b693ea790373dde68c387d45a38e}{Get\-Initial\-Index} () const 
+\item 
+double \hyperlink{classLitMixingRatio_abda111abfec00d0ce4ae3aa409af22c6}{Get\-Final\-Index} () const 
+\item 
+double \hyperlink{classLitMixingRatio_afecebfa6f4469db8a059b9192c25c9b0}{Get\-Mixing\-Ratio} () const 
+\item 
+double \hyperlink{classLitMixingRatio_aa4506749342319dcd24dd9e6e6f4dbee}{Get\-Dn\-Unc} () const 
+\item 
+double \hyperlink{classLitMixingRatio_a919978e47969b8b575f1db57ea7bfbdc}{Get\-Up\-Unc} () const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Holder for literature mixing ratio information for fitting. 
+
+Definition at line 100 of file Literature.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classLitMixingRatio_acc81b7cc846a020243c5614b62e718e3}{\index{Lit\-Mixing\-Ratio@{Lit\-Mixing\-Ratio}!Lit\-Mixing\-Ratio@{Lit\-Mixing\-Ratio}}
+\index{Lit\-Mixing\-Ratio@{Lit\-Mixing\-Ratio}!LitMixingRatio@{Lit\-Mixing\-Ratio}}
+\subsubsection[{Lit\-Mixing\-Ratio}]{\setlength{\rightskip}{0pt plus 5cm}Lit\-Mixing\-Ratio\-::\-Lit\-Mixing\-Ratio (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{f, }
+\item[{double}]{d, }
+\item[{double}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLitMixingRatio_acc81b7cc846a020243c5614b62e718e3}
+Construct literature mixing ratio with symmetric uncertainties\-:\par
+Initial state index = i \par
+Final state index = f \par
+Mixing ratio = d \par
+Uncertainty = e 
+
+Definition at line 111 of file Literature.\-h.
+
+\hypertarget{classLitMixingRatio_a647762d11abd8df832b8520e20a467ea}{\index{Lit\-Mixing\-Ratio@{Lit\-Mixing\-Ratio}!Lit\-Mixing\-Ratio@{Lit\-Mixing\-Ratio}}
+\index{Lit\-Mixing\-Ratio@{Lit\-Mixing\-Ratio}!LitMixingRatio@{Lit\-Mixing\-Ratio}}
+\subsubsection[{Lit\-Mixing\-Ratio}]{\setlength{\rightskip}{0pt plus 5cm}Lit\-Mixing\-Ratio\-::\-Lit\-Mixing\-Ratio (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{f, }
+\item[{double}]{d, }
+\item[{double}]{ue, }
+\item[{double}]{de}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLitMixingRatio_a647762d11abd8df832b8520e20a467ea}
+Construct literature mixing ratio with symmetric uncertainties\-:\par
+Initial state index = i \par
+Final state index = f \par
+Mixing ratio = d \par
+Positive uncertainty = ue Negative uncertainty = de 
+
+Definition at line 120 of file Literature.\-h.
+
+\hypertarget{classLitMixingRatio_a091f73652ff6c8b44618cfa92b0c00af}{\index{Lit\-Mixing\-Ratio@{Lit\-Mixing\-Ratio}!Lit\-Mixing\-Ratio@{Lit\-Mixing\-Ratio}}
+\index{Lit\-Mixing\-Ratio@{Lit\-Mixing\-Ratio}!LitMixingRatio@{Lit\-Mixing\-Ratio}}
+\subsubsection[{Lit\-Mixing\-Ratio}]{\setlength{\rightskip}{0pt plus 5cm}Lit\-Mixing\-Ratio\-::\-Lit\-Mixing\-Ratio (
+\begin{DoxyParamCaption}
+\item[{const {\bf Lit\-Mixing\-Ratio} \&}]{lm}
+\end{DoxyParamCaption}
+)}}\label{classLitMixingRatio_a091f73652ff6c8b44618cfa92b0c00af}
+Copy constructor 
+
+Definition at line 45 of file Literature.\-cxx.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classLitMixingRatio_aa4506749342319dcd24dd9e6e6f4dbee}{\index{Lit\-Mixing\-Ratio@{Lit\-Mixing\-Ratio}!Get\-Dn\-Unc@{Get\-Dn\-Unc}}
+\index{Get\-Dn\-Unc@{Get\-Dn\-Unc}!LitMixingRatio@{Lit\-Mixing\-Ratio}}
+\subsubsection[{Get\-Dn\-Unc}]{\setlength{\rightskip}{0pt plus 5cm}double Lit\-Mixing\-Ratio\-::\-Get\-Dn\-Unc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLitMixingRatio_aa4506749342319dcd24dd9e6e6f4dbee}
+Return negative uncertainty 
+
+Definition at line 128 of file Literature.\-h.
+
+\hypertarget{classLitMixingRatio_abda111abfec00d0ce4ae3aa409af22c6}{\index{Lit\-Mixing\-Ratio@{Lit\-Mixing\-Ratio}!Get\-Final\-Index@{Get\-Final\-Index}}
+\index{Get\-Final\-Index@{Get\-Final\-Index}!LitMixingRatio@{Lit\-Mixing\-Ratio}}
+\subsubsection[{Get\-Final\-Index}]{\setlength{\rightskip}{0pt plus 5cm}double Lit\-Mixing\-Ratio\-::\-Get\-Final\-Index (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLitMixingRatio_abda111abfec00d0ce4ae3aa409af22c6}
+Return final state index 
+
+Definition at line 126 of file Literature.\-h.
+
+\hypertarget{classLitMixingRatio_a0c62b693ea790373dde68c387d45a38e}{\index{Lit\-Mixing\-Ratio@{Lit\-Mixing\-Ratio}!Get\-Initial\-Index@{Get\-Initial\-Index}}
+\index{Get\-Initial\-Index@{Get\-Initial\-Index}!LitMixingRatio@{Lit\-Mixing\-Ratio}}
+\subsubsection[{Get\-Initial\-Index}]{\setlength{\rightskip}{0pt plus 5cm}double Lit\-Mixing\-Ratio\-::\-Get\-Initial\-Index (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLitMixingRatio_a0c62b693ea790373dde68c387d45a38e}
+Return initial state index 
+
+Definition at line 125 of file Literature.\-h.
+
+\hypertarget{classLitMixingRatio_afecebfa6f4469db8a059b9192c25c9b0}{\index{Lit\-Mixing\-Ratio@{Lit\-Mixing\-Ratio}!Get\-Mixing\-Ratio@{Get\-Mixing\-Ratio}}
+\index{Get\-Mixing\-Ratio@{Get\-Mixing\-Ratio}!LitMixingRatio@{Lit\-Mixing\-Ratio}}
+\subsubsection[{Get\-Mixing\-Ratio}]{\setlength{\rightskip}{0pt plus 5cm}double Lit\-Mixing\-Ratio\-::\-Get\-Mixing\-Ratio (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLitMixingRatio_afecebfa6f4469db8a059b9192c25c9b0}
+Return mixing ratio 
+
+Definition at line 127 of file Literature.\-h.
+
+\hypertarget{classLitMixingRatio_a919978e47969b8b575f1db57ea7bfbdc}{\index{Lit\-Mixing\-Ratio@{Lit\-Mixing\-Ratio}!Get\-Up\-Unc@{Get\-Up\-Unc}}
+\index{Get\-Up\-Unc@{Get\-Up\-Unc}!LitMixingRatio@{Lit\-Mixing\-Ratio}}
+\subsubsection[{Get\-Up\-Unc}]{\setlength{\rightskip}{0pt plus 5cm}double Lit\-Mixing\-Ratio\-::\-Get\-Up\-Unc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLitMixingRatio_a919978e47969b8b575f1db57ea7bfbdc}
+Return positive uncertainty 
+
+Definition at line 129 of file Literature.\-h.
+
+\hypertarget{classLitMixingRatio_a81ec58f8ca7d4e67b844293891a63fa9}{\index{Lit\-Mixing\-Ratio@{Lit\-Mixing\-Ratio}!operator=@{operator=}}
+\index{operator=@{operator=}!LitMixingRatio@{Lit\-Mixing\-Ratio}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lit\-Mixing\-Ratio} \& Lit\-Mixing\-Ratio\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Lit\-Mixing\-Ratio} \&}]{lm}
+\end{DoxyParamCaption}
+)}}\label{classLitMixingRatio_a81ec58f8ca7d4e67b844293891a63fa9}
+Assignment operator 
+
+Definition at line 54 of file Literature.\-cxx.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Literature.\-h\item 
+Literature.\-cxx\end{DoxyCompactItemize}

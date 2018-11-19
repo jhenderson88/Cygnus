@@ -1,0 +1,1032 @@
+\hypertarget{classCoulExSimFitter}{\section{Coul\-Ex\-Sim\-Fitter Class Reference}
+\label{classCoulExSimFitter}\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}}
+}
+
+
+Calls the \hyperlink{classCoulExSimMinFCN}{Coul\-Ex\-Sim\-Min\-F\-C\-N} class along with the R\-O\-O\-T\-::\-Minimizer to perform a chi-\/squared minimization for simultaneous beam and target analyses.  
+
+
+
+
+{\ttfamily \#include $<$Coul\-Ex\-Sim\-Fitter.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classCoulExSimFitter_ad5cfafc630353728fc475dee4f416e3e}{Do\-Fit} (const char $\ast$method=\char`\"{}Minuit2\char`\"{}, const char $\ast$algorithm=\char`\"{}Combined\char`\"{})
+\item 
+virtual void \hyperlink{classCoulExSimFitter_a336cebbb05f665e879cf945288cd4a92}{Clear\-All} ()
+\item 
+void \hyperlink{classCoulExSimFitter_ab76717d256f884ad458cc64a9c4cbbd6}{Define\-Experiment} (double t)
+\item 
+void \hyperlink{classCoulExSimFitter_abd66fba489f3f3eafd70b729f2a56d2a}{Add\-Beam\-Data} (int i, int init, int fin, double c, double e)
+\item 
+void \hyperlink{classCoulExSimFitter_abdfaf0502ad8be70258a652704e8353a}{Add\-Target\-Data} (int i, int init, int fin, double c, double e)
+\item 
+void \hyperlink{classCoulExSimFitter_a49e980169ce03a95e003ee789a7a093f}{Add\-Beam\-Lifetime} (int, double, double)
+\item 
+void \hyperlink{classCoulExSimFitter_a6a34bc77405a8c544b4631d89e341bc7}{Add\-Beam\-Branching\-Ratio} (int, int, int, double, double)
+\item 
+void \hyperlink{classCoulExSimFitter_a6898c4b40c84c2550c715a8e5ffb7e24}{Add\-Beam\-Mixing\-Ratio} (int, int, double, double)
+\item 
+void \hyperlink{classCoulExSimFitter_a5bc5460b494e5192955ca4e17f7e737e}{Add\-Target\-Lifetime} (int, double, double)
+\item 
+void \hyperlink{classCoulExSimFitter_ad7da9aa7feb7b6e84b553e29bb70edfb}{Add\-Target\-Branching\-Ratio} (int, int, int, double, double)
+\item 
+void \hyperlink{classCoulExSimFitter_a06812af2e0f8d29cd37b9a2c48239d5c}{Add\-Target\-Mixing\-Ratio} (int, int, double, double)
+\item 
+void \hyperlink{classCoulExSimFitter_ae9617c526ced92e93aa33e8e849f8221}{Add\-Beam\-Fitting\-Matrix\-Element} (int, int, int, double, double, double)
+\item 
+void \hyperlink{classCoulExSimFitter_aaad08ace7ff19a3d647ba876ca6ff08c}{Add\-Target\-Fitting\-Matrix\-Element} (int, int, int, double, double, double)
+\item 
+void \hyperlink{classCoulExSimFitter_a06aa31eb9c4dc51a2c69188373bf292d}{Create\-Scaling\-Parameter} (std\-::vector$<$ int $>$, double, double, double)
+\item 
+std\-::vector$<$ \hyperlink{classScalingParameter}{Scaling\-Parameter} $>$ \hyperlink{classCoulExSimFitter_a32c580e2ffe931a6bfa0e1bea293aca3}{Get\-Scaling\-Parameters} () const 
+\item 
+void \hyperlink{classCoulExSimFitter_a89e43cd4897b5c56580db7852cbc2d37}{Set\-Scaling\-Parameters} (std\-::vector$<$ \hyperlink{classScalingParameter}{Scaling\-Parameter} $>$ s)
+\item 
+void \hyperlink{classCoulExSimFitter_a2f5dbaabd2d30726a12ccdbf225261c3}{Add\-Scaling\-Parameter} (\hyperlink{classScalingParameter}{Scaling\-Parameter} s)
+\item 
+void \hyperlink{classCoulExSimFitter_a84d8c24a786ab8c3201f864190574be5}{Clear\-Scaling\-Parameters} ()
+\item 
+void \hyperlink{classCoulExSimFitter_a01c682e2e9a1e84d8c3a977fb1d6e1a8}{Set\-Beam\-Matrix\-Elements} (std\-::vector$<$ \hyperlink{classMatrixElement}{Matrix\-Element} $>$ m)
+\item 
+std\-::vector$<$ \hyperlink{classMatrixElement}{Matrix\-Element} $>$ \hyperlink{classCoulExSimFitter_a0a1e5ccae924c97fdb497c43d62fe609}{Get\-Beam\-Matrix\-Elements} () const 
+\item 
+void \hyperlink{classCoulExSimFitter_ae4ba8e01614d5f3d50a22abb74dd4e8a}{Clear\-Beam\-Matrix\-Elements} ()
+\item 
+void \hyperlink{classCoulExSimFitter_a1ecc0eecc268545044e3f73c26eb00a6}{Set\-Target\-Matrix\-Elements} (std\-::vector$<$ \hyperlink{classMatrixElement}{Matrix\-Element} $>$ m)
+\item 
+std\-::vector$<$ \hyperlink{classMatrixElement}{Matrix\-Element} $>$ \hyperlink{classCoulExSimFitter_ae7dca1a0f23e15d332a4141fd09a2ed3}{Get\-Target\-Matrix\-Elements} () const 
+\item 
+void \hyperlink{classCoulExSimFitter_a8ecb42674aefdf6dee9779144ec5915e}{Clear\-Target\-Matrix\-Elements} ()
+\item 
+void \hyperlink{classCoulExSimFitter_a3cd07b08eaf376346bc36be2cab2b0af}{Add\-Beam\-Point\-Calc} (\hyperlink{classPointCoulEx}{Point\-Coul\-Ex} p)
+\item 
+void \hyperlink{classCoulExSimFitter_a6fd0a37afe00943badaa5dd3aa006265}{Set\-Beam\-Point\-Calcs} (std\-::vector$<$ \hyperlink{classPointCoulEx}{Point\-Coul\-Ex} $>$ p)
+\item 
+std\-::vector$<$ \hyperlink{classPointCoulEx}{Point\-Coul\-Ex} $>$ \hyperlink{classCoulExSimFitter_a83cf4799996faac7fee012a797d14d68}{Get\-Beam\-Point\-Calcs} () const 
+\item 
+void \hyperlink{classCoulExSimFitter_a256b37098b33f916f4c5f4eec14cf477}{Add\-Target\-Point\-Calc} (\hyperlink{classPointCoulEx}{Point\-Coul\-Ex} p)
+\item 
+void \hyperlink{classCoulExSimFitter_a83fed4de27046f0f8cfaff70c824c763}{Set\-Target\-Point\-Calcs} (std\-::vector$<$ \hyperlink{classPointCoulEx}{Point\-Coul\-Ex} $>$ p)
+\item 
+std\-::vector$<$ \hyperlink{classPointCoulEx}{Point\-Coul\-Ex} $>$ \hyperlink{classCoulExSimFitter_aa15df5dc8fafe7ad453006e3e25eb627}{Get\-Target\-Point\-Calcs} () const 
+\item 
+void \hyperlink{classCoulExSimFitter_a59ebba363d2aba7df840ed47cdbb8aa2}{Set\-Beam\-Data} (std\-::vector$<$ \hyperlink{classExperimentData}{Experiment\-Data} $>$ d)
+\item 
+std\-::vector$<$ \hyperlink{classExperimentData}{Experiment\-Data} $>$ \hyperlink{classCoulExSimFitter_a6b6c20a2ad583d4683b319fe95fecb61}{Get\-Beam\-Data} () const 
+\item 
+void \hyperlink{classCoulExSimFitter_aec8080c3f8a0edbce8400a6eaf935bb1}{Set\-Target\-Data} (std\-::vector$<$ \hyperlink{classExperimentData}{Experiment\-Data} $>$ d)
+\item 
+std\-::vector$<$ \hyperlink{classExperimentData}{Experiment\-Data} $>$ \hyperlink{classCoulExSimFitter_a555360856a255d85185a9af58d4ea9d0}{Get\-Target\-Data} () const 
+\item 
+void \hyperlink{classCoulExSimFitter_a5fd88c4d7e5f06ed956e4729f74a6cdc}{Set\-Beam\-Lit\-Lifetimes} (std\-::vector$<$ \hyperlink{classLitLifetime}{Lit\-Lifetime} $>$ l)
+\item 
+std\-::vector$<$ \hyperlink{classLitLifetime}{Lit\-Lifetime} $>$ \hyperlink{classCoulExSimFitter_aae5fb8ff0de05e1cf93ae3a6fd28f04e}{Get\-Beam\-Lit\-Lifetimes} () const 
+\item 
+void \hyperlink{classCoulExSimFitter_a9a3619c2164f23b35e484774eb115b9e}{Set\-Target\-Lit\-Lifetimes} (std\-::vector$<$ \hyperlink{classLitLifetime}{Lit\-Lifetime} $>$ l)
+\item 
+std\-::vector$<$ \hyperlink{classLitLifetime}{Lit\-Lifetime} $>$ \hyperlink{classCoulExSimFitter_ab24c12957304e58e370056e17fd2d63f}{Get\-Target\-Lit\-Lifetimes} () const 
+\item 
+void \hyperlink{classCoulExSimFitter_acfbdfe58274083ab962aa3ab1e29317f}{Set\-Beam\-Lit\-Branching} (std\-::vector$<$ \hyperlink{classLitBranchingRatio}{Lit\-Branching\-Ratio} $>$ b)
+\item 
+std\-::vector$<$ \hyperlink{classLitBranchingRatio}{Lit\-Branching\-Ratio} $>$ \hyperlink{classCoulExSimFitter_a45e7174fece6d9febbb881931247d009}{Get\-Beam\-Lit\-Branching} () const 
+\item 
+void \hyperlink{classCoulExSimFitter_aa8cbab1305bd8427eb0087841b42af07}{Set\-Target\-Lit\-Branching} (std\-::vector$<$ \hyperlink{classLitBranchingRatio}{Lit\-Branching\-Ratio} $>$ b)
+\item 
+std\-::vector$<$ \hyperlink{classLitBranchingRatio}{Lit\-Branching\-Ratio} $>$ \hyperlink{classCoulExSimFitter_a453dae7b194c1fb8d26b508719c7a6bf}{Get\-Target\-Lit\-Branching} () const 
+\item 
+void \hyperlink{classCoulExSimFitter_a704084e639512c8aa7c33dac939729b7}{Set\-Beam\-Lit\-Mixing} (std\-::vector$<$ \hyperlink{classLitMixingRatio}{Lit\-Mixing\-Ratio} $>$ m)
+\item 
+std\-::vector$<$ \hyperlink{classLitMixingRatio}{Lit\-Mixing\-Ratio} $>$ \hyperlink{classCoulExSimFitter_a819e4a179cced909c7947d25749df0c4}{Get\-Beam\-Lit\-Mixing} () const 
+\item 
+void \hyperlink{classCoulExSimFitter_a1a1b81c10927ccf088de83d53c60a97e}{Set\-Target\-Lit\-Mixing} (std\-::vector$<$ \hyperlink{classLitMixingRatio}{Lit\-Mixing\-Ratio} $>$ m)
+\item 
+std\-::vector$<$ \hyperlink{classLitMixingRatio}{Lit\-Mixing\-Ratio} $>$ \hyperlink{classCoulExSimFitter_af28a9a7e25758f41f1e766df60626cea}{Get\-Target\-Lit\-Mixing} () const 
+\item 
+std\-::vector$<$ T\-Matrix\-D $>$ \hyperlink{classCoulExSimFitter_aa5113d708b9c44717998ef6f81c4a8a7}{Get\-Effective\-Cross\-Section\-\_\-\-Beam} () const 
+\item 
+std\-::vector$<$ T\-Matrix\-D $>$ \hyperlink{classCoulExSimFitter_ac6e6047ad8ac3a3201dfa742d829c66a}{Get\-Effective\-Cross\-Section\-\_\-\-Target} () const 
+\item 
+void \hyperlink{classCoulExSimFitter_a5f107c68537522704cfbea61406429e7}{Set\-Base\-Beam\-Nucleus} (\hyperlink{classNucleus}{Nucleus} $\ast$nucl)
+\item 
+\hyperlink{classNucleus}{Nucleus} \hyperlink{classCoulExSimFitter_aadd6ced090e569701768878ac944d1fb}{Get\-Base\-Beam\-Nucleus} () const 
+\item 
+void \hyperlink{classCoulExSimFitter_a97c35d0432333cefb1aeb256dc4e6ca8}{Set\-Base\-Target\-Nucleus} (\hyperlink{classNucleus}{Nucleus} $\ast$nucl)
+\item 
+\hyperlink{classNucleus}{Nucleus} \hyperlink{classCoulExSimFitter_a04f0ec899416e173065b282fcfd89796}{Get\-Base\-Target\-Nucleus} () const 
+\item 
+void \hyperlink{classCoulExSimFitter_aae95c6ebc60c00fb25b6466856ff4e92}{Set\-Beam\-Nucleus} (\hyperlink{classNucleus}{Nucleus} $\ast$nucl)
+\item 
+\hyperlink{classNucleus}{Nucleus} \hyperlink{classCoulExSimFitter_a40bc47bee8f51f9dab8763e87c34fb63}{Get\-Beam\-Nucleus} () const 
+\item 
+void \hyperlink{classCoulExSimFitter_ae7d4c64f558a035a2f3d6993db2969ed}{Set\-Target\-Nucleus} (\hyperlink{classNucleus}{Nucleus} $\ast$nucl)
+\item 
+\hyperlink{classNucleus}{Nucleus} \hyperlink{classCoulExSimFitter_a6eacf96639a5bd3908636ab253d8c9b3}{Get\-Target\-Nucleus} () const 
+\item 
+void \hyperlink{classCoulExSimFitter_afe7d584cbdec110df18b34e5bd0bf2dc}{Add\-Beam\-Correction\-Factor} (T\-Vector\-D)
+\item 
+void \hyperlink{classCoulExSimFitter_a38af2f165ee0e21c2f037b8d8eddee78}{Set\-Beam\-Correction\-Factor} (int i, T\-Vector\-D)
+\item 
+std\-::vector$<$ T\-Vector\-D $>$ \hyperlink{classCoulExSimFitter_afebf6d2ace4db82026f6ccc865fa821c}{Get\-Beam\-Correction\-Factors} () const 
+\item 
+void \hyperlink{classCoulExSimFitter_a9c4f96557f62a6f0dbd9386841cd8860}{Add\-Target\-Correction\-Factor} (T\-Vector\-D)
+\item 
+void \hyperlink{classCoulExSimFitter_af4764a0abfbec937d6aaf51459d741a8}{Set\-Target\-Correction\-Factor} (int i, T\-Vector\-D)
+\item 
+std\-::vector$<$ T\-Vector\-D $>$ \hyperlink{classCoulExSimFitter_ae528d5210550e3a751a053204d24d7a8}{Get\-Target\-Correction\-Factors} () const 
+\item 
+void \hyperlink{classCoulExSimFitter_ad2b70cca6d786a23f35231cf931ef65f}{Print} () const 
+\item 
+void \hyperlink{classCoulExSimFitter_ae8bcedc89a1730f6295cdf862643aa35}{Set\-Max\-Iterations} (int i)
+\item 
+void \hyperlink{classCoulExSimFitter_a5d482897c57846bf1b83c645843c016f}{Set\-Max\-Function\-Calls} (int i)
+\item 
+void \hyperlink{classCoulExSimFitter_af2da6ea0d1104d2516d453ee18a234f2}{Set\-Tolerance} (double d)
+\item 
+int \hyperlink{classCoulExSimFitter_acdbafed7b7924be5e1e4db1f423ec3b9}{Get\-Max\-Iterations} () const 
+\item 
+int \hyperlink{classCoulExSimFitter_a2b02493b398ecb403eba6d2e7749afbd}{Get\-Max\-Function\-Calls} () const 
+\item 
+double \hyperlink{classCoulExSimFitter_a798bbe43d1e820d600b3fa2530e7be0b}{Get\-Tolerance} () const 
+\item 
+void \hyperlink{classCoulExSimFitter_a900dcc1fe094d4d4890d52c48f6240ca}{Set\-Nthreads} (int n)
+\item 
+int \hyperlink{classCoulExSimFitter_a2b33f0db4913d47610c616e0609709a4}{Get\-Nthreads} () const 
+\item 
+void \hyperlink{classCoulExSimFitter_a3ed1f75a477a2386c801c9b003c11aed}{Set\-Verbose} (bool b=true)
+\item 
+bool \hyperlink{classCoulExSimFitter_abbcbf6dd58cc2bb7e069ca28335e0519}{Get\-Verbose} () const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Calls the \hyperlink{classCoulExSimMinFCN}{Coul\-Ex\-Sim\-Min\-F\-C\-N} class along with the R\-O\-O\-T\-::\-Minimizer to perform a chi-\/squared minimization for simultaneous beam and target analyses. 
+
+Very similar to the \hyperlink{classCoulExFitter}{Coul\-Ex\-Fitter} class, but with some duplicated objects and functions to allow for the simultaneous fitting of two data sets.
+
+A requirement of the R\-O\-O\-T\-::\-Minimizer package is a single vector/array of parameters. As such, all matrix elements (beam and target) need to be entered as a single set of ordered values. The convention used is to enter in the order of\-: beam, target, scaling. In principle, switching the target/beam order has no impact on the calculations, it is just the convention used here (scaling parameters {\itshape must} be last, however).
+
+A number of methods and algorithms can be used (as defined in the R\-O\-O\-T\-::\-Minimizer documentation in more detail)\-:
+
+\subsubsection*{Method $|$ Algorithm }
+
+Minuit2 $|$ Migrad $|$ Simplex $|$ Combined (default) $|$ Scan $|$ Fumili2 G\-S\-L\-Multi\-Min $|$ Conjugate\-F\-R $|$ Conjugate\-P\-R $|$ B\-F\-G\-S $|$ B\-F\-G\-S2 $|$ Steepest\-Descent G\-S\-L\-Multi\-Fit $|$ G\-S\-L\-Sim\-An $|$ Genetic $|$ 
+
+Definition at line 62 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classCoulExSimFitter_a6a34bc77405a8c544b4631d89e341bc7}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Add\-Beam\-Branching\-Ratio@{Add\-Beam\-Branching\-Ratio}}
+\index{Add\-Beam\-Branching\-Ratio@{Add\-Beam\-Branching\-Ratio}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Add\-Beam\-Branching\-Ratio}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Add\-Beam\-Branching\-Ratio (
+\begin{DoxyParamCaption}
+\item[{int}]{index\-\_\-\-I1, }
+\item[{int}]{index\-\_\-\-F1, }
+\item[{int}]{index\-\_\-\-F2, }
+\item[{double}]{br, }
+\item[{double}]{unc}
+\end{DoxyParamCaption}
+)}}\label{classCoulExSimFitter_a6a34bc77405a8c544b4631d89e341bc7}
+Add literature branching ratio data for the beam particle 
+
+Definition at line 208 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+
+\hypertarget{classCoulExSimFitter_afe7d584cbdec110df18b34e5bd0bf2dc}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Add\-Beam\-Correction\-Factor@{Add\-Beam\-Correction\-Factor}}
+\index{Add\-Beam\-Correction\-Factor@{Add\-Beam\-Correction\-Factor}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Add\-Beam\-Correction\-Factor}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Add\-Beam\-Correction\-Factor (
+\begin{DoxyParamCaption}
+\item[{T\-Vector\-D}]{corr\-Fac}
+\end{DoxyParamCaption}
+)}}\label{classCoulExSimFitter_afe7d584cbdec110df18b34e5bd0bf2dc}
+Add beam point calculation correction factors (append) 
+
+Definition at line 172 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+
+\hypertarget{classCoulExSimFitter_abd66fba489f3f3eafd70b729f2a56d2a}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Add\-Beam\-Data@{Add\-Beam\-Data}}
+\index{Add\-Beam\-Data@{Add\-Beam\-Data}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Add\-Beam\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Add\-Beam\-Data (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{init, }
+\item[{int}]{fin, }
+\item[{double}]{c, }
+\item[{double}]{e}
+\end{DoxyParamCaption}
+)}}\label{classCoulExSimFitter_abd66fba489f3f3eafd70b729f2a56d2a}
+Add experimental data to experiment defined by index i between initial (init) and final (fin) states with yield (c) and uncertainty (e) 
+
+Definition at line 197 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+
+\hypertarget{classCoulExSimFitter_ae9617c526ced92e93aa33e8e849f8221}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Add\-Beam\-Fitting\-Matrix\-Element@{Add\-Beam\-Fitting\-Matrix\-Element}}
+\index{Add\-Beam\-Fitting\-Matrix\-Element@{Add\-Beam\-Fitting\-Matrix\-Element}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Add\-Beam\-Fitting\-Matrix\-Element}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Add\-Beam\-Fitting\-Matrix\-Element (
+\begin{DoxyParamCaption}
+\item[{int}]{lambda, }
+\item[{int}]{init, }
+\item[{int}]{fin, }
+\item[{double}]{M\-E, }
+\item[{double}]{L\-L, }
+\item[{double}]{U\-L}
+\end{DoxyParamCaption}
+)}}\label{classCoulExSimFitter_ae9617c526ced92e93aa33e8e849f8221}
+Add a fitting matrix element for the beam 
+
+Definition at line 163 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+
+\hypertarget{classCoulExSimFitter_a49e980169ce03a95e003ee789a7a093f}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Add\-Beam\-Lifetime@{Add\-Beam\-Lifetime}}
+\index{Add\-Beam\-Lifetime@{Add\-Beam\-Lifetime}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Add\-Beam\-Lifetime}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Add\-Beam\-Lifetime (
+\begin{DoxyParamCaption}
+\item[{int}]{index, }
+\item[{double}]{lifetime, }
+\item[{double}]{unc}
+\end{DoxyParamCaption}
+)}}\label{classCoulExSimFitter_a49e980169ce03a95e003ee789a7a093f}
+Add literature lifetime data for the beam particle 
+
+Definition at line 204 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+
+\hypertarget{classCoulExSimFitter_a6898c4b40c84c2550c715a8e5ffb7e24}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Add\-Beam\-Mixing\-Ratio@{Add\-Beam\-Mixing\-Ratio}}
+\index{Add\-Beam\-Mixing\-Ratio@{Add\-Beam\-Mixing\-Ratio}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Add\-Beam\-Mixing\-Ratio}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Add\-Beam\-Mixing\-Ratio (
+\begin{DoxyParamCaption}
+\item[{int}]{index\-\_\-\-I, }
+\item[{int}]{index\-\_\-\-F, }
+\item[{double}]{delta, }
+\item[{double}]{unc}
+\end{DoxyParamCaption}
+)}}\label{classCoulExSimFitter_a6898c4b40c84c2550c715a8e5ffb7e24}
+Add literature mixing ratio data for the beam particle 
+
+Definition at line 212 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+
+\hypertarget{classCoulExSimFitter_a3cd07b08eaf376346bc36be2cab2b0af}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Add\-Beam\-Point\-Calc@{Add\-Beam\-Point\-Calc}}
+\index{Add\-Beam\-Point\-Calc@{Add\-Beam\-Point\-Calc}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Add\-Beam\-Point\-Calc}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Add\-Beam\-Point\-Calc (
+\begin{DoxyParamCaption}
+\item[{{\bf Point\-Coul\-Ex}}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a3cd07b08eaf376346bc36be2cab2b0af}
+Append beam \hyperlink{classPointCoulEx}{Point\-Coul\-Ex} calculation object 
+
+Definition at line 100 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_a2f5dbaabd2d30726a12ccdbf225261c3}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Add\-Scaling\-Parameter@{Add\-Scaling\-Parameter}}
+\index{Add\-Scaling\-Parameter@{Add\-Scaling\-Parameter}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Add\-Scaling\-Parameter}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Add\-Scaling\-Parameter (
+\begin{DoxyParamCaption}
+\item[{{\bf Scaling\-Parameter}}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a2f5dbaabd2d30726a12ccdbf225261c3}
+Append \hyperlink{classScalingParameter}{Scaling\-Parameter} object to vector 
+
+Definition at line 90 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_ad7da9aa7feb7b6e84b553e29bb70edfb}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Add\-Target\-Branching\-Ratio@{Add\-Target\-Branching\-Ratio}}
+\index{Add\-Target\-Branching\-Ratio@{Add\-Target\-Branching\-Ratio}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Add\-Target\-Branching\-Ratio}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Add\-Target\-Branching\-Ratio (
+\begin{DoxyParamCaption}
+\item[{int}]{index\-\_\-\-I1, }
+\item[{int}]{index\-\_\-\-F1, }
+\item[{int}]{index\-\_\-\-F2, }
+\item[{double}]{br, }
+\item[{double}]{unc}
+\end{DoxyParamCaption}
+)}}\label{classCoulExSimFitter_ad7da9aa7feb7b6e84b553e29bb70edfb}
+Add literature branching ratio data for the target particle 
+
+Definition at line 220 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+
+\hypertarget{classCoulExSimFitter_a9c4f96557f62a6f0dbd9386841cd8860}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Add\-Target\-Correction\-Factor@{Add\-Target\-Correction\-Factor}}
+\index{Add\-Target\-Correction\-Factor@{Add\-Target\-Correction\-Factor}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Add\-Target\-Correction\-Factor}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Add\-Target\-Correction\-Factor (
+\begin{DoxyParamCaption}
+\item[{T\-Vector\-D}]{corr\-Fac}
+\end{DoxyParamCaption}
+)}}\label{classCoulExSimFitter_a9c4f96557f62a6f0dbd9386841cd8860}
+Add beam point calculation correction factors (append) 
+
+Definition at line 181 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+
+\hypertarget{classCoulExSimFitter_abdfaf0502ad8be70258a652704e8353a}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Add\-Target\-Data@{Add\-Target\-Data}}
+\index{Add\-Target\-Data@{Add\-Target\-Data}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Add\-Target\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Add\-Target\-Data (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{init, }
+\item[{int}]{fin, }
+\item[{double}]{c, }
+\item[{double}]{e}
+\end{DoxyParamCaption}
+)}}\label{classCoulExSimFitter_abdfaf0502ad8be70258a652704e8353a}
+Add experimental data to experiment defined by index i between initial (init) and final (fin) states with yield (c) and uncertainty (e) 
+
+Definition at line 200 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+
+\hypertarget{classCoulExSimFitter_aaad08ace7ff19a3d647ba876ca6ff08c}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Add\-Target\-Fitting\-Matrix\-Element@{Add\-Target\-Fitting\-Matrix\-Element}}
+\index{Add\-Target\-Fitting\-Matrix\-Element@{Add\-Target\-Fitting\-Matrix\-Element}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Add\-Target\-Fitting\-Matrix\-Element}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Add\-Target\-Fitting\-Matrix\-Element (
+\begin{DoxyParamCaption}
+\item[{int}]{lambda, }
+\item[{int}]{init, }
+\item[{int}]{fin, }
+\item[{double}]{M\-E, }
+\item[{double}]{L\-L, }
+\item[{double}]{U\-L}
+\end{DoxyParamCaption}
+)}}\label{classCoulExSimFitter_aaad08ace7ff19a3d647ba876ca6ff08c}
+Add a fitting matrix element for the target 
+
+Definition at line 167 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+
+\hypertarget{classCoulExSimFitter_a5bc5460b494e5192955ca4e17f7e737e}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Add\-Target\-Lifetime@{Add\-Target\-Lifetime}}
+\index{Add\-Target\-Lifetime@{Add\-Target\-Lifetime}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Add\-Target\-Lifetime}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Add\-Target\-Lifetime (
+\begin{DoxyParamCaption}
+\item[{int}]{index, }
+\item[{double}]{lifetime, }
+\item[{double}]{unc}
+\end{DoxyParamCaption}
+)}}\label{classCoulExSimFitter_a5bc5460b494e5192955ca4e17f7e737e}
+Add literature lifetime data for the target particle 
+
+Definition at line 216 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+
+\hypertarget{classCoulExSimFitter_a06812af2e0f8d29cd37b9a2c48239d5c}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Add\-Target\-Mixing\-Ratio@{Add\-Target\-Mixing\-Ratio}}
+\index{Add\-Target\-Mixing\-Ratio@{Add\-Target\-Mixing\-Ratio}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Add\-Target\-Mixing\-Ratio}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Add\-Target\-Mixing\-Ratio (
+\begin{DoxyParamCaption}
+\item[{int}]{index\-\_\-\-I, }
+\item[{int}]{index\-\_\-\-F, }
+\item[{double}]{delta, }
+\item[{double}]{unc}
+\end{DoxyParamCaption}
+)}}\label{classCoulExSimFitter_a06812af2e0f8d29cd37b9a2c48239d5c}
+Add literature mixing ratio data for the target particle 
+
+Definition at line 224 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+
+\hypertarget{classCoulExSimFitter_a256b37098b33f916f4c5f4eec14cf477}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Add\-Target\-Point\-Calc@{Add\-Target\-Point\-Calc}}
+\index{Add\-Target\-Point\-Calc@{Add\-Target\-Point\-Calc}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Add\-Target\-Point\-Calc}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Add\-Target\-Point\-Calc (
+\begin{DoxyParamCaption}
+\item[{{\bf Point\-Coul\-Ex}}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a256b37098b33f916f4c5f4eec14cf477}
+Append target \hyperlink{classPointCoulEx}{Point\-Coul\-Ex} calculation object 
+
+Definition at line 103 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_a336cebbb05f665e879cf945288cd4a92}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Clear\-All@{Clear\-All}}
+\index{Clear\-All@{Clear\-All}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Clear\-All}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Clear\-All (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classCoulExSimFitter_a336cebbb05f665e879cf945288cd4a92}
+Completely clear all previous input 
+
+Definition at line 229 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+
+\hypertarget{classCoulExSimFitter_ae4ba8e01614d5f3d50a22abb74dd4e8a}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Clear\-Beam\-Matrix\-Elements@{Clear\-Beam\-Matrix\-Elements}}
+\index{Clear\-Beam\-Matrix\-Elements@{Clear\-Beam\-Matrix\-Elements}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Clear\-Beam\-Matrix\-Elements}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Clear\-Beam\-Matrix\-Elements (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_ae4ba8e01614d5f3d50a22abb74dd4e8a}
+Clear vector of fitting Matrix\-Elements for the beam 
+
+Definition at line 95 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_a84d8c24a786ab8c3201f864190574be5}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Clear\-Scaling\-Parameters@{Clear\-Scaling\-Parameters}}
+\index{Clear\-Scaling\-Parameters@{Clear\-Scaling\-Parameters}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Clear\-Scaling\-Parameters}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Clear\-Scaling\-Parameters (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a84d8c24a786ab8c3201f864190574be5}
+Clear scaling parameters 
+
+Definition at line 91 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_a8ecb42674aefdf6dee9779144ec5915e}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Clear\-Target\-Matrix\-Elements@{Clear\-Target\-Matrix\-Elements}}
+\index{Clear\-Target\-Matrix\-Elements@{Clear\-Target\-Matrix\-Elements}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Clear\-Target\-Matrix\-Elements}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Clear\-Target\-Matrix\-Elements (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a8ecb42674aefdf6dee9779144ec5915e}
+Clear vector of fitting Matrix\-Elements for the target 
+
+Definition at line 98 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_a06aa31eb9c4dc51a2c69188373bf292d}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Create\-Scaling\-Parameter@{Create\-Scaling\-Parameter}}
+\index{Create\-Scaling\-Parameter@{Create\-Scaling\-Parameter}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Create\-Scaling\-Parameter}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Create\-Scaling\-Parameter (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ int $>$}]{expnum, }
+\item[{double}]{scaling, }
+\item[{double}]{scaling\-\_\-\-L\-L, }
+\item[{double}]{scaling\-\_\-\-U\-L}
+\end{DoxyParamCaption}
+)}}\label{classCoulExSimFitter_a06aa31eb9c4dc51a2c69188373bf292d}
+Add a scaling parameter, with common scaling experiments defined by their indices in a vector of int 
+
+Definition at line 153 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+
+\hypertarget{classCoulExSimFitter_ab76717d256f884ad458cc64a9c4cbbd6}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Define\-Experiment@{Define\-Experiment}}
+\index{Define\-Experiment@{Define\-Experiment}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Define\-Experiment}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Define\-Experiment (
+\begin{DoxyParamCaption}
+\item[{double}]{t}
+\end{DoxyParamCaption}
+)}}\label{classCoulExSimFitter_ab76717d256f884ad458cc64a9c4cbbd6}
+Defines a new experiment with t = theta\-\_\-cm 
+
+Definition at line 191 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+
+\hypertarget{classCoulExSimFitter_ad5cfafc630353728fc475dee4f416e3e}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Do\-Fit@{Do\-Fit}}
+\index{Do\-Fit@{Do\-Fit}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Do\-Fit}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Do\-Fit (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{method = {\ttfamily \char`\"{}Minuit2\char`\"{}}, }
+\item[{const char $\ast$}]{algorithm = {\ttfamily \char`\"{}Combined\char`\"{}}}
+\end{DoxyParamCaption}
+)}}\label{classCoulExSimFitter_ad5cfafc630353728fc475dee4f416e3e}
+Perform fitting routine with a user defined method and algorithm (default\-: Minuit2, Combined) 
+
+Definition at line 19 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+
+\hypertarget{classCoulExSimFitter_aadd6ced090e569701768878ac944d1fb}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Get\-Base\-Beam\-Nucleus@{Get\-Base\-Beam\-Nucleus}}
+\index{Get\-Base\-Beam\-Nucleus@{Get\-Base\-Beam\-Nucleus}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Get\-Base\-Beam\-Nucleus}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Nucleus} Coul\-Ex\-Sim\-Fitter\-::\-Get\-Base\-Beam\-Nucleus (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_aadd6ced090e569701768878ac944d1fb}
+Return the base beam nucleus (not to be varied in fitting) 
+
+Definition at line 131 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_a04f0ec899416e173065b282fcfd89796}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Get\-Base\-Target\-Nucleus@{Get\-Base\-Target\-Nucleus}}
+\index{Get\-Base\-Target\-Nucleus@{Get\-Base\-Target\-Nucleus}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Get\-Base\-Target\-Nucleus}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Nucleus} Coul\-Ex\-Sim\-Fitter\-::\-Get\-Base\-Target\-Nucleus (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a04f0ec899416e173065b282fcfd89796}
+Return the base target nucleus (not to be varied in fitting) 
+
+Definition at line 133 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_afebf6d2ace4db82026f6ccc865fa821c}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Get\-Beam\-Correction\-Factors@{Get\-Beam\-Correction\-Factors}}
+\index{Get\-Beam\-Correction\-Factors@{Get\-Beam\-Correction\-Factors}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Get\-Beam\-Correction\-Factors}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$T\-Vector\-D$>$ Coul\-Ex\-Sim\-Fitter\-::\-Get\-Beam\-Correction\-Factors (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_afebf6d2ace4db82026f6ccc865fa821c}
+Return beam point calculation correction factors 
+
+Definition at line 142 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_a6b6c20a2ad583d4683b319fe95fecb61}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Get\-Beam\-Data@{Get\-Beam\-Data}}
+\index{Get\-Beam\-Data@{Get\-Beam\-Data}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Get\-Beam\-Data}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Experiment\-Data}$>$ Coul\-Ex\-Sim\-Fitter\-::\-Get\-Beam\-Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a6b6c20a2ad583d4683b319fe95fecb61}
+Return vector of beam \hyperlink{classExperimentData}{Experiment\-Data} 
+
+Definition at line 108 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_a45e7174fece6d9febbb881931247d009}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Get\-Beam\-Lit\-Branching@{Get\-Beam\-Lit\-Branching}}
+\index{Get\-Beam\-Lit\-Branching@{Get\-Beam\-Lit\-Branching}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Get\-Beam\-Lit\-Branching}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Lit\-Branching\-Ratio}$>$ Coul\-Ex\-Sim\-Fitter\-::\-Get\-Beam\-Lit\-Branching (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a45e7174fece6d9febbb881931247d009}
+Return the vector of beam \hyperlink{classLitBranchingRatio}{Lit\-Branching\-Ratio} objects defining the literature branching ratio data for fitting 
+
+Definition at line 118 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_aae5fb8ff0de05e1cf93ae3a6fd28f04e}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Get\-Beam\-Lit\-Lifetimes@{Get\-Beam\-Lit\-Lifetimes}}
+\index{Get\-Beam\-Lit\-Lifetimes@{Get\-Beam\-Lit\-Lifetimes}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Get\-Beam\-Lit\-Lifetimes}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Lit\-Lifetime}$>$ Coul\-Ex\-Sim\-Fitter\-::\-Get\-Beam\-Lit\-Lifetimes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_aae5fb8ff0de05e1cf93ae3a6fd28f04e}
+Return the vector of beam \hyperlink{classLitLifetime}{Lit\-Lifetime} objects defining the literature lifetime data for fitting 
+
+Definition at line 113 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_a819e4a179cced909c7947d25749df0c4}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Get\-Beam\-Lit\-Mixing@{Get\-Beam\-Lit\-Mixing}}
+\index{Get\-Beam\-Lit\-Mixing@{Get\-Beam\-Lit\-Mixing}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Get\-Beam\-Lit\-Mixing}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Lit\-Mixing\-Ratio}$>$ Coul\-Ex\-Sim\-Fitter\-::\-Get\-Beam\-Lit\-Mixing (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a819e4a179cced909c7947d25749df0c4}
+Return the vector of beam \hyperlink{classLitMixingRatio}{Lit\-Mixing\-Ratio} objects defining the literature mixing ratio data for fitting 
+
+Definition at line 123 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_a0a1e5ccae924c97fdb497c43d62fe609}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Get\-Beam\-Matrix\-Elements@{Get\-Beam\-Matrix\-Elements}}
+\index{Get\-Beam\-Matrix\-Elements@{Get\-Beam\-Matrix\-Elements}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Get\-Beam\-Matrix\-Elements}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Matrix\-Element}$>$ Coul\-Ex\-Sim\-Fitter\-::\-Get\-Beam\-Matrix\-Elements (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a0a1e5ccae924c97fdb497c43d62fe609}
+Return vector of fitting Matrix\-Elements for the beam 
+
+Definition at line 94 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_a40bc47bee8f51f9dab8763e87c34fb63}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Get\-Beam\-Nucleus@{Get\-Beam\-Nucleus}}
+\index{Get\-Beam\-Nucleus@{Get\-Beam\-Nucleus}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Get\-Beam\-Nucleus}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Nucleus} Coul\-Ex\-Sim\-Fitter\-::\-Get\-Beam\-Nucleus (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a40bc47bee8f51f9dab8763e87c34fb63}
+Return the fitting beam nucleus (varied in fitting) 
+
+Definition at line 136 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_a83cf4799996faac7fee012a797d14d68}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Get\-Beam\-Point\-Calcs@{Get\-Beam\-Point\-Calcs}}
+\index{Get\-Beam\-Point\-Calcs@{Get\-Beam\-Point\-Calcs}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Get\-Beam\-Point\-Calcs}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Point\-Coul\-Ex}$>$ Coul\-Ex\-Sim\-Fitter\-::\-Get\-Beam\-Point\-Calcs (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a83cf4799996faac7fee012a797d14d68}
+Return vector of beam \hyperlink{classPointCoulEx}{Point\-Coul\-Ex} calculation objects 
+
+Definition at line 102 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_aa5113d708b9c44717998ef6f81c4a8a7}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Get\-Effective\-Cross\-Section\-\_\-\-Beam@{Get\-Effective\-Cross\-Section\-\_\-\-Beam}}
+\index{Get\-Effective\-Cross\-Section\-\_\-\-Beam@{Get\-Effective\-Cross\-Section\-\_\-\-Beam}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Get\-Effective\-Cross\-Section\-\_\-\-Beam}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$T\-Matrix\-D$>$ Coul\-Ex\-Sim\-Fitter\-::\-Get\-Effective\-Cross\-Section\-\_\-\-Beam (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_aa5113d708b9c44717998ef6f81c4a8a7}
+Return the beam's \char`\"{}effective cross section\char`\"{} = direct population + feeding 
+
+Definition at line 127 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_ac6e6047ad8ac3a3201dfa742d829c66a}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Get\-Effective\-Cross\-Section\-\_\-\-Target@{Get\-Effective\-Cross\-Section\-\_\-\-Target}}
+\index{Get\-Effective\-Cross\-Section\-\_\-\-Target@{Get\-Effective\-Cross\-Section\-\_\-\-Target}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Get\-Effective\-Cross\-Section\-\_\-\-Target}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$T\-Matrix\-D$>$ Coul\-Ex\-Sim\-Fitter\-::\-Get\-Effective\-Cross\-Section\-\_\-\-Target (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_ac6e6047ad8ac3a3201dfa742d829c66a}
+Return the target's \char`\"{}effective cross section\char`\"{} = direct population + feeding 
+
+Definition at line 128 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_a2b02493b398ecb403eba6d2e7749afbd}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Get\-Max\-Function\-Calls@{Get\-Max\-Function\-Calls}}
+\index{Get\-Max\-Function\-Calls@{Get\-Max\-Function\-Calls}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Get\-Max\-Function\-Calls}]{\setlength{\rightskip}{0pt plus 5cm}int Coul\-Ex\-Sim\-Fitter\-::\-Get\-Max\-Function\-Calls (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a2b02493b398ecb403eba6d2e7749afbd}
+Return number of calls (G\-S\-L) 
+
+Definition at line 154 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_acdbafed7b7924be5e1e4db1f423ec3b9}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Get\-Max\-Iterations@{Get\-Max\-Iterations}}
+\index{Get\-Max\-Iterations@{Get\-Max\-Iterations}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Get\-Max\-Iterations}]{\setlength{\rightskip}{0pt plus 5cm}int Coul\-Ex\-Sim\-Fitter\-::\-Get\-Max\-Iterations (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_acdbafed7b7924be5e1e4db1f423ec3b9}
+Return number of iterations (Minuit) 
+
+Definition at line 153 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_a2b33f0db4913d47610c616e0609709a4}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Get\-Nthreads@{Get\-Nthreads}}
+\index{Get\-Nthreads@{Get\-Nthreads}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Get\-Nthreads}]{\setlength{\rightskip}{0pt plus 5cm}int Coul\-Ex\-Sim\-Fitter\-::\-Get\-Nthreads (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a2b33f0db4913d47610c616e0609709a4}
+Return number of allowed cores 
+
+Definition at line 158 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_a32c580e2ffe931a6bfa0e1bea293aca3}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Get\-Scaling\-Parameters@{Get\-Scaling\-Parameters}}
+\index{Get\-Scaling\-Parameters@{Get\-Scaling\-Parameters}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Get\-Scaling\-Parameters}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Scaling\-Parameter}$>$ Coul\-Ex\-Sim\-Fitter\-::\-Get\-Scaling\-Parameters (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a32c580e2ffe931a6bfa0e1bea293aca3}
+Return vector of \hyperlink{classScalingParameter}{Scaling\-Parameter} objects 
+
+Definition at line 88 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_ae528d5210550e3a751a053204d24d7a8}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Get\-Target\-Correction\-Factors@{Get\-Target\-Correction\-Factors}}
+\index{Get\-Target\-Correction\-Factors@{Get\-Target\-Correction\-Factors}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Get\-Target\-Correction\-Factors}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$T\-Vector\-D$>$ Coul\-Ex\-Sim\-Fitter\-::\-Get\-Target\-Correction\-Factors (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_ae528d5210550e3a751a053204d24d7a8}
+Return beam point calculation correction factors 
+
+Definition at line 145 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_a555360856a255d85185a9af58d4ea9d0}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Get\-Target\-Data@{Get\-Target\-Data}}
+\index{Get\-Target\-Data@{Get\-Target\-Data}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Get\-Target\-Data}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Experiment\-Data}$>$ Coul\-Ex\-Sim\-Fitter\-::\-Get\-Target\-Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a555360856a255d85185a9af58d4ea9d0}
+Return vector of target \hyperlink{classExperimentData}{Experiment\-Data} 
+
+Definition at line 110 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_a453dae7b194c1fb8d26b508719c7a6bf}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Get\-Target\-Lit\-Branching@{Get\-Target\-Lit\-Branching}}
+\index{Get\-Target\-Lit\-Branching@{Get\-Target\-Lit\-Branching}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Get\-Target\-Lit\-Branching}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Lit\-Branching\-Ratio}$>$ Coul\-Ex\-Sim\-Fitter\-::\-Get\-Target\-Lit\-Branching (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a453dae7b194c1fb8d26b508719c7a6bf}
+Return the vector of target \hyperlink{classLitBranchingRatio}{Lit\-Branching\-Ratio} objects defining the literature branching ratio data for fitting 
+
+Definition at line 120 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_ab24c12957304e58e370056e17fd2d63f}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Get\-Target\-Lit\-Lifetimes@{Get\-Target\-Lit\-Lifetimes}}
+\index{Get\-Target\-Lit\-Lifetimes@{Get\-Target\-Lit\-Lifetimes}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Get\-Target\-Lit\-Lifetimes}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Lit\-Lifetime}$>$ Coul\-Ex\-Sim\-Fitter\-::\-Get\-Target\-Lit\-Lifetimes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_ab24c12957304e58e370056e17fd2d63f}
+Return the vector of target \hyperlink{classLitLifetime}{Lit\-Lifetime} objects defining the literature lifetime data for fitting 
+
+Definition at line 115 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_af28a9a7e25758f41f1e766df60626cea}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Get\-Target\-Lit\-Mixing@{Get\-Target\-Lit\-Mixing}}
+\index{Get\-Target\-Lit\-Mixing@{Get\-Target\-Lit\-Mixing}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Get\-Target\-Lit\-Mixing}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Lit\-Mixing\-Ratio}$>$ Coul\-Ex\-Sim\-Fitter\-::\-Get\-Target\-Lit\-Mixing (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_af28a9a7e25758f41f1e766df60626cea}
+Return the vector of target \hyperlink{classLitMixingRatio}{Lit\-Mixing\-Ratio} objects defining the literature mixing ratio data for fitting 
+
+Definition at line 125 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_ae7dca1a0f23e15d332a4141fd09a2ed3}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Get\-Target\-Matrix\-Elements@{Get\-Target\-Matrix\-Elements}}
+\index{Get\-Target\-Matrix\-Elements@{Get\-Target\-Matrix\-Elements}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Get\-Target\-Matrix\-Elements}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Matrix\-Element}$>$ Coul\-Ex\-Sim\-Fitter\-::\-Get\-Target\-Matrix\-Elements (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_ae7dca1a0f23e15d332a4141fd09a2ed3}
+Return vector of fitting Matrix\-Elements for the target 
+
+Definition at line 97 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_a6eacf96639a5bd3908636ab253d8c9b3}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Get\-Target\-Nucleus@{Get\-Target\-Nucleus}}
+\index{Get\-Target\-Nucleus@{Get\-Target\-Nucleus}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Get\-Target\-Nucleus}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Nucleus} Coul\-Ex\-Sim\-Fitter\-::\-Get\-Target\-Nucleus (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a6eacf96639a5bd3908636ab253d8c9b3}
+Return the fitting target nucleus (varied in fitting) 
+
+Definition at line 138 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_aa15df5dc8fafe7ad453006e3e25eb627}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Get\-Target\-Point\-Calcs@{Get\-Target\-Point\-Calcs}}
+\index{Get\-Target\-Point\-Calcs@{Get\-Target\-Point\-Calcs}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Get\-Target\-Point\-Calcs}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Point\-Coul\-Ex}$>$ Coul\-Ex\-Sim\-Fitter\-::\-Get\-Target\-Point\-Calcs (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_aa15df5dc8fafe7ad453006e3e25eb627}
+Return vector of target \hyperlink{classPointCoulEx}{Point\-Coul\-Ex} calculation objects 
+
+Definition at line 105 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_a798bbe43d1e820d600b3fa2530e7be0b}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Get\-Tolerance@{Get\-Tolerance}}
+\index{Get\-Tolerance@{Get\-Tolerance}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Get\-Tolerance}]{\setlength{\rightskip}{0pt plus 5cm}double Coul\-Ex\-Sim\-Fitter\-::\-Get\-Tolerance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a798bbe43d1e820d600b3fa2530e7be0b}
+Return required tolerance 
+
+Definition at line 155 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_abbcbf6dd58cc2bb7e069ca28335e0519}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Get\-Verbose@{Get\-Verbose}}
+\index{Get\-Verbose@{Get\-Verbose}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Get\-Verbose}]{\setlength{\rightskip}{0pt plus 5cm}bool Coul\-Ex\-Sim\-Fitter\-::\-Get\-Verbose (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_abbcbf6dd58cc2bb7e069ca28335e0519}
+Return verbocity 
+
+Definition at line 161 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_ad2b70cca6d786a23f35231cf931ef65f}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Print@{Print}}
+\index{Print@{Print}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Print}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Print (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classCoulExSimFitter_ad2b70cca6d786a23f35231cf931ef65f}
+Print fitting details (formatted) 
+
+Definition at line 252 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+
+\hypertarget{classCoulExSimFitter_a5f107c68537522704cfbea61406429e7}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Set\-Base\-Beam\-Nucleus@{Set\-Base\-Beam\-Nucleus}}
+\index{Set\-Base\-Beam\-Nucleus@{Set\-Base\-Beam\-Nucleus}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Set\-Base\-Beam\-Nucleus}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Set\-Base\-Beam\-Nucleus (
+\begin{DoxyParamCaption}
+\item[{{\bf Nucleus} $\ast$}]{nucl}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a5f107c68537522704cfbea61406429e7}
+Define the base beam nucleus (not to be varied in fitting) 
+
+Definition at line 130 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_a97c35d0432333cefb1aeb256dc4e6ca8}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Set\-Base\-Target\-Nucleus@{Set\-Base\-Target\-Nucleus}}
+\index{Set\-Base\-Target\-Nucleus@{Set\-Base\-Target\-Nucleus}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Set\-Base\-Target\-Nucleus}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Set\-Base\-Target\-Nucleus (
+\begin{DoxyParamCaption}
+\item[{{\bf Nucleus} $\ast$}]{nucl}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a97c35d0432333cefb1aeb256dc4e6ca8}
+Define the base target nucleus (not to be varied in fitting) 
+
+Definition at line 132 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_a38af2f165ee0e21c2f037b8d8eddee78}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Set\-Beam\-Correction\-Factor@{Set\-Beam\-Correction\-Factor}}
+\index{Set\-Beam\-Correction\-Factor@{Set\-Beam\-Correction\-Factor}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Set\-Beam\-Correction\-Factor}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Set\-Beam\-Correction\-Factor (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{T\-Vector\-D}]{corr\-Fac}
+\end{DoxyParamCaption}
+)}}\label{classCoulExSimFitter_a38af2f165ee0e21c2f037b8d8eddee78}
+Define beam point calculation correction factors for experiment i 
+
+Definition at line 175 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+
+\hypertarget{classCoulExSimFitter_a59ebba363d2aba7df840ed47cdbb8aa2}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Set\-Beam\-Data@{Set\-Beam\-Data}}
+\index{Set\-Beam\-Data@{Set\-Beam\-Data}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Set\-Beam\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Set\-Beam\-Data (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Experiment\-Data} $>$}]{d}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a59ebba363d2aba7df840ed47cdbb8aa2}
+Define vector of beam \hyperlink{classExperimentData}{Experiment\-Data} 
+
+Definition at line 107 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_acfbdfe58274083ab962aa3ab1e29317f}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Set\-Beam\-Lit\-Branching@{Set\-Beam\-Lit\-Branching}}
+\index{Set\-Beam\-Lit\-Branching@{Set\-Beam\-Lit\-Branching}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Set\-Beam\-Lit\-Branching}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Set\-Beam\-Lit\-Branching (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Lit\-Branching\-Ratio} $>$}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_acfbdfe58274083ab962aa3ab1e29317f}
+Define the vector of beam \hyperlink{classLitBranchingRatio}{Lit\-Branching\-Ratio} objects defining the literature branching ratio data for fitting 
+
+Definition at line 117 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_a5fd88c4d7e5f06ed956e4729f74a6cdc}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Set\-Beam\-Lit\-Lifetimes@{Set\-Beam\-Lit\-Lifetimes}}
+\index{Set\-Beam\-Lit\-Lifetimes@{Set\-Beam\-Lit\-Lifetimes}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Set\-Beam\-Lit\-Lifetimes}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Set\-Beam\-Lit\-Lifetimes (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Lit\-Lifetime} $>$}]{l}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a5fd88c4d7e5f06ed956e4729f74a6cdc}
+Define the vector of beam \hyperlink{classLitLifetime}{Lit\-Lifetime} objects defining the literature lifetime data for fitting 
+
+Definition at line 112 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_a704084e639512c8aa7c33dac939729b7}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Set\-Beam\-Lit\-Mixing@{Set\-Beam\-Lit\-Mixing}}
+\index{Set\-Beam\-Lit\-Mixing@{Set\-Beam\-Lit\-Mixing}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Set\-Beam\-Lit\-Mixing}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Set\-Beam\-Lit\-Mixing (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Lit\-Mixing\-Ratio} $>$}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a704084e639512c8aa7c33dac939729b7}
+Define the vector of beam \hyperlink{classLitMixingRatio}{Lit\-Mixing\-Ratio} objects defining the literature mixing ratio data for fitting 
+
+Definition at line 122 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_a01c682e2e9a1e84d8c3a977fb1d6e1a8}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Set\-Beam\-Matrix\-Elements@{Set\-Beam\-Matrix\-Elements}}
+\index{Set\-Beam\-Matrix\-Elements@{Set\-Beam\-Matrix\-Elements}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Set\-Beam\-Matrix\-Elements}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Set\-Beam\-Matrix\-Elements (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Matrix\-Element} $>$}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a01c682e2e9a1e84d8c3a977fb1d6e1a8}
+Define vector of fitting Matrix\-Elements for the beam 
+
+Definition at line 93 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_aae95c6ebc60c00fb25b6466856ff4e92}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Set\-Beam\-Nucleus@{Set\-Beam\-Nucleus}}
+\index{Set\-Beam\-Nucleus@{Set\-Beam\-Nucleus}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Set\-Beam\-Nucleus}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Set\-Beam\-Nucleus (
+\begin{DoxyParamCaption}
+\item[{{\bf Nucleus} $\ast$}]{nucl}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_aae95c6ebc60c00fb25b6466856ff4e92}
+Define the fitting beam nucleus (varied in fitting) 
+
+Definition at line 135 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_a6fd0a37afe00943badaa5dd3aa006265}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Set\-Beam\-Point\-Calcs@{Set\-Beam\-Point\-Calcs}}
+\index{Set\-Beam\-Point\-Calcs@{Set\-Beam\-Point\-Calcs}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Set\-Beam\-Point\-Calcs}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Set\-Beam\-Point\-Calcs (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Point\-Coul\-Ex} $>$}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a6fd0a37afe00943badaa5dd3aa006265}
+Define vector of beam \hyperlink{classPointCoulEx}{Point\-Coul\-Ex} calculation objects 
+
+Definition at line 101 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_a5d482897c57846bf1b83c645843c016f}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Set\-Max\-Function\-Calls@{Set\-Max\-Function\-Calls}}
+\index{Set\-Max\-Function\-Calls@{Set\-Max\-Function\-Calls}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Set\-Max\-Function\-Calls}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Set\-Max\-Function\-Calls (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a5d482897c57846bf1b83c645843c016f}
+Define number of calls (G\-S\-L) 
+
+Definition at line 150 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_ae8bcedc89a1730f6295cdf862643aa35}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Set\-Max\-Iterations@{Set\-Max\-Iterations}}
+\index{Set\-Max\-Iterations@{Set\-Max\-Iterations}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Set\-Max\-Iterations}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Set\-Max\-Iterations (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_ae8bcedc89a1730f6295cdf862643aa35}
+Define number of iterations (Minuit) 
+
+Definition at line 149 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_a900dcc1fe094d4d4890d52c48f6240ca}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Set\-Nthreads@{Set\-Nthreads}}
+\index{Set\-Nthreads@{Set\-Nthreads}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Set\-Nthreads}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Set\-Nthreads (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a900dcc1fe094d4d4890d52c48f6240ca}
+Define number of allowed cores 
+
+Definition at line 157 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_a89e43cd4897b5c56580db7852cbc2d37}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Set\-Scaling\-Parameters@{Set\-Scaling\-Parameters}}
+\index{Set\-Scaling\-Parameters@{Set\-Scaling\-Parameters}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Set\-Scaling\-Parameters}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Set\-Scaling\-Parameters (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Scaling\-Parameter} $>$}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a89e43cd4897b5c56580db7852cbc2d37}
+Define vector of \hyperlink{classScalingParameter}{Scaling\-Parameter} objects 
+
+Definition at line 89 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_af4764a0abfbec937d6aaf51459d741a8}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Set\-Target\-Correction\-Factor@{Set\-Target\-Correction\-Factor}}
+\index{Set\-Target\-Correction\-Factor@{Set\-Target\-Correction\-Factor}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Set\-Target\-Correction\-Factor}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Set\-Target\-Correction\-Factor (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{T\-Vector\-D}]{corr\-Fac}
+\end{DoxyParamCaption}
+)}}\label{classCoulExSimFitter_af4764a0abfbec937d6aaf51459d741a8}
+Define beam point calculation correction factors for experiment i 
+
+Definition at line 184 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+
+\hypertarget{classCoulExSimFitter_aec8080c3f8a0edbce8400a6eaf935bb1}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Set\-Target\-Data@{Set\-Target\-Data}}
+\index{Set\-Target\-Data@{Set\-Target\-Data}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Set\-Target\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Set\-Target\-Data (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Experiment\-Data} $>$}]{d}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_aec8080c3f8a0edbce8400a6eaf935bb1}
+Define vector of target \hyperlink{classExperimentData}{Experiment\-Data} 
+
+Definition at line 109 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_aa8cbab1305bd8427eb0087841b42af07}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Set\-Target\-Lit\-Branching@{Set\-Target\-Lit\-Branching}}
+\index{Set\-Target\-Lit\-Branching@{Set\-Target\-Lit\-Branching}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Set\-Target\-Lit\-Branching}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Set\-Target\-Lit\-Branching (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Lit\-Branching\-Ratio} $>$}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_aa8cbab1305bd8427eb0087841b42af07}
+Define the vector of target \hyperlink{classLitBranchingRatio}{Lit\-Branching\-Ratio} objects defining the literature branching ratio data for fitting 
+
+Definition at line 119 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_a9a3619c2164f23b35e484774eb115b9e}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Set\-Target\-Lit\-Lifetimes@{Set\-Target\-Lit\-Lifetimes}}
+\index{Set\-Target\-Lit\-Lifetimes@{Set\-Target\-Lit\-Lifetimes}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Set\-Target\-Lit\-Lifetimes}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Set\-Target\-Lit\-Lifetimes (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Lit\-Lifetime} $>$}]{l}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a9a3619c2164f23b35e484774eb115b9e}
+Define the vector of target \hyperlink{classLitLifetime}{Lit\-Lifetime} objects defining the literature lifetime data for fitting 
+
+Definition at line 114 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_a1a1b81c10927ccf088de83d53c60a97e}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Set\-Target\-Lit\-Mixing@{Set\-Target\-Lit\-Mixing}}
+\index{Set\-Target\-Lit\-Mixing@{Set\-Target\-Lit\-Mixing}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Set\-Target\-Lit\-Mixing}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Set\-Target\-Lit\-Mixing (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Lit\-Mixing\-Ratio} $>$}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a1a1b81c10927ccf088de83d53c60a97e}
+Define the vector of target \hyperlink{classLitMixingRatio}{Lit\-Mixing\-Ratio} objects defining the literature mixing ratio data for fitting 
+
+Definition at line 124 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_a1ecc0eecc268545044e3f73c26eb00a6}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Set\-Target\-Matrix\-Elements@{Set\-Target\-Matrix\-Elements}}
+\index{Set\-Target\-Matrix\-Elements@{Set\-Target\-Matrix\-Elements}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Set\-Target\-Matrix\-Elements}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Set\-Target\-Matrix\-Elements (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Matrix\-Element} $>$}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a1ecc0eecc268545044e3f73c26eb00a6}
+Define vector of fitting Matrix\-Elements for the target 
+
+Definition at line 96 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_ae7d4c64f558a035a2f3d6993db2969ed}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Set\-Target\-Nucleus@{Set\-Target\-Nucleus}}
+\index{Set\-Target\-Nucleus@{Set\-Target\-Nucleus}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Set\-Target\-Nucleus}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Set\-Target\-Nucleus (
+\begin{DoxyParamCaption}
+\item[{{\bf Nucleus} $\ast$}]{nucl}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_ae7d4c64f558a035a2f3d6993db2969ed}
+Define the fitting target nucleus (varied in fitting) 
+
+Definition at line 137 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_a83fed4de27046f0f8cfaff70c824c763}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Set\-Target\-Point\-Calcs@{Set\-Target\-Point\-Calcs}}
+\index{Set\-Target\-Point\-Calcs@{Set\-Target\-Point\-Calcs}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Set\-Target\-Point\-Calcs}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Set\-Target\-Point\-Calcs (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Point\-Coul\-Ex} $>$}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a83fed4de27046f0f8cfaff70c824c763}
+Define vector of target \hyperlink{classPointCoulEx}{Point\-Coul\-Ex} calculation objects 
+
+Definition at line 104 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_af2da6ea0d1104d2516d453ee18a234f2}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Set\-Tolerance@{Set\-Tolerance}}
+\index{Set\-Tolerance@{Set\-Tolerance}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Set\-Tolerance}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Set\-Tolerance (
+\begin{DoxyParamCaption}
+\item[{double}]{d}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_af2da6ea0d1104d2516d453ee18a234f2}
+Define required tolerance 
+
+Definition at line 151 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_a3ed1f75a477a2386c801c9b003c11aed}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Set\-Verbose@{Set\-Verbose}}
+\index{Set\-Verbose@{Set\-Verbose}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Set\-Verbose}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Set\-Verbose (
+\begin{DoxyParamCaption}
+\item[{bool}]{b = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a3ed1f75a477a2386c801c9b003c11aed}
+Define verbocity 
+
+Definition at line 160 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Coul\-Ex\-Sim\-Fitter.\-h\item 
+Coul\-Ex\-Sim\-Fitter.\-cxx\end{DoxyCompactItemize}

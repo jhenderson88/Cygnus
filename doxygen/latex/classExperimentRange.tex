@@ -1,0 +1,460 @@
+\hypertarget{classExperimentRange}{\section{Experiment\-Range Class Reference}
+\label{classExperimentRange}\index{Experiment\-Range@{Experiment\-Range}}
+}
+
+
+Define an experimental range, for determining integrated yields.  
+
+
+
+
+{\ttfamily \#include $<$Experiment\-Range.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classExperimentRange_a79480db17f0803e470c5f7100c84f8c8}{Experiment\-Range} (\hyperlink{classNucleus}{Nucleus} $\ast$, \hyperlink{classReaction}{Reaction} $\ast$)
+\item 
+\hyperlink{classExperimentRange_a092597ab070b91bab8bba8b171d39fda}{Experiment\-Range} (const \hyperlink{classExperimentRange}{Experiment\-Range} \&e)
+\item 
+\hyperlink{classExperimentRange}{Experiment\-Range} \& \hyperlink{classExperimentRange_a241106c9e2ecdd984b3ed38987f439bd}{operator=} (const \hyperlink{classExperimentRange}{Experiment\-Range} \&e)
+\item 
+void \hyperlink{classExperimentRange_ac555c2d40c99276a6d4bd07da5e3be78}{Set\-Ranges} (double tmin, double tmax, int nt, double emin, double emax, int ne)
+\item 
+void \hyperlink{classExperimentRange_a0e190c12e091608e70d44695f946c7c9}{Set\-Mean\-Values} ()
+\item 
+void \hyperlink{classExperimentRange_a51a02e7749c55efd3472caee94bbebfd}{Set\-Theta\-Min} (double t)
+\item 
+void \hyperlink{classExperimentRange_a27480c691bbabbef1bb6bafe179a0b34}{Set\-Theta\-Max} (double t)
+\item 
+void \hyperlink{classExperimentRange_aa417df7503c9300f44dc7c8677ef03e5}{Set\-Energy\-Min} (double e)
+\item 
+void \hyperlink{classExperimentRange_ab5615404ef5cdb6dfcc6b559f9803b1c}{Set\-Energy\-Max} (double e)
+\item 
+void \hyperlink{classExperimentRange_a50732f0b47ee0db8609339e6c48011d4}{Set\-Ntheta} (int n)
+\item 
+void \hyperlink{classExperimentRange_a84cd068a026d0ab30ac0612aee68f74b}{Set\-Nenergy} (int n)
+\item 
+void \hyperlink{classExperimentRange_afbbbb4137620aa9ce50c2a42c7b7ed5d}{Integrate\-Range} ()
+\item 
+T\-Graph2\-D $\ast$ \hyperlink{classExperimentRange_a047d78a553fbfbaf8d7a840ecdbbb03e}{Get\-Theta\-Energy\-Graph} (int s)
+\item 
+T\-Graph2\-D $\ast$ \hyperlink{classExperimentRange_a7814ead31c329c275f928dbf97d7b68b}{Interpolated\-Energy\-Theta} (int, bool use\-Detector=false)
+\item 
+void \hyperlink{classExperimentRange_ac5170826c6f6d9bae33364bf06de6ba1}{Set\-Target\-Detection} (bool b)
+\item 
+T\-Vector\-D \hyperlink{classExperimentRange_aeaae632ca1999c91a60003501a302de6}{Get\-Integrated\-Cross\-Section\-\_\-\-T\-Vec} () const 
+\item 
+double \hyperlink{classExperimentRange_afa45529cc4c2f50064385a1c36c07ceb}{Get\-Mean\-Theta\-Lab} () const 
+\item 
+double \hyperlink{classExperimentRange_a2418fc250e4e8de383cdb6eb8aec4331}{Get\-Mean\-Theta\-C\-M} () const 
+\item 
+double \hyperlink{classExperimentRange_af2ac4cda863fc12f646a1e570d1328cd}{Get\-Mean\-Energy} () const 
+\item 
+double \hyperlink{classExperimentRange_a5ddd63cb813e69d51ae0a4cba3798011}{Get\-Theta\-Min} () const 
+\item 
+double \hyperlink{classExperimentRange_a93a9a3a0216f1abfb874b404e4c13601}{Get\-Theta\-Max} () const 
+\item 
+double \hyperlink{classExperimentRange_ac1da7f718e6f895639d1617f44a40ec0}{Get\-E\-Min} () const 
+\item 
+double \hyperlink{classExperimentRange_af06d3d2a7d54cd09ee413c1b7f54e74e}{Get\-E\-Max} () const 
+\item 
+void \hyperlink{classExperimentRange_a78aeaf6af38c928af3c390d0dbd23cd2}{Print\-Details} () const 
+\item 
+void \hyperlink{classExperimentRange_a95d3a225080af35191f59fe518bdb10f}{Set\-Verbose} (bool b=true)
+\item 
+void \hyperlink{classExperimentRange_a098eebb45b8e1290e7c23107612392a1}{Set\-Nthreads} (int n)
+\item 
+int \hyperlink{classExperimentRange_a5a29b5bc1c4d8095899643fdb14ba552}{Get\-Nthreads} () const 
+\item 
+void \hyperlink{classExperimentRange_a0043948469f3eaa80e4c17783614941c}{Set\-Accuracy} (double acc)
+\item 
+void \hyperlink{classExperimentRange_a8df587a45ddeaa9855e72da17d660c74}{Set\-Stopping} (\hyperlink{classStoppingPower}{Stopping\-Power} s)
+\item 
+void \hyperlink{classExperimentRange_a821bf8aa2df5e375ffaaa3b80005083a}{Set\-Detector\-Eff} (T\-H1\-F $\ast$p)
+\item 
+void \hyperlink{classExperimentRange_a21457bd02435c4b113f3b5b7c474a5c2}{Use\-Efficiency} (bool b=true)
+\item 
+void \hyperlink{classExperimentRange_a8e6e4dde1e7316191fe4f3156bb03be3}{Set\-Projectile\-Excitation} (bool b=true)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Define an experimental range, for determining integrated yields. 
+
+The \hyperlink{classExperimentRange}{Experiment\-Range} class uses \hyperlink{classIntegral}{Integral} to calculate the cross-\/ section meshpoints, state-\/by-\/state. It then fits the theta-\/energy cross-\/section dependence and integrates the surface, along with a correction for energy loss in the target, in order to calculate an integrated cross section. 
+
+Definition at line 36 of file Experiment\-Range.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classExperimentRange_a79480db17f0803e470c5f7100c84f8c8}{\index{Experiment\-Range@{Experiment\-Range}!Experiment\-Range@{Experiment\-Range}}
+\index{Experiment\-Range@{Experiment\-Range}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Experiment\-Range}]{\setlength{\rightskip}{0pt plus 5cm}Experiment\-Range\-::\-Experiment\-Range (
+\begin{DoxyParamCaption}
+\item[{{\bf Nucleus} $\ast$}]{nucl, }
+\item[{{\bf Reaction} $\ast$}]{reac}
+\end{DoxyParamCaption}
+)}}\label{classExperimentRange_a79480db17f0803e470c5f7100c84f8c8}
+Constructor with a \hyperlink{classNucleus}{Nucleus} and \hyperlink{classReaction}{Reaction} class 
+
+Definition at line 16 of file Experiment\-Range.\-cxx.
+
+\hypertarget{classExperimentRange_a092597ab070b91bab8bba8b171d39fda}{\index{Experiment\-Range@{Experiment\-Range}!Experiment\-Range@{Experiment\-Range}}
+\index{Experiment\-Range@{Experiment\-Range}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Experiment\-Range}]{\setlength{\rightskip}{0pt plus 5cm}Experiment\-Range\-::\-Experiment\-Range (
+\begin{DoxyParamCaption}
+\item[{const {\bf Experiment\-Range} \&}]{e}
+\end{DoxyParamCaption}
+)}}\label{classExperimentRange_a092597ab070b91bab8bba8b171d39fda}
+Copy constructor 
+
+Definition at line 31 of file Experiment\-Range.\-cxx.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classExperimentRange_af06d3d2a7d54cd09ee413c1b7f54e74e}{\index{Experiment\-Range@{Experiment\-Range}!Get\-E\-Max@{Get\-E\-Max}}
+\index{Get\-E\-Max@{Get\-E\-Max}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Get\-E\-Max}]{\setlength{\rightskip}{0pt plus 5cm}double Experiment\-Range\-::\-Get\-E\-Max (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentRange_af06d3d2a7d54cd09ee413c1b7f54e74e}
+Return the maximum energy valie (Me\-V, lab) for integration 
+
+Definition at line 90 of file Experiment\-Range.\-h.
+
+\hypertarget{classExperimentRange_ac1da7f718e6f895639d1617f44a40ec0}{\index{Experiment\-Range@{Experiment\-Range}!Get\-E\-Min@{Get\-E\-Min}}
+\index{Get\-E\-Min@{Get\-E\-Min}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Get\-E\-Min}]{\setlength{\rightskip}{0pt plus 5cm}double Experiment\-Range\-::\-Get\-E\-Min (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentRange_ac1da7f718e6f895639d1617f44a40ec0}
+Return the minimum energy value (Me\-V, lab) for integration 
+
+Definition at line 89 of file Experiment\-Range.\-h.
+
+\hypertarget{classExperimentRange_aeaae632ca1999c91a60003501a302de6}{\index{Experiment\-Range@{Experiment\-Range}!Get\-Integrated\-Cross\-Section\-\_\-\-T\-Vec@{Get\-Integrated\-Cross\-Section\-\_\-\-T\-Vec}}
+\index{Get\-Integrated\-Cross\-Section\-\_\-\-T\-Vec@{Get\-Integrated\-Cross\-Section\-\_\-\-T\-Vec}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Get\-Integrated\-Cross\-Section\-\_\-\-T\-Vec}]{\setlength{\rightskip}{0pt plus 5cm}T\-Vector\-D Experiment\-Range\-::\-Get\-Integrated\-Cross\-Section\-\_\-\-T\-Vec (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentRange_aeaae632ca1999c91a60003501a302de6}
+Return a T\-Vector\-D containing the integrated cross section over theta and energy 
+
+Definition at line 81 of file Experiment\-Range.\-h.
+
+\hypertarget{classExperimentRange_af2ac4cda863fc12f646a1e570d1328cd}{\index{Experiment\-Range@{Experiment\-Range}!Get\-Mean\-Energy@{Get\-Mean\-Energy}}
+\index{Get\-Mean\-Energy@{Get\-Mean\-Energy}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Get\-Mean\-Energy}]{\setlength{\rightskip}{0pt plus 5cm}double Experiment\-Range\-::\-Get\-Mean\-Energy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentRange_af2ac4cda863fc12f646a1e570d1328cd}
+Return the mean energy (Me\-V, lab) for point calculation 
+
+Definition at line 85 of file Experiment\-Range.\-h.
+
+\hypertarget{classExperimentRange_a2418fc250e4e8de383cdb6eb8aec4331}{\index{Experiment\-Range@{Experiment\-Range}!Get\-Mean\-Theta\-C\-M@{Get\-Mean\-Theta\-C\-M}}
+\index{Get\-Mean\-Theta\-C\-M@{Get\-Mean\-Theta\-C\-M}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Get\-Mean\-Theta\-C\-M}]{\setlength{\rightskip}{0pt plus 5cm}double Experiment\-Range\-::\-Get\-Mean\-Theta\-C\-M (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentRange_a2418fc250e4e8de383cdb6eb8aec4331}
+Return the mean theta value (Co\-M) for point calculation 
+
+Definition at line 84 of file Experiment\-Range.\-h.
+
+\hypertarget{classExperimentRange_afa45529cc4c2f50064385a1c36c07ceb}{\index{Experiment\-Range@{Experiment\-Range}!Get\-Mean\-Theta\-Lab@{Get\-Mean\-Theta\-Lab}}
+\index{Get\-Mean\-Theta\-Lab@{Get\-Mean\-Theta\-Lab}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Get\-Mean\-Theta\-Lab}]{\setlength{\rightskip}{0pt plus 5cm}double Experiment\-Range\-::\-Get\-Mean\-Theta\-Lab (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentRange_afa45529cc4c2f50064385a1c36c07ceb}
+Return the mean theta value (lab) for point calculation 
+
+Definition at line 83 of file Experiment\-Range.\-h.
+
+\hypertarget{classExperimentRange_a5a29b5bc1c4d8095899643fdb14ba552}{\index{Experiment\-Range@{Experiment\-Range}!Get\-Nthreads@{Get\-Nthreads}}
+\index{Get\-Nthreads@{Get\-Nthreads}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Get\-Nthreads}]{\setlength{\rightskip}{0pt plus 5cm}int Experiment\-Range\-::\-Get\-Nthreads (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentRange_a5a29b5bc1c4d8095899643fdb14ba552}
+Return the number of cores to be used in the integration 
+
+Definition at line 97 of file Experiment\-Range.\-h.
+
+\hypertarget{classExperimentRange_a047d78a553fbfbaf8d7a840ecdbbb03e}{\index{Experiment\-Range@{Experiment\-Range}!Get\-Theta\-Energy\-Graph@{Get\-Theta\-Energy\-Graph}}
+\index{Get\-Theta\-Energy\-Graph@{Get\-Theta\-Energy\-Graph}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Get\-Theta\-Energy\-Graph}]{\setlength{\rightskip}{0pt plus 5cm}T\-Graph2\-D $\ast$ Experiment\-Range\-::\-Get\-Theta\-Energy\-Graph (
+\begin{DoxyParamCaption}
+\item[{int}]{s}
+\end{DoxyParamCaption}
+)}}\label{classExperimentRange_a047d78a553fbfbaf8d7a840ecdbbb03e}
+Return the cross-\/section graph vs theta and energy for a given state, s 
+
+Definition at line 289 of file Experiment\-Range.\-cxx.
+
+\hypertarget{classExperimentRange_a93a9a3a0216f1abfb874b404e4c13601}{\index{Experiment\-Range@{Experiment\-Range}!Get\-Theta\-Max@{Get\-Theta\-Max}}
+\index{Get\-Theta\-Max@{Get\-Theta\-Max}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Get\-Theta\-Max}]{\setlength{\rightskip}{0pt plus 5cm}double Experiment\-Range\-::\-Get\-Theta\-Max (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentRange_a93a9a3a0216f1abfb874b404e4c13601}
+Return the maximum theta value (lab) for integration 
+
+Definition at line 88 of file Experiment\-Range.\-h.
+
+\hypertarget{classExperimentRange_a5ddd63cb813e69d51ae0a4cba3798011}{\index{Experiment\-Range@{Experiment\-Range}!Get\-Theta\-Min@{Get\-Theta\-Min}}
+\index{Get\-Theta\-Min@{Get\-Theta\-Min}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Get\-Theta\-Min}]{\setlength{\rightskip}{0pt plus 5cm}double Experiment\-Range\-::\-Get\-Theta\-Min (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentRange_a5ddd63cb813e69d51ae0a4cba3798011}
+Return the minimum theta value (lab) for integration 
+
+Definition at line 87 of file Experiment\-Range.\-h.
+
+\hypertarget{classExperimentRange_afbbbb4137620aa9ce50c2a42c7b7ed5d}{\index{Experiment\-Range@{Experiment\-Range}!Integrate\-Range@{Integrate\-Range}}
+\index{Integrate\-Range@{Integrate\-Range}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Integrate\-Range}]{\setlength{\rightskip}{0pt plus 5cm}void Experiment\-Range\-::\-Integrate\-Range (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classExperimentRange_afbbbb4137620aa9ce50c2a42c7b7ed5d}
+Perform the integration over the theta and energy ranges 
+
+Definition at line 103 of file Experiment\-Range.\-cxx.
+
+\hypertarget{classExperimentRange_a7814ead31c329c275f928dbf97d7b68b}{\index{Experiment\-Range@{Experiment\-Range}!Interpolated\-Energy\-Theta@{Interpolated\-Energy\-Theta}}
+\index{Interpolated\-Energy\-Theta@{Interpolated\-Energy\-Theta}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Interpolated\-Energy\-Theta}]{\setlength{\rightskip}{0pt plus 5cm}T\-Graph2\-D $\ast$ Experiment\-Range\-::\-Interpolated\-Energy\-Theta (
+\begin{DoxyParamCaption}
+\item[{int}]{state, }
+\item[{bool}]{use\-Detector = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}}\label{classExperimentRange_a7814ead31c329c275f928dbf97d7b68b}
+Perform an interpolation between the meshpoints determined in the integration 
+
+Definition at line 227 of file Experiment\-Range.\-cxx.
+
+\hypertarget{classExperimentRange_a241106c9e2ecdd984b3ed38987f439bd}{\index{Experiment\-Range@{Experiment\-Range}!operator=@{operator=}}
+\index{operator=@{operator=}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Experiment\-Range} \& Experiment\-Range\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Experiment\-Range} \&}]{e}
+\end{DoxyParamCaption}
+)}}\label{classExperimentRange_a241106c9e2ecdd984b3ed38987f439bd}
+Assignment operator 
+
+Definition at line 64 of file Experiment\-Range.\-cxx.
+
+\hypertarget{classExperimentRange_a78aeaf6af38c928af3c390d0dbd23cd2}{\index{Experiment\-Range@{Experiment\-Range}!Print\-Details@{Print\-Details}}
+\index{Print\-Details@{Print\-Details}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Print\-Details}]{\setlength{\rightskip}{0pt plus 5cm}void Experiment\-Range\-::\-Print\-Details (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classExperimentRange_a78aeaf6af38c928af3c390d0dbd23cd2}
+Print the details of the experimental range 
+
+Definition at line 328 of file Experiment\-Range.\-cxx.
+
+\hypertarget{classExperimentRange_a0043948469f3eaa80e4c17783614941c}{\index{Experiment\-Range@{Experiment\-Range}!Set\-Accuracy@{Set\-Accuracy}}
+\index{Set\-Accuracy@{Set\-Accuracy}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Set\-Accuracy}]{\setlength{\rightskip}{0pt plus 5cm}void Experiment\-Range\-::\-Set\-Accuracy (
+\begin{DoxyParamCaption}
+\item[{double}]{acc}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentRange_a0043948469f3eaa80e4c17783614941c}
+Define the accuracy of the calculations 
+
+Definition at line 99 of file Experiment\-Range.\-h.
+
+\hypertarget{classExperimentRange_a821bf8aa2df5e375ffaaa3b80005083a}{\index{Experiment\-Range@{Experiment\-Range}!Set\-Detector\-Eff@{Set\-Detector\-Eff}}
+\index{Set\-Detector\-Eff@{Set\-Detector\-Eff}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Set\-Detector\-Eff}]{\setlength{\rightskip}{0pt plus 5cm}void Experiment\-Range\-::\-Set\-Detector\-Eff (
+\begin{DoxyParamCaption}
+\item[{T\-H1\-F $\ast$}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentRange_a821bf8aa2df5e375ffaaa3b80005083a}
+Define the detector efficiency histogram (efficiency vs theta) 
+
+Definition at line 103 of file Experiment\-Range.\-h.
+
+\hypertarget{classExperimentRange_ab5615404ef5cdb6dfcc6b559f9803b1c}{\index{Experiment\-Range@{Experiment\-Range}!Set\-Energy\-Max@{Set\-Energy\-Max}}
+\index{Set\-Energy\-Max@{Set\-Energy\-Max}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Set\-Energy\-Max}]{\setlength{\rightskip}{0pt plus 5cm}void Experiment\-Range\-::\-Set\-Energy\-Max (
+\begin{DoxyParamCaption}
+\item[{double}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentRange_ab5615404ef5cdb6dfcc6b559f9803b1c}
+Define the maximum energy for integration (Me\-V, lab) 
+
+Definition at line 70 of file Experiment\-Range.\-h.
+
+\hypertarget{classExperimentRange_aa417df7503c9300f44dc7c8677ef03e5}{\index{Experiment\-Range@{Experiment\-Range}!Set\-Energy\-Min@{Set\-Energy\-Min}}
+\index{Set\-Energy\-Min@{Set\-Energy\-Min}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Set\-Energy\-Min}]{\setlength{\rightskip}{0pt plus 5cm}void Experiment\-Range\-::\-Set\-Energy\-Min (
+\begin{DoxyParamCaption}
+\item[{double}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentRange_aa417df7503c9300f44dc7c8677ef03e5}
+Define the minimum energy for integration (Me\-V, lab) 
+
+Definition at line 69 of file Experiment\-Range.\-h.
+
+\hypertarget{classExperimentRange_a0e190c12e091608e70d44695f946c7c9}{\index{Experiment\-Range@{Experiment\-Range}!Set\-Mean\-Values@{Set\-Mean\-Values}}
+\index{Set\-Mean\-Values@{Set\-Mean\-Values}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Set\-Mean\-Values}]{\setlength{\rightskip}{0pt plus 5cm}void Experiment\-Range\-::\-Set\-Mean\-Values (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classExperimentRange_a0e190c12e091608e70d44695f946c7c9}
+Define the mean theta and mean energy, for use in the point calculations 
+
+Definition at line 311 of file Experiment\-Range.\-cxx.
+
+\hypertarget{classExperimentRange_a84cd068a026d0ab30ac0612aee68f74b}{\index{Experiment\-Range@{Experiment\-Range}!Set\-Nenergy@{Set\-Nenergy}}
+\index{Set\-Nenergy@{Set\-Nenergy}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Set\-Nenergy}]{\setlength{\rightskip}{0pt plus 5cm}void Experiment\-Range\-::\-Set\-Nenergy (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentRange_a84cd068a026d0ab30ac0612aee68f74b}
+Define the number of energy meshpoints for integration 
+
+Definition at line 73 of file Experiment\-Range.\-h.
+
+\hypertarget{classExperimentRange_a50732f0b47ee0db8609339e6c48011d4}{\index{Experiment\-Range@{Experiment\-Range}!Set\-Ntheta@{Set\-Ntheta}}
+\index{Set\-Ntheta@{Set\-Ntheta}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Set\-Ntheta}]{\setlength{\rightskip}{0pt plus 5cm}void Experiment\-Range\-::\-Set\-Ntheta (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentRange_a50732f0b47ee0db8609339e6c48011d4}
+Define the number of theta meshpoints for integration 
+
+Definition at line 72 of file Experiment\-Range.\-h.
+
+\hypertarget{classExperimentRange_a098eebb45b8e1290e7c23107612392a1}{\index{Experiment\-Range@{Experiment\-Range}!Set\-Nthreads@{Set\-Nthreads}}
+\index{Set\-Nthreads@{Set\-Nthreads}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Set\-Nthreads}]{\setlength{\rightskip}{0pt plus 5cm}void Experiment\-Range\-::\-Set\-Nthreads (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentRange_a098eebb45b8e1290e7c23107612392a1}
+Define the number of cores to be used in the integration 
+
+Definition at line 96 of file Experiment\-Range.\-h.
+
+\hypertarget{classExperimentRange_a8e6e4dde1e7316191fe4f3156bb03be3}{\index{Experiment\-Range@{Experiment\-Range}!Set\-Projectile\-Excitation@{Set\-Projectile\-Excitation}}
+\index{Set\-Projectile\-Excitation@{Set\-Projectile\-Excitation}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Set\-Projectile\-Excitation}]{\setlength{\rightskip}{0pt plus 5cm}void Experiment\-Range\-::\-Set\-Projectile\-Excitation (
+\begin{DoxyParamCaption}
+\item[{bool}]{b = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentRange_a8e6e4dde1e7316191fe4f3156bb03be3}
+Determines whether the beam or target is being excited 
+
+Definition at line 107 of file Experiment\-Range.\-h.
+
+\hypertarget{classExperimentRange_ac555c2d40c99276a6d4bd07da5e3be78}{\index{Experiment\-Range@{Experiment\-Range}!Set\-Ranges@{Set\-Ranges}}
+\index{Set\-Ranges@{Set\-Ranges}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Set\-Ranges}]{\setlength{\rightskip}{0pt plus 5cm}void Experiment\-Range\-::\-Set\-Ranges (
+\begin{DoxyParamCaption}
+\item[{double}]{tmin, }
+\item[{double}]{tmax, }
+\item[{int}]{nt, }
+\item[{double}]{emin, }
+\item[{double}]{emax, }
+\item[{int}]{ne}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentRange_ac555c2d40c99276a6d4bd07da5e3be78}
+Define an experimental range\-:\par
+tmin -\/ minimum theta (lab) tmax -\/ maximum theta (lab) nt -\/ number of theta meshpoints for integration emin -\/ minimum energy (Me\-V) emax -\/ maximum energy (Me\-V) ne -\/ number of energy meshpoints for integration 
+
+Definition at line 54 of file Experiment\-Range.\-h.
+
+\hypertarget{classExperimentRange_a8df587a45ddeaa9855e72da17d660c74}{\index{Experiment\-Range@{Experiment\-Range}!Set\-Stopping@{Set\-Stopping}}
+\index{Set\-Stopping@{Set\-Stopping}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Set\-Stopping}]{\setlength{\rightskip}{0pt plus 5cm}void Experiment\-Range\-::\-Set\-Stopping (
+\begin{DoxyParamCaption}
+\item[{{\bf Stopping\-Power}}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentRange_a8df587a45ddeaa9855e72da17d660c74}
+Define the stopping power (d\-E/d\-X) for the integration 
+
+Definition at line 101 of file Experiment\-Range.\-h.
+
+\hypertarget{classExperimentRange_ac5170826c6f6d9bae33364bf06de6ba1}{\index{Experiment\-Range@{Experiment\-Range}!Set\-Target\-Detection@{Set\-Target\-Detection}}
+\index{Set\-Target\-Detection@{Set\-Target\-Detection}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Set\-Target\-Detection}]{\setlength{\rightskip}{0pt plus 5cm}void Experiment\-Range\-::\-Set\-Target\-Detection (
+\begin{DoxyParamCaption}
+\item[{bool}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentRange_ac5170826c6f6d9bae33364bf06de6ba1}
+Define whether the target is being detected (default\-: beam-\/like detection 
+
+Definition at line 79 of file Experiment\-Range.\-h.
+
+\hypertarget{classExperimentRange_a27480c691bbabbef1bb6bafe179a0b34}{\index{Experiment\-Range@{Experiment\-Range}!Set\-Theta\-Max@{Set\-Theta\-Max}}
+\index{Set\-Theta\-Max@{Set\-Theta\-Max}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Set\-Theta\-Max}]{\setlength{\rightskip}{0pt plus 5cm}void Experiment\-Range\-::\-Set\-Theta\-Max (
+\begin{DoxyParamCaption}
+\item[{double}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentRange_a27480c691bbabbef1bb6bafe179a0b34}
+Define the maximum theta for integration (lab) 
+
+Definition at line 67 of file Experiment\-Range.\-h.
+
+\hypertarget{classExperimentRange_a51a02e7749c55efd3472caee94bbebfd}{\index{Experiment\-Range@{Experiment\-Range}!Set\-Theta\-Min@{Set\-Theta\-Min}}
+\index{Set\-Theta\-Min@{Set\-Theta\-Min}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Set\-Theta\-Min}]{\setlength{\rightskip}{0pt plus 5cm}void Experiment\-Range\-::\-Set\-Theta\-Min (
+\begin{DoxyParamCaption}
+\item[{double}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentRange_a51a02e7749c55efd3472caee94bbebfd}
+Define the minimum theta for integration (lab) 
+
+Definition at line 66 of file Experiment\-Range.\-h.
+
+\hypertarget{classExperimentRange_a95d3a225080af35191f59fe518bdb10f}{\index{Experiment\-Range@{Experiment\-Range}!Set\-Verbose@{Set\-Verbose}}
+\index{Set\-Verbose@{Set\-Verbose}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Set\-Verbose}]{\setlength{\rightskip}{0pt plus 5cm}void Experiment\-Range\-::\-Set\-Verbose (
+\begin{DoxyParamCaption}
+\item[{bool}]{b = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentRange_a95d3a225080af35191f59fe518bdb10f}
+Define the verbocity of the calculations 
+
+Definition at line 94 of file Experiment\-Range.\-h.
+
+\hypertarget{classExperimentRange_a21457bd02435c4b113f3b5b7c474a5c2}{\index{Experiment\-Range@{Experiment\-Range}!Use\-Efficiency@{Use\-Efficiency}}
+\index{Use\-Efficiency@{Use\-Efficiency}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Use\-Efficiency}]{\setlength{\rightskip}{0pt plus 5cm}void Experiment\-Range\-::\-Use\-Efficiency (
+\begin{DoxyParamCaption}
+\item[{bool}]{b = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentRange_a21457bd02435c4b113f3b5b7c474a5c2}
+Use the detector efficiencies for particle detection 
+
+Definition at line 105 of file Experiment\-Range.\-h.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Experiment\-Range.\-h\item 
+Experiment\-Range.\-cxx\end{DoxyCompactItemize}

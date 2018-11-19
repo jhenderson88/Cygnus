@@ -1,0 +1,554 @@
+\hypertarget{classCoulExMinFCN}{\section{Coul\-Ex\-Min\-F\-C\-N Class Reference}
+\label{classCoulExMinFCN}\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}}
+}
+
+
+Contains the definition of the chi-\/squared function used in the minimization routines.  
+
+
+
+
+{\ttfamily \#include $<$Coul\-Ex\-Min\-F\-C\-N.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classCoulExMinFCN_adbe1821d52bea6bdc1ec188958fe3e72}{Coul\-Ex\-Min\-F\-C\-N} (std\-::vector$<$ \hyperlink{classExperimentData}{Experiment\-Data} $>$ d)
+\item 
+void \hyperlink{classCoulExMinFCN_a89b319adcf1dcc2d24f402b4dd7c340a}{Setup\-Calculation} ()
+\item 
+virtual void \hyperlink{classCoulExMinFCN_a5d8e5649a07ab34af3dfe6919ae23a45}{Clear\-All} ()
+\item 
+double \hyperlink{classCoulExMinFCN_aa55363166ec08dde3977a6f68fe9c000}{up} () const 
+\item 
+double \hyperlink{classCoulExMinFCN_a86c9ca39401046b83ec30d1d9e1fd013}{operator()} (const double $\ast$)
+\item 
+void \hyperlink{classCoulExMinFCN_a31d1efece8245aa8c5f7d826be724afe}{set\-Error\-Def} (double def)
+\item 
+void \hyperlink{classCoulExMinFCN_ac50ca91030a19d63c9476eee772b6a65}{Set\-Matrix\-Elements} (std\-::vector$<$ \hyperlink{classMatrixElement}{Matrix\-Element} $>$ m)
+\item 
+std\-::vector$<$ \hyperlink{classMatrixElement}{Matrix\-Element} $>$ \hyperlink{classCoulExMinFCN_aabad065c936dcadcdb5b6feeec1b2513}{Get\-Matrix\-Elements} () const 
+\item 
+std\-::vector$<$ \hyperlink{classScalingParameter}{Scaling\-Parameter} $>$ \hyperlink{classCoulExMinFCN_a98793547bdd277351be2650415b0f19a}{Get\-Scaling\-Parameters} ()
+\item 
+void \hyperlink{classCoulExMinFCN_a0085795bcbab406044b01571a92ef512}{Set\-Scaling\-Parameters} (std\-::vector$<$ \hyperlink{classScalingParameter}{Scaling\-Parameter} $>$ s)
+\item 
+void \hyperlink{classCoulExMinFCN_ab59a02517c6b599e4b7b3a944db52546}{Add\-Scaling\-Parameter} (\hyperlink{classScalingParameter}{Scaling\-Parameter} s)
+\item 
+void \hyperlink{classCoulExMinFCN_a69b535bb8e83e42aa2929a5f51e7d4d1}{Clear\-Scaling\-Parameters} ()
+\item 
+void \hyperlink{classCoulExMinFCN_a9de9dd0407e4535512ee2c37ac136e1f}{Set\-Point\-Calcs} (std\-::vector$<$ \hyperlink{classPointCoulEx}{Point\-Coul\-Ex} $>$ p)
+\item 
+std\-::vector$<$ \hyperlink{classPointCoulEx}{Point\-Coul\-Ex} $>$ \hyperlink{classCoulExMinFCN_ad5d143f2aae2e1282e66e7d2e052c2c0}{Get\-Point\-Calcs} () const 
+\item 
+void \hyperlink{classCoulExMinFCN_a7feea9ef22dc9dc19b6c3d1d8920bf74}{Set\-Data} (std\-::vector$<$ \hyperlink{classExperimentData}{Experiment\-Data} $>$ d)
+\item 
+std\-::vector$<$ \hyperlink{classExperimentData}{Experiment\-Data} $>$ \hyperlink{classCoulExMinFCN_a71fd7a796f622314d56ba56ed0e40587}{Get\-Data} () const 
+\item 
+void \hyperlink{classCoulExMinFCN_a54134d9c2323ea1338f7511106b0704b}{Set\-Lit\-Lifetimes} (std\-::vector$<$ \hyperlink{classLitLifetime}{Lit\-Lifetime} $>$ l)
+\item 
+std\-::vector$<$ \hyperlink{classLitLifetime}{Lit\-Lifetime} $>$ \hyperlink{classCoulExMinFCN_ab613d7df7a2b4219166254dcd48e868a}{Get\-Lit\-Lifetimes} () const 
+\item 
+void \hyperlink{classCoulExMinFCN_a378c6051a28d0fc3515dec15d1261d5f}{Set\-Lit\-Branching} (std\-::vector$<$ \hyperlink{classLitBranchingRatio}{Lit\-Branching\-Ratio} $>$ b)
+\item 
+std\-::vector$<$ \hyperlink{classLitBranchingRatio}{Lit\-Branching\-Ratio} $>$ \hyperlink{classCoulExMinFCN_a8f418391c6d2e5801ed3032ff88fb728}{Get\-Lit\-Branching} () const 
+\item 
+void \hyperlink{classCoulExMinFCN_afcfcae08a68fa14022c340302d78ec5d}{Set\-Lit\-Mixing} (std\-::vector$<$ \hyperlink{classLitMixingRatio}{Lit\-Mixing\-Ratio} $>$ m)
+\item 
+std\-::vector$<$ \hyperlink{classLitMixingRatio}{Lit\-Mixing\-Ratio} $>$ \hyperlink{classCoulExMinFCN_a5603de360de9f503e9ed2a538652e3d7}{Get\-Lit\-Mixing} () const 
+\item 
+std\-::vector$<$ T\-Matrix\-D $>$ \hyperlink{classCoulExMinFCN_ac5853fdc98470653111aef353b806166}{Get\-Effective\-Cross\-Section} () const 
+\item 
+void \hyperlink{classCoulExMinFCN_a3924912b5a05cb7966a569e11a6ab912}{Set\-Base\-Nucleus} (\hyperlink{classNucleus}{Nucleus} $\ast$nucl)
+\item 
+\hyperlink{classNucleus}{Nucleus} \hyperlink{classCoulExMinFCN_aca08dec223253bd86022ebf5358d837a}{Get\-Base\-Nucleus} () const 
+\item 
+void \hyperlink{classCoulExMinFCN_a4154d0ca6197aff0c360a18b846718bf}{Set\-Nucleus} (\hyperlink{classNucleus}{Nucleus} $\ast$nucl)
+\item 
+\hyperlink{classNucleus}{Nucleus} \hyperlink{classCoulExMinFCN_a04819cb7504e0d38a530923c3a9cdb87}{Get\-Nucleus} () const 
+\item 
+void \hyperlink{classCoulExMinFCN_aa7a93d1dbdf39271e8e7f1aedbbda147}{Set\-Npar} (int n)
+\item 
+int \hyperlink{classCoulExMinFCN_a558a013938717c422f66a9a955d78662}{Get\-Npar} () const 
+\item 
+void \hyperlink{classCoulExMinFCN_a6525e186ee14702162701414cda80fe1}{Set\-Correction\-Factors} (std\-::vector$<$ T\-Vector\-D $>$ v)
+\item 
+std\-::vector$<$ T\-Vector\-D $>$ \hyperlink{classCoulExMinFCN_a457c6cf81ad161d18c13e8bacd087a4a}{Get\-Correction\-Factors} () const 
+\item 
+void \hyperlink{classCoulExMinFCN_a04926d8c95503585735f0f79337376d1}{Set\-Verbose} (bool b=true)
+\item 
+bool \hyperlink{classCoulExMinFCN_acac974995031dd144882caee327f0284}{Get\-Verbose} () const 
+\item 
+void \hyperlink{classCoulExMinFCN_a4b5d3d75267cc59035d6697fceb3e8d3}{Set\-Iter} (int i)
+\item 
+void \hyperlink{classCoulExMinFCN_a70d61db9a8a7fee17671b637b3c0dee7}{Set\-Calls} (int i)
+\item 
+void \hyperlink{classCoulExMinFCN_a8fd85057cc72d10486ea25de6d37aa3d}{Set\-Nthreads} (int n)
+\item 
+int \hyperlink{classCoulExMinFCN_aee492209717d0c852ce0093a8f45b1d9}{Get\-Nthreads} () const 
+\item 
+double \hyperlink{classCoulExMinFCN_aa588591bbc923ab42070b42b74c1dfc8}{Get\-Parameter} (int i) const 
+\item 
+std\-::vector$<$ double $>$ \hyperlink{classCoulExMinFCN_ac49f8e36a62aac46b1300eca173f486f}{Get\-Parameters} ()
+\item 
+void \hyperlink{classCoulExMinFCN_ad15983e7cecf6fb939c55d47b2a9e700}{Reset\-Iter} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Contains the definition of the chi-\/squared function used in the minimization routines. 
+
+Definition at line 35 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classCoulExMinFCN_adbe1821d52bea6bdc1ec188958fe3e72}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}}
+\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Coul\-Ex\-Min\-F\-C\-N}]{\setlength{\rightskip}{0pt plus 5cm}Coul\-Ex\-Min\-F\-C\-N\-::\-Coul\-Ex\-Min\-F\-C\-N (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Experiment\-Data} $>$}]{d}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_adbe1821d52bea6bdc1ec188958fe3e72}
+Construct object with vector of experimental data to be fit 
+
+Definition at line 39 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classCoulExMinFCN_ab59a02517c6b599e4b7b3a944db52546}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Add\-Scaling\-Parameter@{Add\-Scaling\-Parameter}}
+\index{Add\-Scaling\-Parameter@{Add\-Scaling\-Parameter}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Add\-Scaling\-Parameter}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Min\-F\-C\-N\-::\-Add\-Scaling\-Parameter (
+\begin{DoxyParamCaption}
+\item[{{\bf Scaling\-Parameter}}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_ab59a02517c6b599e4b7b3a944db52546}
+Append a new \hyperlink{classScalingParameter}{Scaling\-Parameter} to the vector 
+
+Definition at line 59 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_a5d8e5649a07ab34af3dfe6919ae23a45}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Clear\-All@{Clear\-All}}
+\index{Clear\-All@{Clear\-All}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Clear\-All}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Min\-F\-C\-N\-::\-Clear\-All (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classCoulExMinFCN_a5d8e5649a07ab34af3dfe6919ae23a45}
+Clear all vectors 
+
+Definition at line 214 of file Coul\-Ex\-Min\-F\-C\-N.\-cxx.
+
+\hypertarget{classCoulExMinFCN_a69b535bb8e83e42aa2929a5f51e7d4d1}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Clear\-Scaling\-Parameters@{Clear\-Scaling\-Parameters}}
+\index{Clear\-Scaling\-Parameters@{Clear\-Scaling\-Parameters}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Clear\-Scaling\-Parameters}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Min\-F\-C\-N\-::\-Clear\-Scaling\-Parameters (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_a69b535bb8e83e42aa2929a5f51e7d4d1}
+Clear the vector of \hyperlink{classScalingParameter}{Scaling\-Parameter} objects 
+
+Definition at line 60 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_aca08dec223253bd86022ebf5358d837a}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Get\-Base\-Nucleus@{Get\-Base\-Nucleus}}
+\index{Get\-Base\-Nucleus@{Get\-Base\-Nucleus}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Get\-Base\-Nucleus}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Nucleus} Coul\-Ex\-Min\-F\-C\-N\-::\-Get\-Base\-Nucleus (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_aca08dec223253bd86022ebf5358d837a}
+Return the base nucleus (not to be varied in fitting) 
+
+Definition at line 80 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_a457c6cf81ad161d18c13e8bacd087a4a}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Get\-Correction\-Factors@{Get\-Correction\-Factors}}
+\index{Get\-Correction\-Factors@{Get\-Correction\-Factors}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Get\-Correction\-Factors}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$T\-Vector\-D$>$ Coul\-Ex\-Min\-F\-C\-N\-::\-Get\-Correction\-Factors (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_a457c6cf81ad161d18c13e8bacd087a4a}
+Return the vector of correciton factors between point and integrated cross sections 
+
+Definition at line 89 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_a71fd7a796f622314d56ba56ed0e40587}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Get\-Data@{Get\-Data}}
+\index{Get\-Data@{Get\-Data}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Get\-Data}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Experiment\-Data}$>$ Coul\-Ex\-Min\-F\-C\-N\-::\-Get\-Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_a71fd7a796f622314d56ba56ed0e40587}
+Return the vector of \hyperlink{classExperimentData}{Experiment\-Data} objects (one for each experiment) 
+
+Definition at line 66 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_ac5853fdc98470653111aef353b806166}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Get\-Effective\-Cross\-Section@{Get\-Effective\-Cross\-Section}}
+\index{Get\-Effective\-Cross\-Section@{Get\-Effective\-Cross\-Section}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Get\-Effective\-Cross\-Section}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$T\-Matrix\-D$>$ Coul\-Ex\-Min\-F\-C\-N\-::\-Get\-Effective\-Cross\-Section (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_ac5853fdc98470653111aef353b806166}
+Return the \char`\"{}effective cross section\char`\"{} = direct population + feeding 
+
+Definition at line 77 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_a8f418391c6d2e5801ed3032ff88fb728}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Get\-Lit\-Branching@{Get\-Lit\-Branching}}
+\index{Get\-Lit\-Branching@{Get\-Lit\-Branching}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Get\-Lit\-Branching}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Lit\-Branching\-Ratio}$>$ Coul\-Ex\-Min\-F\-C\-N\-::\-Get\-Lit\-Branching (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_a8f418391c6d2e5801ed3032ff88fb728}
+Return the vector of \hyperlink{classLitBranchingRatio}{Lit\-Branching\-Ratio} objects defining the literature branching ratio data for fitting 
+
+Definition at line 72 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_ab613d7df7a2b4219166254dcd48e868a}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Get\-Lit\-Lifetimes@{Get\-Lit\-Lifetimes}}
+\index{Get\-Lit\-Lifetimes@{Get\-Lit\-Lifetimes}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Get\-Lit\-Lifetimes}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Lit\-Lifetime}$>$ Coul\-Ex\-Min\-F\-C\-N\-::\-Get\-Lit\-Lifetimes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_ab613d7df7a2b4219166254dcd48e868a}
+Return the vector of \hyperlink{classLitLifetime}{Lit\-Lifetime} objects defining the literature lifetime data for fitting 
+
+Definition at line 69 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_a5603de360de9f503e9ed2a538652e3d7}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Get\-Lit\-Mixing@{Get\-Lit\-Mixing}}
+\index{Get\-Lit\-Mixing@{Get\-Lit\-Mixing}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Get\-Lit\-Mixing}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Lit\-Mixing\-Ratio}$>$ Coul\-Ex\-Min\-F\-C\-N\-::\-Get\-Lit\-Mixing (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_a5603de360de9f503e9ed2a538652e3d7}
+Return the vector of \hyperlink{classLitMixingRatio}{Lit\-Mixing\-Ratio} objects defining the literature mixing ratio data for fitting 
+
+Definition at line 75 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_aabad065c936dcadcdb5b6feeec1b2513}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Get\-Matrix\-Elements@{Get\-Matrix\-Elements}}
+\index{Get\-Matrix\-Elements@{Get\-Matrix\-Elements}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Get\-Matrix\-Elements}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Matrix\-Element}$>$ Coul\-Ex\-Min\-F\-C\-N\-::\-Get\-Matrix\-Elements (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_aabad065c936dcadcdb5b6feeec1b2513}
+Return the vector of \hyperlink{classMatrixElement}{Matrix\-Element} objects to be fitted 
+
+Definition at line 55 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_a558a013938717c422f66a9a955d78662}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Get\-Npar@{Get\-Npar}}
+\index{Get\-Npar@{Get\-Npar}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Get\-Npar}]{\setlength{\rightskip}{0pt plus 5cm}int Coul\-Ex\-Min\-F\-C\-N\-::\-Get\-Npar (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_a558a013938717c422f66a9a955d78662}
+Return the number of fitting parameters (fitting matrix elements + scaling parameters) 
+
+Definition at line 86 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_aee492209717d0c852ce0093a8f45b1d9}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Get\-Nthreads@{Get\-Nthreads}}
+\index{Get\-Nthreads@{Get\-Nthreads}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Get\-Nthreads}]{\setlength{\rightskip}{0pt plus 5cm}int Coul\-Ex\-Min\-F\-C\-N\-::\-Get\-Nthreads (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_aee492209717d0c852ce0093a8f45b1d9}
+Return the number of cores the function is allowed to use 
+
+Definition at line 98 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_a04819cb7504e0d38a530923c3a9cdb87}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Get\-Nucleus@{Get\-Nucleus}}
+\index{Get\-Nucleus@{Get\-Nucleus}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Get\-Nucleus}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Nucleus} Coul\-Ex\-Min\-F\-C\-N\-::\-Get\-Nucleus (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_a04819cb7504e0d38a530923c3a9cdb87}
+Return the fitting nucleus (varied in fitting) 
+
+Definition at line 83 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_aa588591bbc923ab42070b42b74c1dfc8}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Get\-Parameter@{Get\-Parameter}}
+\index{Get\-Parameter@{Get\-Parameter}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Get\-Parameter}]{\setlength{\rightskip}{0pt plus 5cm}double Coul\-Ex\-Min\-F\-C\-N\-::\-Get\-Parameter (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_aa588591bbc923ab42070b42b74c1dfc8}
+Return the fitting parameter indexed by i 
+
+Definition at line 100 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_ac49f8e36a62aac46b1300eca173f486f}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Get\-Parameters@{Get\-Parameters}}
+\index{Get\-Parameters@{Get\-Parameters}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Get\-Parameters}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$double$>$ Coul\-Ex\-Min\-F\-C\-N\-::\-Get\-Parameters (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_ac49f8e36a62aac46b1300eca173f486f}
+Return the vector of fitting parameters 
+
+Definition at line 101 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_ad5d143f2aae2e1282e66e7d2e052c2c0}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Get\-Point\-Calcs@{Get\-Point\-Calcs}}
+\index{Get\-Point\-Calcs@{Get\-Point\-Calcs}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Get\-Point\-Calcs}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Point\-Coul\-Ex}$>$ Coul\-Ex\-Min\-F\-C\-N\-::\-Get\-Point\-Calcs (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_ad5d143f2aae2e1282e66e7d2e052c2c0}
+Return the vector of \hyperlink{classPointCoulEx}{Point\-Coul\-Ex} objects (one for each experiment) 
+
+Definition at line 63 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_a98793547bdd277351be2650415b0f19a}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Get\-Scaling\-Parameters@{Get\-Scaling\-Parameters}}
+\index{Get\-Scaling\-Parameters@{Get\-Scaling\-Parameters}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Get\-Scaling\-Parameters}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Scaling\-Parameter}$>$ Coul\-Ex\-Min\-F\-C\-N\-::\-Get\-Scaling\-Parameters (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_a98793547bdd277351be2650415b0f19a}
+Return the vector of \hyperlink{classScalingParameter}{Scaling\-Parameter} objects for fitting 
+
+Definition at line 57 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_acac974995031dd144882caee327f0284}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Get\-Verbose@{Get\-Verbose}}
+\index{Get\-Verbose@{Get\-Verbose}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Get\-Verbose}]{\setlength{\rightskip}{0pt plus 5cm}bool Coul\-Ex\-Min\-F\-C\-N\-::\-Get\-Verbose (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_acac974995031dd144882caee327f0284}
+Return the verbocity of the minimization 
+
+Definition at line 92 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_a86c9ca39401046b83ec30d1d9e1fd013}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!operator()@{operator()}}
+\index{operator()@{operator()}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}double Coul\-Ex\-Min\-F\-C\-N\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const double $\ast$}]{par}
+\end{DoxyParamCaption}
+)}}\label{classCoulExMinFCN_a86c9ca39401046b83ec30d1d9e1fd013}
+Required by R\-O\-O\-T\-::\-Minimizer 
+
+Definition at line 32 of file Coul\-Ex\-Min\-F\-C\-N.\-cxx.
+
+\hypertarget{classCoulExMinFCN_ad15983e7cecf6fb939c55d47b2a9e700}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Reset\-Iter@{Reset\-Iter}}
+\index{Reset\-Iter@{Reset\-Iter}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Reset\-Iter}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Min\-F\-C\-N\-::\-Reset\-Iter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_ad15983e7cecf6fb939c55d47b2a9e700}
+Reset the iteration number 
+
+Definition at line 103 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_a3924912b5a05cb7966a569e11a6ab912}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Set\-Base\-Nucleus@{Set\-Base\-Nucleus}}
+\index{Set\-Base\-Nucleus@{Set\-Base\-Nucleus}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Set\-Base\-Nucleus}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Min\-F\-C\-N\-::\-Set\-Base\-Nucleus (
+\begin{DoxyParamCaption}
+\item[{{\bf Nucleus} $\ast$}]{nucl}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_a3924912b5a05cb7966a569e11a6ab912}
+Define the base nucleus (not to be varied in fitting) 
+
+Definition at line 79 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_a70d61db9a8a7fee17671b637b3c0dee7}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Set\-Calls@{Set\-Calls}}
+\index{Set\-Calls@{Set\-Calls}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Set\-Calls}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Min\-F\-C\-N\-::\-Set\-Calls (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_a70d61db9a8a7fee17671b637b3c0dee7}
+Define the number of function calls (G\-S\-L) 
+
+Definition at line 95 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_a6525e186ee14702162701414cda80fe1}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Set\-Correction\-Factors@{Set\-Correction\-Factors}}
+\index{Set\-Correction\-Factors@{Set\-Correction\-Factors}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Set\-Correction\-Factors}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Min\-F\-C\-N\-::\-Set\-Correction\-Factors (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ T\-Vector\-D $>$}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_a6525e186ee14702162701414cda80fe1}
+Define the vector of correction factors between point and integrated cross sections 
+
+Definition at line 88 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_a7feea9ef22dc9dc19b6c3d1d8920bf74}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Set\-Data@{Set\-Data}}
+\index{Set\-Data@{Set\-Data}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Set\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Min\-F\-C\-N\-::\-Set\-Data (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Experiment\-Data} $>$}]{d}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_a7feea9ef22dc9dc19b6c3d1d8920bf74}
+Define the vector of \hyperlink{classExperimentData}{Experiment\-Data} objects (one for each experiment) 
+
+Definition at line 65 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_a31d1efece8245aa8c5f7d826be724afe}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!set\-Error\-Def@{set\-Error\-Def}}
+\index{set\-Error\-Def@{set\-Error\-Def}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{set\-Error\-Def}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Min\-F\-C\-N\-::set\-Error\-Def (
+\begin{DoxyParamCaption}
+\item[{double}]{def}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_a31d1efece8245aa8c5f7d826be724afe}
+Required by R\-O\-O\-T\-::\-Minimizer 
+
+Definition at line 52 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_a4b5d3d75267cc59035d6697fceb3e8d3}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Set\-Iter@{Set\-Iter}}
+\index{Set\-Iter@{Set\-Iter}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Set\-Iter}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Min\-F\-C\-N\-::\-Set\-Iter (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_a4b5d3d75267cc59035d6697fceb3e8d3}
+Define the number of iterations (M\-I\-N\-U\-I\-T2) 
+
+Definition at line 94 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_a378c6051a28d0fc3515dec15d1261d5f}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Set\-Lit\-Branching@{Set\-Lit\-Branching}}
+\index{Set\-Lit\-Branching@{Set\-Lit\-Branching}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Set\-Lit\-Branching}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Min\-F\-C\-N\-::\-Set\-Lit\-Branching (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Lit\-Branching\-Ratio} $>$}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_a378c6051a28d0fc3515dec15d1261d5f}
+Define the vector of \hyperlink{classLitBranchingRatio}{Lit\-Branching\-Ratio} objects defining the literature branching ratio data for fitting 
+
+Definition at line 71 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_a54134d9c2323ea1338f7511106b0704b}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Set\-Lit\-Lifetimes@{Set\-Lit\-Lifetimes}}
+\index{Set\-Lit\-Lifetimes@{Set\-Lit\-Lifetimes}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Set\-Lit\-Lifetimes}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Min\-F\-C\-N\-::\-Set\-Lit\-Lifetimes (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Lit\-Lifetime} $>$}]{l}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_a54134d9c2323ea1338f7511106b0704b}
+Define the vector of \hyperlink{classLitLifetime}{Lit\-Lifetime} objects defining the literature lifetime data for fitting 
+
+Definition at line 68 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_afcfcae08a68fa14022c340302d78ec5d}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Set\-Lit\-Mixing@{Set\-Lit\-Mixing}}
+\index{Set\-Lit\-Mixing@{Set\-Lit\-Mixing}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Set\-Lit\-Mixing}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Min\-F\-C\-N\-::\-Set\-Lit\-Mixing (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Lit\-Mixing\-Ratio} $>$}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_afcfcae08a68fa14022c340302d78ec5d}
+Define the vector of \hyperlink{classLitMixingRatio}{Lit\-Mixing\-Ratio} objects defining the literature mixing ratio data for fitting 
+
+Definition at line 74 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_ac50ca91030a19d63c9476eee772b6a65}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Set\-Matrix\-Elements@{Set\-Matrix\-Elements}}
+\index{Set\-Matrix\-Elements@{Set\-Matrix\-Elements}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Set\-Matrix\-Elements}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Min\-F\-C\-N\-::\-Set\-Matrix\-Elements (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Matrix\-Element} $>$}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_ac50ca91030a19d63c9476eee772b6a65}
+Define the vector of \hyperlink{classMatrixElement}{Matrix\-Element} objects to be fitted 
+
+Definition at line 54 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_aa7a93d1dbdf39271e8e7f1aedbbda147}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Set\-Npar@{Set\-Npar}}
+\index{Set\-Npar@{Set\-Npar}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Set\-Npar}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Min\-F\-C\-N\-::\-Set\-Npar (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_aa7a93d1dbdf39271e8e7f1aedbbda147}
+Define the number of fitting parameters (fitting matrix elements + scaling parameters) 
+
+Definition at line 85 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_a8fd85057cc72d10486ea25de6d37aa3d}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Set\-Nthreads@{Set\-Nthreads}}
+\index{Set\-Nthreads@{Set\-Nthreads}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Set\-Nthreads}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Min\-F\-C\-N\-::\-Set\-Nthreads (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_a8fd85057cc72d10486ea25de6d37aa3d}
+Define the number of cores the function is allowed to use 
+
+Definition at line 97 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_a4154d0ca6197aff0c360a18b846718bf}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Set\-Nucleus@{Set\-Nucleus}}
+\index{Set\-Nucleus@{Set\-Nucleus}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Set\-Nucleus}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Min\-F\-C\-N\-::\-Set\-Nucleus (
+\begin{DoxyParamCaption}
+\item[{{\bf Nucleus} $\ast$}]{nucl}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_a4154d0ca6197aff0c360a18b846718bf}
+Define the fitting nucleus (varied in fitting) 
+
+Definition at line 82 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_a9de9dd0407e4535512ee2c37ac136e1f}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Set\-Point\-Calcs@{Set\-Point\-Calcs}}
+\index{Set\-Point\-Calcs@{Set\-Point\-Calcs}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Set\-Point\-Calcs}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Min\-F\-C\-N\-::\-Set\-Point\-Calcs (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Point\-Coul\-Ex} $>$}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_a9de9dd0407e4535512ee2c37ac136e1f}
+Define the vector of \hyperlink{classPointCoulEx}{Point\-Coul\-Ex} objects (one for each experiment) 
+
+Definition at line 62 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_a0085795bcbab406044b01571a92ef512}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Set\-Scaling\-Parameters@{Set\-Scaling\-Parameters}}
+\index{Set\-Scaling\-Parameters@{Set\-Scaling\-Parameters}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Set\-Scaling\-Parameters}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Min\-F\-C\-N\-::\-Set\-Scaling\-Parameters (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Scaling\-Parameter} $>$}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_a0085795bcbab406044b01571a92ef512}
+Define the vector of \hyperlink{classScalingParameter}{Scaling\-Parameter} objects for fitting 
+
+Definition at line 58 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_a89b319adcf1dcc2d24f402b4dd7c340a}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Setup\-Calculation@{Setup\-Calculation}}
+\index{Setup\-Calculation@{Setup\-Calculation}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Setup\-Calculation}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Min\-F\-C\-N\-::\-Setup\-Calculation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classCoulExMinFCN_a89b319adcf1dcc2d24f402b4dd7c340a}
+Prepare the calculation 
+
+Definition at line 13 of file Coul\-Ex\-Min\-F\-C\-N.\-cxx.
+
+\hypertarget{classCoulExMinFCN_a04926d8c95503585735f0f79337376d1}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!Set\-Verbose@{Set\-Verbose}}
+\index{Set\-Verbose@{Set\-Verbose}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{Set\-Verbose}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Min\-F\-C\-N\-::\-Set\-Verbose (
+\begin{DoxyParamCaption}
+\item[{bool}]{b = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_a04926d8c95503585735f0f79337376d1}
+Define the verbocity of the minimization 
+
+Definition at line 91 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+\hypertarget{classCoulExMinFCN_aa55363166ec08dde3977a6f68fe9c000}{\index{Coul\-Ex\-Min\-F\-C\-N@{Coul\-Ex\-Min\-F\-C\-N}!up@{up}}
+\index{up@{up}!CoulExMinFCN@{Coul\-Ex\-Min\-F\-C\-N}}
+\subsubsection[{up}]{\setlength{\rightskip}{0pt plus 5cm}double Coul\-Ex\-Min\-F\-C\-N\-::up (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExMinFCN_aa55363166ec08dde3977a6f68fe9c000}
+Required by R\-O\-O\-T\-::\-Minimizer 
+
+Definition at line 50 of file Coul\-Ex\-Min\-F\-C\-N.\-h.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Coul\-Ex\-Min\-F\-C\-N.\-h\item 
+Coul\-Ex\-Min\-F\-C\-N.\-cxx\end{DoxyCompactItemize}

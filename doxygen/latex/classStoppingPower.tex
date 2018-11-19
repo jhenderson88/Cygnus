@@ -1,0 +1,128 @@
+\hypertarget{classStoppingPower}{\section{Stopping\-Power Class Reference}
+\label{classStoppingPower}\index{Stopping\-Power@{Stopping\-Power}}
+}
+
+
+Class for defining stopping powers for use in the integration process.  
+
+
+
+
+{\ttfamily \#include $<$Stopping\-Power.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classStoppingPower_ae5ca4a286c101818e1cd2b0560f62f19}{Stopping\-Power} (const \hyperlink{classStoppingPower}{Stopping\-Power} \&s)
+\item 
+\hyperlink{classStoppingPower}{Stopping\-Power} \& \hyperlink{classStoppingPower_a636e5d85fb175caf9debcd1fef1d7b7e}{operator=} (const \hyperlink{classStoppingPower}{Stopping\-Power} \&s)
+\item 
+int \hyperlink{classStoppingPower_aa6ff3fb148b0b78a86c0a57f5f8956b5}{Stopping\-Size} ()
+\item 
+void \hyperlink{classStoppingPower_aff5dcc4ee493ae9daa1d67840210e72e}{Clear\-Stopping\-Powers} ()
+\item 
+void \hyperlink{classStoppingPower_a1d0b0d813ac4d1200f1d37af7fcf3231}{Add\-Stopping\-Power} (double E, double P)
+\item 
+void \hyperlink{classStoppingPower_a907782bf5a89ed848f1ff44552fe12c8}{Fit\-Stopping\-Powers} ()
+\item 
+T\-F1 \hyperlink{classStoppingPower_a6f3943ee06776e20b59398e4c94755bc}{Get\-Stopping\-Fit} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for defining stopping powers for use in the integration process. 
+
+A simple class which takes user provided stopping powers and fits them to give a stopping power distribution. This is combined with energy integrated meshpoint calculations to determine accurate experimental yields. 
+
+Definition at line 17 of file Stopping\-Power.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classStoppingPower_ae5ca4a286c101818e1cd2b0560f62f19}{\index{Stopping\-Power@{Stopping\-Power}!Stopping\-Power@{Stopping\-Power}}
+\index{Stopping\-Power@{Stopping\-Power}!StoppingPower@{Stopping\-Power}}
+\subsubsection[{Stopping\-Power}]{\setlength{\rightskip}{0pt plus 5cm}Stopping\-Power\-::\-Stopping\-Power (
+\begin{DoxyParamCaption}
+\item[{const {\bf Stopping\-Power} \&}]{s}
+\end{DoxyParamCaption}
+)}}\label{classStoppingPower_ae5ca4a286c101818e1cd2b0560f62f19}
+Copy constructor 
+
+Definition at line 7 of file Stopping\-Power.\-cxx.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classStoppingPower_a1d0b0d813ac4d1200f1d37af7fcf3231}{\index{Stopping\-Power@{Stopping\-Power}!Add\-Stopping\-Power@{Add\-Stopping\-Power}}
+\index{Add\-Stopping\-Power@{Add\-Stopping\-Power}!StoppingPower@{Stopping\-Power}}
+\subsubsection[{Add\-Stopping\-Power}]{\setlength{\rightskip}{0pt plus 5cm}void Stopping\-Power\-::\-Add\-Stopping\-Power (
+\begin{DoxyParamCaption}
+\item[{double}]{E, }
+\item[{double}]{P}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classStoppingPower_a1d0b0d813ac4d1200f1d37af7fcf3231}
+Add a new stopping power value 
+
+Definition at line 32 of file Stopping\-Power.\-h.
+
+\hypertarget{classStoppingPower_aff5dcc4ee493ae9daa1d67840210e72e}{\index{Stopping\-Power@{Stopping\-Power}!Clear\-Stopping\-Powers@{Clear\-Stopping\-Powers}}
+\index{Clear\-Stopping\-Powers@{Clear\-Stopping\-Powers}!StoppingPower@{Stopping\-Power}}
+\subsubsection[{Clear\-Stopping\-Powers}]{\setlength{\rightskip}{0pt plus 5cm}void Stopping\-Power\-::\-Clear\-Stopping\-Powers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classStoppingPower_aff5dcc4ee493ae9daa1d67840210e72e}
+Delete the stored stopping power values 
+
+Definition at line 27 of file Stopping\-Power.\-h.
+
+\hypertarget{classStoppingPower_a907782bf5a89ed848f1ff44552fe12c8}{\index{Stopping\-Power@{Stopping\-Power}!Fit\-Stopping\-Powers@{Fit\-Stopping\-Powers}}
+\index{Fit\-Stopping\-Powers@{Fit\-Stopping\-Powers}!StoppingPower@{Stopping\-Power}}
+\subsubsection[{Fit\-Stopping\-Powers}]{\setlength{\rightskip}{0pt plus 5cm}void Stopping\-Power\-::\-Fit\-Stopping\-Powers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classStoppingPower_a907782bf5a89ed848f1ff44552fe12c8}
+Perform a fit to the provided stopping power values for easy and accurate interpolation 
+
+Definition at line 26 of file Stopping\-Power.\-cxx.
+
+\hypertarget{classStoppingPower_a6f3943ee06776e20b59398e4c94755bc}{\index{Stopping\-Power@{Stopping\-Power}!Get\-Stopping\-Fit@{Get\-Stopping\-Fit}}
+\index{Get\-Stopping\-Fit@{Get\-Stopping\-Fit}!StoppingPower@{Stopping\-Power}}
+\subsubsection[{Get\-Stopping\-Fit}]{\setlength{\rightskip}{0pt plus 5cm}T\-F1 Stopping\-Power\-::\-Get\-Stopping\-Fit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classStoppingPower_a6f3943ee06776e20b59398e4c94755bc}
+Return a fit to the user-\/provided stopping power values 
+
+Definition at line 40 of file Stopping\-Power.\-h.
+
+\hypertarget{classStoppingPower_a636e5d85fb175caf9debcd1fef1d7b7e}{\index{Stopping\-Power@{Stopping\-Power}!operator=@{operator=}}
+\index{operator=@{operator=}!StoppingPower@{Stopping\-Power}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Stopping\-Power} \& Stopping\-Power\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Stopping\-Power} \&}]{s}
+\end{DoxyParamCaption}
+)}}\label{classStoppingPower_a636e5d85fb175caf9debcd1fef1d7b7e}
+Assignment operator 
+
+Definition at line 15 of file Stopping\-Power.\-cxx.
+
+\hypertarget{classStoppingPower_aa6ff3fb148b0b78a86c0a57f5f8956b5}{\index{Stopping\-Power@{Stopping\-Power}!Stopping\-Size@{Stopping\-Size}}
+\index{Stopping\-Size@{Stopping\-Size}!StoppingPower@{Stopping\-Power}}
+\subsubsection[{Stopping\-Size}]{\setlength{\rightskip}{0pt plus 5cm}int Stopping\-Power\-::\-Stopping\-Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classStoppingPower_aa6ff3fb148b0b78a86c0a57f5f8956b5}
+Return the number of stopping powers defined 
+
+Definition at line 25 of file Stopping\-Power.\-h.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Stopping\-Power.\-h\item 
+Stopping\-Power.\-cxx\end{DoxyCompactItemize}

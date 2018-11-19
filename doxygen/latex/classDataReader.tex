@@ -1,0 +1,74 @@
+\hypertarget{classDataReader}{\section{Data\-Reader Class Reference}
+\label{classDataReader}\index{Data\-Reader@{Data\-Reader}}
+}
+
+
+Simple class used to read formatted experimental yields and put it in a vector of \hyperlink{classExperimentData}{Experiment\-Data} objects for fitting.  
+
+
+
+
+{\ttfamily \#include $<$Data\-Reader.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classDataReader_ac0c4027f2109dad21f41cce116110d46}{Data\-Reader} (\hyperlink{classNucleus}{Nucleus} $\ast$, const char $\ast$)
+\item 
+void \hyperlink{classDataReader_a79ebbc05d1cdafdfbd271993c321e857}{Read\-Data\-File} (const char $\ast$)
+\item 
+std\-::vector$<$ \hyperlink{classExperimentData}{Experiment\-Data} $>$ \hyperlink{classDataReader_ae0fa1901a8224be99f0d0e82a5bc85fe}{Get\-Experiment\-Data} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Simple class used to read formatted experimental yields and put it in a vector of \hyperlink{classExperimentData}{Experiment\-Data} objects for fitting. 
+
+Definition at line 19 of file Data\-Reader.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classDataReader_ac0c4027f2109dad21f41cce116110d46}{\index{Data\-Reader@{Data\-Reader}!Data\-Reader@{Data\-Reader}}
+\index{Data\-Reader@{Data\-Reader}!DataReader@{Data\-Reader}}
+\subsubsection[{Data\-Reader}]{\setlength{\rightskip}{0pt plus 5cm}Data\-Reader\-::\-Data\-Reader (
+\begin{DoxyParamCaption}
+\item[{{\bf Nucleus} $\ast$}]{nucl, }
+\item[{const char $\ast$}]{datafilename}
+\end{DoxyParamCaption}
+)}}\label{classDataReader_ac0c4027f2109dad21f41cce116110d46}
+Constructor with \hyperlink{classNucleus}{Nucleus} (for level assignments) and filename of formatted data 
+
+Definition at line 3 of file Data\-Reader.\-cxx.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classDataReader_ae0fa1901a8224be99f0d0e82a5bc85fe}{\index{Data\-Reader@{Data\-Reader}!Get\-Experiment\-Data@{Get\-Experiment\-Data}}
+\index{Get\-Experiment\-Data@{Get\-Experiment\-Data}!DataReader@{Data\-Reader}}
+\subsubsection[{Get\-Experiment\-Data}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Experiment\-Data}$>$ Data\-Reader\-::\-Get\-Experiment\-Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classDataReader_ae0fa1901a8224be99f0d0e82a5bc85fe}
+Return vector of \hyperlink{classExperimentData}{Experiment\-Data} 
+
+Definition at line 27 of file Data\-Reader.\-h.
+
+\hypertarget{classDataReader_a79ebbc05d1cdafdfbd271993c321e857}{\index{Data\-Reader@{Data\-Reader}!Read\-Data\-File@{Read\-Data\-File}}
+\index{Read\-Data\-File@{Read\-Data\-File}!DataReader@{Data\-Reader}}
+\subsubsection[{Read\-Data\-File}]{\setlength{\rightskip}{0pt plus 5cm}void Data\-Reader\-::\-Read\-Data\-File (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{datafilename}
+\end{DoxyParamCaption}
+)}}\label{classDataReader_a79ebbc05d1cdafdfbd271993c321e857}
+Read formatted yield file and add data for \hyperlink{classExperimentData}{Experiment\-Data} vector 
+
+Definition at line 9 of file Data\-Reader.\-cxx.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Data\-Reader.\-h\item 
+Data\-Reader.\-cxx\end{DoxyCompactItemize}

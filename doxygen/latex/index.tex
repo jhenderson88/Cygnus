@@ -1,0 +1,35 @@
+\hypertarget{index_discrepancies}{}\section{Known G\-O\-S\-I\-A discrepancies \& to-\/do}\label{index_discrepancies}
+C\-Y\-G\-N\-U\-S is still in a testing phase and should not yet be used in isolation for analysis.
+
+A few known problems/differences with G\-O\-S\-I\-A\-:
+
+Kinematics treatments disagree with those in G\-O\-S\-I\-A. Conversion from the lab to the center-\/of-\/mass sometimes differ by up to 0.\-1 degrees. This can translate to a 0.\-1\% discrepancy in excitation probabilities. In all likelihood this is below experimental sensitivity, but should be remembered when preparing outputs. The kinematics used in C\-Y\-G\-N\-U\-S have been tested against (for example) Cat\-Kin, and agree well.
+
+Tensors are currently calculated but are not yet used.\hypertarget{index_install_sec}{}\section{Installation}\label{index_install_sec}
+\hypertarget{index_prereq}{}\subsection{Prerequisites}\label{index_prereq}
+Cygnus requires C++11 and R\-O\-O\-T6, with the Math\-More and Math\-Core libraries. Currently it has only been tested on Linux machines.\hypertarget{index_inst}{}\subsection{Installing}\label{index_inst}
+Download and unpack the repository (.tar) or clone from github.
+
+In the Cygnus directory (\$\-C\-Y\-G\-N\-U\-S\-\_\-\-D\-I\-R, henceforth)\-: \par
+\begin{quotation}
+make -\/j
+
+\end{quotation}
+
+
+To compile the scripts (\$\-C\-Y\-G\-N\-U\-S\-\_\-\-D\-I\-R/scripts) \begin{quotation}
+cd \$\-C\-Y\-G\-N\-U\-S\-\_\-\-D\-I\-R/scripts \par
+make -\/j
+
+\end{quotation}
+\hypertarget{index_running}{}\section{Running the code}\label{index_running}
+Cygnus can be run either in a compiled C++ code, or through the R\-O\-O\-T interpreter (line-\/by-\/line or in a macro).
+
+To run through R\-O\-O\-T, the rootstart.\-C macro should be called first, loading the relevant libraries\-: \begin{quotation}
+root -\/l rootstart.\-C Macro\-Name.\-C
+
+\end{quotation}
+
+
+Examples of compileable programs using C\-Y\-G\-N\-U\-S are included in the scripts directory. In order to successfully run compiled code, \$\-C\-Y\-G\-N\-U\-S\-\_\-\-D\-I\-R/bin must be added to the L\-D\-\_\-\-L\-I\-B\-R\-A\-R\-Y\-\_\-\-P\-A\-T\-H. For repeated use, it is advisable to perform this step in the user's .bashrc file.\hypertarget{index_Cygnus}{}\section{Logic}\label{index_Cygnus}
+The semi-\/classical Coulomb excitation method is used to determine point Coulomb excitation (\hyperlink{classPointCoulEx}{Point\-Coul\-Ex}) amplitudes and probabilities. In reality, experiments do not probe a single energy and center-\/of-\/mass angle, but rather a range over both values. To integrate this range (and in a similar logic to the G\-O\-S\-I\-A code), \hyperlink{classExperimentRange}{Experiment\-Range} objects are defined. Here, using the \hyperlink{classIntegral}{Integral} class, multiple meshpoints in theta and energy are calculated. These are then fitted to provide a cross-\/section surface in theta and energy, which can then be integrated to determine an experimental cross section. The integration step can be enhanced through the use of the \hyperlink{classParticleDetector}{Particle\-Detector} class, in which a 2\-D theta-\/phi efficiency histogram is defined to allow for the yields to be corrected for particle detection (in)efficiencies. 
