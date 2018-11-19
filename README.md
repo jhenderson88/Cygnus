@@ -28,6 +28,7 @@ Data format
 Cygnus ignores any line containing an exclamation mark (!)
 
 Nucleus file (an example is included):
+
 1st line: A, Z, NStates, MaxLambda
 - A and Z are mass number and proton number of the nucleus
 - NStates is the number of states in the nucleus
@@ -45,7 +46,9 @@ Lines 2 + NStates -> End: Index_I, Index_F, ME, Lambda
 - Lambda is the multipolarity of the transition (same convention as previously stated) 
 
 Data file (an example is included):
+
 For every experiment:
+
 Line 1: EXPT, Index, Energy, Theta_min, Theta_max
 - EXPT (text: "EXPT")
 - Index is the experiment number
@@ -63,32 +66,40 @@ Basic Usage
 ------------------------
 
 Class: NucleusReader
+
 Loads data from a nucleus file (formatted as above) and puts it into a Nucleus format.
 
 Class: Nucleus
+
 Class holding the nucleus information, as loaded from the nucleus data file. Can be grabbed from NucleusReader:
 > Nucleus *nucl = NucleusReader->GetNucleus();
 
 Class: Reaction
+
 Deals with the reaction kinematics of the experiment:
 > Reaction *reac = new Reaction(aB,zB,aT,zT,eBeam)
 - aB and zB are mass and proton number of the beam
 - aT and zT are mass and proton number of the target
 - eBeam is the beam energy in the lab (MeV)
+
 Can set actual nuclear masses using:
 > reac->SetMasses(mB,mT)
 - mB and mT are beam and target masses (amu)
 
 Class: PointCoulEx
+
 Performs a Coulomb excitation calculation for a single energy at a single theta value. Requires a Nucleus and Reaction:
 > PointCoulEx *poin = new PointCoulEx(nucl,reac)
+
 To run the calculation:
 > poin->CalculatePointProbabilities(theta)
 - theta in the center of mass frame, in units of degrees
+
 To get the excitation probabilities:
 > TVectorD vec = point->GetProbabilitiesVector()
 
 Class: StoppingPower
+
 Holder class for stopping power information. Performs a cubic fit to stopping power data. 
 > StoppingPower dEdX; 
 > dEdX.AddStoppingPower(E,SP)
@@ -97,8 +108,10 @@ Holder class for stopping power information. Performs a cubic fit to stopping po
 - Fits stopping power data with cubic polynomial
 
 Class: Experiments
+
 Performs integrations of Coulomb excitation values and determines the correction for a point calculation to a full integral over theta and energy. Requires Nucleus and Reaction:
 > Experiments *expt = new Experiments(nucl,reac);
+
 To define a new experimental range:
 > expts->NewExperimentRange(tmin,tmax,nt,emin,emax,ne,tarDet)
 - tmin and tmax are the min and max theta in degrees, in the lab frame
