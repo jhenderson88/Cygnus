@@ -80,6 +80,9 @@ class ExperimentRange {
 
 		TVectorD	GetIntegratedCrossSection_TVec()		const	{ return IntegratedCrossSection_TVec;	}	/*!< Return a TVectorD containing the integrated cross section over theta and energy */
 
+		double		IntegrateRutherford();				/*!< Integrate the Rutherford cross section over the angle and energy range */
+		TGraph2D*	GetRutherfordThetaEnergy();			/*!< Create a TGraph2D of the Rutherford cross section over theta (cm) and energy */
+
 		double		GetMeanThetaLab()				const	{ return meanThetaLab;			}	/*!< Return the mean theta value (lab) for point calculation  */
 		double		GetMeanThetaCM()				const	{ return meanThetaCM;			}	/*!< Return the mean theta value (CoM) for point calculation  */
 		double		GetMeanEnergy()					const	{ return meanEnergy;			}	/*!< Return the mean energy (MeV, lab) for point calculation */

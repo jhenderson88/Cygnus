@@ -230,6 +230,11 @@ void Experiments::WriteIntegralFits(const char* outfilename, const char* option)
 		sprintf(dname,"Experiment_%i",i+1);
 		sub_dir[i] = dir->mkdir(dname);
 		sub_dir[i]->cd();
+		TGraph2D gRuth = *experimentRanges.at(i).GetRutherfordThetaEnergy();	
+		char rname[64];
+		sprintf(rname,"Rutherford_Theta_Energy_Experiment_%i",i+1);
+		gRuth.SetName(rname);
+		gRuth.Write();
 		for(int s=0; s < experimentRanges.at(i).GetIntegratedCrossSection_TVec().GetNrows(); s++){
 			TGraph2D g2 = *experimentRanges.at(i).InterpolatedEnergyTheta(s);
 			char gname[64];

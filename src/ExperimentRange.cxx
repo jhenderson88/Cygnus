@@ -286,6 +286,88 @@ TGraph2D* ExperimentRange::InterpolatedEnergyTheta(int state, bool useDetector){
 
 }
 
+double ExperimentRange::IntegrateRutherford(){
+
+	double CS = 0;
+
+	TGraph2D *g = GetRutherfordThetaEnergy();
+
+	int eSteps = 101;
+	int tSteps = 101;
+	double eMin = fIntegral->GetEnergy(0);
+	double eMax = fIntegral->GetEnergy(nEnergy-1);
+	if(eMin > eMax){
+		double tmp = eMin;
+		eMin = eMax;
+		eMax = tmp;
+	}
+	double tMin = fIntegral->GetCMThetaPoints().at(0).at(0);
+	double tMax = fIntegral->GetCMThetaPoints().at(0).at(fIntegral->GetCMThetaPoints().at(0).size()-1);
+	if(tMin > tMax){
+		double tmp = tMin;
+		tMin = tMax;
+		tMax = tmp;
+	}
+	double tStep = (tMax - tMin) / ((double)tSteps - 1.); // Theta stepsize
+	double eStep = (eMax - eMin) / ((double)eSteps - 1.); // Energy stepsize
+
+	// We can use Simpson's rule to integrate theta and energy and
+	// for every energy, divide out dE/dX
+	for(int e = 0; e < eSteps; e++){
+		double tmpCS = 0;
+		double energy = eMin + e*eStep;
+		for(int t = 0; t < tSteps; t++){
+			if(t==0 || t==(tSteps-1))
+				tmpCS += g->Interpolate(tMin + t*tStep,energy);
+			else if((t % 2) == 0)
+				tmpCS += g->Interpolate(tMin + t*tStep,energy) * 2;
+			else
+				tmpCS += g->Interpolate(tMin + t*tStep,energy) * 4;
+		}
+		tmpCS *= (tStep / 3.);
+		tmpCS /= fStopping.GetStoppingFit().Eval(energy);
+
+		if(e == 0 || e == (eSteps-1))
+			CS += tmpCS;
+		else if((e % 2) == 0)
+			CS += tmpCS * 2;
+		else 
+			CS += tmpCS * 4;
+	} 
+
+	return CS;
+
+}
+
+TGraph2D* ExperimentRange::GetRutherfordThetaEnergy(){
+
+	TGraph2D *g = new TGraph2D();
+
+	Reaction tmpReac = *fReaction;
+
+	int eSteps = 101;
+	int tSteps = 101;
+	double eMin = fIntegral->GetEnergy(0);
+	double eMax = fIntegral->GetEnergy(nEnergy-1);
+	double tMin = fIntegral->GetCMThetaPoints().at(0).at(0);
+	double tMax = fIntegral->GetCMThetaPoints().at(0).at(fIntegral->GetCMThetaPoints().at(0).size()-1);
+	double tStep = (tMax - tMin) / ((double)tSteps - 1.); // Theta stepsize
+	double eStep = (eMax - eMin) / ((double)eSteps - 1.); // Energy stepsize
+	if(tMin > tMax)
+		std::swap(tMin,tMax);
+	int pointCounter = 0;
+	for(int e = 0; e < eSteps; e++){
+		tmpReac.SetLabEnergy(eMin + e*eStep); 
+		for(int t = 0; t < tSteps; t++){
+			g->SetPoint(pointCounter,tMin + t*tStep, eMin + e*eStep, tmpReac.RutherfordCM(tMin + t*tStep));
+			pointCounter++;
+		}
+	}
+	
+	return g;
+
+}
+
 TGraph2D* ExperimentRange::GetThetaEnergyGraph(int state){
 
 	TGraph2D *g = new TGraph2D();

@@ -123,9 +123,17 @@ class Reaction
 		void	InitReaction();			/*!< Set up the reaction kinematics calculations */
 		void	SetCmFrame(double);		/*!< Define parameters in the center of mass frame */
 
-		double	ConvertThetaCmToLab(double, int)	const;	/*!< Convert theta in the center of mass frame to the lab frame (radians) */
-		double	ConvertThetaLabToCm(double, int) 	const;	/*!< Convert theta in the lab frame to the center of mass frame (radians) */
-		TGraph*	ThetaVsTheta(double,double,int) 	const;	/*!< Plot theta lab vs theta center of mass */
+		// GOSIA kinematic flags
+		/// Sets whether the GOSIA kinematics will be used. GOSIA kinematics differ from (for example) 
+		/// Catkin and the normal kinematics models used here. Primarily intended for debugging and
+		/// providing a one-to-one comparison with GOSIA.
+		void	SetGOSIAKinematics(bool b = true)	{ fGOSIAKin = b;	}	
+		bool	GOSIAKinematics()		const	{ return fGOSIAKin;	}	/*!< Return bool indicating whether GOSIA kinematics are being used */
+
+
+		double	ConvertThetaCmToLab(double, int);		/*!< Convert theta in the center of mass frame to the lab frame (radians) */
+		double	ConvertThetaLabToCm(double, int);		/*!< Convert theta in the lab frame to the center of mass frame (radians) */
+		TGraph*	ThetaVsTheta(double,double,int);		/*!< Plot theta lab vs theta center of mass */
 		TGraph* RutherfordGraph(double,double,int);		/*!< Plot the Rutherford cross section */
 
 	private:
@@ -174,6 +182,16 @@ class Reaction
 		double	fThetaMax[4];
 
 		bool	reactionSet;
+
+		bool	fGOSIAKin;
+		// 	Variables for GOSIA kinematics
+
+		double	fVinf;	// Velocity at infinity
+		double	fAred;	// Reduced mass
+		double	fEmax;	// Maximum excitation energy
+		double	fEPmin;
+		double	fTauP;
+		double	fTau;
 
 };
 #endif
