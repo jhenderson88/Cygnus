@@ -10,7 +10,7 @@ Note that kinematics calculations differ from those in GOSIA. This difference is
 Requirements
 -----------------------
 
-- Cygnus requires C++11 and ROOT v6 with the MathMore libraries
+- Cygnus requires C++11 and ROOT v6 with the MathMore and MINUIT2 libraries
 - In order to run compiled scripts, the Cygnus/bin directory must be added to LD_LIBRARY_PATH
 
 Running Cygnus
