@@ -27,7 +27,7 @@ class ParticleDetector {
 		virtual	double		GetThetaMin();				/*!< Find the minimum theta covered by the detector. For use to define the integration range. */
 		virtual	double		GetThetaMax();				/*!< Find the maximum theta covered by the detector. For use to define the integration range. */
 
-		virtual	TGraph*		GetThetaEfficiencyHist()		const	{ return gThetaEff;	}	/*!< Return the 1D histogram, defining detection efficiency in theta */
+		virtual	TGraph*		GetThetaEfficiencyGraph()		const	{ return gThetaEff;	}	/*!< Return the 1D histogram, defining detection efficiency in theta */
 		virtual	TGraph2D*	GetThetaPhiMap()			const	{ return gThetaPhi;	}	/*!< Return the 2D histogram, defining detection efficiency in theta and phi */
 
 		virtual void		WriteParticleDetector(const char* filename, const char* opt = "UPDATE");	/*!< Write the particle detection efficiencies to file, filename, with options, opt */

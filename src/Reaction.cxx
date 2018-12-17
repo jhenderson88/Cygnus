@@ -304,7 +304,17 @@ double Reaction::ConvertThetaCmToLab(double theta_cm, int part){
 	if(part == 3)
 		theta_cm = TMath::Pi() - theta_cm;
 	
-	double theta_lab = TMath::ATan2(TMath::Sin(theta_cm),fCmG * ( TMath::Cos(theta_cm) + fCmV/fVCm[part]));
+	double theta_lab;
+	if(false){
+		fVinf	= 0.0463365 * TMath::Sqrt(GetLabEnergy()/GetBeamMass());
+		fAred	= 1. + GetBeamMass()/GetTargetMass();
+		fEmax	= GetLabEnergy() / fAred;
+		fEPmin	= GetLabEnergy() - GetExcitationEnergy()*fAred;
+		fTauP	= TMath::Sqrt(GetLabEnergy()/fEPmin);
+		theta_lab = TMath::ATan(TMath::Sin(theta_cm)/(TMath::Cos(theta_cm) + fTauP)); 
+	}
+	else
+		theta_lab = TMath::ATan2(TMath::Sin(theta_cm),fCmG * ( TMath::Cos(theta_cm) + fCmV/fVCm[part]));
 
 	if(theta_lab > fThetaMax[part])
 		return fThetaMax[part];

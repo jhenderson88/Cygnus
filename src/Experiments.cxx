@@ -143,8 +143,10 @@ void Experiments::PointCorrections(){
 
 	correctionFactors.resize(experimentRanges.size());
 
-	std::cout	<< std::setw(14) << std::left << "Theta min:" 
-			<< std::setw(14) << std::left << "Theta max:"
+	std::cout	<< std::setw(18) << std::left << "Theta CM min:" 
+			<< std::setw(18) << std::left << "Theta CM max:"
+			<< std::setw(18) << std::left << "Theta Lab min:" 
+			<< std::setw(18) << std::left << "Theta Lab max:"
 			<< std::setw(14) << std::left << "N-threads:"
 			<< std::setw(20) << std::left << "Processing time [ms]:"
 			<< std::endl;
@@ -155,7 +157,7 @@ void Experiments::PointCorrections(){
 		experimentRanges.at(c).SetNthreads(nThreads);
 		experimentRanges.at(c).SetAccuracy(fAccuracy);
 		experimentRanges.at(c).SetStopping(fStopping);
-		experimentRanges.at(c).UseEfficiency(fUseEfficiency);
+		//experimentRanges.at(c).UseEfficiency(fUseEfficiency);
 		experimentRanges.at(c).IntegrateRange();
 		TVectorD tmpVec_int;
 		tmpVec_int.ResizeTo(experimentRanges.at(c).GetIntegratedCrossSection_TVec().GetNrows());

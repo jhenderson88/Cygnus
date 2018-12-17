@@ -59,8 +59,9 @@ ParticleDetectorS3::ParticleDetectorS3(int id, double z, double x_off, double y_
 
 	gThetaEff = new TGraph();
 	int c = 0;
-	for(int i=0;i<360;i++){
-		double theta = i/2.;
+	double t_step = (t_max - t_min)/2000.;
+	for(int i=0;i<2001;i++){
+		double theta = t_min + i*t_step;
 		double integral = 0;
 		for(int j=0;j<360;j++){
 			double phi = (double)j/10.-180.;
@@ -72,7 +73,7 @@ ParticleDetectorS3::ParticleDetectorS3(int id, double z, double x_off, double y_
 				gThetaPhi->SetPoint(c,theta,phi,0);
 			c++;
 		}
-		gThetaEff->SetPoint(i,theta,integral);	
+		gThetaEff->SetPoint(i,theta,integral/360.);	
 	}
 	sprintf(gname,"Expt_%i_ThetaEff_S3_Ring_%i_to_Ring_%i",id,ring_in,ring_out);
 	gThetaEff->SetName(gname);

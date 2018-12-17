@@ -158,8 +158,14 @@ void ExperimentRange::IntegrateRange()
 		thetacm_min = thetacm_max;
 		thetacm_max = tmp;
 	}
-	std::cout 	<< std::setw(14) << std::left << thetacm_min 
-			<< std::setw(14) << std::left << thetacm_max
+
+	int nPart = 2;
+	if(targetDetection)
+		nPart = 3;
+	std::cout 	<< std::setw(18) << std::left << thetacm_min 
+			<< std::setw(18) << std::left << thetacm_max
+		 	<< std::setw(18) << std::left << fReaction->ConvertThetaCmToLab(thetacm_min*TMath::DegToRad(),nPart)*TMath::RadToDeg()
+			<< std::setw(18) << std::left << fReaction->ConvertThetaCmToLab(thetacm_max*TMath::DegToRad(),nPart)*TMath::RadToDeg()
 			<< std::setw(14) << std::left << nThreads
 			<< std::setw(20) << std::left << ms.count()
 			<< std::endl;
@@ -196,28 +202,46 @@ double ExperimentRange::IntegrateThetaEnergy(int state){
 	double tStep = (tMax - tMin) / ((double)tSteps - 1.); // Theta stepsize
 	double eStep = (eMax - eMin) / ((double)eSteps - 1.); // Energy stepsize
 
+	int nPart = 2;
+	if(targetDetection)
+		nPart = 3;
+
+	if(fDetectorEff && fUseEfficiency){
+		fDetectorEff_CM = new TGraph();
+		double x,y;
+		for(int n=0;n<fDetectorEff->GetN();n++){
+			fDetectorEff->GetPoint(n,x,y);
+			fDetectorEff_CM->SetPoint(n,fReaction->ConvertThetaLabToCm(x*TMath::DegToRad(),nPart)*TMath::RadToDeg(),y);
+		}
+
+	}
+	
 	// We can use Simpson's rule to integrate theta and energy and
 	// for every energy, divide out dE/dX
 	for(int e = 0; e < eSteps; e++){
 		double tmpCS = 0;
 		double energy = eMin + e*eStep;
 		for(int t = 0; t < tSteps; t++){
+			double eff = 1;
+			if(fDetectorEff && fUseEfficiency){
+				eff = fDetectorEff_CM->Eval(tMin + t*tStep);
+			}
 			if(t==0 || t==(tSteps-1))
-				tmpCS += gEvsTheta->Interpolate(tMin + t*tStep,energy);
+				tmpCS += gEvsTheta->Interpolate(tMin + t*tStep,energy) * eff;
 			else if((t % 2) == 0)
-				tmpCS += gEvsTheta->Interpolate(tMin + t*tStep,energy) * 2;
+				tmpCS += gEvsTheta->Interpolate(tMin + t*tStep,energy) * 2 * eff;
 			else
-				tmpCS += gEvsTheta->Interpolate(tMin + t*tStep,energy) * 4;
+				tmpCS += gEvsTheta->Interpolate(tMin + t*tStep,energy) * 4 * eff;
 		}
 		tmpCS *= (tStep / 3.);
 		tmpCS /= fStopping.GetStoppingFit().Eval(energy);
 
 		if(e == 0 || e == (eSteps-1))
-			CS += tmpCS;
+			CS += (eStep/3.)*tmpCS;
 		else if((e % 2) == 0)
-			CS += tmpCS * 2;
+			CS += (eStep/3.)*(tmpCS * 2);
 		else 
-			CS += tmpCS * 4;
+			CS += (eStep/3.)*(tmpCS * 4);
 	} 
 
 	return CS;
@@ -266,18 +290,11 @@ TGraph2D* ExperimentRange::InterpolatedEnergyTheta(int state, bool useDetector){
 		gTmp.Fit(eFits[t],"RQ0");	
 	}
 
-	int nPart = 2;
-	if(targetDetection)
-		nPart = 3;
-
 	TGraph2D *g = new TGraph2D;
 	int pointCounter = 0;
 	for(int t = 0; t < tSteps; t++){
-		double eff = 1;
-		if(fDetectorEff && useDetector)
-			eff = fDetectorEff->Eval(fReaction->ConvertThetaCmToLab((tMin + t*tStep)*TMath::DegToRad(),nPart)*TMath::RadToDeg()); 
 		for(int e = 0; e < eSteps; e++){
-			g->SetPoint(pointCounter,tMin + t*tStep, eMin + e*eStep, eFits[t]->Eval(eMin + e*eStep) * eff);
+			g->SetPoint(pointCounter,tMin + t*tStep, eMin + e*eStep, eFits[t]->Eval(eMin + e*eStep));
 			pointCounter++;
 		}
 	}
@@ -325,14 +342,15 @@ double ExperimentRange::IntegrateRutherford(){
 				tmpCS += g->Interpolate(tMin + t*tStep,energy) * 4;
 		}
 		tmpCS *= (tStep / 3.);
+		//std::cout << tmpCS << std::endl;
 		tmpCS /= fStopping.GetStoppingFit().Eval(energy);
 
 		if(e == 0 || e == (eSteps-1))
-			CS += tmpCS;
+			CS += (eStep/3.) * tmpCS;
 		else if((e % 2) == 0)
-			CS += tmpCS * 2;
+			CS += (eStep/3.) * tmpCS * 2;
 		else 
-			CS += tmpCS * 4;
+			CS += (eStep/3.) * tmpCS * 4;
 	} 
 
 	return CS;

@@ -41,7 +41,7 @@ void RunFitter(const char* nuclfile = "NucleusFile.txt", const char* datafile = 
 	bool tarDet[6] = {false,false,false,false,true,true};
 	for(int i=0;i<6;i++){
 		expts->NewExperimentRange(detectors[i]->GetThetaMin()-2,detectors[i]->GetThetaMax()+2,11,272.148,287.71,5,tarDet[i]);
-		expts->SetParticleDetectorEff(i,detectors[i]->GetThetaEfficiencyHist());
+		expts->SetParticleDetectorEff(i,detectors[i]->GetThetaEfficiencyGraph());
 	}
 
 
