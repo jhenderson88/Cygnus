@@ -201,20 +201,6 @@ double ExperimentRange::IntegrateThetaEnergy(int state){
 	}
 	double tStep = (tMax - tMin) / ((double)tSteps - 1.); // Theta stepsize
 	double eStep = (eMax - eMin) / ((double)eSteps - 1.); // Energy stepsize
-
-	int nPart = 2;
-	if(targetDetection)
-		nPart = 3;
-
-	if(fDetectorEff && fUseEfficiency){
-		fDetectorEff_CM = new TGraph();
-		double x,y;
-		for(int n=0;n<fDetectorEff->GetN();n++){
-			fDetectorEff->GetPoint(n,x,y);
-			fDetectorEff_CM->SetPoint(n,fReaction->ConvertThetaLabToCm(x*TMath::DegToRad(),nPart)*TMath::RadToDeg(),y);
-		}
-
-	}
 	
 	// We can use Simpson's rule to integrate theta and energy and
 	// for every energy, divide out dE/dX
@@ -222,16 +208,12 @@ double ExperimentRange::IntegrateThetaEnergy(int state){
 		double tmpCS = 0;
 		double energy = eMin + e*eStep;
 		for(int t = 0; t < tSteps; t++){
-			double eff = 1;
-			if(fDetectorEff && fUseEfficiency){
-				eff = fDetectorEff_CM->Eval(tMin + t*tStep);
-			}
 			if(t==0 || t==(tSteps-1))
-				tmpCS += gEvsTheta->Interpolate(tMin + t*tStep,energy) * eff;
+				tmpCS += gEvsTheta->Interpolate(tMin + t*tStep,energy);
 			else if((t % 2) == 0)
-				tmpCS += gEvsTheta->Interpolate(tMin + t*tStep,energy) * 2 * eff;
+				tmpCS += gEvsTheta->Interpolate(tMin + t*tStep,energy) * 2;
 			else
-				tmpCS += gEvsTheta->Interpolate(tMin + t*tStep,energy) * 4 * eff;
+				tmpCS += gEvsTheta->Interpolate(tMin + t*tStep,energy) * 4;
 		}
 		tmpCS *= (tStep / 3.);
 		tmpCS /= fStopping.GetStoppingFit().Eval(energy);
@@ -290,11 +272,29 @@ TGraph2D* ExperimentRange::InterpolatedEnergyTheta(int state, bool useDetector){
 		gTmp.Fit(eFits[t],"RQ0");	
 	}
 
+	int nPart = 2;
+	if(targetDetection)
+		nPart = 3;
+
+	if(fDetectorEff && fUseEfficiency){
+		fDetectorEff_CM = new TGraph();
+		double x,y;
+		for(int n=0;n<fDetectorEff->GetN();n++){
+			fDetectorEff->GetPoint(n,x,y);
+			fDetectorEff_CM->SetPoint(n,fReaction->ConvertThetaLabToCm(x*TMath::DegToRad(),nPart)*TMath::RadToDeg(),y);
+		}
+
+	}
+
 	TGraph2D *g = new TGraph2D;
 	int pointCounter = 0;
 	for(int t = 0; t < tSteps; t++){
+		double eff = 1;
+		if(fDetectorEff && fUseEfficiency){
+			eff = fDetectorEff_CM->Eval(tMin + t*tStep);
+		}
 		for(int e = 0; e < eSteps; e++){
-			g->SetPoint(pointCounter,tMin + t*tStep, eMin + e*eStep, eFits[t]->Eval(eMin + e*eStep));
+			g->SetPoint(pointCounter,tMin + t*tStep, eMin + e*eStep, eFits[t]->Eval(eMin + e*eStep) * eff);
 			pointCounter++;
 		}
 	}
