@@ -2,15 +2,15 @@
 
 ParticleDetector::ParticleDetector(const ParticleDetector& d){
 
-	hThetaEff	= d.hThetaEff;
-	hThetaPhi	= d.hThetaPhi;
+	gThetaEff	= d.gThetaEff;
+	gThetaPhi	= d.gThetaPhi;
 	setFlag		= d.setFlag;
 	
 }
 ParticleDetector& ParticleDetector::operator = (const ParticleDetector& d){
 
-	hThetaEff	= d.hThetaEff;
-	hThetaPhi	= d.hThetaPhi;
+	gThetaEff	= d.gThetaEff;
+	gThetaPhi	= d.gThetaPhi;
 	setFlag		= d.setFlag;
 
 	return *this;
@@ -22,7 +22,7 @@ double ParticleDetector::GetEfficiencyTheta(double t){
 	double eff = 1;
 
 	if(setFlag)
-		eff = hThetaEff->GetBinContent(hThetaEff->GetXaxis()->FindBin(t));
+		eff = gThetaEff->Eval(t);
 	else
 		std::cout << "Warning: Theta phi map not defined. Returning efficiency = 1" << std::endl;
 
@@ -32,12 +32,17 @@ double ParticleDetector::GetEfficiencyTheta(double t){
 
 double ParticleDetector::GetThetaMin(){
 
-	double theta = 0;
+	double theta = 180;
 	if(setFlag){
-		for(int i=1;i<hThetaEff->GetNbinsX();i++)
-			if(hThetaEff->GetBinContent(i) > 0)
-				return hThetaEff->GetBinCenter(i);
+		double x,y;
+		for(int i=0;i<gThetaEff->GetN();i++){
+			gThetaEff->GetPoint(i,x,y);
+			if(y > 0 && x < theta)
+				theta = x;
+		}
+		return theta;
 	}
+	theta = 0;
 	std::cout << "Warning: Theta phi map not well defined. Theta min set to 0 degrees" << std::endl;
 
 	return theta;
@@ -45,12 +50,17 @@ double ParticleDetector::GetThetaMin(){
 }
 double ParticleDetector::GetThetaMax(){
 	
-	double theta = 180;
+	double theta = 0;
 	if(setFlag){
-		for(int i=hThetaEff->GetNbinsX();i>0;i--)
-			if(hThetaEff->GetBinContent(i) > 0)
-				return hThetaEff->GetBinCenter(i);
+		double x,y;
+		for(int i=0;i<gThetaEff->GetN();i++){
+			gThetaEff->GetPoint(i,x,y);
+			if(y > 0 && x > theta)
+				theta = x;
+		}
+		return theta;
 	}
+	theta = 180;
 	std::cout << "Warning: Theta phi map not well defined. Theta max set to 180 degrees" << std::endl;
 
 	return theta;
@@ -67,8 +77,8 @@ void ParticleDetector::WriteParticleDetector(const char* outfilename, const char
 		dir = outfile->mkdir("ParticleDetectors");
 	dir->cd();
 
-	hThetaPhi->Write();
-	hThetaEff->Write();
+	gThetaPhi->Write();
+	gThetaEff->Write();
 	outfile->Close();
 	
 }

@@ -57,6 +57,7 @@ class StatisticalTensor{
 		std::vector<StateTensor> GetStateTensors()	const	{ return fStateTensors;					}	/*!< Return vector of StateTensor objects */
 
 		void AddStateTensor(StateTensor t)			{ fStateTensors.push_back(t);				}	/*!< Add a new state tensor */
+		void SetStateTensor(int i, StateTensor t)		{ fStateTensors.at(i) = t;				}	/*!< Set a tensors for state i */
 
 	private:
 		std::vector<StateTensor>		fStateTensors;

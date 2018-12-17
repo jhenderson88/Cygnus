@@ -2,13 +2,16 @@
 
 ParticleDetectorS3::ParticleDetectorS3(int id, double z, double x_off, double y_off, int ring_in, int ring_out, double t_min, double t_max){
 
-	char hname[128];
-	sprintf(hname,"Expt_%i_ThetaPhi_S3_Ring_%i_to_Ring_%i",id,ring_in,ring_out);
-	hThetaPhi = new TH2F(hname,hname,720,-180,180,3600,t_min,t_max);	
+	char gname[128];
+	sprintf(gname,"Expt_%i_ThetaPhi_S3_Ring_%i_to_Ring_%i",id,ring_in,ring_out);
+	gThetaPhi = new TGraph2D();
+	gThetaPhi->SetName(gname);	
 
 	double	radius1	= 10. + ring_in;
 	double 	radius2	= 11. + ring_out;
 
+	// Define two TGraphs which define the limits of coverage in theta-phi space
+	// to be used to construct the full theta-phi
 	TGraph *g1 = new TGraph();
         TGraph *g2 = new TGraph();
         for(int i=0;i<360;i++){
@@ -54,17 +57,25 @@ ParticleDetectorS3::ParticleDetectorS3(int id, double z, double x_off, double y_
 
         }
 
-	for(int i=1;i<=hThetaPhi->GetNbinsX();i++){
-		double	phi = hThetaPhi->GetXaxis()->GetBinCenter(i);
-		for(int j=1;j<=hThetaPhi->GetNbinsY();j++){
-			double	theta = hThetaPhi->GetYaxis()->GetBinCenter(j);
-			if(theta > g1->Eval(phi) && theta < g2->Eval(phi))
-				hThetaPhi->SetBinContent(i,j,1/(double)hThetaPhi->GetNbinsX());
+	gThetaEff = new TGraph();
+	int c = 0;
+	for(int i=0;i<360;i++){
+		double theta = i/2.;
+		double integral = 0;
+		for(int j=0;j<360;j++){
+			double phi = (double)j/10.-180.;
+			if(theta > g1->Eval(phi) && theta < g2->Eval(phi)){
+				gThetaPhi->SetPoint(c,theta,phi,1);
+				integral += 1;
+			}
+			else
+				gThetaPhi->SetPoint(c,theta,phi,0);
+			c++;
 		}
+		gThetaEff->SetPoint(i,theta,integral);	
 	}
-
-	sprintf(hname,"Expt_%i_ThetaEff_S3_Ring_%i_to_Ring_%i",id,ring_in,ring_out);
-	hThetaEff = (TH1F*)hThetaPhi->ProjectionY(hname);
+	sprintf(gname,"Expt_%i_ThetaEff_S3_Ring_%i_to_Ring_%i",id,ring_in,ring_out);
+	gThetaEff->SetName(gname);
 
 	setFlag	= true;
 

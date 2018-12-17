@@ -99,7 +99,7 @@ class Experiments
 
 		void	SetStopping(StoppingPower s)					{ fStopping = s;						}	/*!< Define the stopping powers to be used in the integration process */
 
-		void	SetParticleDetectorEff(int i, TH1F* p)				{ experimentRanges.at((unsigned int)i).SetDetectorEff(p);	}	/*!< Define the detection efficiency of the particle detector vs theta (lab) */
+		void	SetParticleDetectorEff(int i, TGraph* p)			{ experimentRanges.at((unsigned int)i).SetDetectorEff(p);	}	/*!< Define the detection efficiency of the particle detector vs theta (lab) */
 
 		void	UseEfficiency(bool b = true)					{ fUseEfficiency = b;						}	/*!< Use the efficiencies of the particle detector */
 

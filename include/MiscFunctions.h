@@ -24,6 +24,9 @@ class MiscFunctions {
 		static	void	PrintVectorNucleus(TVectorD, Nucleus, const char*);	/*!< Print a well formatted TVectorD based on states from a Nucleus object */
 
 		static	double	RotationFunction(double,int,int,int);	/*!< Rotation function to convert Reaction frame tensors to laboratory frame */
+
+		static	double	c;	
+		static 	double	hbar;
 	
 };
 

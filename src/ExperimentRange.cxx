@@ -275,7 +275,7 @@ TGraph2D* ExperimentRange::InterpolatedEnergyTheta(int state, bool useDetector){
 	for(int t = 0; t < tSteps; t++){
 		double eff = 1;
 		if(fDetectorEff && useDetector)
-			eff = fDetectorEff->GetBinContent(fDetectorEff->FindBin(fReaction->ConvertThetaCmToLab((tMin + t*tStep)*TMath::DegToRad(),nPart)*TMath::RadToDeg())); 
+			eff = fDetectorEff->Eval(fReaction->ConvertThetaCmToLab((tMin + t*tStep)*TMath::DegToRad(),nPart)*TMath::RadToDeg()); 
 		for(int e = 0; e < eSteps; e++){
 			g->SetPoint(pointCounter,tMin + t*tStep, eMin + e*eStep, eFits[t]->Eval(eMin + e*eStep) * eff);
 			pointCounter++;

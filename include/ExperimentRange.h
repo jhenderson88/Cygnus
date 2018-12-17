@@ -103,7 +103,7 @@ class ExperimentRange {
 
 		void		SetStopping(StoppingPower s)				{ fStopping = s;			}	/*!< Define the stopping power (dE/dX) for the integration */
 
-		void		SetDetectorEff(TH1F* p)					{ fDetectorEff = p;			}	/*!< Define the detector efficiency histogram (efficiency vs theta) */
+		void		SetDetectorEff(TGraph* p)				{ fDetectorEff = p;			}	/*!< Define the detector efficiency histogram (efficiency vs theta) */
 
 		void		UseEfficiency(bool b = true)				{ fUseEfficiency = b;			}	/*!< Use the detector efficiencies for particle detection */
 
@@ -149,7 +149,7 @@ class ExperimentRange {
 		bool		fUseEfficiency;
 		bool		fProjectileExcitation;
 	
-		TH1F		*fDetectorEff;
+		TGraph		*fDetectorEff;
 
 };
 #endif

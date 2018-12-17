@@ -1,5 +1,8 @@
 #include "MiscFunctions.h"
 
+double MiscFunctions::c 	= 299792458; 
+double MiscFunctions::hbar	= 1.05457e-34;
+
 double MiscFunctions::GetMaxMatrix(TMatrixD mat){
 
 	double max = 0;
