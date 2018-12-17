@@ -32,6 +32,7 @@ class ParticleDetector {
 
 		virtual void		WriteParticleDetector(const char* filename, const char* opt = "UPDATE");	/*!< Write the particle detection efficiencies to file, filename, with options, opt */
 
+
 	protected:
 
 		TGraph2D	*gThetaPhi;					/*!< Histogram defining particle detection efficiency in theta and phi */
