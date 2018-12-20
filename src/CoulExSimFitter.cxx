@@ -128,6 +128,7 @@ void CoulExSimFitter::DoFit(const char* method, const char *algorithm){
 		min->SetLimitedVariable(i,name,parameters.at(i),0.001,par_LL.at(i),par_UL.at(i));
 	}
 
+	return;
 	
 	typedef std::chrono::high_resolution_clock Clock;
 	typedef std::chrono::milliseconds milliseconds;

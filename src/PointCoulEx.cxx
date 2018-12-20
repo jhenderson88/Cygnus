@@ -267,6 +267,8 @@ void PointCoulEx::PrepareConnections()
 				//	angular momentum grounds, we can skip this
 				if(TMath::Abs(fSubstates.at(ss1).GetM() - fSubstates.at(ss2).GetM()) > lambda)
 					continue;
+				if(TMath::Abs(fStates.at(fSubstates.at(ss1).GetStateIndex()).GetJ() - fStates.at(fSubstates.at(ss2).GetStateIndex()).GetJ()) > lambda)
+					continue;
 
 				//	Update our maximum wavenumber difference for use in the
 				//	integration step later
@@ -631,7 +633,7 @@ TVectorD PointCoulEx::Integration(double theta)
 				if(FF <= Accuracy_50)
 				{
 					dOmegaFlag = false;
-					dOmega = 2*dOmega;
+					dOmega = 1.5*dOmega;
 					if(verbose){
 						std::cout	<< "At Omega: " << std::setw(12) << std::left << Omega
 								<< "Stepwidth doubled to: " << std::setw(12) << std::left << 2*dOmega
@@ -641,7 +643,7 @@ TVectorD PointCoulEx::Integration(double theta)
 				if(FF > Accuracy)
 				{
 					dOmegaFlag = false;
-					dOmega = 0.5*dOmega;
+					dOmega = (1./1.5)*dOmega;
 					if(verbose){
 						std::cout	<< "At Omega: " << std::setw(12) << std::left << Omega
 								<< "Stepwidth halved to:  " << std::setw(12) << std::left << 2*dOmega
@@ -1323,7 +1325,7 @@ void PointCoulEx::WriteConnections(std::ofstream& outfile){
 				<< std::setw(15) << std::right << "State I:"
 				<< std::setw(15) << std::right << "Substate I:"
 				<< std::setw(12) << std::right << "Xi:"
-				<< std::setw(12) << std::right << "Phi:"
+				<< std::setw(12) << std::right << "Psi:"
 				<< std::setw(12) << std::right << "Zeta:"
 				<< std::endl;
 

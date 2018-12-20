@@ -28,8 +28,8 @@ void RunFitter(const char* beamfile, const char* targfile, int threads = 1){
 
 	int    rmin[6] = {1,9,17,1,9,17};
 	int    rmax[6] = {8,16,24,8,16,24};
-	double tmin[6] = {10,10,10,10,10,10};
-	double tmax[6] = {60,60,60,60,60,60};
+	double tmin[6] = {10,20,30,10,20,30};
+	double tmax[6] = {40,50,60,40,50,60};
 	ParticleDetectorS3 *detectors[6];
 	for(int i=0;i<6;i++){
 		detectors[i] = new ParticleDetectorS3(i,30,0.,0.,rmin[i],rmax[i],tmin[i],tmax[i]);
@@ -43,7 +43,7 @@ void RunFitter(const char* beamfile, const char* targfile, int threads = 1){
 	Reaction *reac = new Reaction(nucl_b->GetA(),nucl_b->GetZ(),nucl_t->GetA(),nucl_t->GetZ(),83.);
 	//reac->SetMass(21.9996,109.90952); 
 	reac->SetExcitationEnergy(nucl_b->GetLevelEnergies().at(1));
-	reac->SetGOSIAKinematics(false);
+	reac->SetGOSIAKinematics(true);
 	Experiments *expts_b = new Experiments(nucl_b,reac);
 	reac->SetExcitationEnergy(nucl_t->GetLevelEnergies().at(1));
 	Experiments *expts_t = new Experiments(nucl_t,reac);

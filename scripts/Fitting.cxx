@@ -88,13 +88,14 @@ void RunFitter(const char* nuclfile = "NucleusFile.txt", const char* datafile = 
 	fitter->AddLifetime(1,4.07,0.289);
 	fitter->AddFittingMatrixElement(1,0,1,0.46,0.44,0.48);
 	fitter->AddFittingMatrixElement(1,1,1,-0.500,-1,-0.1);
+
 	std::vector<int> tmpVec;
 	for(unsigned int e=0;e<6;e++)
 		tmpVec.push_back((int)e);
-	fitter->CreateScalingParameter(tmpVec,8,0.01,10);
+	fitter->CreateScalingParameter(tmpVec,8,0.001,100);
 	fitter->SetNthreads(threads);
 	//fitter->Print();
-	fitter->SetVerbose(true);
+	//fitter->SetVerbose(true);
 
 	fitter->SetMaxIterations(1000);
 	fitter->SetMaxFunctionCalls(1000);
