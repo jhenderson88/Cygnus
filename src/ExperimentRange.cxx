@@ -340,19 +340,75 @@ double ExperimentRange::IntegrateRutherford(){
 
 	double CS = 0;
 
-	TGraph2D *g = GetRutherfordThetaEnergy();
+	//TGraph2D *g = GetRutherfordThetaEnergy();
+	Reaction tmpReac = *fReaction;
 
 	int eSteps = 101;
 	int tSteps = 101;
-	double eMin = fIntegral->GetEnergy(0);
-	double eMax = fIntegral->GetEnergy(nEnergy-1);
-	if(eMin > eMax){
-		double tmp = eMin;
-		eMin = eMax;
-		eMax = tmp;
+	double eMin;
+	double eMax;
+	double tMin;
+	double tMax;
+
+	int nPart = 2;
+	if(targetDetection)
+		nPart = 3;
+	// If the integration hasn't been performed, we can still integrate the
+	// Rutherford cross section using the user-provided ranges and efficiency.
+	// If the integration has been performed, we use those angles/energies 
+	// to ensure consistency.
+	if(fIntegral->IntegralComplete()){
+		eMin = fIntegral->GetEnergy(0);
+		eMax = fIntegral->GetEnergy(nEnergy-1);
+		if(eMin > eMax){
+			double tmp = eMin;
+			eMin = eMax;
+			eMax = tmp;
+		}
+		tMin = fIntegral->GetCMThetaPoints().at(0).at(0);
+		tMax = fIntegral->GetCMThetaPoints().at(0).at(fIntegral->GetCMThetaPoints().at(0).size()-1);
+		if(tMin > tMax){
+			double tmp = tMin;
+			tMin = tMax;
+			tMax = tmp;
+		}
 	}
-	double tMin = fIntegral->GetCMThetaPoints().at(0).at(0);
-	double tMax = fIntegral->GetCMThetaPoints().at(0).at(fIntegral->GetCMThetaPoints().at(0).size()-1);
+	else{
+		eMin = energymin;
+		eMax = energymax;
+		if(eMin > eMax){
+			double tmp = eMin;
+			eMin = eMax;
+			eMax = tmp;
+		}
+		tMin = fReaction->ConvertThetaLabToCm(thetamin,nPart);
+		tMax = fReaction->ConvertThetaLabToCm(thetamax,nPart);
+		if(tMin > tMax){
+			double tmp = tMin;
+			tMin = tMax;
+			tMax = tmp;
+		}
+	}
+
+	if(fDetectorEff && fUseEfficiency){
+		fDetectorEff_CM = new TGraph();
+		double x,y;
+		double tMin_tmp = 180;
+		double tMax_tmp = 0;
+		for(int n=0;n<fDetectorEff->GetN();n++){
+			fDetectorEff->GetPoint(n,x,y);
+			fDetectorEff_CM->SetPoint(n,fReaction->ConvertThetaLabToCm(x*TMath::DegToRad(),nPart)*TMath::RadToDeg(),y);
+			if(y > 0 && fReaction->ConvertThetaLabToCm(x*TMath::DegToRad(),nPart)*TMath::RadToDeg() < tMin_tmp)
+				tMin_tmp = fReaction->ConvertThetaLabToCm(x*TMath::DegToRad(),nPart)*TMath::RadToDeg();
+			if(y > 0 && fReaction->ConvertThetaLabToCm(x*TMath::DegToRad(),nPart)*TMath::RadToDeg() > tMax_tmp)
+				tMax_tmp = fReaction->ConvertThetaLabToCm(x*TMath::DegToRad(),nPart)*TMath::RadToDeg();
+		}
+
+		tMin = tMin_tmp;
+		tMax = tMax_tmp;
+
+	}
+
 	if(tMin > tMax){
 		double tmp = tMin;
 		tMin = tMax;
@@ -366,16 +422,23 @@ double ExperimentRange::IntegrateRutherford(){
 	for(int e = 0; e < eSteps; e++){
 		double tmpCS = 0;
 		double energy = eMin + e*eStep;
+		tmpReac.SetLabEnergy(energy);
 		for(int t = 0; t < tSteps; t++){
-			if(t==0 || t==(tSteps-1))
-				tmpCS += g->Interpolate(tMin + t*tStep,energy);
-			else if((t % 2) == 0)
-				tmpCS += g->Interpolate(tMin + t*tStep,energy) * 2;
-			else
-				tmpCS += g->Interpolate(tMin + t*tStep,energy) * 4;
+			double eff = 1;
+			if(fDetectorEff && fUseEfficiency){
+				eff = fDetectorEff_CM->Eval(tMin + t*tStep);
+			}
+			if(t==0 || t==(tSteps-1)){
+				tmpCS += tmpReac.RutherfordCM(tMin + t*tStep) * eff;
+			}
+			else if((t % 2) == 0){
+				tmpCS += tmpReac.RutherfordCM(tMin + t*tStep) * eff * 2;
+			}
+			else{
+				tmpCS += tmpReac.RutherfordCM(tMin + t*tStep) * eff * 4;
+			}
 		}
 		tmpCS *= (tStep / 3.);
-		//std::cout << tmpCS << std::endl;
 		tmpCS /= fStopping.GetStoppingFit().Eval(energy);
 
 		if(e == 0 || e == (eSteps-1))
@@ -393,24 +456,91 @@ double ExperimentRange::IntegrateRutherford(){
 TGraph2D* ExperimentRange::GetRutherfordThetaEnergy(){
 
 	TGraph2D *g = new TGraph2D();
-
+	
 	Reaction tmpReac = *fReaction;
 
 	int eSteps = 101;
 	int tSteps = 101;
-	double eMin = fIntegral->GetEnergy(0);
-	double eMax = fIntegral->GetEnergy(nEnergy-1);
-	double tMin = fIntegral->GetCMThetaPoints().at(0).at(0);
-	double tMax = fIntegral->GetCMThetaPoints().at(0).at(fIntegral->GetCMThetaPoints().at(0).size()-1);
-	double tStep = (tMax - tMin) / ((double)tSteps - 1.); // Theta stepsize
-	double eStep = (eMax - eMin) / ((double)eSteps - 1.); // Energy stepsize
-	if(tMin > tMax)
-		std::swap(tMin,tMax);
+	double eMin;
+	double eMax;
+	double eStep;
+	double tMin;
+	double tMax;
+	double tStep;
+
+	int nPart = 2;
+	if(targetDetection)
+		nPart = 3;
+
+	// If the integration hasn't been performed, we can still integrate the
+	// Rutherford cross section using the user-provided ranges and efficiency.
+	// If the integration has been performed, we use those angles/energies 
+	// to ensure consistency.
+	if(fIntegral->IntegralComplete()){
+		eMin = fIntegral->GetEnergy(0);
+		eMax = fIntegral->GetEnergy(nEnergy-1);
+		if(eMin > eMax){
+			double tmp = eMin;
+			eMin = eMax;
+			eMax = tmp;
+		}
+		tMin = fIntegral->GetCMThetaPoints().at(0).at(0);
+		tMax = fIntegral->GetCMThetaPoints().at(0).at(fIntegral->GetCMThetaPoints().at(0).size()-1);
+		if(tMin > tMax){
+			double tmp = tMin;
+			tMin = tMax;
+			tMax = tmp;
+		}
+		tStep = (tMax - tMin) / ((double)tSteps - 1.); // Theta stepsize
+		eStep = (eMax - eMin) / ((double)eSteps - 1.); // Energy stepsize
+	}
+	else{
+		eMin = energymin;
+		eMax = energymax;
+		if(eMin > eMax){
+			double tmp = eMin;
+			eMin = eMax;
+			eMax = tmp;
+		}
+		tMin = fReaction->ConvertThetaLabToCm(thetamin,nPart);
+		tMax = fReaction->ConvertThetaLabToCm(thetamax,nPart);
+		if(tMin > tMax){
+			double tmp = tMin;
+			tMin = tMax;
+			tMax = tmp;
+		}
+		tStep = (tMax - tMin) / ((double)tSteps - 1.); // Theta stepsize
+		eStep = (eMax - eMin) / ((double)eSteps - 1.); // Energy stepsize
+	}
+
+	if(fDetectorEff && fUseEfficiency){
+		fDetectorEff_CM = new TGraph();
+		double x,y;
+		double tMin_tmp = 180;
+		double tMax_tmp = 0;
+		for(int n=0;n<fDetectorEff->GetN();n++){
+			fDetectorEff->GetPoint(n,x,y);
+			fDetectorEff_CM->SetPoint(n,fReaction->ConvertThetaLabToCm(x*TMath::DegToRad(),nPart)*TMath::RadToDeg(),y);
+			if(y > 0 && fReaction->ConvertThetaLabToCm(x*TMath::DegToRad(),nPart)*TMath::RadToDeg() < tMin_tmp)
+				tMin_tmp = fReaction->ConvertThetaLabToCm(x*TMath::DegToRad(),nPart)*TMath::RadToDeg();
+			if(y > 0 && fReaction->ConvertThetaLabToCm(x*TMath::DegToRad(),nPart)*TMath::RadToDeg() > tMax_tmp)
+				tMax_tmp = fReaction->ConvertThetaLabToCm(x*TMath::DegToRad(),nPart)*TMath::RadToDeg();
+		}
+
+		tMin = tMin_tmp;
+		tMax = tMax_tmp;
+
+	}
+
 	int pointCounter = 0;
 	for(int e = 0; e < eSteps; e++){
-		tmpReac.SetLabEnergy(eMin + e*eStep); 
+		tmpReac.SetLabEnergy(eMin + e*eStep);
 		for(int t = 0; t < tSteps; t++){
-			g->SetPoint(pointCounter,tMin + t*tStep, eMin + e*eStep, tmpReac.RutherfordCM(tMin + t*tStep));
+			double eff = 1;
+			if(fDetectorEff && fUseEfficiency){
+				eff = fDetectorEff_CM->Eval(tMin + t*tStep);
+			} 
+			g->SetPoint(pointCounter,tMin + t*tStep, eMin + e*eStep, tmpReac.RutherfordCM(tMin + t*tStep) * eff);
 			pointCounter++;
 		}
 	}

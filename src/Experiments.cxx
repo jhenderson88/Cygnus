@@ -133,6 +133,17 @@ void Experiments::NewExperimentRange(double thetamin, double thetamax, int nT, d
 
 }
 
+void Experiments::SetStopping(){
+
+	if(fStopping.StoppingSize()==0){
+		std::cout	<< "Stopping powers not set!"
+				<< std::endl;
+		return;
+	}
+	for(size_t c = 0;c<experimentRanges.size();c++)
+		experimentRanges.at(c).SetStopping(fStopping);
+}
+
 void Experiments::PointCorrections(){
 
 	if(fStopping.StoppingSize()==0){

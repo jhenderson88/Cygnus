@@ -1,5 +1,13 @@
 #include "ParticleDetectorS3.h"
 
+ParticleDetectorS3::ParticleDetectorS3(TGraph2D* g2, TGraph* g){
+
+	SetThetaPhiMap(g2);
+	SetThetaEfficiencyGraph(g);
+	setFlag = true;	
+
+}
+ 
 ParticleDetectorS3::ParticleDetectorS3(int id, double z, double x_off, double y_off, int ring_in, int ring_out, double t_min, double t_max){
 
 	char gname[128];

@@ -105,6 +105,8 @@ class Experiments
 
 		void	SetProjectileExcitation(bool b = true)				{ fProjectileExcitation = b;					}	/*!< Determines whether the beam or target is being excited */
 
+		void	SetStopping();		/*!< 	Set stopping powers for experiment ranges */
+
 	private:
 
 		double		fAccuracy;

@@ -23,6 +23,8 @@ Integral::Integral() : fNucleus(NULL), fReaction(NULL){
 
 	nThreads 	= 1;
 
+	fComplete	= false;
+
 }
 
 Integral::Integral(Nucleus *nucl, Reaction *reac) : fNucleus(nucl), fReaction(reac) {
@@ -39,6 +41,8 @@ Integral::Integral(Nucleus *nucl, Reaction *reac) : fNucleus(nucl), fReaction(re
 	nThreads	= 1;
 	fAccuracy	= 1e-5;
 
+	fComplete	= false;
+
 }
 
 Integral::Integral(const Integral& x) : 
@@ -54,6 +58,8 @@ Integral::Integral(const Integral& x) :
 
 	verbose		= x.verbose;
 	targetDetection	= x.targetDetection;
+
+	fComplete	= x.fComplete;
 
 	for(size_t i = 0; i<x.point_calculations.size(); i++)
 		point_calculations.at(i) = x.point_calculations.at(i);
@@ -87,6 +93,8 @@ Integral& Integral::operator = (const Integral& x){
 
 	fNucleus 	= x.fNucleus;
 	fReaction 	= x.fReaction;
+
+	fComplete	= x.fComplete;
 	
 	point_calculations.resize(x.point_calculations.size());
 	energymeshpoint_reaction.resize(x.energymeshpoint_reaction.size());
@@ -140,7 +148,6 @@ void Integral::SetEnergyMeshpoint(int i, double e){
 }
 
 void Integral::CalculateIntegral(){
-
 
 	cmTheta.clear();	
 	meshpointCrossSections.clear();
@@ -304,6 +311,8 @@ void Integral::CalculateIntegral(){
 	}
 
 	fTensors.resize(point_calculations.size());		
+
+	fComplete = true;
 
 }
 

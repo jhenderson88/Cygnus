@@ -109,6 +109,8 @@ void RunFitter(const char* nuclfile = "NucleusFile.txt", const char* datafile = 
 	fitter->AddLifetime(3,4.934,0.289);
 	fitter->AddLifetime(4,2.193,0.072);
 	fitter->AddBranchingRatio(3,0,1,0.584,0.032);
+
+	//	Define the matrix elements to be varied in the fit. Any not defined here will be fixed to the values in the Nucleus.
 	fitter->AddFittingMatrixElement(1,0,1,0.486,0.320,1.270);
 	fitter->AddFittingMatrixElement(1,0,3,0.571,0.05,0.2);
 	fitter->AddFittingMatrixElement(1,1,1,-0.200,-1,-0.1);

@@ -18,6 +18,7 @@ class ParticleDetector {
 
 	public:
 		ParticleDetector() 	{ setFlag = false;}
+		ParticleDetector(TGraph2D*, TGraph*);
 		virtual ~ParticleDetector() 	{;}
 		ParticleDetector(const ParticleDetector &d);		/*!< Copy constructor */
 		ParticleDetector& operator = (const ParticleDetector &d);	/*!< Assignment operator */
@@ -32,6 +33,9 @@ class ParticleDetector {
 
 		virtual void		WriteParticleDetector(const char* filename, const char* opt = "UPDATE");	/*!< Write the particle detection efficiencies to file, filename, with options, opt */
 
+		virtual void		SetThetaEfficiencyGraph(TGraph* g)		{ gThetaEff = (TGraph*)g->Clone();	}
+		virtual	void		SetThetaPhiMap(TGraph2D *g)			{ gThetaPhi = (TGraph2D*)g->Clone();	}
+	
 
 	protected:
 

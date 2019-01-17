@@ -77,6 +77,8 @@ class Integral{
 
 		void	SetProjectileExcitation(bool b = true)		{ fProjectileExcitation = b;		}	/*!< Defines whether beam or target excitation is being calculated */
 
+		bool	IntegralComplete()				{ return fComplete;			}	/*!< Returns flag indicating whether the integration has been performed */
+
 	private:
 
 		Nucleus*			fNucleus;
@@ -99,6 +101,8 @@ class Integral{
 
 		int				nThreads;
 		double				fAccuracy;
+
+		bool				fComplete;
 
 		// For every PointCoulEx calculation we will need to determine statistical tensors
 		std::vector<StatisticalTensor>		fTensors;

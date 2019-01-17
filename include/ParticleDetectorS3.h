@@ -29,6 +29,7 @@ class ParticleDetectorS3 : public ParticleDetector{
 		///	tmin & tmax - define the maximum and minimum theta values in the efficiency
 		///	histograms, this must cover a larger range than the detector 
 		///
+		ParticleDetectorS3(TGraph2D*, TGraph*);
 		ParticleDetectorS3(int id, double z, double x_off, double y_off, int ring_in, int ring_out, double tmin=0, double tmax=180);
 
 };

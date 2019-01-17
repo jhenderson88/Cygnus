@@ -17,6 +17,12 @@ ParticleDetector& ParticleDetector::operator = (const ParticleDetector& d){
 
 }
 
+ParticleDetector::ParticleDetector(TGraph2D* g2, TGraph* g) : gThetaPhi(g2), gThetaEff(g){
+
+	setFlag = true;	
+
+} 
+
 double ParticleDetector::GetEfficiencyTheta(double t){
 
 	double eff = 1;
