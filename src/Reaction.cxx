@@ -9,7 +9,8 @@ double Reaction::electronCharge=1.602e-19;
 
 Reaction::Reaction(){
 	
-	fGOSIAKin = false;
+	//fGOSIAKin = false;
+	fGOSIAKin = true;
 	reactionSet = false;
 	SetBeamA(0);
 	SetTargetA(0);
@@ -19,7 +20,8 @@ Reaction::Reaction(){
 
 Reaction::Reaction(int aB, int zB, int aT, int zT, double El){
 
-	fGOSIAKin = false;
+	//fGOSIAKin = false;
+	fGOSIAKin = true;
 	reactionSet = false;
 
 	SetMass((double)aB,(double)aT);
@@ -35,7 +37,8 @@ Reaction::Reaction(int aB, int zB, int aT, int zT, double El){
 }
 Reaction::Reaction(double mB, int zB, double mT, int zT, double El){
 
-	fGOSIAKin = false;
+	//fGOSIAKin = false;
+	fGOSIAKin = true;
 	reactionSet = false;
 
 	SetMass(mB,mT);
@@ -151,17 +154,19 @@ double Reaction::RelativeVelocity(double State_E) const{
 
 }
 
-double Reaction::RutherfordCM(double theta){
+double Reaction::RutherfordCM(double theta, int part){
 	
 	if(!reactionSet)
 		InitReaction();
 	
 	theta *= TMath::DegToRad();
+	double theta_lab = ConvertThetaCmToLab(theta,part);
 
 	double ESym = TMath::Sqrt(TMath::Power(Ecm,3./2.) * TMath::Sqrt(Ecm - exE));
 
-	//return TMath::Power( TMath::Power(electronCharge,2) * GetBeamZ() * GetTargetZ() / (16 * TMath::Pi() * 8.85e-12 * Ecm * 1.60e-13) ,2) * 1 / (TMath::Power( TMath::Sin( theta / 2) , 4)) * TMath::Sin(theta) * 1E24;
-	return TMath::Power( TMath::Power(electronCharge,2) * GetBeamZ() * GetTargetZ() / (16 * TMath::Pi() * 8.85e-12 * ESym * 1.60e-13) ,2) * 1 / (TMath::Power( TMath::Sin( theta / 2) , 4)) * TMath::Sin(theta) * 1E27;
+	if(part == 3)
+		return TMath::Power(TMath::Sin(TMath::Pi() - theta)/TMath::Sin(theta_lab),2) * 1.29596 * TMath::Power( GetBeamZ() * GetTargetZ() / ESym,2) * 1 / TMath::Power(TMath::Sin(theta/2),4) / TMath::Abs(TMath::Cos((TMath::Pi() - theta) - theta_lab));
+	return TMath::Power(TMath::Sin(theta)/TMath::Sin(theta_lab),2) * 1.29596 * TMath::Power( GetBeamZ() * GetTargetZ() / ESym,2) * 1 / TMath::Power(TMath::Sin(theta/2),4) / TMath::Abs(TMath::Cos(theta - theta_lab));
 
 }
 
@@ -170,12 +175,14 @@ double Reaction::Rutherford(double theta_lab, int part){
 	if(!reactionSet)
 		InitReaction();
 
+	theta_lab *= TMath::DegToRad();
 	double theta = ConvertThetaLabToCm(theta_lab * TMath::DegToRad(), part);
 	
 	double ESym = TMath::Sqrt(TMath::Power(Ecm,3./2.) * TMath::Sqrt(Ecm - exE));
 
-	//return TMath::Power( TMath::Power(electronCharge,2) * GetBeamZ() * GetTargetZ() / (16 * TMath::Pi() * 8.85e-12 * Ecm * 1.60e-13) ,2) * 1 / (TMath::Power( TMath::Sin( theta / 2) , 4)) * TMath::Sin(theta) * 1E24;
-	return TMath::Power( TMath::Power(electronCharge,2) * GetBeamZ() * GetTargetZ() / (16 * TMath::Pi() * 8.85e-12 * ESym * 1.60e-13) ,2) * 1 / (TMath::Power( TMath::Sin( theta / 2) , 4)) * TMath::Sin(theta) * 1E27;
+	if(part == 3)
+		return TMath::Power(TMath::Sin(TMath::Pi() - theta)/TMath::Sin(theta_lab),2) * 1.29596 * TMath::Power( GetBeamZ() * GetTargetZ() / ESym,2) * 1 / TMath::Power(TMath::Sin(theta/2),4) / TMath::Abs(TMath::Cos((TMath::Pi() - theta) - theta_lab));
+	return TMath::Power(TMath::Sin(theta)/TMath::Sin(theta_lab),2) * 1.29596 * TMath::Power( GetBeamZ() * GetTargetZ() / ESym,2) * 1 / TMath::Power(TMath::Sin(theta/2),4) / TMath::Abs(TMath::Cos(theta - theta_lab));
 
 }
 
@@ -252,9 +259,7 @@ double Reaction::ConvertThetaLabToCm(double theta_lab, int part){
 	double theta_cm;
 	if(fGOSIAKin){
 
-		fVinf	= 0.0463365 * TMath::Sqrt(GetLabEnergy()/GetBeamMass());
 		fAred	= 1. + GetBeamMass()/GetTargetMass();
-		fEmax	= GetLabEnergy() / fAred;
 		fEPmin	= GetLabEnergy() - GetExcitationEnergy()*fAred;
 		fTauP	= TMath::Sqrt(GetLabEnergy()/fEPmin);
 		fTau	= fTauP * GetBeamMass()/GetTargetMass(); 
@@ -274,8 +279,6 @@ double Reaction::ConvertThetaLabToCm(double theta_lab, int part){
 		}
 
 		theta_cm = theta_lab + TMath::ASin(fTau * TMath::Sin(theta_lab));
-		//if(part == 3)
-		//	theta_cm = TMath::Pi() - theta_cm;
 		return theta_cm;
 	}
 	else{
@@ -301,23 +304,25 @@ double Reaction::ConvertThetaLabToCm(double theta_lab, int part){
 }
 double Reaction::ConvertThetaCmToLab(double theta_cm, int part){
 
-	if(part == 3)
-		theta_cm = TMath::Pi() - theta_cm;
-	
 	double theta_lab;
-	if(false){
-		fVinf	= 0.0463365 * TMath::Sqrt(GetLabEnergy()/GetBeamMass());
+	
+	if(fGOSIAKin){
 		fAred	= 1. + GetBeamMass()/GetTargetMass();
-		fEmax	= GetLabEnergy() / fAred;
 		fEPmin	= GetLabEnergy() - GetExcitationEnergy()*fAred;
 		fTauP	= TMath::Sqrt(GetLabEnergy()/fEPmin);
-		theta_lab = TMath::ATan(TMath::Sin(theta_cm)/(TMath::Cos(theta_cm) + fTauP)); 
+		fTau	= fTauP * GetBeamMass()/GetTargetMass();
+		if(part == 3)
+			theta_lab = TMath::ATan(TMath::Sin(TMath::Pi() - theta_cm)/(TMath::Cos(TMath::Pi() - theta_cm) + fTauP)); 
+		else
+			theta_lab = TMath::ATan(TMath::Sin(theta_cm)/(TMath::Cos(theta_cm) + fTau));
 	}
-	else
+	else{
+		if(part == 3)
+			theta_cm = TMath::Pi() - theta_cm;
 		theta_lab = TMath::ATan2(TMath::Sin(theta_cm),fCmG * ( TMath::Cos(theta_cm) + fCmV/fVCm[part]));
-
-	if(theta_lab > fThetaMax[part])
-		return fThetaMax[part];
+		if(theta_lab > fThetaMax[part])
+			return fThetaMax[part];
+	}
 
 	return theta_lab;
 

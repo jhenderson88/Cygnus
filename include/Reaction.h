@@ -103,7 +103,7 @@ class Reaction
 
 		// Rutherford cross section calculations
 		double	Rutherford(double theta_lab, int part = 2);	/*!< Return the Rutherford cross section (mb) for theta defined in the lab frame */
-		double	RutherfordCM(double theta_cm);			/*!< Return the Rutherford cross section (mb) for theta defined in the CoM frame */
+		double	RutherfordCM(double theta_cm, int part = 2);	/*!< Return the Rutherford cross section (mb) for theta defined in the CoM frame */
 
 		// Simple printing function - give user information
 		void	PrintReaction()			const;		/*!< Print the details of the reaction */
@@ -127,7 +127,7 @@ class Reaction
 		/// Sets whether the GOSIA kinematics will be used. GOSIA kinematics differ from (for example) 
 		/// Catkin and the normal kinematics models used here. Primarily intended for debugging and
 		/// providing a one-to-one comparison with GOSIA.
-		void	SetGOSIAKinematics(bool b = true)	{ fGOSIAKin = b;	}	
+		void	SetGOSIAKinematics(bool b = true)	{ fGOSIAKin = b; InitReaction();	}	
 		bool	GOSIAKinematics()		const	{ return fGOSIAKin;	}	/*!< Return bool indicating whether GOSIA kinematics are being used */
 
 

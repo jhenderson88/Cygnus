@@ -3,14 +3,16 @@
 // Empty constructor:
 PointCoulEx::PointCoulEx(){
 
-	fTrack		= false;
+	bTargetDetection	= false;
+
+	fTrack			= false;
 	
-	verbose 	= false;
-	debug 		= false;
+	verbose 		= false;
+	debug 			= false;
 
 	projectileExcitation	= true;
 
-	fAccuracy	= 1e-8;
+	fAccuracy		= 1e-8;
 
 }
 
@@ -21,14 +23,16 @@ PointCoulEx::PointCoulEx(Nucleus *nuc, Reaction *reac)
 	fNucleus = *nuc;
 	fReaction = *reac;
 
-	fTrack		= false;
+	bTargetDetection	= false;
 
-	verbose 	= false;
-	debug 		= false;
+	fTrack			= false;
+
+	verbose 		= false;
+	debug 			= false;
 
 	projectileExcitation	= true;
 
-	fAccuracy	= 1e-8;
+	fAccuracy		= 1e-8;
 
 	// Because we have a reaction and  nucleus we can immediately define
 	// connections between substates from state and reaction information
@@ -40,13 +44,15 @@ PointCoulEx::PointCoulEx(Nucleus *nuc, Reaction *reac)
 PointCoulEx::PointCoulEx(const PointCoulEx& p)
 {
 
+	bTargetDetection	= p.bTargetDetection;
+
 	fTrack			= p.fTrack;
 	fEpsilon		= p.fEpsilon;
 	fOmegaTracking		= p.fOmegaTracking;
 	fStateProbTracking	= p.fStateProbTracking;
  	fStateMultTracking	= p.fStateMultTracking;	
 	
-	fAccuracy	= p.fAccuracy;
+	fAccuracy		= p.fAccuracy;
 
 	fStates.resize(p.fStates.size());
 	for(size_t s = 0; s < p.fStates.size(); s++)
@@ -83,10 +89,15 @@ PointCoulEx::PointCoulEx(const PointCoulEx& p)
 	Probabilities.ResizeTo(p.Probabilities.GetNrows());
 	Probabilities 			= p.Probabilities;
 
+	fTensors	= p.fTensors;
+	fTensorsB 	= p.fTensorsB;
+
 }
 //	Assignment operator:
 PointCoulEx& PointCoulEx::operator = (const PointCoulEx &p)
 {
+
+	bTargetDetection	= p.bTargetDetection;
 
 	fTrack			= p.fTrack;
 	fEpsilon		= p.fEpsilon;
@@ -94,7 +105,7 @@ PointCoulEx& PointCoulEx::operator = (const PointCoulEx &p)
 	fStateProbTracking	= p.fStateProbTracking;
  	fStateMultTracking	= p.fStateMultTracking;	
 
-	fAccuracy	= p.fAccuracy;
+	fAccuracy		= p.fAccuracy;
 
 	fStates.resize(p.fStates.size());
 	for(size_t s = 0; s < p.fStates.size(); s++)
@@ -130,6 +141,9 @@ PointCoulEx& PointCoulEx::operator = (const PointCoulEx &p)
 	FinalImagAmplitude		= p.FinalImagAmplitude;
 	Probabilities.ResizeTo(p.Probabilities.GetNrows());
 	Probabilities 			= p.Probabilities;
+
+	fTensors	= p.fTensors;
+	fTensorsB 	= p.fTensorsB;
 
 	return *this;
 	
@@ -770,23 +784,6 @@ std::vector<TMatrixD> PointCoulEx::ComputeAmpDerivativeMatrices(std::vector<TMat
 					// from this connection:
 					double	RealRC	= (std::real(Q_Matrix.at(MuAbs))*RealEx	- std::imag(Q_Matrix.at(MuAbs))*ImagEx) * tmpConnection.GetZeta(l) * fNucleus.GetMatrixElements().at(l)[finalState][initialState];
 					double	ImagRC	= (std::real(Q_Matrix.at(MuAbs))*ImagEx	+ std::imag(Q_Matrix.at(MuAbs))*RealEx) * tmpConnection.GetZeta(l) * fNucleus.GetMatrixElements().at(l)[finalState][initialState];
-
-					/*std::cout	<< std::setw(5)  << std::left << fSubstates.at(fs).GetStateIndex()
-							<< std::setw(5)  << std::left << fSubstates.at(is).GetStateIndex()
-							<< std::setw(5)  << std::left << fSubstates.at(fs).GetM()
-							<< std::setw(5)  << std::left << fSubstates.at(is).GetM()
-							<< std::setw(5)  << std::left << MuAbs
-							<< std::setw(15) << std::left << RealEx
-							<< std::setw(15) << std::left << ImagEx
-							<< std::setw(15) << std::left << RealRC
-							<< std::setw(15) << std::left << ImagRC
-							<< std::setw(15) << std::left << RAlfa
-							<< std::setw(15) << std::left << tmpConnection.GetXi(l)
-							<< std::setw(15) << std::left << tmpConnection.GetZeta(l) 
-							<< std::setw(15) << std::left << std::real(Q_Matrix.at(MuAbs)) 
-							<< std::setw(15) << std::left << std::imag(Q_Matrix.at(MuAbs))
-							<< std::endl;*/
-
 			
 					// If we're dealing with magnetic transitions we also have
 					// to include an additional element due to the asymmetry in
@@ -1055,6 +1052,8 @@ void PointCoulEx::CalculateTensorsLabFrame(){
 	fTensors	= statTensors;
 
 	if(verbose){
+		std::cout	<< std::setw(16) << std::left << "Lab Frame:"
+				<< std::endl;
 		std::cout	<< std::setw(10) << std::left << "INDEX:"
 				<< std::setw(10) << std::left << "KA:"
 				<< std::setw(10) << std::left << "KAPPA:"
@@ -1081,7 +1080,7 @@ void PointCoulEx::CalculateTensorsExcitationFrame(){
 	for(size_t s1  = 1; s1  < fStates.size(); s1++){
 		
 
-		bool flag = true;
+		bool flag 		= true;
 		int init_substate 	= 0;
 		int final_substate 	= 0;
 		for(size_t ss1 = 0; ss1 < fSubstates.size(); ss1++){
@@ -1141,6 +1140,8 @@ void PointCoulEx::CalculateTensorsExcitationFrame(){
 	fTensorsB	= statTensors;
 
 	if(verbose){
+		std::cout	<< std::setw(16) << std::left << "Excitation Frame:"
+				<< std::endl;
 		std::cout	<< std::setw(10) << std::left << "INDEX:"
 				<< std::setw(10) << std::left << "KA:"
 				<< std::setw(10) << std::left << "KAPPA:"
@@ -1193,12 +1194,17 @@ void PointCoulEx::WriteDetailsToFile(const char* outfilename){
         std::ofstream outfile;
         outfile.open(outfilename);	
 
+	int nPart = 2;
+	if(bTargetDetection)
+		nPart = 3;
+
 	outfile << std::setw(10) << std::left << "Proj. Z:" 
 		<< std::setw(10) << std::left << "Proj. A:" 
 		<< std::setw(10) << std::left << "Tar. Z:" 
 		<< std::setw(10) << std::left << "Tar. A:"
 		<< std::setw(14) << std::left << "E Lab [MeV]:"
 		<< std::setw(14) << std::left << "E CM [MeV]:"
+		<< std::setw(14) << std::left << "Rutherford:"
 		<< std::endl;
 
 	outfile << std::setw(10) << std::left << fReaction.GetBeamZ() 
@@ -1207,13 +1213,14 @@ void PointCoulEx::WriteDetailsToFile(const char* outfilename){
 		<< std::setw(10) << std::left << fReaction.GetTargetA()  
 		<< std::setw(14) << std::left << fReaction.GetLabEnergy() 
 		<< std::setw(14) << std::left << fReaction.GetCMEnergy()
+		<< std::setw(14) << std::left << fReaction.RutherfordCM(fTheta,nPart)
 		<< std::endl;
 
 	outfile << std::endl
 		<< "Accuracy: " << fAccuracy
 		<< std::endl;
 
-	outfile << "\nTheta [lab]: " << fReaction.ConvertThetaCmToLab(fTheta * TMath::DegToRad(),2) * TMath::RadToDeg() << " (degrees), Theta [CM]: " << fTheta  << " (degrees)" << std::endl;
+	outfile << "\nTheta [lab]: " << fReaction.ConvertThetaCmToLab(fTheta * TMath::DegToRad(),nPart) * TMath::RadToDeg() << " (degrees), Theta [CM]: " << fTheta  << " (degrees)" << std::endl;
 
 	outfile << "\nClosest separation distance (fm): " << fReaction.ClosestApproach() << std::endl;
 
@@ -1266,11 +1273,13 @@ void PointCoulEx::WriteDetailsToFile(const char* outfilename){
 
 	outfile << "\n\n" 
 		<< std::setw(8) << std::left << "State:" 
-		<< std::setw(8) << std::left << "Prob.:"
+		<< std::setw(16) << std::left << "Prob.:"
+		<< std::setw(16) << std::left << "CS:"
 		<< std::endl;
 	for(int i=0;i<fNucleus.GetNstates();i++)
 		outfile << std::setw(8) << std::left << fNucleus.GetLevelJ().at(i) 
-			<< std::setw(8) << std::left << Probabilities[i] << "\n";
+			<< std::setw(16) << std::left << Probabilities[i] 
+			<< std::setw(16) << std::left << Probabilities[i] * fReaction.RutherfordCM(fTheta,nPart) * TMath::Sin(fReaction.ConvertThetaCmToLab(fTheta * TMath::DegToRad(),2)) << "\n";
 
 	outfile		<< std::endl
 			<< "STATISTICAL TENSORS:" 
@@ -1287,6 +1296,26 @@ void PointCoulEx::WriteDetailsToFile(const char* outfilename){
 			<< std::endl;
 	for(int i=0;i<fTensorsB.GetNstates();i++){	
 		StateTensor tmpTensor = fTensorsB.GetStateTensor(i);
+		for(int j=0;j<tmpTensor.GetNelements();j++){
+			outfile 	<< std::setw(10) << std::left << tmpTensor.GetState()
+					<< std::setw(10) << std::left << tmpTensor.GetK(j)
+					<< std::setw(10) << std::left << tmpTensor.GetKappa(j)
+					<< std::setw(14) << std::left << tmpTensor.GetTensor(j)
+					<< std::endl;
+		}
+	}
+
+	outfile		<< std::endl
+			<< "LAB FRAME:" 
+			<< std::endl;
+
+	outfile		<< std::setw(10) << std::left << "INDEX:"
+			<< std::setw(10) << std::left << "KA:"
+			<< std::setw(10) << std::left << "KAPPA:"
+			<< std::setw(14) << std::left << "RHOB:"
+			<< std::endl;
+	for(int i=0;i<fTensors.GetNstates();i++){	
+		StateTensor tmpTensor = fTensors.GetStateTensor(i);
 		for(int j=0;j<tmpTensor.GetNelements();j++){
 			outfile 	<< std::setw(10) << std::left << tmpTensor.GetState()
 					<< std::setw(10) << std::left << tmpTensor.GetK(j)

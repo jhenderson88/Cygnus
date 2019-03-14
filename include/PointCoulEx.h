@@ -73,6 +73,8 @@ class PointCoulEx
 										projectileExcitation = b; 	
 										PrepareConnections();	
 									}				/*!< Define whether projectile or target excitation is being calculated */
+
+		void			SetTargetDetection(bool b = true)	{ bTargetDetection = b;		}
 	
 		Nucleus*		GetNucleus()			{ return &fNucleus;	}	/*!< Return the Nucleus used in the calculation */
 		Reaction*		GetReaction()			{ return &fReaction;	}	/*!< Return the Reaction used in the calculation */
@@ -94,6 +96,7 @@ class PointCoulEx
 
 		void			CalculateTensors();							/*!< Calculate the statistical tensors based on the final amplitudes */
 		StatisticalTensor	GetTensors()			{ return fTensors;		}	/*!< Return the calculated statistical tensors */
+		StatisticalTensor	GetTensorsB()			{ return fTensorsB;		}	/*!< Return the calculated statistical tensors */
 	
 		void			TrackReaction(bool b = true)	{ fTrack = b;			}	/*!< Track the reaction, step-by-step. Off by default. */
 		bool			Tracking()		const	{ return fTrack;		}	/*!< Is the reaction being tracker? */
@@ -102,6 +105,8 @@ class PointCoulEx
 		std::vector<double>			GetOmega()		const	{ return fOmegaTracking;	}	/*!< Return a vector of the omega (time proxy) values during the reaction */
 		std::vector<std::vector<double>> 	GetProbabilityTrack()	const	{ return fStateProbTracking;	}	/*!< Return the probabilities, step-by-step, during the reaction*/
 
+		double			GetTheta()				const	{ return fTheta;		}	/*!< Return the theta value */
+	
 	private :
 
 		double			fAccuracy;
@@ -124,6 +129,7 @@ class PointCoulEx
 		bool			verbose;
 		bool 			debug;
 		bool			projectileExcitation;
+		bool			bTargetDetection;
 
 		Nucleus			fNucleus;
 		Reaction		fReaction;
