@@ -4,8 +4,8 @@
 double Reaction::hbarc = 197.326;
 double Reaction::finestruc = 0.007297352;
 double Reaction::nuclearmagneton = 0.105155;
-double Reaction::dipole=0.005;
-double Reaction::electronCharge=1.602e-19;
+double Reaction::dipole = 0.005;
+double Reaction::electronCharge = 1.602e-19;
 
 Reaction::Reaction(){
 	
@@ -176,7 +176,7 @@ double Reaction::Rutherford(double theta_lab, int part){
 		InitReaction();
 
 	theta_lab *= TMath::DegToRad();
-	double theta = ConvertThetaLabToCm(theta_lab * TMath::DegToRad(), part);
+	double theta = ConvertThetaLabToCm(theta_lab, part);
 	
 	double ESym = TMath::Sqrt(TMath::Power(Ecm,3./2.) * TMath::Sqrt(Ecm - exE));
 

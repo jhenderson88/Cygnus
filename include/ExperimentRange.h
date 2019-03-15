@@ -114,6 +114,8 @@ class ExperimentRange {
 
 		void		SetProjectileExcitation(bool b = true)			{ fProjectileExcitation = b;		} 	/*!< Determines whether the beam or target is being excited */
 
+		double		GetIntegratedRutherford()			const	{ return integratedRutherford;		}	/*!< Returns the integrated Rutherford cross section */
+
 	private:
 
 		double		IntegrateThetaEnergy(int s);	
@@ -156,6 +158,8 @@ class ExperimentRange {
 	
 		TGraph		*fDetectorEff;
 		TGraph		*fDetectorEff_CM;
+
+		double		integratedRutherford;
 
 };
 #endif

@@ -137,3 +137,135 @@ double MiscFunctions::RotationFunction(double beta, int k, int kpp, int kp){ // 
 	return sum;
 
 }
+
+unsigned int MiscFunctions::doublefactorial(unsigned int n){
+	
+	if( n ==0 || n == 1)
+		return 1;
+	return	n * doublefactorial(n-2);
+
+}
+
+//
+//	Spherical harmonics tabulated at: https://en.wikipedia.org/wiki/Table_of_spherical_harmonics
+//
+double MiscFunctions::SphericalHarmonics(double theta, int l, int m, bool sym){
+
+	if(sym){
+		if(m != 0)
+			return 0;
+		switch (l){
+			case 0:
+				return 	0.50 * TMath::Sqrt(1/TMath::Pi());
+			case 2:
+				return	0.25 * TMath::Sqrt(5 / TMath::Pi()) * (3 * TMath::Power(TMath::Cos(theta),2) - 1);
+			case 4:
+				return	(3./16.) * TMath::Sqrt(1 / TMath::Pi()) * (35 * TMath::Power(TMath::Cos(theta),4) - 30 * TMath::Power(TMath::Cos(theta),2) + 3);
+			case 6:
+				return 	(1. / 32.) * TMath::Sqrt(13. / TMath::Pi()) * (231 * TMath::Power(TMath::Cos(theta),6) - 315 * TMath::Power(TMath::Cos(theta),4) + 105 * TMath::Power(TMath::Cos(theta),2) - 5);
+			return 1;
+		}
+	}
+	else{
+		switch (l){
+			case 0:
+				return 	0.50 * TMath::Sqrt(1/TMath::Pi());
+			case 2:
+				switch (m){
+					case -2:
+						return	0.25 * TMath::Sqrt(15 / (2 * TMath::Pi())) * (TMath::Power(TMath::Sin(theta),2));
+					case -1:
+						return	0.50 * TMath::Sqrt(15 / (2 * TMath::Pi())) * (TMath::Sin(theta) * TMath::Cos(theta));
+					case 0 :
+						return	0.25 * TMath::Sqrt(5 / TMath::Pi()) * (3 * TMath::Power(TMath::Cos(theta),2) - 1);
+					case 1 :
+						return	-0.50 * TMath::Sqrt(15 / (2 * TMath::Pi())) * (TMath::Sin(theta) * TMath::Cos(theta));
+					case 2 :
+						return	0.25 * TMath::Sqrt(15 / (2 * TMath::Pi())) * (TMath::Power(TMath::Sin(theta),2));
+					return 0;
+				}
+			case 4:
+				switch (m){
+					case -4:
+						return	(3./16.) * TMath::Sqrt(35. / (2 * TMath::Pi())) * TMath::Power(TMath::Sin(theta),4);
+					case -3:
+						return	(3./8.) * TMath::Sqrt(35. / (TMath::Pi())) * TMath::Cos(theta) * TMath::Power(TMath::Sin(theta),3);
+					case -2:
+						return	(3./8.) * TMath::Sqrt(5. / (2 * TMath::Pi())) * TMath::Power(TMath::Sin(theta),2) * (7 * TMath::Power(TMath::Cos(theta),2) - 1);
+					case -1:
+						return	(3./8.) * TMath::Sqrt(5. / (TMath::Pi())) * TMath::Sin(theta) * (7 * TMath::Power(TMath::Cos(theta),3) - 3 * TMath::Cos(theta));
+					case 0 :
+						return	(3./16.) * TMath::Sqrt(1 / TMath::Pi()) * (35 * TMath::Power(TMath::Cos(theta),4) - 30 * TMath::Power(TMath::Cos(theta),2) + 3);
+					case 1 :
+						return	-(3./8.) * TMath::Sqrt(5. / (TMath::Pi())) * TMath::Sin(theta) * (7 * TMath::Power(TMath::Cos(theta),3) - 3 * TMath::Cos(theta));
+					case 2 :
+						return	(3./8.) * TMath::Sqrt(5. / (2 * TMath::Pi())) * TMath::Power(TMath::Sin(theta),2) * (7 * TMath::Power(TMath::Cos(theta),2) - 1);
+					case 3 :
+						return	-(3./8.) * TMath::Sqrt(35. / (TMath::Pi())) * TMath::Cos(theta) * TMath::Power(TMath::Sin(theta),3);
+					case 4 :
+						return	(3./16.) * TMath::Sqrt(35. / (2 * TMath::Pi())) * TMath::Power(TMath::Sin(theta),4);
+					return 0;
+				}
+			case 6:
+				switch (m){
+					case -6:
+						return	(1./64.) * TMath::Sqrt(3003/TMath::Pi()) * TMath::Power(TMath::Sin(theta),6);
+					case -5:
+						return	(3./32.) * TMath::Sqrt(1001/TMath::Pi()) * TMath::Power(TMath::Sin(theta),5) * TMath::Cos(theta);
+					case -4:
+						return	(3./32.) * TMath::Sqrt(91/(2*TMath::Pi())) * TMath::Power(TMath::Sin(theta),4) * (11. * TMath::Power(TMath::Cos(theta),2) - 1);
+					case -3:
+						return	(1./32.) * TMath::Sqrt(1365/TMath::Pi()) * TMath::Power(TMath::Sin(theta),3) * (11 * TMath::Power(TMath::Cos(theta),3) - 3 * TMath::Cos(theta));
+					case -2:
+						return	(1./64.) * TMath::Sqrt(1365/TMath::Pi()) * TMath::Power(TMath::Sin(theta),2) * (33 * TMath::Power(TMath::Cos(theta),4) - 18 * TMath::Power(TMath::Cos(theta),2) + 1);
+					case -1:
+						return	(1./16.) * TMath::Sqrt(273/(2*TMath::Pi())) * TMath::Sin(theta) * (33 * TMath::Power(TMath::Cos(theta),5) - 30 * TMath::Power(TMath::Cos(theta),3) + 5 * TMath::Cos(theta));
+					case 0 :
+						return 	(1. / 32.) * TMath::Sqrt(13. / TMath::Pi()) * (231 * TMath::Power(TMath::Cos(theta),6) - 315 * TMath::Power(TMath::Cos(theta),4) + 105 * TMath::Power(TMath::Cos(theta),2) - 5);
+					case 1 :
+						return	-(1./16.) * TMath::Sqrt(273/(2*TMath::Pi())) * TMath::Sin(theta) * (33 * TMath::Power(TMath::Cos(theta),5) - 30 * TMath::Power(TMath::Cos(theta),3) + 5 * TMath::Cos(theta));
+					case 2 :
+						return	(1./64.) * TMath::Sqrt(1365/TMath::Pi()) * TMath::Power(TMath::Sin(theta),2) * (33 * TMath::Power(TMath::Cos(theta),4) - 18 * TMath::Power(TMath::Cos(theta),2) + 1);
+					case 3 :
+						return	-(1./32.) * TMath::Sqrt(1365/TMath::Pi()) * TMath::Power(TMath::Sin(theta),3) * (11 * TMath::Power(TMath::Cos(theta),3) - 3 * TMath::Cos(theta));
+					case 4 :
+						return	(3./32.) * TMath::Sqrt(91/(2*TMath::Pi())) * TMath::Power(TMath::Sin(theta),4) * (11. * TMath::Power(TMath::Cos(theta),2) - 1);
+					case 5 :
+						return	-(3./32.) * TMath::Sqrt(1001/TMath::Pi()) * TMath::Power(TMath::Sin(theta),5) * TMath::Cos(theta);
+					case 6 :
+						return	(1./64.) * TMath::Sqrt(3003/TMath::Pi()) * TMath::Power(TMath::Sin(theta),6);
+					return 0;
+				}
+			return 0;
+		}
+
+	}
+
+	std::cout	<< l << "\t"
+			<< m << std::endl;
+
+	return 0;
+
+}
+
+
+double MiscFunctions::SimpsonsRule(TGraph* g, int nSteps, double xMin, double xMax){
+
+	double xStep = (xMax - xMin)/((double)nSteps - 1.);
+
+	double integral = 0;
+
+	for(int x = 0; x < nSteps; x++){
+		double xVal = xMin + x*xStep;
+
+		if(x == 0 || x == (nSteps-1))
+			integral += (xStep/3.)*g->Eval(xVal);
+		else if((x % 2) == 0)
+			integral += (xStep/3.)*(g->Eval(xVal) * 2);
+		else 
+			integral += (xStep/3.)*(g->Eval(xVal) * 4);
+	} 
+
+	return integral;
+	
+}

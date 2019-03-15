@@ -3,6 +3,7 @@
 
 #include "TMatrixD.h"
 #include "TVectorD.h"
+#include "TGraph.h"
 #include "Nucleus.h"
 #include <iostream>
 #include <fstream>
@@ -27,6 +28,12 @@ class MiscFunctions {
 
 		static	double	c;	
 		static 	double	hbar;
+
+		static	unsigned int	doublefactorial(unsigned int);
+
+		static 	double	SphericalHarmonics(double,int,int,bool b = true);
+
+		static	double	SimpsonsRule(TGraph*,int,double,double);
 	
 };
 
