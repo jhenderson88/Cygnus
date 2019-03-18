@@ -23,6 +23,7 @@ void RunFitter(const char* nuclfile = "NucleusFile_Mg22.txt", int threads = 1){
 	
 	Reaction *reac = new Reaction(22,12,110,46,78);
 	reac->SetGOSIAKinematics(true);
+	reac->SetExcitationEnergy(nucl->GetLevelEnergies()[1]);
 	Experiments *expts = new Experiments(nucl,reac);
 	expts->UseEfficiency(false);
 	expts->SetAccuracy(1e-5);

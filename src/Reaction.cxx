@@ -130,7 +130,7 @@ double Reaction::ThreeJ(int I1, int I2, int I3, int M1, int M2, int M3) const{
 
 double Reaction::ClosestApproach(int PA, int TA, int PZ, int TZ, double E) const{
 
-	double A = (2. * 0.71999 * (1. + ((double)PA)/((double)TA)) * ((double)PZ) * ((double)TZ)) / E;
+	double A = (2. * 0.719949 * (1. + ((double)PA)/((double)TA)) * ((double)PZ) * ((double)TZ)) / E;
 
 	return A;
 
