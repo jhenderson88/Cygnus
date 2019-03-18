@@ -1,0 +1,9 @@
+! File reader ignores any line containing an exclamation point
+! Nucleus: Z, A, NStates, NLambda (7 == Max)
+46	110	2	7
+! States: Index, Energy (MeV), J, Parity
+0	0.	0.	1
+1	.3738	2.	1
+! Matrix elements: initial index, final index, matrix element, lambda (1-6 = E1-6, 7 = M1)
+0	1	0.9321	E2	
+1	1	-0.949	E2	
