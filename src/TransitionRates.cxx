@@ -14,6 +14,98 @@ TransitionRates::TransitionRates(Nucleus *nucl) : fNucleus(nucl)
 	
 }
 
+TransitionRates::TransitionRates(const TransitionRates& t){
+
+	fNucleus 			= t.fNucleus;
+
+	MatrixElements.resize(t.MatrixElements.size());
+	for(size_t i=0;i<MatrixElements.size();i++){
+		MatrixElements[i].ResizeTo(t.MatrixElements[i].GetNcols(),t.MatrixElements[i].GetNrows());
+		MatrixElements[i] 		= t.MatrixElements[i];
+	}
+	TransitionStrengths.resize(t.TransitionStrengths.size());
+	for(size_t i=0;i<TransitionStrengths.size();i++){
+		TransitionStrengths[i].ResizeTo(t.TransitionStrengths[i].GetNcols(),t.TransitionStrengths[i].GetNrows());
+		TransitionStrengths[i] 		= t.TransitionStrengths[i];
+	}
+	TransitionStrengths_Abs.resize(t.TransitionStrengths_Abs.size());
+	for(size_t i=0;i<TransitionStrengths_Abs.size();i++){
+		TransitionStrengths_Abs[i].ResizeTo(t.TransitionStrengths_Abs[i].GetNcols(),t.TransitionStrengths_Abs[i].GetNrows());
+		TransitionStrengths_Abs[i] 	= t.TransitionStrengths_Abs[i];
+	}
+	TransitionAmplitudes.resize(t.TransitionAmplitudes.size());
+	for(size_t i=0;i<TransitionAmplitudes.size();i++){
+		TransitionAmplitudes[i].ResizeTo(t.TransitionAmplitudes[i].GetNcols(),t.TransitionAmplitudes[i].GetNrows());
+		TransitionAmplitudes[i] 	= t.TransitionAmplitudes[i];
+	}
+	SummedTransitionStrengths.ResizeTo(t.SummedTransitionStrengths.GetNcols(),t.SummedTransitionStrengths.GetNrows());
+	SummedTransitionStrengths 	= t.SummedTransitionStrengths;
+	Lifetimes.ResizeTo(t.Lifetimes.GetNcols(),t.Lifetimes.GetNrows());
+	Lifetimes 			= t.Lifetimes;
+	BranchingRatios.ResizeTo(t.BranchingRatios.GetNcols(),t.BranchingRatios.GetNrows());
+	BranchingRatios 		= t.BranchingRatios;
+	MixingRatios.ResizeTo(t.MixingRatios.GetNcols(),t.MixingRatios.GetNrows());
+	MixingRatios 			= t.MixingRatios;
+
+	StateJ 				= t.StateJ; 
+	StateE 				= t.StateE;
+
+	StateLifetimes.ResizeTo(t.StateLifetimes.GetNrows());
+	StateLifetimes 			= t.StateLifetimes;
+	StateDecayProb.ResizeTo(t.StateDecayProb.GetNrows());
+	StateDecayProb 			= t.StateDecayProb;
+
+	nDecays				= t.nDecays;
+
+}
+
+TransitionRates& TransitionRates::operator = (const TransitionRates& t){
+
+	fNucleus 			= t.fNucleus;
+
+	MatrixElements.resize(t.MatrixElements.size());
+	for(size_t i=0;i<MatrixElements.size();i++){
+		MatrixElements[i].ResizeTo(t.MatrixElements[i].GetNcols(),t.MatrixElements[i].GetNrows());
+		MatrixElements[i] 		= t.MatrixElements[i];
+	}
+	TransitionStrengths.resize(t.TransitionStrengths.size());
+	for(size_t i=0;i<TransitionStrengths.size();i++){
+		TransitionStrengths[i].ResizeTo(t.TransitionStrengths[i].GetNcols(),t.TransitionStrengths[i].GetNrows());
+		TransitionStrengths[i] 		= t.TransitionStrengths[i];
+	}
+	TransitionStrengths_Abs.resize(t.TransitionStrengths_Abs.size());
+	for(size_t i=0;i<TransitionStrengths_Abs.size();i++){
+		TransitionStrengths_Abs[i].ResizeTo(t.TransitionStrengths_Abs[i].GetNcols(),t.TransitionStrengths_Abs[i].GetNrows());
+		TransitionStrengths_Abs[i] 	= t.TransitionStrengths_Abs[i];
+	}
+	TransitionAmplitudes.resize(t.TransitionAmplitudes.size());
+	for(size_t i=0;i<TransitionAmplitudes.size();i++){
+		TransitionAmplitudes[i].ResizeTo(t.TransitionAmplitudes[i].GetNcols(),t.TransitionAmplitudes[i].GetNrows());
+		TransitionAmplitudes[i] 	= t.TransitionAmplitudes[i];
+	}
+	SummedTransitionStrengths.ResizeTo(t.SummedTransitionStrengths.GetNcols(),t.SummedTransitionStrengths.GetNrows());
+	SummedTransitionStrengths 	= t.SummedTransitionStrengths;
+	Lifetimes.ResizeTo(t.Lifetimes.GetNcols(),t.Lifetimes.GetNrows());
+	Lifetimes 			= t.Lifetimes;
+	BranchingRatios.ResizeTo(t.BranchingRatios.GetNcols(),t.BranchingRatios.GetNrows());
+	BranchingRatios 		= t.BranchingRatios;
+	MixingRatios.ResizeTo(t.MixingRatios.GetNcols(),t.MixingRatios.GetNrows());
+	MixingRatios 			= t.MixingRatios;
+
+	StateJ 				= t.StateJ; 
+	StateE 				= t.StateE;
+
+	StateLifetimes.ResizeTo(t.StateLifetimes.GetNrows());
+	StateLifetimes 			= t.StateLifetimes;
+	StateDecayProb.ResizeTo(t.StateDecayProb.GetNrows());
+	StateDecayProb 			= t.StateDecayProb;
+
+	nDecays				= t.nDecays;
+
+	return *this;
+
+}
+
 // SYNTAX NOTE:
 // COLUMN 	== INITIAL STATE
 // ROW		== FINAL STATE
@@ -33,14 +125,26 @@ void TransitionRates::SetMatrixElements(){
 
 	TransitionStrengths.resize(fNucleus->GetMatrixElements().size());
 	TransitionStrengths_Abs.resize(fNucleus->GetMatrixElements().size());
+	TransitionAmplitudes.resize(fNucleus->GetMatrixElements().size());
 	for(unsigned int i=0;i<MatrixElements.size();i++){
 		TransitionStrengths.at(i).ResizeTo(fNucleus->GetMatrixElements().at(i).GetNcols(),fNucleus->GetMatrixElements().at(i).GetNrows());
 		TransitionStrengths_Abs.at(i).ResizeTo(fNucleus->GetMatrixElements().at(i).GetNcols(),fNucleus->GetMatrixElements().at(i).GetNrows());
+		TransitionAmplitudes.at(i).ResizeTo(fNucleus->GetMatrixElements().at(i).GetNcols(),fNucleus->GetMatrixElements().at(i).GetNrows());
 		for(int x=0;x<TransitionStrengths.at(i).GetNcols();x++){
 			for(int y=0;y<TransitionStrengths.at(i).GetNrows();y++){
 				if(x>y){
 					TransitionStrengths.at(i)[y][x] = TMath::Power(MatrixElements.at(i)[y][x],2) / (2 * StateJ.at(x) + 1) * TMath::Power(100,nbarns[i]); 
 					TransitionStrengths_Abs.at(i)[y][x] = (TMath::Power(TMath::Abs(StateE.at(x)-StateE.at(y)),power[i]) * TransitionStrengths.at(i)[y][x]) / multfactor[i];
+					if(i==0)
+						TransitionAmplitudes.at(i)[y][x] = 398.77393 * TMath::Power(TMath::Abs(StateE.at(x)-StateE.at(y)),3./2.) / (2 * StateJ.at(x) + 1);
+					else if(i==2)
+						TransitionAmplitudes.at(i)[y][x] = 3.5002636 * TMath::Power(TMath::Abs(StateE.at(x)-StateE.at(y)),5./2.) / (2 * StateJ.at(x) + 1);
+					else if(i==3)
+						TransitionAmplitudes.at(i)[y][x] = 0.0238913 * TMath::Power(TMath::Abs(StateE.at(x)-StateE.at(y)),7./2.) / (2 * StateJ.at(x) + 1);
+					else if(i==6)
+						TransitionAmplitudes.at(i)[y][x] = 4.1923861 * TMath::Power(TMath::Abs(StateE.at(x)-StateE.at(y)),3./2.) / (2 * StateJ.at(x) + 1);
+					else
+						TransitionAmplitudes.at(i)[y][x] = 0.;
 				}
 			}
 		}
@@ -58,6 +162,13 @@ void TransitionRates::SetMatrixElements(){
 				Lifetimes[y][x] = (1 / SummedTransitionStrengths[y][x]);
 			else
 				Lifetimes[y][x] = 0;
+		}
+	}
+
+	for(int x=0;x<SummedTransitionStrengths.GetNrows();x++){
+		for(int y=x+1;y<SummedTransitionStrengths.GetNcols();y++){
+			if(SummedTransitionStrengths[y][x] > 0)
+				nDecays++;
 		}
 	}
 	

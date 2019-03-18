@@ -24,7 +24,7 @@ void	DataReader::ReadDataFile(const char* datafilename){
 		std::size_t found = line.find("!"); // Comment
 		if(found == std::string::npos){
 			std::istringstream ss(line);
-			found = line.find("EXPT");
+			found = line.find("EXPT");  // Experiment definition
 			if(found != std::string::npos && nExpt !=0){
 				exptData.push_back(tmpExpt);	
 				tmpExpt.ClearData();

@@ -169,6 +169,7 @@ void Experiments::PointCorrections(){
 		experimentRanges.at(c).SetAccuracy(fAccuracy);
 		experimentRanges.at(c).SetStopping(fStopping);
 		//experimentRanges.at(c).UseEfficiency(fUseEfficiency);
+		experimentRanges.at(c).IntegrateRutherford();
 		experimentRanges.at(c).IntegrateRange();
 		TVectorD tmpVec_int;
 		tmpVec_int.ResizeTo(experimentRanges.at(c).GetIntegratedCrossSection_TVec().GetNrows());

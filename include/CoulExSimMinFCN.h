@@ -42,7 +42,9 @@ class CoulExSimMinFCN { // : public ROOT::Minuit2::FCNBase{
 	public : 
 
 		CoulExSimMinFCN(std::vector<ExperimentData> d_beam, std::vector<ExperimentData> d_target) 
-			: exptData_Beam(d_beam), exptData_Target(d_target)		{ 
+											{ 
+												exptData_Beam	= d_beam;
+												exptData_Target	= d_target;													
 												verbose = false;  
 												iter = 0;	
 												nThreads = 1;

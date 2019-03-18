@@ -251,7 +251,7 @@ void Integral::CalculateIntegral(){
 				tmpVec_P = PoinMat.at(mE).at(mT).GetProbabilitiesVector();
 
 				tmpVec_CS = PoinMat.at(mE).at(mT).GetProbabilitiesVector();
-				tmpVec_CS *= energymeshpoint_reaction.at(mE).RutherfordCM(ThetaMat.at(mE).at(mT));
+				//tmpVec_CS *= energymeshpoint_reaction.at(mE).RutherfordCM(ThetaMat.at(mE).at(mT));
 		
 				tmpVector_P.push_back(tmpVec_P);
 				tmpVector_CS.push_back(tmpVec_CS);

@@ -26,7 +26,6 @@ void CoulExSimMinFCN::SetupCalculation(){
 				<< std::setw(14) << std::left << exptIndex.at(i)
 				<< std::endl;
 	}
-		
 
 }
 
@@ -46,6 +45,15 @@ double CoulExSimMinFCN::operator()(const double* par){
 		nucl_b.SetMatrixElement(ME_Beam.at(i).GetLambda(),ME_Beam.at(i).GetInitialState(),ME_Beam.at(i).GetFinalState(),par[i]);
 	for(unsigned int i=0;i<ME_Target.size();i++)
 		nucl_t.SetMatrixElement(ME_Target.at(i).GetLambda(),ME_Target.at(i).GetInitialState(),ME_Target.at(i).GetFinalState(),par[i + ME_Beam.size()]);
+
+	if(verbose){
+		for(unsigned int i=0;i<ME_Beam.size();i++)
+			std::cout	<< std::setw(10) << std::left << par[i];
+		std::cout	<< std::endl;
+		for(unsigned int i=0;i<ME_Target.size();i++)
+			std::cout	<< std::setw(10) << std::left << par[i + ME_Beam.size()];
+		std::cout	<< std::endl;
+	}
 
 	// 	COMPARE WITH LITERATURE CONSTRAINTS:
 	// 	First, compare with the literature for the beam:
@@ -96,7 +104,7 @@ double CoulExSimMinFCN::operator()(const double* par){
 		NDF++;
 	}
 	// 	Now, compare with the literature for the target:
-	TransitionRates rates_t(&nucl_b);
+	TransitionRates rates_t(&nucl_t);
 	for(unsigned int i=0;i<litLifetimes_Target.size();i++){
 		double 	tmp = 0;
 		int	index		= litLifetimes_Target.at(i).GetIndex();
@@ -173,6 +181,7 @@ double CoulExSimMinFCN::operator()(const double* par){
 		for(unsigned int i=0;i<pointCalcs_Beam.size();i++)
 			pointCalcs_Beam.at(i).CalculatePointProbabilities(exptData_Beam.at(i).GetThetaCM());
 	}
+
 	//	Now, new point calculations with new matrix elements for the target:
 	for(unsigned int i=0;i<pointCalcs_Target.size();i++){
 		pointCalcs_Target.at(i).SetNucleus(&nucl_t);
@@ -210,7 +219,7 @@ double CoulExSimMinFCN::operator()(const double* par){
 		tmpVec.ResizeTo(pointCalcs_Beam.at(i).GetProbabilitiesVector().GetNrows());
 		tmpVec	= pointCalcs_Beam.at(i).GetProbabilitiesVector();
 		for(int s = 0; s<tmpVec.GetNrows(); s++){
-			tmpVec[s] *= pointCalcs_Beam.at(i).GetReaction()->RutherfordCM(exptData_Beam.at(i).GetThetaCM()) * correctionFactors_Beam.at(i)[s] * 1e5;
+			tmpVec[s] *= pointCalcs_Beam.at(i).GetReaction()->RutherfordCM(exptData_Beam.at(i).GetThetaCM()) * correctionFactors_Beam.at(i)[s];
 		}
 		TMatrixD tmpMat;
 		tmpMat.ResizeTo(rates_b.GetBranchingRatios().GetNrows(),rates_b.GetBranchingRatios().GetNcols());
@@ -224,7 +233,7 @@ double CoulExSimMinFCN::operator()(const double* par){
 		tmpVec.ResizeTo(pointCalcs_Target.at(i).GetProbabilitiesVector().GetNrows());
 		tmpVec	= pointCalcs_Target.at(i).GetProbabilitiesVector();
 		for(int s = 0; s<tmpVec.GetNrows(); s++){
-			tmpVec[s] *= pointCalcs_Target.at(i).GetReaction()->RutherfordCM(exptData_Target.at(i).GetThetaCM()) * correctionFactors_Target.at(i)[s] * 1e5;
+			tmpVec[s] *= pointCalcs_Target.at(i).GetReaction()->RutherfordCM(exptData_Target.at(i).GetThetaCM()) * correctionFactors_Target.at(i)[s];
 		}
 		TMatrixD tmpMat;
 		tmpMat.ResizeTo(rates_t.GetBranchingRatios().GetNrows(),rates_t.GetBranchingRatios().GetNcols());
@@ -249,8 +258,8 @@ double CoulExSimMinFCN::operator()(const double* par){
 		for(unsigned int t=0;t<exptData_Beam.at(0).GetData().size();t++){
 			std::cout 	<< std::setw( 6) << std::left << "Init:"
 					<< std::setw( 6) << std::left << "Finl:"
-					<< std::setw(10) << std::left << "Calc:"
-					<< std::setw(10) << std::left << "Expt:"
+					<< std::setw(12) << std::left << "Calc:"
+					<< std::setw(12) << std::left << "Expt:"
 					<< std::setw(12) << std::left << "Calc/Expt:"
 					<< std::setw(14) << std::left << "Chisq cont.:";
 		}
@@ -268,8 +277,8 @@ double CoulExSimMinFCN::operator()(const double* par){
 			if(verbose){
 				std::cout 	<< std::setw( 6) << std::left << index_init 
 						<< std::setw( 6) << std::left << index_final 
-						<< std::setw(10) << std::left << calcCounts 
-						<< std::setw(10) << std::left << exptCounts 
+						<< std::setw(12) << std::left << calcCounts 
+						<< std::setw(12) << std::left << exptCounts 
 						<< std::setw(12) << std::left << calcCounts/exptCounts
 						<< std::setw(14) << std::left << TMath::Power((calcCounts - exptCounts)/exptData_Beam.at(i).GetData().at(t).GetUpUnc(),2);
 			}
@@ -288,8 +297,8 @@ double CoulExSimMinFCN::operator()(const double* par){
 		for(unsigned int t=0;t<exptData_Target.at(0).GetData().size();t++){
 			std::cout 	<< std::setw( 6) << std::left << "Init:"
 					<< std::setw( 6) << std::left << "Finl:"
-					<< std::setw(10) << std::left << "Calc:"
-					<< std::setw(10) << std::left << "Expt:"
+					<< std::setw(12) << std::left << "Calc:"
+					<< std::setw(12) << std::left << "Expt:"
 					<< std::setw(12) << std::left << "Calc/Expt:"
 					<< std::setw(14) << std::left << "Chisq cont.:";
 		}
@@ -307,8 +316,8 @@ double CoulExSimMinFCN::operator()(const double* par){
 			if(verbose){
 				std::cout 	<< std::setw( 6) << std::left << index_init 
 						<< std::setw( 6) << std::left << index_final 
-						<< std::setw(10) << std::left << calcCounts 
-						<< std::setw(10) << std::left << exptCounts 
+						<< std::setw(12) << std::left << calcCounts 
+						<< std::setw(12) << std::left << exptCounts 
 						<< std::setw(12) << std::left << calcCounts/exptCounts
 						<< std::setw(14) << std::left << TMath::Power((calcCounts - exptCounts)/exptData_Target.at(i).GetData().at(t).GetUpUnc(),2);
 			}
