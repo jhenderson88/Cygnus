@@ -19,6 +19,7 @@ void CoulExMinFCN::SetupCalculation(){
 
 	std::cout	<< std::setw(13) << std::left << "Experiment: "
 			<< std::setw(14) << std::left << "Scaling index: "
+			<< std::setw(14) << std::left << "Starting scaling:"
 			<< std::endl;
 	for(unsigned int i=0;i<exptIndex.size();i++){
 		std::cout	<< std::setw(13) << std::left << i+1
@@ -143,11 +144,11 @@ double CoulExMinFCN::operator()(const double* par){
 	if(verbose)
 		std::cout << std::endl;
 
-
 	std::vector<double>	scaling;
 	scaling.resize(exptData.size());
-	for(unsigned int i=0;i<exptData.size();i++)
+	for(unsigned int i=0;i<exptData.size();i++){
 		scaling.at(i) = par[ME.size() + exptIndex.at(i)];
+	}
 
 	if(verbose)
 		std::cout << "Experiment scaling: " << scaling.at(0) << std::endl;
@@ -156,8 +157,8 @@ double CoulExMinFCN::operator()(const double* par){
 		for(unsigned int t=0;t<exptData.at(0).GetData().size();t++){
 			std::cout 	<< std::setw( 6) << std::left << "Init:"
 					<< std::setw( 6) << std::left << "Finl:"
-					<< std::setw(10) << std::left << "Calc:"
-					<< std::setw(10) << std::left << "Expt:"
+					<< std::setw(12) << std::left << "Calc:"
+					<< std::setw(12) << std::left << "Expt:"
 					<< std::setw(12) << std::left << "Calc/Expt:"
 					<< std::setw(14) << std::left << "Chisq cont.:";
 		}
@@ -176,8 +177,8 @@ double CoulExMinFCN::operator()(const double* par){
 			if(verbose){
 				std::cout 	<< std::setw( 6) << std::left << index_init 
 						<< std::setw( 6) << std::left << index_final 
-						<< std::setw(10) << std::left << calcCounts 
-						<< std::setw(10) << std::left << exptCounts 
+						<< std::setw(12) << std::left << calcCounts 
+						<< std::setw(12) << std::left << exptCounts 
 						<< std::setw(12) << std::left << calcCounts/exptCounts
 						<< std::setw(14) << std::left << TMath::Power((calcCounts - exptCounts)/exptData.at(i).GetData().at(t).GetUpUnc(),2);
 			}
@@ -185,7 +186,10 @@ double CoulExMinFCN::operator()(const double* par){
 				tmp 		= (calcCounts - exptCounts) / exptData.at(i).GetData().at(t).GetUpUnc();
 			else
 				tmp 		= (calcCounts - exptCounts) / exptData.at(i).GetData().at(t).GetDnUnc();
-			chisq 			+= tmp * tmp;
+			if(UsePoisson())
+				chisq 		+= 2 * (calcCounts - exptCounts + exptCounts * TMath::Log(exptCounts/calcCounts));
+			else
+				chisq		+= tmp * tmp;
 			NDF++;
 		}
 		if(verbose)

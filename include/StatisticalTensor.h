@@ -14,8 +14,11 @@
 class StateTensor {
 
 	public:	
-		StateTensor() 	{;}
+		StateTensor() 	{ fMaxK = 0;}
 		~StateTensor()	{;}
+		
+		StateTensor(const StateTensor&);
+		StateTensor & operator = (const StateTensor&);	
 
 		void	SetState(int i)			{ fStateIndex = i;	}			/*!< Define the state */
 		void	AddElement(double rho, double k, double kappa);					/*!< Define the density matrix component, rho for given k and kappa */
@@ -28,12 +31,15 @@ class StateTensor {
 		double 	GetKappa(int i)		const 	{ return fKappa.at((size_t)i);		}	/*!< Return the kappa value for element i */
 
 		size_t	IndexFromKkappa(double,double);		/*!< For a given k and kappa combination, find the element index */
+
+		int	GetMaxK()		const	{ return fMaxK;				}	/*!< Largest K value for this state */ 
 	
 	private:
 		int					fStateIndex;
 		std::vector<double>		 	fTensor;
-		std::vector<double>			fK;
-		std::vector<double>			fKappa;
+		std::vector<int>			fK;
+		std::vector<int>			fKappa;
+		int					fMaxK;	
 
 };
 
@@ -48,6 +54,9 @@ class StatisticalTensor{
 	public:
 		StatisticalTensor()	{;}
 		~StatisticalTensor()	{;}
+
+		StatisticalTensor(const StatisticalTensor&);
+		StatisticalTensor & operator = (const StatisticalTensor&);
 
 		void SetNstates(int n)					{ fStateTensors.clear(); fStateTensors.resize(n);	}	/*!< Define the number of states */
 

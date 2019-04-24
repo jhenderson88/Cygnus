@@ -41,8 +41,12 @@ double ParticleDetector::GetThetaMin(){
 	double theta = 180;
 	if(setFlag){
 		double x,y;
-		for(int i=0;i<gThetaEff->GetN();i++){
-			gThetaEff->GetPoint(i,x,y);
+		double step = 0.001;
+		//for(int i=0;i<gThetaEff->GetN();i++){
+		//	gThetaEff->GetPoint(i,x,y);
+		for(int i=0;i<180000;i++){
+			x = i * step;
+			y = gThetaEff->Eval(x);
 			if(y > 0 && x < theta)
 				theta = x;
 		}
@@ -59,8 +63,12 @@ double ParticleDetector::GetThetaMax(){
 	double theta = 0;
 	if(setFlag){
 		double x,y;
-		for(int i=0;i<gThetaEff->GetN();i++){
-			gThetaEff->GetPoint(i,x,y);
+		double step = 0.001;
+		//for(int i=0;i<gThetaEff->GetN();i++){
+		//	gThetaEff->GetPoint(i,x,y);
+		for(int i=0;i<180000;i++){
+			x = i * step;
+			y = gThetaEff->Eval(x);
 			if(y > 0 && x > theta)
 				theta = x;
 		}

@@ -387,6 +387,18 @@ TGraph*	Reaction::RutherfordGraph(double thmin, double thmax, int part){
 
 } 
 
+TGraph* Reaction::PlotClosestApproachvsEnergy(double eMin, double eMax, int nSteps){
+
+	TGraph *g = new TGraph();
+	double eStep = (eMax - eMin)/(nSteps - 1);
+
+	for(int e = 0; e<nSteps; e++)
+		g->SetPoint(e,eMin + eStep * e,ClosestApproach(beamA,targetA,beamZ,targetZ,eMin + eStep*e) - 1.25*(TMath::Power(beamA,1./3.)+TMath::Power(targetA,1./3.)));
+
+	return g;
+
+}
+
 void Reaction::PrintReaction() const{
 
 	std::cout << "Beam:\tA = " << GetBeamA() << "\t Z = " << GetBeamZ() << std::endl;

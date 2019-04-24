@@ -11,6 +11,8 @@ ExperimentRange::ExperimentRange() : fNucleus(NULL), fReaction(NULL), fIntegral(
 	verbose		= false;
 	nThreads	= 1;
 
+	fUseFit		= false;
+
 	integratedRutherford 	= 0;
 
 }
@@ -28,6 +30,8 @@ ExperimentRange::ExperimentRange(Nucleus* nucl, Reaction* reac) : fNucleus(nucl)
 	fIntegral = new Integral(nucl,reac);
 
 	nThreads	= 1;
+
+	fUseFit		= false;
 
 	integratedRutherford 	= 0;
 
@@ -64,6 +68,8 @@ ExperimentRange::ExperimentRange(const ExperimentRange& e) : fNucleus(e.fNucleus
 	verbose		= e.verbose;
 
 	nThreads	= e.nThreads;
+
+	fUseFit		= e.fUseFit;
 
 	integratedRutherford	= e.integratedRutherford;
 
@@ -102,6 +108,8 @@ ExperimentRange& ExperimentRange::operator = (const ExperimentRange &e){
 	verbose		= e.verbose;
 
 	nThreads	= e.nThreads;
+
+	fUseFit		= e.fUseFit;
 
 	integratedRutherford	= e.integratedRutherford;
 
@@ -281,25 +289,33 @@ TGraph2D* ExperimentRange::InterpolatedEnergyTheta(int state, bool useDetector){
 
 	if(tMin > tMax)
 		std::swap(tMin,tMax);
+
 	TF1 *tFits[fIntegral->GetCMThetaPoints().size()];
+	TSpline3 *tSplines[fIntegral->GetCMThetaPoints().size()];
 	for(int e = 0; e < nEnergy; e++){ 	// For each energy meshpoint, do a fit to the theta distribution
 		TGraph gTmp;
+		double *tmp_x = new double[fIntegral->GetCMThetaPoints().at(e).size()];
+		double *tmp_y = new double[fIntegral->GetCMThetaPoints().at(e).size()];
 		for(size_t t = 0; t < fIntegral->GetCMThetaPoints().at(e).size(); t++){
-			//gTmp.SetPoint((int)t,fIntegral->GetCMThetaPoints().at(0).at(t),fIntegral->GetMeshPointCrossSections().at(e).at(t)[state]);
 			double tmp_theta 	= fReaction->ConvertThetaCmToLab(fIntegral->GetCMThetaPoints().at(e).at(t) * TMath::DegToRad(), nPart) * TMath::RadToDeg();
 			double tmp_cs 		= fIntegral->GetMeshPointProbabilities().at(e).at(t)[state] * TMath::Sin(tmp_theta * TMath::DegToRad()) * fReaction->Rutherford(tmp_theta,nPart);
 			tmp_cs *= TMath::DegToRad() * 2 * TMath::Pi() / (4 * TMath::Pi());
 			gTmp.SetPoint((int)t,tmp_theta,tmp_cs);
+			tmp_x[t] = tmp_theta;
+			tmp_y[t] = tmp_cs;
 		}
 		char fname[32];
 		sprintf(fname,"Energy_%i",(int)e+1);
-		char fittype[16];
-		if(thetamaxCM - thetaminCM > 90.)
-			sprintf(fittype,"pol6");
-		else
-			sprintf(fittype,"pol3");
-		tFits[e] = new TF1(fname,fittype,tMin,tMax);
-		gTmp.Fit(tFits[e],"RQ0");
+		tSplines[e] = new TSpline3(fname,tmp_x,tmp_y,fIntegral->GetCMThetaPoints().at(e).size());
+		if(UseFit()){
+			char fittype[16];
+			if(thetamaxCM - thetaminCM > 90.)
+				sprintf(fittype,"pol6");
+			else
+				sprintf(fittype,"pol5");
+			tFits[e] = new TF1(fname,fittype,tMin,tMax);
+			gTmp.Fit(tFits[e],"RQ0");
+		}
 	}
 
 	if(false){
@@ -324,17 +340,30 @@ TGraph2D* ExperimentRange::InterpolatedEnergyTheta(int state, bool useDetector){
 
 	// Now we can use the fitted curve as an interpolation to create a much finer theta-energy surface before using Simpson's rule to integrate
 	TF1 *eFits[tSteps];
+	TSpline3 *eSplines[tSteps];
 	double tStep = (tMax - tMin) / ((double)tSteps - 1.); // Theta stepsize
 	double eStep = (eMax - eMin) / ((double)eSteps - 1.); // Energy stepsize
 	for(int t = 0; t < tSteps; t++){
 		TGraph gTmp;
+		double *tmp_x = new double[nEnergy];
+		double *tmp_y = new double[nEnergy];
 		for(int e = 0; e < nEnergy; e++){
-			gTmp.SetPoint(e,fIntegral->GetEnergy(e),tFits[e]->Eval(tMin + t*tStep));
+			if(UseFit()){
+				gTmp.SetPoint(e,fIntegral->GetEnergy(e),tFits[e]->Eval(tMin + t*tStep));
+			}
+			else{
+				gTmp.SetPoint(e,fIntegral->GetEnergy(e),tSplines[e]->Eval(tMin + t*tStep));
+				tmp_x[e] = fIntegral->GetEnergy(e);
+				tmp_y[e] = tSplines[e]->Eval(tMin + t*tStep);
+			}
 		}
 		char fname[32];
 		sprintf(fname,"Theta_%i",t);
-		eFits[t] = new TF1(fname,"pol3",eMin,eMax);
-		gTmp.Fit(eFits[t],"RQ0");	
+		eSplines[t] = new TSpline3(fname,tmp_x,tmp_y,nEnergy);
+		if(UseFit()){
+			eFits[t] = new TF1(fname,"pol3",eMin,eMax);
+			gTmp.Fit(eFits[t],"RQ0");
+		}	
 	}
 
 	TGraph2D *g = new TGraph2D;
@@ -345,7 +374,10 @@ TGraph2D* ExperimentRange::InterpolatedEnergyTheta(int state, bool useDetector){
 			eff = fDetectorEff_CM->Eval(tMin + t*tStep);
 		}
 		for(int e = 0; e < eSteps; e++){
-			g->SetPoint(pointCounter,tMin + t*tStep, eMin + e*eStep, eFits[t]->Eval(eMin + e*eStep) * eff);
+			if(UseFit())
+				g->SetPoint(pointCounter,tMin + t*tStep, eMin + e*eStep, eFits[t]->Eval(eMin + e*eStep) * eff);
+			else
+				g->SetPoint(pointCounter,tMin + t*tStep, eMin + e*eStep, eSplines[t]->Eval(eMin + e*eStep) * eff);
 			pointCounter++;
 		}
 	}

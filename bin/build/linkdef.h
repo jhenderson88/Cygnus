@@ -32,7 +32,8 @@
 #pragma link C++ defined_in "include/StatisticalTensor.h";
 #pragma link C++ defined_in "include/ParticleDetector.h";
 #pragma link C++ defined_in "include/ParticleDetectorS3.h";
-
+#pragma link C++ defined_in "include/AngularDistribution.h";
+#pragma link C++ defined_in "include/Plotting.h";
 
 #endif
 

@@ -8,7 +8,7 @@
 ///
 /// 	Holder class for information on nuclear states. In Coulomb 
 ///	excitation, each substate is treated independently, so the 
-///	state only holds information co	mmon to all substates.
+///	state only holds information common to all substates.
 ///
 
 class State {

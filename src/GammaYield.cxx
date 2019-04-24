@@ -50,3 +50,14 @@ void GammaYield::PrintYields(ExperimentRange r, TransitionRates t, Nucleus nucl)
 
 }
 
+
+double GammaYield::GetYield(ExperimentRange r, TransitionRates t, Nucleus nucl, int i, int f){
+
+	TMatrixD mat;
+	mat.ResizeTo(GammaRayYield(r,t).GetNrows(),GammaRayYield(r,t).GetNcols());
+	mat 	= GammaRayYield(r,t);
+
+	return mat[f][i];
+
+}
+

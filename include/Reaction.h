@@ -123,7 +123,7 @@ class Reaction
 		void	InitReaction();			/*!< Set up the reaction kinematics calculations */
 		void	SetCmFrame(double);		/*!< Define parameters in the center of mass frame */
 
-		// GOSIA kinematic flags
+		/// GOSIA kinematic flags
 		/// Sets whether the GOSIA kinematics will be used. GOSIA kinematics differ from (for example) 
 		/// Catkin and the normal kinematics models used here. Primarily intended for debugging and
 		/// providing a one-to-one comparison with GOSIA.
@@ -135,6 +135,8 @@ class Reaction
 		double	ConvertThetaLabToCm(double, int);		/*!< Convert theta in the lab frame to the center of mass frame (radians) */
 		TGraph*	ThetaVsTheta(double,double,int);		/*!< Plot theta lab vs theta center of mass */
 		TGraph* RutherfordGraph(double,double,int);		/*!< Plot the Rutherford cross section */
+
+		TGraph*	PlotClosestApproachvsEnergy(double,double,int nsteps = 101);	/*!< Plot the distance of closest approach as a function of energy - distance between nuclear surfaces*/
 
 	private:
 		int beamA;

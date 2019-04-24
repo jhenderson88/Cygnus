@@ -213,14 +213,14 @@ void Experiments::PrintPointCorrections() {
 		std::cout 	<< std::setw(10) << std::left << "Experiment " << i+1 << std::endl;
 		std::cout	<< std::setw(16) << std::left << "Mean Theta CM:" << experimentRanges.at(i).GetMeanThetaCM() << std::endl;
 		std::cout 	<< std::setw(8)  << std::left << "State:"
-				<< std::setw(10) << std::left << "Corr'n:" 
+				<< std::setw(14) << std::left << "Corr'n:" 
 				<< std::setw(14) << std::left << "Integral:"
 				<< std::setw(14) << std::left << "Point:"
 				<< std::setw(20) << std::left << "Corrected Point" 
 				<< std::endl;
 		for(int s =0; s<correctionFactors.at(i).GetNrows(); s++){
 			std::cout 	<< std::setw(8)  << std::left << s+1
-					<< std::setw(10) << std::left << correctionFactors.at(i)[s]
+					<< std::setw(14) << std::left << correctionFactors.at(i)[s]
 					<< std::setw(14) << std::left << integratedCrossSections.at(i)[s]
 					<< std::setw(14) << std::left << pointCrossSections.at(i)[s] 
 					<< std::setw(20) << std::left << pointCalculation.at(i).GetProbabilitiesVector()[s] * correctionFactors.at(i)[s] * pointCalculation.at(i).GetReaction()->RutherfordCM(experimentRanges.at(i).GetMeanThetaCM())

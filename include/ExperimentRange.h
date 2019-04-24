@@ -13,6 +13,7 @@
 #include "TF2.h"
 #include "TH1F.h"
 #include "TFile.h"
+#include "TSpline.h"
 #include <chrono>
 #include <algorithm>
 
@@ -116,6 +117,9 @@ class ExperimentRange {
 
 		double		GetIntegratedRutherford()			const	{ return integratedRutherford;		}	/*!< Returns the integrated Rutherford cross section */
 
+		void		SetUseFit(bool b = true)				{ fUseFit = b;				}	/*!< Use a fit to interpolate. Default is a spline */
+		bool		UseFit()					const	{ return fUseFit;			}	/*!< Return whether using a fit to perform interpolation */
+
 	private:
 
 		double		IntegrateThetaEnergy(int s);	
@@ -155,6 +159,7 @@ class ExperimentRange {
 
 		bool		fUseEfficiency;
 		bool		fProjectileExcitation;
+		bool		fUseFit;
 	
 		TGraph		*fDetectorEff;
 		TGraph		*fDetectorEff_CM;

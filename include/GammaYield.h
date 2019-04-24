@@ -25,5 +25,7 @@ class GammaYield {
 
 		static void	PrintYields(ExperimentRange r, TransitionRates t, Nucleus n);		/*!< Print well-formatted yields based on ExperimentRange (cross-sections), TransitionRates (branching ratios) and Nucleus (level labelling) objects */
 
+		static double	GetYield(ExperimentRange r, TransitionRates t, Nucleus n, int i, int f);
+
 };
 #endif

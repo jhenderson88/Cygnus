@@ -4,6 +4,7 @@
 #include "CoulExMinFCN.h"
 #include "ScalingParameter.h"
 #include <chrono>
+#include <iterator>
 
 #include "Minuit2/Minuit2Minimizer.h"
 #include "Math/Functor.h"

@@ -84,8 +84,6 @@ void CoulExFitter::DoFit(const char* method, const char *algorithm){
 
 	theFCN.SetNpar(parameters.size());
 
-	//return;
-
 	ROOT::Math::Minimizer *min =
 			ROOT::Math::Factory::CreateMinimizer(method, algorithm);
 	//		ROOT::Math::Factory::CreateMinimizer("Minuit2","Migrad");
@@ -110,16 +108,15 @@ void CoulExFitter::DoFit(const char* method, const char *algorithm){
 	//min->SetPrintLevel(printLevel);
 	for(unsigned int i=0; i<parameters.size(); i++){
 		std::string name;
-		if(i < matrixElements.size())
+		if(i < matrixElements.size()){
 			name = "ME-"+std::to_string(i);
-		else
+			min->SetLimitedVariable(i,name,parameters.at(i),0.01,par_LL.at(i),par_UL.at(i));
+		}
+		else{
 			name = "Scaling-"+std::to_string(i-matrixElements.size());
-		//if(i < matrixElements.size())
-		//	min->SetFixedVariable(i,name,parameters.at(i));
-		//else
-		min->SetLimitedVariable(i,name,parameters.at(i),0.001,par_LL.at(i),par_UL.at(i));
+			min->SetLowerLimitedVariable(i,name,parameters.at(i),0.0001,0);//,par_LL.at(i),par_UL.at(i));
+		}
 	}
-
 	
 	typedef std::chrono::high_resolution_clock Clock;
 	typedef std::chrono::milliseconds milliseconds;
