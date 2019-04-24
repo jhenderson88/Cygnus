@@ -41,8 +41,11 @@ double CoulExMinFCN::operator()(const double* par){
 
 	Nucleus nucl = fNucleus;	
 
-	for(unsigned int i=0;i<ME.size();i++)
+	for(unsigned int i=0;i<ME.size();i++){
 		nucl.SetMatrixElement(ME.at(i).GetLambda(),ME.at(i).GetInitialState(),ME.at(i).GetFinalState(),par[i]);
+		std::cout	<< par[i] 
+				<< std::endl;
+	}
 
 	// 	COMPARE WITH LITERATURE CONSTRAINTS:
 	TransitionRates rates(&nucl);
@@ -186,10 +189,7 @@ double CoulExMinFCN::operator()(const double* par){
 				tmp 		= (calcCounts - exptCounts) / exptData.at(i).GetData().at(t).GetUpUnc();
 			else
 				tmp 		= (calcCounts - exptCounts) / exptData.at(i).GetData().at(t).GetDnUnc();
-			if(UsePoisson())
-				chisq 		+= 2 * (calcCounts - exptCounts + exptCounts * TMath::Log(exptCounts/calcCounts));
-			else
-				chisq		+= tmp * tmp;
+			chisq		+= tmp * tmp;
 			NDF++;
 		}
 		if(verbose)
