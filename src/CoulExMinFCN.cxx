@@ -41,11 +41,8 @@ double CoulExMinFCN::operator()(const double* par){
 
 	Nucleus nucl = fNucleus;	
 
-	for(unsigned int i=0;i<ME.size();i++){
+	for(unsigned int i=0;i<ME.size();i++)
 		nucl.SetMatrixElement(ME.at(i).GetLambda(),ME.at(i).GetInitialState(),ME.at(i).GetFinalState(),par[i]);
-		std::cout	<< par[i] 
-				<< std::endl;
-	}
 
 	// 	COMPARE WITH LITERATURE CONSTRAINTS:
 	TransitionRates rates(&nucl);

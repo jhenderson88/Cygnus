@@ -315,6 +315,8 @@ double Reaction::ConvertThetaCmToLab(double theta_cm, int part){
 			theta_lab = TMath::ATan(TMath::Sin(TMath::Pi() - theta_cm)/(TMath::Cos(TMath::Pi() - theta_cm) + fTauP)); 
 		else
 			theta_lab = TMath::ATan(TMath::Sin(theta_cm)/(TMath::Cos(theta_cm) + fTau));
+		if(theta_lab < 0)
+			theta_lab += TMath::Pi();
 	}
 	else{
 		if(part == 3)
