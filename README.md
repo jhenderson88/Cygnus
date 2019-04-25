@@ -145,6 +145,12 @@ Cygnus uses the ROOT::Minimizer package. This comes with a number of minimizatio
 |GSLMultiFit |                  |
 |GSLSimAn    |	                |
 
+By default, Cygnus uses the user defined experimental uncertainties in the minimization routine. In this case it is assumed that the data are efficiency corrected and a simple chisquare statistic. In general this is suitable, with large amounts of data, however when dealing with smaller data samples, the symmetric uncertainty assumption and the standard Neyman's chisquare ceases to be a good statistic. Cygnus therefore allows the user the option of a likelihood-derived chisquare statistic (see: https://www.sciencedirect.com/science/article/pii/0167508784900164). This statistic is suitable for low statistics data but requires the user to provide the <it>observed </it> counts, rather than the corrected.
+
+This can be specified by calling the CoulExFitter function SetPoissonUncertainties(). Then, the fitter no-longer uses the user defined uncertainties. Because the minimizer uses the observed counts, the detection efficiency must be user specified and is then incorporated into the fit.
+
+The minimizer by default creates and stores a (symmetric) covariance matrix. If the user wants access to asymmetric uncertainties (in general, CoulEx uncertainties are asymmetric), they can specify it using the SetDoFullUncertainty() function in CoulExFitter.
+
 License
 -----------------------
 
