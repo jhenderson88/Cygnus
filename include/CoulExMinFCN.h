@@ -36,7 +36,8 @@ class CoulExMinFCN { // : public ROOT::Minuit2::FCNBase{
 
 	public : 
 
-		CoulExMinFCN(std::vector<ExperimentData> d) : exptData(d)		{ 
+		CoulExMinFCN(std::vector<ExperimentData> d) : exptData(d)		{
+												fUsePoisson = false; 
 												verbose = false;  
 												iter = 0;	
 												nThreads = 1;
@@ -102,6 +103,9 @@ class CoulExMinFCN { // : public ROOT::Minuit2::FCNBase{
 
 		void	ResetIter()							{ iter = 0;				}	/*!< Reset the iteration number */
 
+		void	SetPoisson(bool  b = true)					{ fUsePoisson = b;			}	/*!< */
+		bool	UsePoisson()						const	{ return fUsePoisson;			}	/*!< */
+
 	private :
 
 		std::vector<double>		parameters;			// Matrix elements + scaling factors
@@ -135,6 +139,8 @@ class CoulExMinFCN { // : public ROOT::Minuit2::FCNBase{
 		int				nThreads;
 
 		std::vector<int>		exptIndex;
+
+		bool				fUsePoisson;
 
 };
 #endif

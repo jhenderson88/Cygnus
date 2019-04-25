@@ -6,6 +6,8 @@ CoulExFitter::CoulExFitter()
 
 	ClearAll();
 
+	fUsePoisson	= false;
+
 	first		= true;
 
 	maxIter		= 500;
@@ -42,6 +44,8 @@ void CoulExFitter::DoFit(const char* method, const char *algorithm){
 	theFCN.SetVerbose(verbose);
 
 	theFCN.SetupCalculation();
+
+	theFCN.SetPoisson(UsePoissonUncertainties());
 
 	//parameters.push_back(0.15);
 	//par_LL.push_back(0.05);

@@ -7,7 +7,7 @@ ExptData::ExptData(const ExptData& e){
 	Counts		= e.Counts;
 	UpUncertainty 	= e.UpUncertainty;
 	DnUncertainty	= e.DnUncertainty;
-	
+	DetEff		= e.DetEff;	
 
 }
 ExptData& ExptData::operator = (const ExptData& e){
@@ -17,6 +17,7 @@ ExptData& ExptData::operator = (const ExptData& e){
 	Counts		= e.Counts;
 	UpUncertainty 	= e.UpUncertainty;
 	DnUncertainty	= e.DnUncertainty;
+	DetEff		= e.DetEff;
 
 	return *this;
 

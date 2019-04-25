@@ -121,6 +121,9 @@ class CoulExFitter {
 		void	SetVerbose(bool b = true)					{ verbose = b;				}	/*!< Define verbocity */
 		bool	GetVerbose()						const	{ return verbose;			}	/*!< Return verbocity */
 
+		void	SetPoissonUncertainties(bool b = true)				{ fUsePoisson = b;			}	/*!< 	*/
+		bool	UsePoissonUncertainties()				const	{ return fUsePoisson;			}	/*!<	*/
+
 	private:
 
 		//CoulExMinFCN		theFCN;
@@ -155,6 +158,8 @@ class CoulExFitter {
 
 		bool				first;
 		bool				verbose;
+
+		bool				fUsePoisson;
 
 };
 #endif

@@ -175,19 +175,49 @@ double CoulExMinFCN::operator()(const double* par){
 			double 	calcCounts 	= scaling.at(i) * EffectiveCrossSection.at(i)[index_final][index_init];
 			double 	exptCounts 	= exptData.at(i).GetData().at(t).GetCounts();
 			if(verbose){
-				std::cout 	<< std::setw( 6) << std::left << index_init 
-						<< std::setw( 6) << std::left << index_final 
-						<< std::setw(12) << std::left << calcCounts 
-						<< std::setw(12) << std::left << exptCounts 
-						<< std::setw(12) << std::left << calcCounts/exptCounts
-						<< std::setw(14) << std::left << TMath::Power((calcCounts - exptCounts)/exptData.at(i).GetData().at(t).GetUpUnc(),2);
+				if(UsePoisson()){
+					double effCounts = exptData.at(i).GetData().at(t).GetEfficiency() * calcCounts;
+					if(exptCounts > 0){
+						std::cout 	<< std::setw( 6) << std::left << index_init 
+								<< std::setw( 6) << std::left << index_final 
+								<< std::setw(12) << std::left << effCounts 
+								<< std::setw(12) << std::left << exptCounts 
+								<< std::setw(12) << std::left << effCounts/exptCounts
+								<< std::setw(14) << std::left << 2*(effCounts - exptCounts + exptCounts * TMath::Log(exptCounts / effCounts));
+					}
+					else{
+						std::cout 	<< std::setw( 6) << std::left << index_init 
+								<< std::setw( 6) << std::left << index_final 
+								<< std::setw(12) << std::left << effCounts 
+								<< std::setw(12) << std::left << exptCounts 
+								<< std::setw(12) << std::left << effCounts/exptCounts
+								<< std::setw(14) << std::left << 0;
+					}
+				}
+				else{
+					std::cout 	<< std::setw( 6) << std::left << index_init 
+							<< std::setw( 6) << std::left << index_final 
+							<< std::setw(12) << std::left << calcCounts 
+							<< std::setw(12) << std::left << exptCounts 
+							<< std::setw(12) << std::left << calcCounts/exptCounts
+							<< std::setw(14) << std::left << TMath::Power((calcCounts - exptCounts)/exptData.at(i).GetData().at(t).GetUpUnc(),2);
+				}
 			}
 			if(calcCounts > exptCounts)
 				tmp 		= (calcCounts - exptCounts) / exptData.at(i).GetData().at(t).GetUpUnc();
 			else
 				tmp 		= (calcCounts - exptCounts) / exptData.at(i).GetData().at(t).GetDnUnc();
-			chisq		+= tmp * tmp;
-			NDF++;
+			if(UsePoisson()){
+				double effCounts = exptData.at(i).GetData().at(t).GetEfficiency() * calcCounts;
+				if(exptCounts > 0){
+					chisq += 2*(effCounts - exptCounts + exptCounts * TMath::Log(exptCounts / effCounts));
+					NDF++;
+				}
+			}
+			else{
+				chisq		+= tmp * tmp;
+				NDF++;
+			}
 		}
 		if(verbose)
 			std::cout << std::endl;
