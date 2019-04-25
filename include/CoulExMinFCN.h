@@ -103,8 +103,8 @@ class CoulExMinFCN { // : public ROOT::Minuit2::FCNBase{
 
 		void	ResetIter()							{ iter = 0;				}	/*!< Reset the iteration number */
 
-		void	SetPoisson(bool  b = true)					{ fUsePoisson = b;			}	/*!< */
-		bool	UsePoisson()						const	{ return fUsePoisson;			}	/*!< */
+		void	SetPoisson(bool  b = true)					{ fUsePoisson = b;			}	/*!< Define whether we will use Poisson uncertainties (and a likelihood fit) or user defined uncertainties and a chi-square */
+		bool	UsePoisson()						const	{ return fUsePoisson;			}	/*!< Return whether we will use Poisson uncertainties (and a likelihood fit) or user defined uncertainties and a chi-square */
 
 	private :
 

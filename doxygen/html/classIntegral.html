@@ -147,6 +147,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a303ccbd05093c67ce911a016bb799392"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d7ffeb56e3b5da4567b7c66e7d495cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntegral.html#a3d7ffeb56e3b5da4567b7c66e7d495cc">SetProjectileExcitation</a> (bool b=true)</td></tr>
 <tr class="separator:a3d7ffeb56e3b5da4567b7c66e7d495cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4e9c4f0f2e00a52d6651eec01d8109e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntegral.html#af4e9c4f0f2e00a52d6651eec01d8109e">IntegralComplete</a> ()</td></tr>
+<tr class="separator:af4e9c4f0f2e00a52d6651eec01d8109e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Perform the point calculations at the user defined energy and theta meshpoints. </p>
@@ -181,7 +183,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Construct the <a class="el" href="classIntegral.html" title="Perform the point calculations at the user defined energy and theta meshpoints. ">Integral</a> object with a <a class="el" href="classNucleus.html" title="Holds information about the nucleus for which the CoulEx calculation will be performed. ">Nucleus</a> and <a class="el" href="classReaction.html" title="Define the reaction kinematics. ">Reaction</a> </p>
 
-<p>Definition at line <a class="el" href="Integral_8cxx_source.html#l00028">28</a> of file <a class="el" href="Integral_8cxx_source.html">Integral.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Integral_8cxx_source.html#l00030">30</a> of file <a class="el" href="Integral_8cxx_source.html">Integral.cxx</a>.</p>
 
 </div>
 </div>
@@ -200,7 +202,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Copy constructor </p>
 
-<p>Definition at line <a class="el" href="Integral_8cxx_source.html#l00044">44</a> of file <a class="el" href="Integral_8cxx_source.html">Integral.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Integral_8cxx_source.html#l00048">48</a> of file <a class="el" href="Integral_8cxx_source.html">Integral.cxx</a>.</p>
 
 </div>
 </div>
@@ -273,7 +275,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Perform the integration over the theta and energy meshpoints </p>
 
-<p>Definition at line <a class="el" href="Integral_8cxx_source.html#l00142">142</a> of file <a class="el" href="Integral_8cxx_source.html">Integral.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Integral_8cxx_source.html#l00150">150</a> of file <a class="el" href="Integral_8cxx_source.html">Integral.cxx</a>.</p>
 
 </div>
 </div>
@@ -526,7 +528,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns the vector of TVectorD values containing the probabilities at each meshpoint </p>
 
-<p>Definition at line <a class="el" href="Integral_8cxx_source.html#l00310">310</a> of file <a class="el" href="Integral_8cxx_source.html">Integral.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Integral_8cxx_source.html#l00319">319</a> of file <a class="el" href="Integral_8cxx_source.html">Integral.cxx</a>.</p>
 
 </div>
 </div>
@@ -557,6 +559,32 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="af4e9c4f0f2e00a52d6651eec01d8109e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Integral::IntegralComplete </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns flag indicating whether the integration has been performed </p>
+
+<p>Definition at line <a class="el" href="Integral_8h_source.html#l00080">80</a> of file <a class="el" href="Integral_8h_source.html">Integral.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a19146b107c8d1b38b6b7abc70260e0e9"></a>
 <div class="memitem">
 <div class="memproto">
@@ -572,7 +600,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Assigment operator </p>
 
-<p>Definition at line <a class="el" href="Integral_8cxx_source.html#l00078">78</a> of file <a class="el" href="Integral_8cxx_source.html">Integral.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Integral_8cxx_source.html#l00084">84</a> of file <a class="el" href="Integral_8cxx_source.html">Integral.cxx</a>.</p>
 
 </div>
 </div>
@@ -628,7 +656,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add a new energy meshpoint. If i is smaller than the current size of the meshpoints vector, e is added at position i. Otherwise, the meshpoint t is appended to the vector. </p>
 
-<p>Definition at line <a class="el" href="Integral_8cxx_source.html#l00130">130</a> of file <a class="el" href="Integral_8cxx_source.html">Integral.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Integral_8cxx_source.html#l00138">138</a> of file <a class="el" href="Integral_8cxx_source.html">Integral.cxx</a>.</p>
 
 </div>
 </div>
@@ -738,7 +766,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add a new theta meshpoint. If i is smaller than the current size of the meshpoints vector, t is added at position i. Otherwise, the meshpoint t is appended to the vector. </p>
 
-<p>Definition at line <a class="el" href="Integral_8cxx_source.html#l00119">119</a> of file <a class="el" href="Integral_8cxx_source.html">Integral.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Integral_8cxx_source.html#l00127">127</a> of file <a class="el" href="Integral_8cxx_source.html">Integral.cxx</a>.</p>
 
 </div>
 </div>

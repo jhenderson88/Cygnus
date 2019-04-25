@@ -7,6 +7,6 @@ var searchData=
   ['resetiter',['ResetIter',['../classCoulExMinFCN.html#ad15983e7cecf6fb939c55d47b2a9e700',1,'CoulExMinFCN::ResetIter()'],['../classCoulExSimMinFCN.html#a08bce4be13075badac14049126520685',1,'CoulExSimMinFCN::ResetIter()']]],
   ['rotationfunction',['RotationFunction',['../classMiscFunctions.html#a91d1bb1bc78782da9523392de913efe9',1,'MiscFunctions']]],
   ['rutherford',['Rutherford',['../classReaction.html#ab9e972e6be388fee7c9a38652991052c',1,'Reaction']]],
-  ['rutherfordcm',['RutherfordCM',['../classReaction.html#ac417a6e5c5809dc7ff6af8b52bc98f01',1,'Reaction']]],
+  ['rutherfordcm',['RutherfordCM',['../classReaction.html#a9fdc487d0ef8e6286fe7385a24237b65',1,'Reaction']]],
   ['rutherfordgraph',['RutherfordGraph',['../classReaction.html#a5be6997bfd61ea2a3cb14efdb72d3b45',1,'Reaction']]]
 ];

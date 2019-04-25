@@ -59,7 +59,7 @@ double \hyperlink{classReaction_aaa0710c49d0b08575aa34ba1feefa00a}{Relative\-Vel
 \item 
 double \hyperlink{classReaction_ab9e972e6be388fee7c9a38652991052c}{Rutherford} (double theta\-\_\-lab, int part=2)
 \item 
-double \hyperlink{classReaction_ac417a6e5c5809dc7ff6af8b52bc98f01}{Rutherford\-C\-M} (double theta\-\_\-cm)
+double \hyperlink{classReaction_a9fdc487d0ef8e6286fe7385a24237b65}{Rutherford\-C\-M} (double theta\-\_\-cm, int part=2)
 \item 
 void \hyperlink{classReaction_aa417a6fcfd67b4fcf3b1c437e255bf48}{Print\-Reaction} () const 
 \item 
@@ -81,13 +81,19 @@ void \hyperlink{classReaction_aa36161ccf8b40d608e96bfbf47bc5f38}{Init\-Reaction}
 \item 
 void \hyperlink{classReaction_a7bb2c8c05ec7099774042b495761c344}{Set\-Cm\-Frame} (double)
 \item 
-double \hyperlink{classReaction_a9ad94562bb8fb812c69b9586920c62f3}{Convert\-Theta\-Cm\-To\-Lab} (double, int) const 
+void \hyperlink{classReaction_ad9e6f9701b6c0f29ef05e4ae007d2c27}{Set\-G\-O\-S\-I\-A\-Kinematics} (bool b=true)
 \item 
-double \hyperlink{classReaction_aba20cd636ca54ead991bbd2af995e241}{Convert\-Theta\-Lab\-To\-Cm} (double, int) const 
+bool \hyperlink{classReaction_aa15a2f2000c54e1a5bcb5e6231b20a02}{G\-O\-S\-I\-A\-Kinematics} () const 
 \item 
-T\-Graph $\ast$ \hyperlink{classReaction_a963c2db5f2690e76497c9df4cbbde1ea}{Theta\-Vs\-Theta} (double, double, int) const 
+double \hyperlink{classReaction_aa0749dc9eb4a46e051bab88aab3ab10d}{Convert\-Theta\-Cm\-To\-Lab} (double, int)
+\item 
+double \hyperlink{classReaction_a1201e1afefe6cc09db1c96faf398f318}{Convert\-Theta\-Lab\-To\-Cm} (double, int)
+\item 
+T\-Graph $\ast$ \hyperlink{classReaction_a5a1d393bace0a9c11b77769f020d34e2}{Theta\-Vs\-Theta} (double, double, int)
 \item 
 T\-Graph $\ast$ \hyperlink{classReaction_a5be6997bfd61ea2a3cb14efdb72d3b45}{Rutherford\-Graph} (double, double, int)
+\item 
+T\-Graph $\ast$ \hyperlink{classReaction_a0eaf4784bc0fb9c15ea2cbf5c74fd70f}{Plot\-Closest\-Approachvs\-Energy} (double, double, int nsteps=101)
 \end{DoxyCompactItemize}
 \subsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
@@ -98,9 +104,9 @@ static double \hyperlink{classReaction_ae5cded739cd4c1b07a79a850c3d83b21}{finest
 \item 
 static double \hyperlink{classReaction_adbeaf76ca988330f57ccf5479284c51d}{nuclearmagneton} = 0.\-105155
 \item 
-static double \hyperlink{classReaction_a726225b505e6bad7ee271fd1165e1318}{dipole} =0.\-005
+static double \hyperlink{classReaction_a726225b505e6bad7ee271fd1165e1318}{dipole} = 0.\-005
 \item 
-static double \hyperlink{classReaction_ac1a709b13c8bb45fd259d7bda61343a9}{electron\-Charge} =1.\-602e-\/19
+static double \hyperlink{classReaction_ac1a709b13c8bb45fd259d7bda61343a9}{electron\-Charge} = 1.\-602e-\/19
 \end{DoxyCompactItemize}
 
 
@@ -135,7 +141,7 @@ Define the reaction\-:
 
 a\-Beam and z\-Beam are the beam A and Z. a\-Target and z\-Target are the target A and Z. e\-Beam is the beam energy in Me\-V (lab frame). 
 
-Definition at line 19 of file Reaction.\-cxx.
+Definition at line 21 of file Reaction.\-cxx.
 
 \hypertarget{classReaction_a0d5cfc72f2a4520e4efe10e53a6195a3}{\index{Reaction@{Reaction}!Reaction@{Reaction}}
 \index{Reaction@{Reaction}!Reaction@{Reaction}}
@@ -154,7 +160,7 @@ m\-Beam and z\-Beam are the beam mass and Z. m\-Target and z\-Target are the tar
 
 Masses are defined in atomic mass units 
 
-Definition at line 34 of file Reaction.\-cxx.
+Definition at line 38 of file Reaction.\-cxx.
 
 \hypertarget{classReaction_ac409bbbb72a0464c7be007f55c4e5582}{\index{Reaction@{Reaction}!Reaction@{Reaction}}
 \index{Reaction@{Reaction}!Reaction@{Reaction}}
@@ -165,7 +171,7 @@ Definition at line 34 of file Reaction.\-cxx.
 )}}\label{classReaction_ac409bbbb72a0464c7be007f55c4e5582}
 Copy constructor 
 
-Definition at line 49 of file Reaction.\-cxx.
+Definition at line 55 of file Reaction.\-cxx.
 
 
 
@@ -194,31 +200,31 @@ Definition at line 81 of file Reaction.\-h.
 ) const}}\label{classReaction_a27a288df5efb87fb7c4b31702d313bba}
 Return the distance of closest approach from a\-Beam, a\-Target, z\-Beam, z\-Target, e\-Lab (Me\-V) 
 
-Definition at line 122 of file Reaction.\-cxx.
+Definition at line 131 of file Reaction.\-cxx.
 
-\hypertarget{classReaction_a9ad94562bb8fb812c69b9586920c62f3}{\index{Reaction@{Reaction}!Convert\-Theta\-Cm\-To\-Lab@{Convert\-Theta\-Cm\-To\-Lab}}
+\hypertarget{classReaction_aa0749dc9eb4a46e051bab88aab3ab10d}{\index{Reaction@{Reaction}!Convert\-Theta\-Cm\-To\-Lab@{Convert\-Theta\-Cm\-To\-Lab}}
 \index{Convert\-Theta\-Cm\-To\-Lab@{Convert\-Theta\-Cm\-To\-Lab}!Reaction@{Reaction}}
 \subsubsection[{Convert\-Theta\-Cm\-To\-Lab}]{\setlength{\rightskip}{0pt plus 5cm}double Reaction\-::\-Convert\-Theta\-Cm\-To\-Lab (
 \begin{DoxyParamCaption}
 \item[{double}]{theta\-\_\-cm, }
 \item[{int}]{part}
 \end{DoxyParamCaption}
-) const}}\label{classReaction_a9ad94562bb8fb812c69b9586920c62f3}
+)}}\label{classReaction_aa0749dc9eb4a46e051bab88aab3ab10d}
 Convert theta in the center of mass frame to the lab frame (radians) 
 
-Definition at line 260 of file Reaction.\-cxx.
+Definition at line 305 of file Reaction.\-cxx.
 
-\hypertarget{classReaction_aba20cd636ca54ead991bbd2af995e241}{\index{Reaction@{Reaction}!Convert\-Theta\-Lab\-To\-Cm@{Convert\-Theta\-Lab\-To\-Cm}}
+\hypertarget{classReaction_a1201e1afefe6cc09db1c96faf398f318}{\index{Reaction@{Reaction}!Convert\-Theta\-Lab\-To\-Cm@{Convert\-Theta\-Lab\-To\-Cm}}
 \index{Convert\-Theta\-Lab\-To\-Cm@{Convert\-Theta\-Lab\-To\-Cm}!Reaction@{Reaction}}
 \subsubsection[{Convert\-Theta\-Lab\-To\-Cm}]{\setlength{\rightskip}{0pt plus 5cm}double Reaction\-::\-Convert\-Theta\-Lab\-To\-Cm (
 \begin{DoxyParamCaption}
 \item[{double}]{theta\-\_\-lab, }
 \item[{int}]{part}
 \end{DoxyParamCaption}
-) const}}\label{classReaction_aba20cd636ca54ead991bbd2af995e241}
+)}}\label{classReaction_a1201e1afefe6cc09db1c96faf398f318}
 Convert theta in the lab frame to the center of mass frame (radians) 
 
-Definition at line 238 of file Reaction.\-cxx.
+Definition at line 257 of file Reaction.\-cxx.
 
 \hypertarget{classReaction_ac17706fded988c9a5c126de025567a6b}{\index{Reaction@{Reaction}!Eta\-Calc@{Eta\-Calc}}
 \index{Eta\-Calc@{Eta\-Calc}!Reaction@{Reaction}}
@@ -235,7 +241,7 @@ where\-:
 
 $ s = (1 + A_1/A2)$ 
 
-Definition at line 130 of file Reaction.\-cxx.
+Definition at line 139 of file Reaction.\-cxx.
 
 \hypertarget{classReaction_a7c76ebb705c968644153f78952c74844}{\index{Reaction@{Reaction}!Get\-Beam\-A@{Get\-Beam\-A}}
 \index{Get\-Beam\-A@{Get\-Beam\-A}!Reaction@{Reaction}}
@@ -369,6 +375,17 @@ Return the target Z
 
 Definition at line 72 of file Reaction.\-h.
 
+\hypertarget{classReaction_aa15a2f2000c54e1a5bcb5e6231b20a02}{\index{Reaction@{Reaction}!G\-O\-S\-I\-A\-Kinematics@{G\-O\-S\-I\-A\-Kinematics}}
+\index{G\-O\-S\-I\-A\-Kinematics@{G\-O\-S\-I\-A\-Kinematics}!Reaction@{Reaction}}
+\subsubsection[{G\-O\-S\-I\-A\-Kinematics}]{\setlength{\rightskip}{0pt plus 5cm}bool Reaction\-::\-G\-O\-S\-I\-A\-Kinematics (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classReaction_aa15a2f2000c54e1a5bcb5e6231b20a02}
+Return bool indicating whether G\-O\-S\-I\-A kinematics are being used 
+
+Definition at line 131 of file Reaction.\-h.
+
 \hypertarget{classReaction_aa36161ccf8b40d608e96bfbf47bc5f38}{\index{Reaction@{Reaction}!Init\-Reaction@{Init\-Reaction}}
 \index{Init\-Reaction@{Init\-Reaction}!Reaction@{Reaction}}
 \subsubsection[{Init\-Reaction}]{\setlength{\rightskip}{0pt plus 5cm}void Reaction\-::\-Init\-Reaction (
@@ -378,7 +395,7 @@ Definition at line 72 of file Reaction.\-h.
 )}}\label{classReaction_aa36161ccf8b40d608e96bfbf47bc5f38}
 Set up the reaction kinematics calculations 
 
-Definition at line 170 of file Reaction.\-cxx.
+Definition at line 189 of file Reaction.\-cxx.
 
 \hypertarget{classReaction_ac84fba3eee1f6d4e8621e290066495e6}{\index{Reaction@{Reaction}!operator=@{operator=}}
 \index{operator=@{operator=}!Reaction@{Reaction}}
@@ -389,7 +406,20 @@ Definition at line 170 of file Reaction.\-cxx.
 )}}\label{classReaction_ac84fba3eee1f6d4e8621e290066495e6}
 Assignment operator 
 
-Definition at line 69 of file Reaction.\-cxx.
+Definition at line 76 of file Reaction.\-cxx.
+
+\hypertarget{classReaction_a0eaf4784bc0fb9c15ea2cbf5c74fd70f}{\index{Reaction@{Reaction}!Plot\-Closest\-Approachvs\-Energy@{Plot\-Closest\-Approachvs\-Energy}}
+\index{Plot\-Closest\-Approachvs\-Energy@{Plot\-Closest\-Approachvs\-Energy}!Reaction@{Reaction}}
+\subsubsection[{Plot\-Closest\-Approachvs\-Energy}]{\setlength{\rightskip}{0pt plus 5cm}T\-Graph $\ast$ Reaction\-::\-Plot\-Closest\-Approachvs\-Energy (
+\begin{DoxyParamCaption}
+\item[{double}]{e\-Min, }
+\item[{double}]{e\-Max, }
+\item[{int}]{nsteps = {\ttfamily 101}}
+\end{DoxyParamCaption}
+)}}\label{classReaction_a0eaf4784bc0fb9c15ea2cbf5c74fd70f}
+Plot the distance of closest approach as a function of energy -\/ distance between nuclear surfaces 
+
+Definition at line 392 of file Reaction.\-cxx.
 
 \hypertarget{classReaction_aa417a6fcfd67b4fcf3b1c437e255bf48}{\index{Reaction@{Reaction}!Print\-Reaction@{Print\-Reaction}}
 \index{Print\-Reaction@{Print\-Reaction}!Reaction@{Reaction}}
@@ -400,7 +430,7 @@ Definition at line 69 of file Reaction.\-cxx.
 ) const}}\label{classReaction_aa417a6fcfd67b4fcf3b1c437e255bf48}
 Print the details of the reaction 
 
-Definition at line 333 of file Reaction.\-cxx.
+Definition at line 404 of file Reaction.\-cxx.
 
 \hypertarget{classReaction_aaa0710c49d0b08575aa34ba1feefa00a}{\index{Reaction@{Reaction}!Relative\-Velocity@{Relative\-Velocity}}
 \index{Relative\-Velocity@{Relative\-Velocity}!Reaction@{Reaction}}
@@ -411,7 +441,7 @@ Definition at line 333 of file Reaction.\-cxx.
 ) const}}\label{classReaction_aaa0710c49d0b08575aa34ba1feefa00a}
 Return the relative velocity for a given state. Presently unused. 
 
-Definition at line 140 of file Reaction.\-cxx.
+Definition at line 149 of file Reaction.\-cxx.
 
 \hypertarget{classReaction_ab9e972e6be388fee7c9a38652991052c}{\index{Reaction@{Reaction}!Rutherford@{Rutherford}}
 \index{Rutherford@{Rutherford}!Reaction@{Reaction}}
@@ -423,18 +453,19 @@ Definition at line 140 of file Reaction.\-cxx.
 )}}\label{classReaction_ab9e972e6be388fee7c9a38652991052c}
 Return the Rutherford cross section (mb) for theta defined in the lab frame 
 
-Definition at line 159 of file Reaction.\-cxx.
+Definition at line 173 of file Reaction.\-cxx.
 
-\hypertarget{classReaction_ac417a6e5c5809dc7ff6af8b52bc98f01}{\index{Reaction@{Reaction}!Rutherford\-C\-M@{Rutherford\-C\-M}}
+\hypertarget{classReaction_a9fdc487d0ef8e6286fe7385a24237b65}{\index{Reaction@{Reaction}!Rutherford\-C\-M@{Rutherford\-C\-M}}
 \index{Rutherford\-C\-M@{Rutherford\-C\-M}!Reaction@{Reaction}}
 \subsubsection[{Rutherford\-C\-M}]{\setlength{\rightskip}{0pt plus 5cm}double Reaction\-::\-Rutherford\-C\-M (
 \begin{DoxyParamCaption}
-\item[{double}]{theta\-\_\-cm}
+\item[{double}]{theta\-\_\-cm, }
+\item[{int}]{part = {\ttfamily 2}}
 \end{DoxyParamCaption}
-)}}\label{classReaction_ac417a6e5c5809dc7ff6af8b52bc98f01}
+)}}\label{classReaction_a9fdc487d0ef8e6286fe7385a24237b65}
 Return the Rutherford cross section (mb) for theta defined in the Co\-M frame 
 
-Definition at line 148 of file Reaction.\-cxx.
+Definition at line 157 of file Reaction.\-cxx.
 
 \hypertarget{classReaction_a5be6997bfd61ea2a3cb14efdb72d3b45}{\index{Reaction@{Reaction}!Rutherford\-Graph@{Rutherford\-Graph}}
 \index{Rutherford\-Graph@{Rutherford\-Graph}!Reaction@{Reaction}}
@@ -447,7 +478,7 @@ Definition at line 148 of file Reaction.\-cxx.
 )}}\label{classReaction_a5be6997bfd61ea2a3cb14efdb72d3b45}
 Plot the Rutherford cross section 
 
-Definition at line 303 of file Reaction.\-cxx.
+Definition at line 362 of file Reaction.\-cxx.
 
 \hypertarget{classReaction_a70b7eb982add06fb32a8cd951ada684e}{\index{Reaction@{Reaction}!Set\-Beam\-A@{Set\-Beam\-A}}
 \index{Set\-Beam\-A@{Set\-Beam\-A}!Reaction@{Reaction}}
@@ -480,7 +511,7 @@ Definition at line 62 of file Reaction.\-h.
 )}}\label{classReaction_abb5af6ec84b2f3c6eeb6c6d395e0d951}
 Set the beam energy in the center-\/of-\/mass frame (Me\-V) 
 
-Definition at line 103 of file Reaction.\-cxx.
+Definition at line 112 of file Reaction.\-cxx.
 
 \hypertarget{classReaction_a7bb2c8c05ec7099774042b495761c344}{\index{Reaction@{Reaction}!Set\-Cm\-Frame@{Set\-Cm\-Frame}}
 \index{Set\-Cm\-Frame@{Set\-Cm\-Frame}!Reaction@{Reaction}}
@@ -491,7 +522,7 @@ Definition at line 103 of file Reaction.\-cxx.
 )}}\label{classReaction_a7bb2c8c05ec7099774042b495761c344}
 Define parameters in the center of mass frame 
 
-Definition at line 207 of file Reaction.\-cxx.
+Definition at line 226 of file Reaction.\-cxx.
 
 \hypertarget{classReaction_a844b83a9925e350f2de77c17bdf0a71f}{\index{Reaction@{Reaction}!Set\-Excitation\-Energy@{Set\-Excitation\-Energy}}
 \index{Set\-Excitation\-Energy@{Set\-Excitation\-Energy}!Reaction@{Reaction}}
@@ -504,6 +535,17 @@ Set the excitation energy for the calculation of reaction kinematics
 
 Definition at line 119 of file Reaction.\-h.
 
+\hypertarget{classReaction_ad9e6f9701b6c0f29ef05e4ae007d2c27}{\index{Reaction@{Reaction}!Set\-G\-O\-S\-I\-A\-Kinematics@{Set\-G\-O\-S\-I\-A\-Kinematics}}
+\index{Set\-G\-O\-S\-I\-A\-Kinematics@{Set\-G\-O\-S\-I\-A\-Kinematics}!Reaction@{Reaction}}
+\subsubsection[{Set\-G\-O\-S\-I\-A\-Kinematics}]{\setlength{\rightskip}{0pt plus 5cm}void Reaction\-::\-Set\-G\-O\-S\-I\-A\-Kinematics (
+\begin{DoxyParamCaption}
+\item[{bool}]{b = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classReaction_ad9e6f9701b6c0f29ef05e4ae007d2c27}
+G\-O\-S\-I\-A kinematic flags Sets whether the G\-O\-S\-I\-A kinematics will be used. G\-O\-S\-I\-A kinematics differ from (for example) Catkin and the normal kinematics models used here. Primarily intended for debugging and providing a one-\/to-\/one comparison with G\-O\-S\-I\-A. 
+
+Definition at line 130 of file Reaction.\-h.
+
 \hypertarget{classReaction_a0fe38599ec2bc9b0356c22c84893bd53}{\index{Reaction@{Reaction}!Set\-Lab\-Energy@{Set\-Lab\-Energy}}
 \index{Set\-Lab\-Energy@{Set\-Lab\-Energy}!Reaction@{Reaction}}
 \subsubsection[{Set\-Lab\-Energy}]{\setlength{\rightskip}{0pt plus 5cm}void Reaction\-::\-Set\-Lab\-Energy (
@@ -513,7 +555,7 @@ Definition at line 119 of file Reaction.\-h.
 )}}\label{classReaction_a0fe38599ec2bc9b0356c22c84893bd53}
 Set the beam energy in the laboratory frame (Me\-V) 
 
-Definition at line 92 of file Reaction.\-cxx.
+Definition at line 101 of file Reaction.\-cxx.
 
 \hypertarget{classReaction_a107e59773c72a5e780e688e45093de15}{\index{Reaction@{Reaction}!Set\-Mass@{Set\-Mass}}
 \index{Set\-Mass@{Set\-Mass}!Reaction@{Reaction}}
@@ -549,7 +591,7 @@ Set the target Z
 
 Definition at line 64 of file Reaction.\-h.
 
-\hypertarget{classReaction_a963c2db5f2690e76497c9df4cbbde1ea}{\index{Reaction@{Reaction}!Theta\-Vs\-Theta@{Theta\-Vs\-Theta}}
+\hypertarget{classReaction_a5a1d393bace0a9c11b77769f020d34e2}{\index{Reaction@{Reaction}!Theta\-Vs\-Theta@{Theta\-Vs\-Theta}}
 \index{Theta\-Vs\-Theta@{Theta\-Vs\-Theta}!Reaction@{Reaction}}
 \subsubsection[{Theta\-Vs\-Theta}]{\setlength{\rightskip}{0pt plus 5cm}T\-Graph $\ast$ Reaction\-::\-Theta\-Vs\-Theta (
 \begin{DoxyParamCaption}
@@ -557,10 +599,10 @@ Definition at line 64 of file Reaction.\-h.
 \item[{double}]{thmax, }
 \item[{int}]{part}
 \end{DoxyParamCaption}
-) const}}\label{classReaction_a963c2db5f2690e76497c9df4cbbde1ea}
+)}}\label{classReaction_a5a1d393bace0a9c11b77769f020d34e2}
 Plot theta lab vs theta center of mass 
 
-Definition at line 274 of file Reaction.\-cxx.
+Definition at line 333 of file Reaction.\-cxx.
 
 \hypertarget{classReaction_ae139c25e4a30dd1251a32ab6d0d5538c}{\index{Reaction@{Reaction}!Three\-J@{Three\-J}}
 \index{Three\-J@{Three\-J}!Reaction@{Reaction}}
@@ -576,21 +618,21 @@ Definition at line 274 of file Reaction.\-cxx.
 ) const}}\label{classReaction_ae139c25e4a30dd1251a32ab6d0d5538c}
 Wigner 3\-J symbol from G\-S\-L 
 
-Definition at line 114 of file Reaction.\-cxx.
+Definition at line 123 of file Reaction.\-cxx.
 
 
 
 \subsection{Field Documentation}
 \hypertarget{classReaction_a726225b505e6bad7ee271fd1165e1318}{\index{Reaction@{Reaction}!dipole@{dipole}}
 \index{dipole@{dipole}!Reaction@{Reaction}}
-\subsubsection[{dipole}]{\setlength{\rightskip}{0pt plus 5cm}double Reaction\-::dipole =0.\-005\hspace{0.3cm}{\ttfamily [static]}}}\label{classReaction_a726225b505e6bad7ee271fd1165e1318}
+\subsubsection[{dipole}]{\setlength{\rightskip}{0pt plus 5cm}double Reaction\-::dipole = 0.\-005\hspace{0.3cm}{\ttfamily [static]}}}\label{classReaction_a726225b505e6bad7ee271fd1165e1318}
 Normalisation factor for electric dipole polarization -\/ nominally 0.\-005 
 
 Definition at line 101 of file Reaction.\-h.
 
 \hypertarget{classReaction_ac1a709b13c8bb45fd259d7bda61343a9}{\index{Reaction@{Reaction}!electron\-Charge@{electron\-Charge}}
 \index{electron\-Charge@{electron\-Charge}!Reaction@{Reaction}}
-\subsubsection[{electron\-Charge}]{\setlength{\rightskip}{0pt plus 5cm}double Reaction\-::electron\-Charge =1.\-602e-\/19\hspace{0.3cm}{\ttfamily [static]}}}\label{classReaction_ac1a709b13c8bb45fd259d7bda61343a9}
+\subsubsection[{electron\-Charge}]{\setlength{\rightskip}{0pt plus 5cm}double Reaction\-::electron\-Charge = 1.\-602e-\/19\hspace{0.3cm}{\ttfamily [static]}}}\label{classReaction_ac1a709b13c8bb45fd259d7bda61343a9}
 Electron charge 
 
 Definition at line 102 of file Reaction.\-h.

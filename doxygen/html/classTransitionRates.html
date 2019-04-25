@@ -98,6 +98,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad00aaf48b7c94926a5c9f0b0d03b42c8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransitionRates.html#ad00aaf48b7c94926a5c9f0b0d03b42c8">TransitionRates</a> (<a class="el" href="classNucleus.html">Nucleus</a> *)</td></tr>
 <tr class="separator:ad00aaf48b7c94926a5c9f0b0d03b42c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9717bbd31eff3931a0f2cdb545c9224d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9717bbd31eff3931a0f2cdb545c9224d"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TransitionRates</b> (const <a class="el" href="classTransitionRates.html">TransitionRates</a> &amp;)</td></tr>
+<tr class="separator:a9717bbd31eff3931a0f2cdb545c9224d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2a000813227d0b9e0d082e7dc336524"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac2a000813227d0b9e0d082e7dc336524"></a>
+<a class="el" href="classTransitionRates.html">TransitionRates</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classTransitionRates.html">TransitionRates</a> &amp;)</td></tr>
+<tr class="separator:ac2a000813227d0b9e0d082e7dc336524"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7601fbf2a719b9da760224c6204157fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransitionRates.html#a7601fbf2a719b9da760224c6204157fa">SetMatrixElements</a> ()</td></tr>
 <tr class="separator:a7601fbf2a719b9da760224c6204157fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6b4319cdf1d3fe9a983df698b3a4b20"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransitionRates.html#aa6b4319cdf1d3fe9a983df698b3a4b20">Print</a> () const </td></tr>
@@ -110,6 +116,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7bd21177c625ea6e51c45ef66bd28275"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a667cc48402a7a5b06826b3c9993d0ca2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransitionRates.html#a667cc48402a7a5b06826b3c9993d0ca2">SetNucleus</a> (<a class="el" href="classNucleus.html">Nucleus</a> *nucl)</td></tr>
 <tr class="separator:a667cc48402a7a5b06826b3c9993d0ca2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31184f9d66260f0575a2f5c1be7683f4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransitionRates.html#a31184f9d66260f0575a2f5c1be7683f4">GetNDecays</a> () const </td></tr>
+<tr class="separator:a31184f9d66260f0575a2f5c1be7683f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Determine spectroscopic information from matrix elements. </p>
@@ -159,7 +167,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return a TVectorD of branching ratios </p>
 
-<p>Definition at line <a class="el" href="TransitionRates_8h_source.html#l00036">36</a> of file <a class="el" href="TransitionRates_8h_source.html">TransitionRates.h</a>.</p>
+<p>Definition at line <a class="el" href="TransitionRates_8h_source.html#l00039">39</a> of file <a class="el" href="TransitionRates_8h_source.html">TransitionRates.h</a>.</p>
 
 </div>
 </div>
@@ -185,7 +193,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return a TVectorD of state lifetimes (ps) </p>
 
-<p>Definition at line <a class="el" href="TransitionRates_8h_source.html#l00035">35</a> of file <a class="el" href="TransitionRates_8h_source.html">TransitionRates.h</a>.</p>
+<p>Definition at line <a class="el" href="TransitionRates_8h_source.html#l00038">38</a> of file <a class="el" href="TransitionRates_8h_source.html">TransitionRates.h</a>.</p>
 
 </div>
 </div>
@@ -211,7 +219,33 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return a TMatrixD of mixing ratios (E/M) </p>
 
-<p>Definition at line <a class="el" href="TransitionRates_8h_source.html#l00037">37</a> of file <a class="el" href="TransitionRates_8h_source.html">TransitionRates.h</a>.</p>
+<p>Definition at line <a class="el" href="TransitionRates_8h_source.html#l00040">40</a> of file <a class="el" href="TransitionRates_8h_source.html">TransitionRates.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a31184f9d66260f0575a2f5c1be7683f4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int TransitionRates::GetNDecays </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return the number of decays </p>
+
+<p>Definition at line <a class="el" href="TransitionRates_8h_source.html#l00044">44</a> of file <a class="el" href="TransitionRates_8h_source.html">TransitionRates.h</a>.</p>
 
 </div>
 </div>
@@ -229,7 +263,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Print the data, as determined from energies and matrix elements </p>
 
-<p>Definition at line <a class="el" href="TransitionRates_8cxx_source.html#l00102">102</a> of file <a class="el" href="TransitionRates_8cxx_source.html">TransitionRates.cxx</a>.</p>
+<p>Definition at line <a class="el" href="TransitionRates_8cxx_source.html#l00213">213</a> of file <a class="el" href="TransitionRates_8cxx_source.html">TransitionRates.cxx</a>.</p>
 
 </div>
 </div>
@@ -247,7 +281,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Set up the experimental data based on the provided <a class="el" href="classNucleus.html" title="Holds information about the nucleus for which the CoulEx calculation will be performed. ">Nucleus</a> class </p>
 
-<p>Definition at line <a class="el" href="TransitionRates_8cxx_source.html#l00022">22</a> of file <a class="el" href="TransitionRates_8cxx_source.html">TransitionRates.cxx</a>.</p>
+<p>Definition at line <a class="el" href="TransitionRates_8cxx_source.html#l00114">114</a> of file <a class="el" href="TransitionRates_8cxx_source.html">TransitionRates.cxx</a>.</p>
 
 </div>
 </div>
@@ -274,7 +308,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Define the nucleus (energies and matrix elements) </p>
 
-<p>Definition at line <a class="el" href="TransitionRates_8h_source.html#l00039">39</a> of file <a class="el" href="TransitionRates_8h_source.html">TransitionRates.h</a>.</p>
+<p>Definition at line <a class="el" href="TransitionRates_8h_source.html#l00042">42</a> of file <a class="el" href="TransitionRates_8h_source.html">TransitionRates.h</a>.</p>
 
 </div>
 </div>

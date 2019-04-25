@@ -19,6 +19,9 @@ Inheritance diagram for Particle\-Detector\-:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hypertarget{classParticleDetector_a13be1b713dc004d1a739306bb7094f19}{{\bfseries Particle\-Detector} (T\-Graph2\-D $\ast$, T\-Graph $\ast$)}\label{classParticleDetector_a13be1b713dc004d1a739306bb7094f19}
+
+\item 
 \hyperlink{classParticleDetector_ae4e67f0c8345fdc41aae3773b7207c32}{Particle\-Detector} (const \hyperlink{classParticleDetector}{Particle\-Detector} \&d)
 \item 
 \hyperlink{classParticleDetector}{Particle\-Detector} \& \hyperlink{classParticleDetector_aa0f3176c3ce050c7922631d14e4917b4}{operator=} (const \hyperlink{classParticleDetector}{Particle\-Detector} \&d)
@@ -29,18 +32,24 @@ virtual double \hyperlink{classParticleDetector_a67d7e51f3c565dd6cff3ff0225bd657
 \item 
 virtual double \hyperlink{classParticleDetector_ad0380f4df4bbbaf307b4b475b337dd5b}{Get\-Theta\-Max} ()
 \item 
-virtual T\-H1\-F $\ast$ \hyperlink{classParticleDetector_aee088d19449faa1a4658a25f3e9a8491}{Get\-Theta\-Efficiency\-Hist} () const 
+virtual T\-Graph $\ast$ \hyperlink{classParticleDetector_ac5a51358fe30bfcef1a48da8930da4ea}{Get\-Theta\-Efficiency\-Graph} () const 
 \item 
-virtual T\-H2\-F $\ast$ \hyperlink{classParticleDetector_a35f50afc4ffafcf9a9ff86e06cb5fa30}{Get\-Theta\-Phi\-Map} () const 
+virtual T\-Graph2\-D $\ast$ \hyperlink{classParticleDetector_aa5bc9115da65668ec8a2027f79dd0902}{Get\-Theta\-Phi\-Map} () const 
 \item 
 virtual void \hyperlink{classParticleDetector_a8f27064544d26812431e508fefdf4945}{Write\-Particle\-Detector} (const char $\ast$filename, const char $\ast$opt=\char`\"{}U\-P\-D\-A\-T\-E\char`\"{})
+\item 
+\hypertarget{classParticleDetector_a584af6669661283d25ce0037d665fa55}{virtual void {\bfseries Set\-Theta\-Efficiency\-Graph} (T\-Graph $\ast$g)}\label{classParticleDetector_a584af6669661283d25ce0037d665fa55}
+
+\item 
+\hypertarget{classParticleDetector_a4db10eaa6c269a84041ac9c59f8cd39c}{virtual void {\bfseries Set\-Theta\-Phi\-Map} (T\-Graph2\-D $\ast$g)}\label{classParticleDetector_a4db10eaa6c269a84041ac9c59f8cd39c}
+
 \end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-T\-H2\-F $\ast$ \hyperlink{classParticleDetector_a23704fdd3fd36c821136ad14b89f8f4a}{h\-Theta\-Phi}
+T\-Graph2\-D $\ast$ \hyperlink{classParticleDetector_ab6db8f2e3f46b721f78a538e9ce4678f}{g\-Theta\-Phi}
 \item 
-T\-H1\-F $\ast$ \hyperlink{classParticleDetector_a246ea62a664366cf8f05e870658bae09}{h\-Theta\-Eff}
+T\-Graph $\ast$ \hyperlink{classParticleDetector_a5924d78e9a6870d6c0a16d886c9cf40c}{g\-Theta\-Eff}
 \item 
 bool \hyperlink{classParticleDetector_a52a6f3a2af63e5d5b8cd61b53a47e944}{set\-Flag}
 \end{DoxyCompactItemize}
@@ -49,7 +58,7 @@ bool \hyperlink{classParticleDetector_a52a6f3a2af63e5d5b8cd61b53a47e944}{set\-Fl
 \subsection{Detailed Description}
 Generic class to defined particle detection efficiencies in theta and phi for corrections to the integrated yields. 
 
-Definition at line 18 of file Particle\-Detector.\-h.
+Definition at line 17 of file Particle\-Detector.\-h.
 
 
 
@@ -77,15 +86,15 @@ Definition at line 3 of file Particle\-Detector.\-cxx.
 )\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classParticleDetector_aaa0f7a2570187065fa058686fc5a8d47}
 Get the particle detection efficiency for a given thete (lab frame) 
 
-Definition at line 20 of file Particle\-Detector.\-cxx.
+Definition at line 26 of file Particle\-Detector.\-cxx.
 
-\hypertarget{classParticleDetector_aee088d19449faa1a4658a25f3e9a8491}{\index{Particle\-Detector@{Particle\-Detector}!Get\-Theta\-Efficiency\-Hist@{Get\-Theta\-Efficiency\-Hist}}
-\index{Get\-Theta\-Efficiency\-Hist@{Get\-Theta\-Efficiency\-Hist}!ParticleDetector@{Particle\-Detector}}
-\subsubsection[{Get\-Theta\-Efficiency\-Hist}]{\setlength{\rightskip}{0pt plus 5cm}virtual T\-H1\-F$\ast$ Particle\-Detector\-::\-Get\-Theta\-Efficiency\-Hist (
+\hypertarget{classParticleDetector_ac5a51358fe30bfcef1a48da8930da4ea}{\index{Particle\-Detector@{Particle\-Detector}!Get\-Theta\-Efficiency\-Graph@{Get\-Theta\-Efficiency\-Graph}}
+\index{Get\-Theta\-Efficiency\-Graph@{Get\-Theta\-Efficiency\-Graph}!ParticleDetector@{Particle\-Detector}}
+\subsubsection[{Get\-Theta\-Efficiency\-Graph}]{\setlength{\rightskip}{0pt plus 5cm}virtual T\-Graph$\ast$ Particle\-Detector\-::\-Get\-Theta\-Efficiency\-Graph (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classParticleDetector_aee088d19449faa1a4658a25f3e9a8491}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classParticleDetector_ac5a51358fe30bfcef1a48da8930da4ea}
 Return the 1\-D histogram, defining detection efficiency in theta 
 
 Definition at line 31 of file Particle\-Detector.\-h.
@@ -99,7 +108,7 @@ Definition at line 31 of file Particle\-Detector.\-h.
 )\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classParticleDetector_ad0380f4df4bbbaf307b4b475b337dd5b}
 Find the maximum theta covered by the detector. For use to define the integration range. 
 
-Definition at line 46 of file Particle\-Detector.\-cxx.
+Definition at line 61 of file Particle\-Detector.\-cxx.
 
 \hypertarget{classParticleDetector_a67d7e51f3c565dd6cff3ff0225bd6572}{\index{Particle\-Detector@{Particle\-Detector}!Get\-Theta\-Min@{Get\-Theta\-Min}}
 \index{Get\-Theta\-Min@{Get\-Theta\-Min}!ParticleDetector@{Particle\-Detector}}
@@ -110,15 +119,15 @@ Definition at line 46 of file Particle\-Detector.\-cxx.
 )\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classParticleDetector_a67d7e51f3c565dd6cff3ff0225bd6572}
 Find the minimum theta covered by the detector. For use to define the integration range. 
 
-Definition at line 33 of file Particle\-Detector.\-cxx.
+Definition at line 39 of file Particle\-Detector.\-cxx.
 
-\hypertarget{classParticleDetector_a35f50afc4ffafcf9a9ff86e06cb5fa30}{\index{Particle\-Detector@{Particle\-Detector}!Get\-Theta\-Phi\-Map@{Get\-Theta\-Phi\-Map}}
+\hypertarget{classParticleDetector_aa5bc9115da65668ec8a2027f79dd0902}{\index{Particle\-Detector@{Particle\-Detector}!Get\-Theta\-Phi\-Map@{Get\-Theta\-Phi\-Map}}
 \index{Get\-Theta\-Phi\-Map@{Get\-Theta\-Phi\-Map}!ParticleDetector@{Particle\-Detector}}
-\subsubsection[{Get\-Theta\-Phi\-Map}]{\setlength{\rightskip}{0pt plus 5cm}virtual T\-H2\-F$\ast$ Particle\-Detector\-::\-Get\-Theta\-Phi\-Map (
+\subsubsection[{Get\-Theta\-Phi\-Map}]{\setlength{\rightskip}{0pt plus 5cm}virtual T\-Graph2\-D$\ast$ Particle\-Detector\-::\-Get\-Theta\-Phi\-Map (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classParticleDetector_a35f50afc4ffafcf9a9ff86e06cb5fa30}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classParticleDetector_aa5bc9115da65668ec8a2027f79dd0902}
 Return the 2\-D histogram, defining detection efficiency in theta and phi 
 
 Definition at line 32 of file Particle\-Detector.\-h.
@@ -144,31 +153,31 @@ Definition at line 10 of file Particle\-Detector.\-cxx.
 )\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classParticleDetector_a8f27064544d26812431e508fefdf4945}
 Write the particle detection efficiencies to file, filename, with options, opt 
 
-Definition at line 60 of file Particle\-Detector.\-cxx.
+Definition at line 84 of file Particle\-Detector.\-cxx.
 
 
 
 \subsection{Field Documentation}
-\hypertarget{classParticleDetector_a246ea62a664366cf8f05e870658bae09}{\index{Particle\-Detector@{Particle\-Detector}!h\-Theta\-Eff@{h\-Theta\-Eff}}
-\index{h\-Theta\-Eff@{h\-Theta\-Eff}!ParticleDetector@{Particle\-Detector}}
-\subsubsection[{h\-Theta\-Eff}]{\setlength{\rightskip}{0pt plus 5cm}T\-H1\-F$\ast$ Particle\-Detector\-::h\-Theta\-Eff\hspace{0.3cm}{\ttfamily [protected]}}}\label{classParticleDetector_a246ea62a664366cf8f05e870658bae09}
+\hypertarget{classParticleDetector_a5924d78e9a6870d6c0a16d886c9cf40c}{\index{Particle\-Detector@{Particle\-Detector}!g\-Theta\-Eff@{g\-Theta\-Eff}}
+\index{g\-Theta\-Eff@{g\-Theta\-Eff}!ParticleDetector@{Particle\-Detector}}
+\subsubsection[{g\-Theta\-Eff}]{\setlength{\rightskip}{0pt plus 5cm}T\-Graph$\ast$ Particle\-Detector\-::g\-Theta\-Eff\hspace{0.3cm}{\ttfamily [protected]}}}\label{classParticleDetector_a5924d78e9a6870d6c0a16d886c9cf40c}
 Histogram defining particle detection efficiency in theta 
 
-Definition at line 39 of file Particle\-Detector.\-h.
+Definition at line 43 of file Particle\-Detector.\-h.
 
-\hypertarget{classParticleDetector_a23704fdd3fd36c821136ad14b89f8f4a}{\index{Particle\-Detector@{Particle\-Detector}!h\-Theta\-Phi@{h\-Theta\-Phi}}
-\index{h\-Theta\-Phi@{h\-Theta\-Phi}!ParticleDetector@{Particle\-Detector}}
-\subsubsection[{h\-Theta\-Phi}]{\setlength{\rightskip}{0pt plus 5cm}T\-H2\-F$\ast$ Particle\-Detector\-::h\-Theta\-Phi\hspace{0.3cm}{\ttfamily [protected]}}}\label{classParticleDetector_a23704fdd3fd36c821136ad14b89f8f4a}
+\hypertarget{classParticleDetector_ab6db8f2e3f46b721f78a538e9ce4678f}{\index{Particle\-Detector@{Particle\-Detector}!g\-Theta\-Phi@{g\-Theta\-Phi}}
+\index{g\-Theta\-Phi@{g\-Theta\-Phi}!ParticleDetector@{Particle\-Detector}}
+\subsubsection[{g\-Theta\-Phi}]{\setlength{\rightskip}{0pt plus 5cm}T\-Graph2\-D$\ast$ Particle\-Detector\-::g\-Theta\-Phi\hspace{0.3cm}{\ttfamily [protected]}}}\label{classParticleDetector_ab6db8f2e3f46b721f78a538e9ce4678f}
 Histogram defining particle detection efficiency in theta and phi 
 
-Definition at line 38 of file Particle\-Detector.\-h.
+Definition at line 42 of file Particle\-Detector.\-h.
 
 \hypertarget{classParticleDetector_a52a6f3a2af63e5d5b8cd61b53a47e944}{\index{Particle\-Detector@{Particle\-Detector}!set\-Flag@{set\-Flag}}
 \index{set\-Flag@{set\-Flag}!ParticleDetector@{Particle\-Detector}}
 \subsubsection[{set\-Flag}]{\setlength{\rightskip}{0pt plus 5cm}bool Particle\-Detector\-::set\-Flag\hspace{0.3cm}{\ttfamily [protected]}}}\label{classParticleDetector_a52a6f3a2af63e5d5b8cd61b53a47e944}
 Indicates whether the efficiency maps have been defined 
 
-Definition at line 40 of file Particle\-Detector.\-h.
+Definition at line 44 of file Particle\-Detector.\-h.
 
 
 

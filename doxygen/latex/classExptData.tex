@@ -27,6 +27,8 @@ void \hyperlink{classExptData_aabe3d956a3235307f474ab08b78c1fcb}{Set} (int i, in
 \item 
 void \hyperlink{classExptData_ad624ee2122e68682cc169837c1ca8982}{Set\-Counts} (double c)
 \item 
+void \hyperlink{classExptData_afff049b9a06c22761797834200954d90}{Set\-Efficiency} (double eff)
+\item 
 int \hyperlink{classExptData_a706e630776c6a7631bf9262ad1a80106}{Get\-Initial\-Index} () const 
 \item 
 int \hyperlink{classExptData_a0c78fa191eb42a996b54b626bc1cbfaf}{Get\-Final\-Index} () const 
@@ -36,6 +38,8 @@ double \hyperlink{classExptData_af1cb66118a2f20e87cc83168417ff5db}{Get\-Counts} 
 double \hyperlink{classExptData_a8439a7e32034c37e59634166a107d324}{Get\-Up\-Unc} () const 
 \item 
 double \hyperlink{classExptData_a127c06dc6111a694bbe07bd7de9f9dd8}{Get\-Dn\-Unc} () const 
+\item 
+double \hyperlink{classExptData_ae7fd92485ef49fdb4fcd0966163ce397}{Get\-Efficiency} () const 
 \item 
 void \hyperlink{classExptData_a68d25d343b572b676a14fb3d79b211ae}{Print} () const 
 \end{DoxyCompactItemize}
@@ -105,7 +109,7 @@ Definition at line 3 of file Experimental\-Input.\-cxx.
 ) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExptData_af1cb66118a2f20e87cc83168417ff5db}
 Return yield 
 
-Definition at line 66 of file Experimental\-Input.\-h.
+Definition at line 68 of file Experimental\-Input.\-h.
 
 \hypertarget{classExptData_a127c06dc6111a694bbe07bd7de9f9dd8}{\index{Expt\-Data@{Expt\-Data}!Get\-Dn\-Unc@{Get\-Dn\-Unc}}
 \index{Get\-Dn\-Unc@{Get\-Dn\-Unc}!ExptData@{Expt\-Data}}
@@ -116,7 +120,18 @@ Definition at line 66 of file Experimental\-Input.\-h.
 ) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExptData_a127c06dc6111a694bbe07bd7de9f9dd8}
 Return negative uncertainty 
 
-Definition at line 68 of file Experimental\-Input.\-h.
+Definition at line 70 of file Experimental\-Input.\-h.
+
+\hypertarget{classExptData_ae7fd92485ef49fdb4fcd0966163ce397}{\index{Expt\-Data@{Expt\-Data}!Get\-Efficiency@{Get\-Efficiency}}
+\index{Get\-Efficiency@{Get\-Efficiency}!ExptData@{Expt\-Data}}
+\subsubsection[{Get\-Efficiency}]{\setlength{\rightskip}{0pt plus 5cm}double Expt\-Data\-::\-Get\-Efficiency (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExptData_ae7fd92485ef49fdb4fcd0966163ce397}
+Return detection efficiency 
+
+Definition at line 71 of file Experimental\-Input.\-h.
 
 \hypertarget{classExptData_a0c78fa191eb42a996b54b626bc1cbfaf}{\index{Expt\-Data@{Expt\-Data}!Get\-Final\-Index@{Get\-Final\-Index}}
 \index{Get\-Final\-Index@{Get\-Final\-Index}!ExptData@{Expt\-Data}}
@@ -127,7 +142,7 @@ Definition at line 68 of file Experimental\-Input.\-h.
 ) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExptData_a0c78fa191eb42a996b54b626bc1cbfaf}
 Return final state index 
 
-Definition at line 65 of file Experimental\-Input.\-h.
+Definition at line 67 of file Experimental\-Input.\-h.
 
 \hypertarget{classExptData_a706e630776c6a7631bf9262ad1a80106}{\index{Expt\-Data@{Expt\-Data}!Get\-Initial\-Index@{Get\-Initial\-Index}}
 \index{Get\-Initial\-Index@{Get\-Initial\-Index}!ExptData@{Expt\-Data}}
@@ -138,7 +153,7 @@ Definition at line 65 of file Experimental\-Input.\-h.
 ) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExptData_a706e630776c6a7631bf9262ad1a80106}
 Return initial state index 
 
-Definition at line 64 of file Experimental\-Input.\-h.
+Definition at line 66 of file Experimental\-Input.\-h.
 
 \hypertarget{classExptData_a8439a7e32034c37e59634166a107d324}{\index{Expt\-Data@{Expt\-Data}!Get\-Up\-Unc@{Get\-Up\-Unc}}
 \index{Get\-Up\-Unc@{Get\-Up\-Unc}!ExptData@{Expt\-Data}}
@@ -149,7 +164,7 @@ Definition at line 64 of file Experimental\-Input.\-h.
 ) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExptData_a8439a7e32034c37e59634166a107d324}
 Return positive uncertainty 
 
-Definition at line 67 of file Experimental\-Input.\-h.
+Definition at line 69 of file Experimental\-Input.\-h.
 
 \hypertarget{classExptData_abaec133873ceee3e02d77951451bcdc6}{\index{Expt\-Data@{Expt\-Data}!operator=@{operator=}}
 \index{operator=@{operator=}!ExptData@{Expt\-Data}}
@@ -171,7 +186,7 @@ Definition at line 13 of file Experimental\-Input.\-cxx.
 ) const}}\label{classExptData_a68d25d343b572b676a14fb3d79b211ae}
 Print yield information 
 
-Definition at line 62 of file Experimental\-Input.\-cxx.
+Definition at line 63 of file Experimental\-Input.\-cxx.
 
 \hypertarget{classExptData_a9f1982e8e8471bf8b99017d60e0bdd02}{\index{Expt\-Data@{Expt\-Data}!Set@{Set}}
 \index{Set@{Set}!ExptData@{Expt\-Data}}
@@ -212,6 +227,17 @@ Definition at line 61 of file Experimental\-Input.\-h.
 Set experimental yield, c 
 
 Definition at line 62 of file Experimental\-Input.\-h.
+
+\hypertarget{classExptData_afff049b9a06c22761797834200954d90}{\index{Expt\-Data@{Expt\-Data}!Set\-Efficiency@{Set\-Efficiency}}
+\index{Set\-Efficiency@{Set\-Efficiency}!ExptData@{Expt\-Data}}
+\subsubsection[{Set\-Efficiency}]{\setlength{\rightskip}{0pt plus 5cm}void Expt\-Data\-::\-Set\-Efficiency (
+\begin{DoxyParamCaption}
+\item[{double}]{eff}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExptData_afff049b9a06c22761797834200954d90}
+Define the detection efficiency. Default = 1 (i.\-e. efficiency corrected) 
+
+Definition at line 64 of file Experimental\-Input.\-h.
 
 
 

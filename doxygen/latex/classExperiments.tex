@@ -55,11 +55,13 @@ void \hyperlink{classExperiments_a8aa4eb6fa6131902a90a4c602bb055f7}{Set\-Accurac
 \item 
 void \hyperlink{classExperiments_a777e9756290797247971042c4e64ed9e}{Set\-Stopping} (\hyperlink{classStoppingPower}{Stopping\-Power} s)
 \item 
-void \hyperlink{classExperiments_a50e179731fa9b2c693badaefd9b698cc}{Set\-Particle\-Detector\-Eff} (int i, T\-H1\-F $\ast$p)
+void \hyperlink{classExperiments_ac3ecd5d912831599b4b4a2ae290a012e}{Set\-Particle\-Detector\-Eff} (int i, T\-Graph $\ast$p)
 \item 
 void \hyperlink{classExperiments_a7902dd87eee8cf24ded441ba889f97fb}{Use\-Efficiency} (bool b=true)
 \item 
 void \hyperlink{classExperiments_a2766ab644312a272bde08e4abfa02c18}{Set\-Projectile\-Excitation} (bool b=true)
+\item 
+void \hyperlink{classExperiments_a9be7f0d32798b9d3bd747b64bfde10bf}{Set\-Stopping} ()
 \end{DoxyCompactItemize}
 
 
@@ -243,7 +245,7 @@ Definition at line 76 of file Experiments.\-cxx.
 )}}\label{classExperiments_afdfa4aa08db9ec85ca899439bdcd813a}
 Determine the correction factor required to convert a point to an energy and angle integrated calculation 
 
-Definition at line 136 of file Experiments.\-cxx.
+Definition at line 147 of file Experiments.\-cxx.
 
 \hypertarget{classExperiments_ae668ff4f1bf3a6d6ae04d0e1a05aecf2}{\index{Experiments@{Experiments}!Print\-Details@{Print\-Details}}
 \index{Print\-Details@{Print\-Details}!Experiments@{Experiments}}
@@ -254,7 +256,7 @@ Definition at line 136 of file Experiments.\-cxx.
 ) const}}\label{classExperiments_ae668ff4f1bf3a6d6ae04d0e1a05aecf2}
 Print the details of the experimental ranges stored within the class 
 
-Definition at line 185 of file Experiments.\-cxx.
+Definition at line 199 of file Experiments.\-cxx.
 
 \hypertarget{classExperiments_a3f5c399a9ef5a852fc7045669ca05f74}{\index{Experiments@{Experiments}!Print\-Point\-Corrections@{Print\-Point\-Corrections}}
 \index{Print\-Point\-Corrections@{Print\-Point\-Corrections}!Experiments@{Experiments}}
@@ -265,7 +267,7 @@ Definition at line 185 of file Experiments.\-cxx.
 )}}\label{classExperiments_a3f5c399a9ef5a852fc7045669ca05f74}
 Print the correction factors as determined by Point\-Corrections 
 
-Definition at line 196 of file Experiments.\-cxx.
+Definition at line 210 of file Experiments.\-cxx.
 
 \hypertarget{classExperiments_a8aa4eb6fa6131902a90a4c602bb055f7}{\index{Experiments@{Experiments}!Set\-Accuracy@{Set\-Accuracy}}
 \index{Set\-Accuracy@{Set\-Accuracy}!Experiments@{Experiments}}
@@ -289,14 +291,14 @@ Set the number of cores the code can use for integration
 
 Definition at line 95 of file Experiments.\-h.
 
-\hypertarget{classExperiments_a50e179731fa9b2c693badaefd9b698cc}{\index{Experiments@{Experiments}!Set\-Particle\-Detector\-Eff@{Set\-Particle\-Detector\-Eff}}
+\hypertarget{classExperiments_ac3ecd5d912831599b4b4a2ae290a012e}{\index{Experiments@{Experiments}!Set\-Particle\-Detector\-Eff@{Set\-Particle\-Detector\-Eff}}
 \index{Set\-Particle\-Detector\-Eff@{Set\-Particle\-Detector\-Eff}!Experiments@{Experiments}}
 \subsubsection[{Set\-Particle\-Detector\-Eff}]{\setlength{\rightskip}{0pt plus 5cm}void Experiments\-::\-Set\-Particle\-Detector\-Eff (
 \begin{DoxyParamCaption}
 \item[{int}]{i, }
-\item[{T\-H1\-F $\ast$}]{p}
+\item[{T\-Graph $\ast$}]{p}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperiments_a50e179731fa9b2c693badaefd9b698cc}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperiments_ac3ecd5d912831599b4b4a2ae290a012e}
 Define the detection efficiency of the particle detector vs theta (lab) 
 
 Definition at line 102 of file Experiments.\-h.
@@ -322,6 +324,17 @@ Definition at line 106 of file Experiments.\-h.
 Define the stopping powers to be used in the integration process 
 
 Definition at line 100 of file Experiments.\-h.
+
+\hypertarget{classExperiments_a9be7f0d32798b9d3bd747b64bfde10bf}{\index{Experiments@{Experiments}!Set\-Stopping@{Set\-Stopping}}
+\index{Set\-Stopping@{Set\-Stopping}!Experiments@{Experiments}}
+\subsubsection[{Set\-Stopping}]{\setlength{\rightskip}{0pt plus 5cm}void Experiments\-::\-Set\-Stopping (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classExperiments_a9be7f0d32798b9d3bd747b64bfde10bf}
+Set stopping powers for experiment ranges 
+
+Definition at line 136 of file Experiments.\-cxx.
 
 \hypertarget{classExperiments_a5bc069b7d1388ed1aac87600bff18b43}{\index{Experiments@{Experiments}!Set\-Verbose@{Set\-Verbose}}
 \index{Set\-Verbose@{Set\-Verbose}!Experiments@{Experiments}}
@@ -355,7 +368,7 @@ Definition at line 104 of file Experiments.\-h.
 )}}\label{classExperiments_add6a2b8636244411a03515f396b3603d}
 Writes the theta-\/energy cross section surfaces (T\-Graph \& T\-Graph2\-D) to a R\-O\-O\-T file 
 
-Definition at line 218 of file Experiments.\-cxx.
+Definition at line 232 of file Experiments.\-cxx.
 
 
 

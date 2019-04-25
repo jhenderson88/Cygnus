@@ -96,6 +96,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a3068d9b05d9e2fb02e89968869ce18ea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3068d9b05d9e2fb02e89968869ce18ea"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>StatisticalTensor</b> (const <a class="el" href="classStatisticalTensor.html">StatisticalTensor</a> &amp;)</td></tr>
+<tr class="separator:a3068d9b05d9e2fb02e89968869ce18ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afaf35272339e33b9cedf06bd6cfb6a0a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afaf35272339e33b9cedf06bd6cfb6a0a"></a>
+<a class="el" href="classStatisticalTensor.html">StatisticalTensor</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classStatisticalTensor.html">StatisticalTensor</a> &amp;)</td></tr>
+<tr class="separator:afaf35272339e33b9cedf06bd6cfb6a0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29b7d869efd527ea27ffc8aa9c30e7d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStatisticalTensor.html#a29b7d869efd527ea27ffc8aa9c30e7d5">SetNstates</a> (int n)</td></tr>
 <tr class="separator:a29b7d869efd527ea27ffc8aa9c30e7d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acfe377cf206cd2398b4b2906577d96c1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStatisticalTensor.html#acfe377cf206cd2398b4b2906577d96c1">GetNstates</a> ()</td></tr>
@@ -106,11 +112,13 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:abddf74499feeb18eb458d7e6f7c5c846"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c6b630b2b5ef343d175393d10b3d020"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStatisticalTensor.html#a9c6b630b2b5ef343d175393d10b3d020">AddStateTensor</a> (<a class="el" href="classStateTensor.html">StateTensor</a> t)</td></tr>
 <tr class="separator:a9c6b630b2b5ef343d175393d10b3d020"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a306a2aa77470436c6dbb549a4ea396c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStatisticalTensor.html#a306a2aa77470436c6dbb549a4ea396c8">SetStateTensor</a> (int i, <a class="el" href="classStateTensor.html">StateTensor</a> t)</td></tr>
+<tr class="separator:a306a2aa77470436c6dbb549a4ea396c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Holder for <a class="el" href="classStateTensor.html" title="Statistical tensor information for a single state. ">StateTensor</a> classes containing statistical tensor information for all populated states. </p>
 
-<p>Definition at line <a class="el" href="StatisticalTensor_8h_source.html#l00046">46</a> of file <a class="el" href="StatisticalTensor_8h_source.html">StatisticalTensor.h</a>.</p>
+<p>Definition at line <a class="el" href="StatisticalTensor_8h_source.html#l00052">52</a> of file <a class="el" href="StatisticalTensor_8h_source.html">StatisticalTensor.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a9c6b630b2b5ef343d175393d10b3d020"></a>
 <div class="memitem">
@@ -135,7 +143,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add a new state tensor </p>
 
-<p>Definition at line <a class="el" href="StatisticalTensor_8h_source.html#l00059">59</a> of file <a class="el" href="StatisticalTensor_8h_source.html">StatisticalTensor.h</a>.</p>
+<p>Definition at line <a class="el" href="StatisticalTensor_8h_source.html#l00068">68</a> of file <a class="el" href="StatisticalTensor_8h_source.html">StatisticalTensor.h</a>.</p>
 
 </div>
 </div>
@@ -161,7 +169,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return the number of states </p>
 
-<p>Definition at line <a class="el" href="StatisticalTensor_8h_source.html#l00054">54</a> of file <a class="el" href="StatisticalTensor_8h_source.html">StatisticalTensor.h</a>.</p>
+<p>Definition at line <a class="el" href="StatisticalTensor_8h_source.html#l00063">63</a> of file <a class="el" href="StatisticalTensor_8h_source.html">StatisticalTensor.h</a>.</p>
 
 </div>
 </div>
@@ -188,7 +196,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return <a class="el" href="classStateTensor.html" title="Statistical tensor information for a single state. ">StateTensor</a> by state index </p>
 
-<p>Definition at line <a class="el" href="StatisticalTensor_8h_source.html#l00056">56</a> of file <a class="el" href="StatisticalTensor_8h_source.html">StatisticalTensor.h</a>.</p>
+<p>Definition at line <a class="el" href="StatisticalTensor_8h_source.html#l00065">65</a> of file <a class="el" href="StatisticalTensor_8h_source.html">StatisticalTensor.h</a>.</p>
 
 </div>
 </div>
@@ -214,7 +222,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return vector of <a class="el" href="classStateTensor.html" title="Statistical tensor information for a single state. ">StateTensor</a> objects </p>
 
-<p>Definition at line <a class="el" href="StatisticalTensor_8h_source.html#l00057">57</a> of file <a class="el" href="StatisticalTensor_8h_source.html">StatisticalTensor.h</a>.</p>
+<p>Definition at line <a class="el" href="StatisticalTensor_8h_source.html#l00066">66</a> of file <a class="el" href="StatisticalTensor_8h_source.html">StatisticalTensor.h</a>.</p>
 
 </div>
 </div>
@@ -241,12 +249,50 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Define the number of states </p>
 
-<p>Definition at line <a class="el" href="StatisticalTensor_8h_source.html#l00052">52</a> of file <a class="el" href="StatisticalTensor_8h_source.html">StatisticalTensor.h</a>.</p>
+<p>Definition at line <a class="el" href="StatisticalTensor_8h_source.html#l00061">61</a> of file <a class="el" href="StatisticalTensor_8h_source.html">StatisticalTensor.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a class="anchor" id="a306a2aa77470436c6dbb549a4ea396c8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StatisticalTensor::SetStateTensor </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classStateTensor.html">StateTensor</a>&#160;</td>
+          <td class="paramname"><em>t</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Set a tensors for state i </p>
+
+<p>Definition at line <a class="el" href="StatisticalTensor_8h_source.html#l00069">69</a> of file <a class="el" href="StatisticalTensor_8h_source.html">StatisticalTensor.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="StatisticalTensor_8h_source.html">StatisticalTensor.h</a></li>
+<li><a class="el" href="StatisticalTensor_8cxx_source.html">StatisticalTensor.cxx</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -8,6 +8,8 @@ CoulExFitter::CoulExFitter()
 
 	fUsePoisson	= false;
 
+	fDoFullUnc	= false;
+
 	first		= true;
 
 	maxIter		= 500;
@@ -121,7 +123,17 @@ void CoulExFitter::DoFit(const char* method, const char *algorithm){
 			min->SetLowerLimitedVariable(i,name,parameters.at(i),0.0001,0);//,par_LL.at(i),par_UL.at(i));
 		}
 	}
-	
+
+	if(!verbose){
+		std::cout 	<< std::setw(12) << std::left << "Iteration:" 
+				<< std::setw(13) << std::left << "Chi2 value:" 
+				<< std::setw(7)  << std::left << "NDF:"
+				<< std::setw(13) << std::left << "Red. Chi2:"
+				<< std::setw(12) << std::left << "Lit. Chi2:" 
+				<< std::setw(24) << std::left << "Processing time: (ms)" 
+				<< std::endl;
+	}
+		
 	typedef std::chrono::high_resolution_clock Clock;
 	typedef std::chrono::milliseconds milliseconds;
 	Clock::time_point t0 = Clock::now();
@@ -140,6 +152,45 @@ void CoulExFitter::DoFit(const char* method, const char *algorithm){
 	const double	*res = min->X();
 	for(unsigned int i=0;i<parameters.size();i++)
 		parameters[i] = res[i];
+
+	covMat.ResizeTo(parameters.size(),parameters.size());
+	corMat.ResizeTo(parameters.size(),parameters.size());
+	for(unsigned int i=0;i<parameters.size();i++){
+		for(unsigned int j=i;j<parameters.size();j++){
+			covMat[i][j] = min->CovMatrix(i,j);
+			covMat[j][i] = min->CovMatrix(j,i);
+			corMat[i][j] = min->Correlation(i,j);
+			corMat[j][i] = min->Correlation(j,i);
+		}
+	}
+
+	if(DoFullUncertainty()){
+		std::cout	<< "MINOS uncertainties (asymmetric):"
+				<< std::endl;
+		std::vector<double> errLowVec, errUpVec;
+		for(unsigned int i=0;i<parameters.size();i++){
+			double errLow, errUp;
+			min->GetMinosError(i,errLow,errUp);
+			errLowVec.push_back(errLow);
+			errUpVec.push_back(errUp);
+		}
+		std::cout	<< "Correlated uncertainty calculation completed"
+				<< std::endl;
+		std::cout	<< std::setw(14) << std::left << "Parameter" 
+				<< std::setw(14) << std::left << "Value" 
+				<< std::setw(14) << "+" 
+				<< std::setw(3) << "/"
+				<< std::setw(14) << "-" 
+				<< std::endl;
+		for(unsigned int i=0;i<parameters.size();i++){
+			std::cout	<< std::setw(14) << std::left << min->VariableName(i)
+					<< std::setw(14) << std::left << parameters[i]
+					<< std::setw(14) << errUpVec[i] 
+					<< std::setw(3) << ""
+					<< std::setw(14) << errLowVec[i]
+					<< std::endl;
+		}
+	}
 
 	//for(unsigned int i=0;i<parameters.size();i++)
 	//	parameters[i] = theFCN.GetParameter(i);

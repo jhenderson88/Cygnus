@@ -15,6 +15,12 @@ Determine spectroscopic information from matrix elements.
 \item 
 \hyperlink{classTransitionRates_ad00aaf48b7c94926a5c9f0b0d03b42c8}{Transition\-Rates} (\hyperlink{classNucleus}{Nucleus} $\ast$)
 \item 
+\hypertarget{classTransitionRates_a9717bbd31eff3931a0f2cdb545c9224d}{{\bfseries Transition\-Rates} (const \hyperlink{classTransitionRates}{Transition\-Rates} \&)}\label{classTransitionRates_a9717bbd31eff3931a0f2cdb545c9224d}
+
+\item 
+\hypertarget{classTransitionRates_ac2a000813227d0b9e0d082e7dc336524}{\hyperlink{classTransitionRates}{Transition\-Rates} \& {\bfseries operator=} (const \hyperlink{classTransitionRates}{Transition\-Rates} \&)}\label{classTransitionRates_ac2a000813227d0b9e0d082e7dc336524}
+
+\item 
 void \hyperlink{classTransitionRates_a7601fbf2a719b9da760224c6204157fa}{Set\-Matrix\-Elements} ()
 \item 
 void \hyperlink{classTransitionRates_aa6b4319cdf1d3fe9a983df698b3a4b20}{Print} () const 
@@ -26,6 +32,8 @@ T\-Matrix\-D \hyperlink{classTransitionRates_a187b19b9f3da2d284644455ece9b5204}{
 T\-Matrix\-D \hyperlink{classTransitionRates_a7bd21177c625ea6e51c45ef66bd28275}{Get\-Mixing\-Ratios} () const 
 \item 
 void \hyperlink{classTransitionRates_a667cc48402a7a5b06826b3c9993d0ca2}{Set\-Nucleus} (\hyperlink{classNucleus}{Nucleus} $\ast$nucl)
+\item 
+int \hyperlink{classTransitionRates_a31184f9d66260f0575a2f5c1be7683f4}{Get\-N\-Decays} () const 
 \end{DoxyCompactItemize}
 
 
@@ -62,7 +70,7 @@ Definition at line 7 of file Transition\-Rates.\-cxx.
 ) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classTransitionRates_a187b19b9f3da2d284644455ece9b5204}
 Return a T\-Vector\-D of branching ratios 
 
-Definition at line 36 of file Transition\-Rates.\-h.
+Definition at line 39 of file Transition\-Rates.\-h.
 
 \hypertarget{classTransitionRates_afe1e8c779441b1d54debf169fcd6936e}{\index{Transition\-Rates@{Transition\-Rates}!Get\-Lifetimes@{Get\-Lifetimes}}
 \index{Get\-Lifetimes@{Get\-Lifetimes}!TransitionRates@{Transition\-Rates}}
@@ -73,7 +81,7 @@ Definition at line 36 of file Transition\-Rates.\-h.
 ) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classTransitionRates_afe1e8c779441b1d54debf169fcd6936e}
 Return a T\-Vector\-D of state lifetimes (ps) 
 
-Definition at line 35 of file Transition\-Rates.\-h.
+Definition at line 38 of file Transition\-Rates.\-h.
 
 \hypertarget{classTransitionRates_a7bd21177c625ea6e51c45ef66bd28275}{\index{Transition\-Rates@{Transition\-Rates}!Get\-Mixing\-Ratios@{Get\-Mixing\-Ratios}}
 \index{Get\-Mixing\-Ratios@{Get\-Mixing\-Ratios}!TransitionRates@{Transition\-Rates}}
@@ -84,7 +92,18 @@ Definition at line 35 of file Transition\-Rates.\-h.
 ) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classTransitionRates_a7bd21177c625ea6e51c45ef66bd28275}
 Return a T\-Matrix\-D of mixing ratios (E/\-M) 
 
-Definition at line 37 of file Transition\-Rates.\-h.
+Definition at line 40 of file Transition\-Rates.\-h.
+
+\hypertarget{classTransitionRates_a31184f9d66260f0575a2f5c1be7683f4}{\index{Transition\-Rates@{Transition\-Rates}!Get\-N\-Decays@{Get\-N\-Decays}}
+\index{Get\-N\-Decays@{Get\-N\-Decays}!TransitionRates@{Transition\-Rates}}
+\subsubsection[{Get\-N\-Decays}]{\setlength{\rightskip}{0pt plus 5cm}int Transition\-Rates\-::\-Get\-N\-Decays (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classTransitionRates_a31184f9d66260f0575a2f5c1be7683f4}
+Return the number of decays 
+
+Definition at line 44 of file Transition\-Rates.\-h.
 
 \hypertarget{classTransitionRates_aa6b4319cdf1d3fe9a983df698b3a4b20}{\index{Transition\-Rates@{Transition\-Rates}!Print@{Print}}
 \index{Print@{Print}!TransitionRates@{Transition\-Rates}}
@@ -95,7 +114,7 @@ Definition at line 37 of file Transition\-Rates.\-h.
 ) const}}\label{classTransitionRates_aa6b4319cdf1d3fe9a983df698b3a4b20}
 Print the data, as determined from energies and matrix elements 
 
-Definition at line 102 of file Transition\-Rates.\-cxx.
+Definition at line 213 of file Transition\-Rates.\-cxx.
 
 \hypertarget{classTransitionRates_a7601fbf2a719b9da760224c6204157fa}{\index{Transition\-Rates@{Transition\-Rates}!Set\-Matrix\-Elements@{Set\-Matrix\-Elements}}
 \index{Set\-Matrix\-Elements@{Set\-Matrix\-Elements}!TransitionRates@{Transition\-Rates}}
@@ -106,7 +125,7 @@ Definition at line 102 of file Transition\-Rates.\-cxx.
 )}}\label{classTransitionRates_a7601fbf2a719b9da760224c6204157fa}
 Set up the experimental data based on the provided \hyperlink{classNucleus}{Nucleus} class 
 
-Definition at line 22 of file Transition\-Rates.\-cxx.
+Definition at line 114 of file Transition\-Rates.\-cxx.
 
 \hypertarget{classTransitionRates_a667cc48402a7a5b06826b3c9993d0ca2}{\index{Transition\-Rates@{Transition\-Rates}!Set\-Nucleus@{Set\-Nucleus}}
 \index{Set\-Nucleus@{Set\-Nucleus}!TransitionRates@{Transition\-Rates}}
@@ -117,7 +136,7 @@ Definition at line 22 of file Transition\-Rates.\-cxx.
 )\hspace{0.3cm}{\ttfamily [inline]}}}\label{classTransitionRates_a667cc48402a7a5b06826b3c9993d0ca2}
 Define the nucleus (energies and matrix elements) 
 
-Definition at line 39 of file Transition\-Rates.\-h.
+Definition at line 42 of file Transition\-Rates.\-h.
 
 
 

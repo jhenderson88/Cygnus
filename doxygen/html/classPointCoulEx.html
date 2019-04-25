@@ -114,6 +114,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2b3413601d938ca86e6ccf0aa8e09f37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea871d21af150c2ca49c95be891bc717"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPointCoulEx.html#aea871d21af150c2ca49c95be891bc717">SetProjectileExcitation</a> (bool b=true)</td></tr>
 <tr class="separator:aea871d21af150c2ca49c95be891bc717"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a547911f31b59fb1e3d5bb9492e097422"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a547911f31b59fb1e3d5bb9492e097422"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetTargetDetection</b> (bool b=true)</td></tr>
+<tr class="separator:a547911f31b59fb1e3d5bb9492e097422"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0190b4e42074c4198e80f3403d25b14e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNucleus.html">Nucleus</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPointCoulEx.html#a0190b4e42074c4198e80f3403d25b14e">GetNucleus</a> ()</td></tr>
 <tr class="separator:a0190b4e42074c4198e80f3403d25b14e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4369d10a2ab275ffd79800f4b2946345"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classReaction.html">Reaction</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPointCoulEx.html#a4369d10a2ab275ffd79800f4b2946345">GetReaction</a> ()</td></tr>
@@ -140,6 +143,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a276ea0591ad200fbd40a53ac80c61634"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08232c7aba802b4820dc3859bf183a2e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classStatisticalTensor.html">StatisticalTensor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPointCoulEx.html#a08232c7aba802b4820dc3859bf183a2e">GetTensors</a> ()</td></tr>
 <tr class="separator:a08232c7aba802b4820dc3859bf183a2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4dca3329edc2696b088140eceef5bda"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classStatisticalTensor.html">StatisticalTensor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPointCoulEx.html#af4dca3329edc2696b088140eceef5bda">GetTensorsB</a> ()</td></tr>
+<tr class="separator:af4dca3329edc2696b088140eceef5bda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa03b7b60a372846b772659ff1b16c246"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPointCoulEx.html#aa03b7b60a372846b772659ff1b16c246">TrackReaction</a> (bool b=true)</td></tr>
 <tr class="separator:aa03b7b60a372846b772659ff1b16c246"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65c1db61988871c76583e54d52b721ec"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPointCoulEx.html#a65c1db61988871c76583e54d52b721ec">Tracking</a> () const </td></tr>
@@ -151,11 +156,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5324fc5b5d28c980ae0919bb7de6bb02"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector<br class="typebreak"/>
 &lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPointCoulEx.html#a5324fc5b5d28c980ae0919bb7de6bb02">GetProbabilityTrack</a> () const </td></tr>
 <tr class="separator:a5324fc5b5d28c980ae0919bb7de6bb02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a593fc5d2387da403ffaa6ceb12527ba0"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPointCoulEx.html#a593fc5d2387da403ffaa6ceb12527ba0">GetTheta</a> () const </td></tr>
+<tr class="separator:a593fc5d2387da403ffaa6ceb12527ba0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Calculate point Coulomb excitation amplitudes and associated statistical tensors. </p>
 <p>This class does the majority of the heavy lifting, calculating the Coulomb-excitation amplitudes and probabilities. The syntax borrows heavily from both GOSIA and CLX methods, but is organized rather differently.</p>
-<p><a class="el" href="classConnection.html" title="Holder for connections between substates (see Substate class). Contains information relevant to point...">Connection</a> information, rather than being stored in a number of matrices (as in CLX and GOSIA) is collected in a vector of <a class="el" href="classSubstate.html">Substate</a> objects.</p>
+<p><a class="el" href="classConnection.html" title="Holder for connections between substates (see Substate class). Contains information relevant to point...">Connection</a> information, rather than being stored in a number of matrices (as in CLX and GOSIA) is collected in a vector of <a class="el" href="classSubstate.html" title="Holder class for substate information. ">Substate</a> objects.</p>
 <p>The program then cycles through these substates during amplitude calculation.</p>
 <p>The numerical integration of the coupled-differential equations is performed using the CLX method:<br/>
 A Runge-Kutta algorithm is used to determine four initial points, before the Adams-Moulton method is employed. This differs from GOSIA, in which a pertubative technique is used to determine initial points. In practice, differences between methods are insignificant.</p>
@@ -188,7 +195,7 @@ A Runge-Kutta algorithm is used to determine four initial points, before the Ada
 </div><div class="memdoc">
 <p>Constructor, passing <a class="el" href="classNucleus.html" title="Holds information about the nucleus for which the CoulEx calculation will be performed. ">Nucleus</a> and Reactions immediately </p>
 
-<p>Definition at line <a class="el" href="PointCoulEx_8cxx_source.html#l00018">18</a> of file <a class="el" href="PointCoulEx_8cxx_source.html">PointCoulEx.cxx</a>.</p>
+<p>Definition at line <a class="el" href="PointCoulEx_8cxx_source.html#l00020">20</a> of file <a class="el" href="PointCoulEx_8cxx_source.html">PointCoulEx.cxx</a>.</p>
 
 </div>
 </div>
@@ -207,7 +214,7 @@ A Runge-Kutta algorithm is used to determine four initial points, before the Ada
 </div><div class="memdoc">
 <p>Copy constructor </p>
 
-<p>Definition at line <a class="el" href="PointCoulEx_8cxx_source.html#l00040">40</a> of file <a class="el" href="PointCoulEx_8cxx_source.html">PointCoulEx.cxx</a>.</p>
+<p>Definition at line <a class="el" href="PointCoulEx_8cxx_source.html#l00044">44</a> of file <a class="el" href="PointCoulEx_8cxx_source.html">PointCoulEx.cxx</a>.</p>
 
 </div>
 </div>
@@ -227,7 +234,7 @@ A Runge-Kutta algorithm is used to determine four initial points, before the Ada
 </div><div class="memdoc">
 <p>Calculate the point probabilities </p>
 
-<p>Definition at line <a class="el" href="PointCoulEx_8cxx_source.html#l00347">347</a> of file <a class="el" href="PointCoulEx_8cxx_source.html">PointCoulEx.cxx</a>.</p>
+<p>Definition at line <a class="el" href="PointCoulEx_8cxx_source.html#l00363">363</a> of file <a class="el" href="PointCoulEx_8cxx_source.html">PointCoulEx.cxx</a>.</p>
 
 </div>
 </div>
@@ -245,7 +252,7 @@ A Runge-Kutta algorithm is used to determine four initial points, before the Ada
 </div><div class="memdoc">
 <p>Calculate the statistical tensors based on the final amplitudes </p>
 
-<p>Definition at line <a class="el" href="PointCoulEx_8cxx_source.html#l00999">999</a> of file <a class="el" href="PointCoulEx_8cxx_source.html">PointCoulEx.cxx</a>.</p>
+<p>Definition at line <a class="el" href="PointCoulEx_8cxx_source.html#l00998">998</a> of file <a class="el" href="PointCoulEx_8cxx_source.html">PointCoulEx.cxx</a>.</p>
 
 </div>
 </div>
@@ -271,7 +278,7 @@ A Runge-Kutta algorithm is used to determine four initial points, before the Ada
 </div><div class="memdoc">
 <p>Return the epsilon (theta proxy) of the reaction </p>
 
-<p>Definition at line <a class="el" href="PointCoulEx_8h_source.html#l00101">101</a> of file <a class="el" href="PointCoulEx_8h_source.html">PointCoulEx.h</a>.</p>
+<p>Definition at line <a class="el" href="PointCoulEx_8h_source.html#l00104">104</a> of file <a class="el" href="PointCoulEx_8h_source.html">PointCoulEx.h</a>.</p>
 
 </div>
 </div>
@@ -297,7 +304,7 @@ A Runge-Kutta algorithm is used to determine four initial points, before the Ada
 </div><div class="memdoc">
 <p>Return the imaginary components of the final amplitudes </p>
 
-<p>Definition at line <a class="el" href="PointCoulEx_8h_source.html#l00093">93</a> of file <a class="el" href="PointCoulEx_8h_source.html">PointCoulEx.h</a>.</p>
+<p>Definition at line <a class="el" href="PointCoulEx_8h_source.html#l00095">95</a> of file <a class="el" href="PointCoulEx_8h_source.html">PointCoulEx.h</a>.</p>
 
 </div>
 </div>
@@ -323,7 +330,7 @@ A Runge-Kutta algorithm is used to determine four initial points, before the Ada
 </div><div class="memdoc">
 <p>Return the real components of the final amplitudes </p>
 
-<p>Definition at line <a class="el" href="PointCoulEx_8h_source.html#l00092">92</a> of file <a class="el" href="PointCoulEx_8h_source.html">PointCoulEx.h</a>.</p>
+<p>Definition at line <a class="el" href="PointCoulEx_8h_source.html#l00094">94</a> of file <a class="el" href="PointCoulEx_8h_source.html">PointCoulEx.h</a>.</p>
 
 </div>
 </div>
@@ -349,7 +356,7 @@ A Runge-Kutta algorithm is used to determine four initial points, before the Ada
 </div><div class="memdoc">
 <p>Return the <a class="el" href="classNucleus.html" title="Holds information about the nucleus for which the CoulEx calculation will be performed. ">Nucleus</a> used in the calculation </p>
 
-<p>Definition at line <a class="el" href="PointCoulEx_8h_source.html#l00077">77</a> of file <a class="el" href="PointCoulEx_8h_source.html">PointCoulEx.h</a>.</p>
+<p>Definition at line <a class="el" href="PointCoulEx_8h_source.html#l00079">79</a> of file <a class="el" href="PointCoulEx_8h_source.html">PointCoulEx.h</a>.</p>
 
 </div>
 </div>
@@ -375,7 +382,7 @@ A Runge-Kutta algorithm is used to determine four initial points, before the Ada
 </div><div class="memdoc">
 <p>Return a vector of the omega (time proxy) values during the reaction </p>
 
-<p>Definition at line <a class="el" href="PointCoulEx_8h_source.html#l00102">102</a> of file <a class="el" href="PointCoulEx_8h_source.html">PointCoulEx.h</a>.</p>
+<p>Definition at line <a class="el" href="PointCoulEx_8h_source.html#l00105">105</a> of file <a class="el" href="PointCoulEx_8h_source.html">PointCoulEx.h</a>.</p>
 
 </div>
 </div>
@@ -427,7 +434,7 @@ A Runge-Kutta algorithm is used to determine four initial points, before the Ada
 </div><div class="memdoc">
 <p>Return the probabilities, step-by-step, during the reaction </p>
 
-<p>Definition at line <a class="el" href="PointCoulEx_8h_source.html#l00103">103</a> of file <a class="el" href="PointCoulEx_8h_source.html">PointCoulEx.h</a>.</p>
+<p>Definition at line <a class="el" href="PointCoulEx_8h_source.html#l00106">106</a> of file <a class="el" href="PointCoulEx_8h_source.html">PointCoulEx.h</a>.</p>
 
 </div>
 </div>
@@ -453,7 +460,7 @@ A Runge-Kutta algorithm is used to determine four initial points, before the Ada
 </div><div class="memdoc">
 <p>Return the <a class="el" href="classReaction.html" title="Define the reaction kinematics. ">Reaction</a> used in the calculation </p>
 
-<p>Definition at line <a class="el" href="PointCoulEx_8h_source.html#l00078">78</a> of file <a class="el" href="PointCoulEx_8h_source.html">PointCoulEx.h</a>.</p>
+<p>Definition at line <a class="el" href="PointCoulEx_8h_source.html#l00080">80</a> of file <a class="el" href="PointCoulEx_8h_source.html">PointCoulEx.h</a>.</p>
 
 </div>
 </div>
@@ -479,7 +486,59 @@ A Runge-Kutta algorithm is used to determine four initial points, before the Ada
 </div><div class="memdoc">
 <p>Return the calculated statistical tensors </p>
 
-<p>Definition at line <a class="el" href="PointCoulEx_8h_source.html#l00096">96</a> of file <a class="el" href="PointCoulEx_8h_source.html">PointCoulEx.h</a>.</p>
+<p>Definition at line <a class="el" href="PointCoulEx_8h_source.html#l00098">98</a> of file <a class="el" href="PointCoulEx_8h_source.html">PointCoulEx.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af4dca3329edc2696b088140eceef5bda"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classStatisticalTensor.html">StatisticalTensor</a> PointCoulEx::GetTensorsB </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return the calculated statistical tensors </p>
+
+<p>Definition at line <a class="el" href="PointCoulEx_8h_source.html#l00099">99</a> of file <a class="el" href="PointCoulEx_8h_source.html">PointCoulEx.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a593fc5d2387da403ffaa6ceb12527ba0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PointCoulEx::GetTheta </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return the theta value </p>
+
+<p>Definition at line <a class="el" href="PointCoulEx_8h_source.html#l00108">108</a> of file <a class="el" href="PointCoulEx_8h_source.html">PointCoulEx.h</a>.</p>
 
 </div>
 </div>
@@ -498,7 +557,7 @@ A Runge-Kutta algorithm is used to determine four initial points, before the Ada
 </div><div class="memdoc">
 <p>Assignment operator </p>
 
-<p>Definition at line <a class="el" href="PointCoulEx_8cxx_source.html#l00088">88</a> of file <a class="el" href="PointCoulEx_8cxx_source.html">PointCoulEx.cxx</a>.</p>
+<p>Definition at line <a class="el" href="PointCoulEx_8cxx_source.html#l00097">97</a> of file <a class="el" href="PointCoulEx_8cxx_source.html">PointCoulEx.cxx</a>.</p>
 
 </div>
 </div>
@@ -517,7 +576,7 @@ A Runge-Kutta algorithm is used to determine four initial points, before the Ada
 </div><div class="memdoc">
 <p>Calculate the point probabilities and immediately pass them </p>
 
-<p>Definition at line <a class="el" href="PointCoulEx_8cxx_source.html#l00333">333</a> of file <a class="el" href="PointCoulEx_8cxx_source.html">PointCoulEx.cxx</a>.</p>
+<p>Definition at line <a class="el" href="PointCoulEx_8cxx_source.html#l00349">349</a> of file <a class="el" href="PointCoulEx_8cxx_source.html">PointCoulEx.cxx</a>.</p>
 
 </div>
 </div>
@@ -535,7 +594,7 @@ A Runge-Kutta algorithm is used to determine four initial points, before the Ada
 </div><div class="memdoc">
 <p>Before performing the calculation, set up the connections between the substates </p>
 
-<p>Definition at line <a class="el" href="PointCoulEx_8cxx_source.html#l00149">149</a> of file <a class="el" href="PointCoulEx_8cxx_source.html">PointCoulEx.cxx</a>.</p>
+<p>Definition at line <a class="el" href="PointCoulEx_8cxx_source.html#l00163">163</a> of file <a class="el" href="PointCoulEx_8cxx_source.html">PointCoulEx.cxx</a>.</p>
 
 </div>
 </div>
@@ -553,7 +612,7 @@ A Runge-Kutta algorithm is used to determine four initial points, before the Ada
 </div><div class="memdoc">
 <p>Simple print function </p>
 
-<p>Definition at line <a class="el" href="PointCoulEx_8cxx_source.html#l01168">1168</a> of file <a class="el" href="PointCoulEx_8cxx_source.html">PointCoulEx.cxx</a>.</p>
+<p>Definition at line <a class="el" href="PointCoulEx_8cxx_source.html#l01171">1171</a> of file <a class="el" href="PointCoulEx_8cxx_source.html">PointCoulEx.cxx</a>.</p>
 
 </div>
 </div>
@@ -580,7 +639,7 @@ A Runge-Kutta algorithm is used to determine four initial points, before the Ada
 </div><div class="memdoc">
 <p>Define the accuracy of the point calculation </p>
 
-<p>Definition at line <a class="el" href="PointCoulEx_8h_source.html#l00084">84</a> of file <a class="el" href="PointCoulEx_8h_source.html">PointCoulEx.h</a>.</p>
+<p>Definition at line <a class="el" href="PointCoulEx_8h_source.html#l00086">86</a> of file <a class="el" href="PointCoulEx_8h_source.html">PointCoulEx.h</a>.</p>
 
 </div>
 </div>
@@ -688,7 +747,7 @@ A Runge-Kutta algorithm is used to determine four initial points, before the Ada
 </div><div class="memdoc">
 <p>Define the verbocity of the calculation </p>
 
-<p>Definition at line <a class="el" href="PointCoulEx_8h_source.html#l00080">80</a> of file <a class="el" href="PointCoulEx_8h_source.html">PointCoulEx.h</a>.</p>
+<p>Definition at line <a class="el" href="PointCoulEx_8h_source.html#l00082">82</a> of file <a class="el" href="PointCoulEx_8h_source.html">PointCoulEx.h</a>.</p>
 
 </div>
 </div>
@@ -714,7 +773,7 @@ A Runge-Kutta algorithm is used to determine four initial points, before the Ada
 </div><div class="memdoc">
 <p>Is the reaction being tracker? </p>
 
-<p>Definition at line <a class="el" href="PointCoulEx_8h_source.html#l00099">99</a> of file <a class="el" href="PointCoulEx_8h_source.html">PointCoulEx.h</a>.</p>
+<p>Definition at line <a class="el" href="PointCoulEx_8h_source.html#l00102">102</a> of file <a class="el" href="PointCoulEx_8h_source.html">PointCoulEx.h</a>.</p>
 
 </div>
 </div>
@@ -741,7 +800,7 @@ A Runge-Kutta algorithm is used to determine four initial points, before the Ada
 </div><div class="memdoc">
 <p>Track the reaction, step-by-step. Off by default. </p>
 
-<p>Definition at line <a class="el" href="PointCoulEx_8h_source.html#l00098">98</a> of file <a class="el" href="PointCoulEx_8h_source.html">PointCoulEx.h</a>.</p>
+<p>Definition at line <a class="el" href="PointCoulEx_8h_source.html#l00101">101</a> of file <a class="el" href="PointCoulEx_8h_source.html">PointCoulEx.h</a>.</p>
 
 </div>
 </div>
@@ -760,7 +819,7 @@ A Runge-Kutta algorithm is used to determine four initial points, before the Ada
 </div><div class="memdoc">
 <p>Write the connections between substates in a well formatted manner </p>
 
-<p>Definition at line <a class="el" href="PointCoulEx_8cxx_source.html#l01304">1304</a> of file <a class="el" href="PointCoulEx_8cxx_source.html">PointCoulEx.cxx</a>.</p>
+<p>Definition at line <a class="el" href="PointCoulEx_8cxx_source.html#l01335">1335</a> of file <a class="el" href="PointCoulEx_8cxx_source.html">PointCoulEx.cxx</a>.</p>
 
 </div>
 </div>
@@ -779,7 +838,7 @@ A Runge-Kutta algorithm is used to determine four initial points, before the Ada
 </div><div class="memdoc">
 <p>Write the calculation details to a text file for debugging purposes </p>
 
-<p>Definition at line <a class="el" href="PointCoulEx_8cxx_source.html#l01189">1189</a> of file <a class="el" href="PointCoulEx_8cxx_source.html">PointCoulEx.cxx</a>.</p>
+<p>Definition at line <a class="el" href="PointCoulEx_8cxx_source.html#l01192">1192</a> of file <a class="el" href="PointCoulEx_8cxx_source.html">PointCoulEx.cxx</a>.</p>
 
 </div>
 </div>

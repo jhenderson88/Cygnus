@@ -1,7 +1,9 @@
 var searchData=
 [
   ['particledetector',['ParticleDetector',['../classParticleDetector.html',1,'ParticleDetector'],['../classParticleDetector.html#ae4e67f0c8345fdc41aae3773b7207c32',1,'ParticleDetector::ParticleDetector()']]],
-  ['particledetectors3',['ParticleDetectorS3',['../classParticleDetectorS3.html',1,'ParticleDetectorS3'],['../classParticleDetectorS3.html#a002873e132856865a40151e976974ad6',1,'ParticleDetectorS3::ParticleDetectorS3()']]],
+  ['particledetectors3',['ParticleDetectorS3',['../classParticleDetectorS3.html',1,'ParticleDetectorS3'],['../classParticleDetectorS3.html#a0da9b3baef00144759ca90a177e69cdc',1,'ParticleDetectorS3::ParticleDetectorS3()']]],
+  ['plotclosestapproachvsenergy',['PlotClosestApproachvsEnergy',['../classReaction.html#a0eaf4784bc0fb9c15ea2cbf5c74fd70f',1,'Reaction']]],
+  ['plotting',['Plotting',['../classPlotting.html',1,'']]],
   ['pointcorrections',['PointCorrections',['../classExperiments.html#afdfa4aa08db9ec85ca899439bdcd813a',1,'Experiments']]],
   ['pointcoulex',['PointCoulEx',['../classPointCoulEx.html',1,'PointCoulEx'],['../classPointCoulEx.html#a9246400fa6440b3628cdb3010e733f3c',1,'PointCoulEx::PointCoulEx(Nucleus *, Reaction *)'],['../classPointCoulEx.html#ae304214fe53d62d39b1413bf179bd0bd',1,'PointCoulEx::PointCoulEx(const PointCoulEx &amp;p)']]],
   ['pointprobabilities',['PointProbabilities',['../classPointCoulEx.html#ae3636eacee3ab0f37d0b8c927d779387',1,'PointCoulEx']]],

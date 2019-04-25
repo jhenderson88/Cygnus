@@ -118,14 +118,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> e = 0; e &lt; stoppingE.size(); e++)</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        gTmp.SetPoint((<span class="keywordtype">int</span>)e,stoppingE.at(e),stoppingP.at(e));</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    TF1 *tmpFit = <span class="keyword">new</span> TF1(<span class="stringliteral">&quot;stopping_fit&quot;</span>,<span class="stringliteral">&quot;pol3&quot;</span>,stoppingE.at(0),stoppingE.at(stoppingE.size()-1));</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    gTmp.Fit(tmpFit,<span class="stringliteral">&quot;RQ0&quot;</span>);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    fit = *tmpFit;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    fitted = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    TF1 *tmpFit;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">if</span>(stoppingP.at(0) == stoppingP.at(stoppingP.size()-1))</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        tmpFit = <span class="keyword">new</span> TF1(<span class="stringliteral">&quot;stopping_fit&quot;</span>,<span class="stringliteral">&quot;pol0&quot;</span>,stoppingE.at(0),stoppingE.at(stoppingE.size()-1));</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        tmpFit = <span class="keyword">new</span> TF1(<span class="stringliteral">&quot;stopping_fit&quot;</span>,<span class="stringliteral">&quot;pol3&quot;</span>,stoppingE.at(0),stoppingE.at(stoppingE.size()-1));</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    gTmp.Fit(tmpFit,<span class="stringliteral">&quot;RQ0&quot;</span>);</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    fit = *tmpFit;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    fitted = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
 <div class="ttc" id="classStoppingPower_html_a636e5d85fb175caf9debcd1fef1d7b7e"><div class="ttname"><a href="classStoppingPower.html#a636e5d85fb175caf9debcd1fef1d7b7e">StoppingPower::operator=</a></div><div class="ttdeci">StoppingPower &amp; operator=(const StoppingPower &amp;s)</div><div class="ttdef"><b>Definition:</b> <a href="StoppingPower_8cxx_source.html#l00015">StoppingPower.cxx:15</a></div></div>
 <div class="ttc" id="classStoppingPower_html"><div class="ttname"><a href="classStoppingPower.html">StoppingPower</a></div><div class="ttdoc">Class for defining stopping powers for use in the integration process. </div><div class="ttdef"><b>Definition:</b> <a href="StoppingPower_8h_source.html#l00017">StoppingPower.h:17</a></div></div>
 <div class="ttc" id="classStoppingPower_html_a907782bf5a89ed848f1ff44552fe12c8"><div class="ttname"><a href="classStoppingPower.html#a907782bf5a89ed848f1ff44552fe12c8">StoppingPower::FitStoppingPowers</a></div><div class="ttdeci">void FitStoppingPowers()</div><div class="ttdef"><b>Definition:</b> <a href="StoppingPower_8cxx_source.html#l00026">StoppingPower.cxx:26</a></div></div>

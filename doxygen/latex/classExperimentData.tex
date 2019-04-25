@@ -23,6 +23,9 @@ void \hyperlink{classExperimentData_a81531d8462a74362d35794fe05018baa}{Set\-Data
 \item 
 void \hyperlink{classExperimentData_a1366e023080099fea2c8ead233e4f778}{Clear\-Data} ()
 \item 
+\hypertarget{classExperimentData_a3ee32b0a4bec56393f65bf39dd302dc3}{void {\bfseries Set\-Data\-Efficiency} (int i, double eff)}\label{classExperimentData_a3ee32b0a4bec56393f65bf39dd302dc3}
+
+\item 
 \hyperlink{classExptData}{Expt\-Data} \hyperlink{classExperimentData_aebfccd487301e728c1cb00bbe970c2bb}{Get\-Data\-Point} (int i) const 
 \item 
 std\-::vector$<$ \hyperlink{classExptData}{Expt\-Data} $>$ \hyperlink{classExperimentData_a99aa8a266594cf9211c5cbdd8f2c7708}{Get\-Data} () const 
@@ -40,7 +43,7 @@ Holder class containing experimental data, stored in a vector of \hyperlink{clas
 
 The mean theta in the center-\/of-\/mass frame is also held in this class for convenience later 
 
-Definition at line 90 of file Experimental\-Input.\-h.
+Definition at line 94 of file Experimental\-Input.\-h.
 
 
 
@@ -54,7 +57,7 @@ Definition at line 90 of file Experimental\-Input.\-h.
 )}}\label{classExperimentData_a4fd4e938e3e2d3e19c764e5435adf853}
 Copy constructor 
 
-Definition at line 24 of file Experimental\-Input.\-cxx.
+Definition at line 25 of file Experimental\-Input.\-cxx.
 
 
 
@@ -71,7 +74,7 @@ Definition at line 24 of file Experimental\-Input.\-cxx.
 )\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentData_aee3122de344975999799d74e7e7e0624}
 Add a new \hyperlink{classExptData}{Expt\-Data} value with\-: initial state = i final state = f yield = c uncertainty = e 
 
-Definition at line 105 of file Experimental\-Input.\-h.
+Definition at line 109 of file Experimental\-Input.\-h.
 
 \hypertarget{classExperimentData_a1366e023080099fea2c8ead233e4f778}{\index{Experiment\-Data@{Experiment\-Data}!Clear\-Data@{Clear\-Data}}
 \index{Clear\-Data@{Clear\-Data}!ExperimentData@{Experiment\-Data}}
@@ -82,7 +85,7 @@ Definition at line 105 of file Experimental\-Input.\-h.
 )\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentData_a1366e023080099fea2c8ead233e4f778}
 Clear experimental data 
 
-Definition at line 107 of file Experimental\-Input.\-h.
+Definition at line 111 of file Experimental\-Input.\-h.
 
 \hypertarget{classExperimentData_a99aa8a266594cf9211c5cbdd8f2c7708}{\index{Experiment\-Data@{Experiment\-Data}!Get\-Data@{Get\-Data}}
 \index{Get\-Data@{Get\-Data}!ExperimentData@{Experiment\-Data}}
@@ -93,7 +96,7 @@ Definition at line 107 of file Experimental\-Input.\-h.
 ) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentData_a99aa8a266594cf9211c5cbdd8f2c7708}
 Return vector of \hyperlink{classExptData}{Expt\-Data} 
 
-Definition at line 110 of file Experimental\-Input.\-h.
+Definition at line 116 of file Experimental\-Input.\-h.
 
 \hypertarget{classExperimentData_aebfccd487301e728c1cb00bbe970c2bb}{\index{Experiment\-Data@{Experiment\-Data}!Get\-Data\-Point@{Get\-Data\-Point}}
 \index{Get\-Data\-Point@{Get\-Data\-Point}!ExperimentData@{Experiment\-Data}}
@@ -104,7 +107,7 @@ Definition at line 110 of file Experimental\-Input.\-h.
 ) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentData_aebfccd487301e728c1cb00bbe970c2bb}
 Return \hyperlink{classExptData}{Expt\-Data} object at index i 
 
-Definition at line 109 of file Experimental\-Input.\-h.
+Definition at line 115 of file Experimental\-Input.\-h.
 
 \hypertarget{classExperimentData_a5ce1ebcd4abc1a9bceba0368612da008}{\index{Experiment\-Data@{Experiment\-Data}!Get\-Theta\-C\-M@{Get\-Theta\-C\-M}}
 \index{Get\-Theta\-C\-M@{Get\-Theta\-C\-M}!ExperimentData@{Experiment\-Data}}
@@ -115,7 +118,7 @@ Definition at line 109 of file Experimental\-Input.\-h.
 ) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentData_a5ce1ebcd4abc1a9bceba0368612da008}
 Return theta C\-M 
 
-Definition at line 113 of file Experimental\-Input.\-h.
+Definition at line 119 of file Experimental\-Input.\-h.
 
 \hypertarget{classExperimentData_a3b9f3d2634e00fa6d1a56867ae78fb99}{\index{Experiment\-Data@{Experiment\-Data}!operator=@{operator=}}
 \index{operator=@{operator=}!ExperimentData@{Experiment\-Data}}
@@ -126,7 +129,7 @@ Definition at line 113 of file Experimental\-Input.\-h.
 )}}\label{classExperimentData_a3b9f3d2634e00fa6d1a56867ae78fb99}
 Assignment operator 
 
-Definition at line 33 of file Experimental\-Input.\-cxx.
+Definition at line 34 of file Experimental\-Input.\-cxx.
 
 \hypertarget{classExperimentData_a2f42d1368c3d2dd96c1cc8ecd3755325}{\index{Experiment\-Data@{Experiment\-Data}!Print@{Print}}
 \index{Print@{Print}!ExperimentData@{Experiment\-Data}}
@@ -137,7 +140,7 @@ Definition at line 33 of file Experimental\-Input.\-cxx.
 ) const}}\label{classExperimentData_a2f42d1368c3d2dd96c1cc8ecd3755325}
 Print all experimental data 
 
-Definition at line 44 of file Experimental\-Input.\-cxx.
+Definition at line 45 of file Experimental\-Input.\-cxx.
 
 \hypertarget{classExperimentData_a81531d8462a74362d35794fe05018baa}{\index{Experiment\-Data@{Experiment\-Data}!Set\-Data@{Set\-Data}}
 \index{Set\-Data@{Set\-Data}!ExperimentData@{Experiment\-Data}}
@@ -149,7 +152,7 @@ Definition at line 44 of file Experimental\-Input.\-cxx.
 )\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentData_a81531d8462a74362d35794fe05018baa}
 Set experimental yield, index i to \hyperlink{classExptData}{Expt\-Data} object exp 
 
-Definition at line 106 of file Experimental\-Input.\-h.
+Definition at line 110 of file Experimental\-Input.\-h.
 
 \hypertarget{classExperimentData_a00ed9f57750edbef3cc06ed1dca546d0}{\index{Experiment\-Data@{Experiment\-Data}!Set\-Theta\-C\-M@{Set\-Theta\-C\-M}}
 \index{Set\-Theta\-C\-M@{Set\-Theta\-C\-M}!ExperimentData@{Experiment\-Data}}
@@ -160,7 +163,7 @@ Definition at line 106 of file Experimental\-Input.\-h.
 )\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentData_a00ed9f57750edbef3cc06ed1dca546d0}
 Define theta C\-M 
 
-Definition at line 112 of file Experimental\-Input.\-h.
+Definition at line 118 of file Experimental\-Input.\-h.
 
 
 

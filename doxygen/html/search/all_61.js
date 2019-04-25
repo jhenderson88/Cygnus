@@ -29,5 +29,6 @@ var searchData=
   ['addtargetlifetime',['AddTargetLifetime',['../classCoulExSimFitter.html#a5bc5460b494e5192955ca4e17f7e737e',1,'CoulExSimFitter']]],
   ['addtargetmixingratio',['AddTargetMixingRatio',['../classCoulExSimFitter.html#a06812af2e0f8d29cd37b9a2c48239d5c',1,'CoulExSimFitter']]],
   ['addtargetpointcalc',['AddTargetPointCalc',['../classCoulExSimFitter.html#a256b37098b33f916f4c5f4eec14cf477',1,'CoulExSimFitter']]],
-  ['addthetameshpoint',['AddThetaMeshpoint',['../classIntegral.html#a50278013605b36442df444d812edf309',1,'Integral']]]
+  ['addthetameshpoint',['AddThetaMeshpoint',['../classIntegral.html#a50278013605b36442df444d812edf309',1,'Integral']]],
+  ['angulardistribution',['AngularDistribution',['../classAngularDistribution.html',1,'']]]
 ];

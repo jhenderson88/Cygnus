@@ -138,12 +138,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a8aa4eb6fa6131902a90a4c602bb055f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a777e9756290797247971042c4e64ed9e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExperiments.html#a777e9756290797247971042c4e64ed9e">SetStopping</a> (<a class="el" href="classStoppingPower.html">StoppingPower</a> s)</td></tr>
 <tr class="separator:a777e9756290797247971042c4e64ed9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50e179731fa9b2c693badaefd9b698cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExperiments.html#a50e179731fa9b2c693badaefd9b698cc">SetParticleDetectorEff</a> (int i, TH1F *p)</td></tr>
-<tr class="separator:a50e179731fa9b2c693badaefd9b698cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3ecd5d912831599b4b4a2ae290a012e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExperiments.html#ac3ecd5d912831599b4b4a2ae290a012e">SetParticleDetectorEff</a> (int i, TGraph *p)</td></tr>
+<tr class="separator:ac3ecd5d912831599b4b4a2ae290a012e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7902dd87eee8cf24ded441ba889f97fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExperiments.html#a7902dd87eee8cf24ded441ba889f97fb">UseEfficiency</a> (bool b=true)</td></tr>
 <tr class="separator:a7902dd87eee8cf24ded441ba889f97fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2766ab644312a272bde08e4abfa02c18"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExperiments.html#a2766ab644312a272bde08e4abfa02c18">SetProjectileExcitation</a> (bool b=true)</td></tr>
 <tr class="separator:a2766ab644312a272bde08e4abfa02c18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9be7f0d32798b9d3bd747b64bfde10bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExperiments.html#a9be7f0d32798b9d3bd747b64bfde10bf">SetStopping</a> ()</td></tr>
+<tr class="separator:a9be7f0d32798b9d3bd747b64bfde10bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="classExperiments.html" title="The Experiments class is the umbrella class into which all defined experiments are stored...">Experiments</a> class is the umbrella class into which all defined experiments are stored. </p>
@@ -532,7 +534,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Determine the correction factor required to convert a point to an energy and angle integrated calculation </p>
 
-<p>Definition at line <a class="el" href="Experiments_8cxx_source.html#l00136">136</a> of file <a class="el" href="Experiments_8cxx_source.html">Experiments.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Experiments_8cxx_source.html#l00147">147</a> of file <a class="el" href="Experiments_8cxx_source.html">Experiments.cxx</a>.</p>
 
 </div>
 </div>
@@ -550,7 +552,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Print the details of the experimental ranges stored within the class </p>
 
-<p>Definition at line <a class="el" href="Experiments_8cxx_source.html#l00185">185</a> of file <a class="el" href="Experiments_8cxx_source.html">Experiments.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Experiments_8cxx_source.html#l00199">199</a> of file <a class="el" href="Experiments_8cxx_source.html">Experiments.cxx</a>.</p>
 
 </div>
 </div>
@@ -568,7 +570,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Print the correction factors as determined by PointCorrections </p>
 
-<p>Definition at line <a class="el" href="Experiments_8cxx_source.html#l00196">196</a> of file <a class="el" href="Experiments_8cxx_source.html">Experiments.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Experiments_8cxx_source.html#l00210">210</a> of file <a class="el" href="Experiments_8cxx_source.html">Experiments.cxx</a>.</p>
 
 </div>
 </div>
@@ -626,7 +628,7 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a50e179731fa9b2c693badaefd9b698cc"></a>
+<a class="anchor" id="ac3ecd5d912831599b4b4a2ae290a012e"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -642,7 +644,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">TH1F *&#160;</td>
+          <td class="paramtype">TGraph *&#160;</td>
           <td class="paramname"><em>p</em>&#160;</td>
         </tr>
         <tr>
@@ -714,6 +716,24 @@ Public Member Functions</h2></td></tr>
 <p>Define the stopping powers to be used in the integration process </p>
 
 <p>Definition at line <a class="el" href="Experiments_8h_source.html#l00100">100</a> of file <a class="el" href="Experiments_8h_source.html">Experiments.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9be7f0d32798b9d3bd747b64bfde10bf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Experiments::SetStopping </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set stopping powers for experiment ranges </p>
+
+<p>Definition at line <a class="el" href="Experiments_8cxx_source.html#l00136">136</a> of file <a class="el" href="Experiments_8cxx_source.html">Experiments.cxx</a>.</p>
 
 </div>
 </div>
@@ -796,7 +816,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Writes the theta-energy cross section surfaces (TGraph &amp; TGraph2D) to a ROOT file </p>
 
-<p>Definition at line <a class="el" href="Experiments_8cxx_source.html#l00218">218</a> of file <a class="el" href="Experiments_8cxx_source.html">Experiments.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Experiments_8cxx_source.html#l00232">232</a> of file <a class="el" href="Experiments_8cxx_source.html">Experiments.cxx</a>.</p>
 
 </div>
 </div>

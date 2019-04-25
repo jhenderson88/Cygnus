@@ -83,7 +83,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-static-methods">Static Public Member Functions</a>  </div>
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">MiscFunctions Class Reference</div>  </div>
 </div><!--header-->
@@ -108,11 +109,29 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a6c137b98015696ba93abab4f31bcbb6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91d1bb1bc78782da9523392de913efe9"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMiscFunctions.html#a91d1bb1bc78782da9523392de913efe9">RotationFunction</a> (double, int, int, int)</td></tr>
 <tr class="separator:a91d1bb1bc78782da9523392de913efe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0737f75b4e2e511f67e51fd51f1a897"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa0737f75b4e2e511f67e51fd51f1a897"></a>
+static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>doublefactorial</b> (unsigned int)</td></tr>
+<tr class="separator:aa0737f75b4e2e511f67e51fd51f1a897"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d5d0375b3d7f48877572368e1cd605f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8d5d0375b3d7f48877572368e1cd605f"></a>
+static double&#160;</td><td class="memItemRight" valign="bottom"><b>SphericalHarmonics</b> (double, int, int, bool b=true)</td></tr>
+<tr class="separator:a8d5d0375b3d7f48877572368e1cd605f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a069d0139e00238f697b837a55f8c5616"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a069d0139e00238f697b837a55f8c5616"></a>
+static double&#160;</td><td class="memItemRight" valign="bottom"><b>SimpsonsRule</b> (TGraph *, int, double, double)</td></tr>
+<tr class="separator:a069d0139e00238f697b837a55f8c5616"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:aa531a2ef1905c6293800d88b672a346c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa531a2ef1905c6293800d88b672a346c"></a>
+static double&#160;</td><td class="memItemRight" valign="bottom"><b>c</b> = 299792458</td></tr>
+<tr class="separator:aa531a2ef1905c6293800d88b672a346c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45a1257814161b4a03617c6d3aac5543"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a45a1257814161b4a03617c6d3aac5543"></a>
+static double&#160;</td><td class="memItemRight" valign="bottom"><b>hbar</b> = 1.05457e-34</td></tr>
+<tr class="separator:a45a1257814161b4a03617c6d3aac5543"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Useful static functions for use elsewhere in the software package. </p>
 
-<p>Definition at line <a class="el" href="MiscFunctions_8h_source.html#l00016">16</a> of file <a class="el" href="MiscFunctions_8h_source.html">MiscFunctions.h</a>.</p>
+<p>Definition at line <a class="el" href="MiscFunctions_8h_source.html#l00017">17</a> of file <a class="el" href="MiscFunctions_8h_source.html">MiscFunctions.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a013c73579d32d966d225b96304d39dda"></a>
 <div class="memitem">
@@ -137,7 +156,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return the maximum absolute value in a TMatrixD </p>
 
-<p>Definition at line <a class="el" href="MiscFunctions_8cxx_source.html#l00015">15</a> of file <a class="el" href="MiscFunctions_8cxx_source.html">MiscFunctions.cxx</a>.</p>
+<p>Definition at line <a class="el" href="MiscFunctions_8cxx_source.html#l00018">18</a> of file <a class="el" href="MiscFunctions_8cxx_source.html">MiscFunctions.cxx</a>.</p>
 
 </div>
 </div>
@@ -164,7 +183,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return the maximum value in a TMatrixD </p>
 
-<p>Definition at line <a class="el" href="MiscFunctions_8cxx_source.html#l00003">3</a> of file <a class="el" href="MiscFunctions_8cxx_source.html">MiscFunctions.cxx</a>.</p>
+<p>Definition at line <a class="el" href="MiscFunctions_8cxx_source.html#l00006">6</a> of file <a class="el" href="MiscFunctions_8cxx_source.html">MiscFunctions.cxx</a>.</p>
 
 </div>
 </div>
@@ -201,7 +220,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Print a well formatted TMatrixD based on states from a <a class="el" href="classNucleus.html" title="Holds information about the nucleus for which the CoulEx calculation will be performed. ">Nucleus</a> object </p>
 
-<p>Definition at line <a class="el" href="MiscFunctions_8cxx_source.html#l00052">52</a> of file <a class="el" href="MiscFunctions_8cxx_source.html">MiscFunctions.cxx</a>.</p>
+<p>Definition at line <a class="el" href="MiscFunctions_8cxx_source.html#l00055">55</a> of file <a class="el" href="MiscFunctions_8cxx_source.html">MiscFunctions.cxx</a>.</p>
 
 </div>
 </div>
@@ -244,7 +263,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Print a well formatted TVectorD based on states from a <a class="el" href="classNucleus.html" title="Holds information about the nucleus for which the CoulEx calculation will be performed. ">Nucleus</a> object </p>
 
-<p>Definition at line <a class="el" href="MiscFunctions_8cxx_source.html#l00077">77</a> of file <a class="el" href="MiscFunctions_8cxx_source.html">MiscFunctions.cxx</a>.</p>
+<p>Definition at line <a class="el" href="MiscFunctions_8cxx_source.html#l00080">80</a> of file <a class="el" href="MiscFunctions_8cxx_source.html">MiscFunctions.cxx</a>.</p>
 
 </div>
 </div>
@@ -293,7 +312,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Rotation function to convert <a class="el" href="classReaction.html" title="Define the reaction kinematics. ">Reaction</a> frame tensors to laboratory frame </p>
 
-<p>Definition at line <a class="el" href="MiscFunctions_8cxx_source.html#l00092">92</a> of file <a class="el" href="MiscFunctions_8cxx_source.html">MiscFunctions.cxx</a>.</p>
+<p>Definition at line <a class="el" href="MiscFunctions_8cxx_source.html#l00095">95</a> of file <a class="el" href="MiscFunctions_8cxx_source.html">MiscFunctions.cxx</a>.</p>
 
 </div>
 </div>
@@ -336,7 +355,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Write a well formatted TMatrixD based on states from a <a class="el" href="classNucleus.html" title="Holds information about the nucleus for which the CoulEx calculation will be performed. ">Nucleus</a> object </p>
 
-<p>Definition at line <a class="el" href="MiscFunctions_8cxx_source.html#l00027">27</a> of file <a class="el" href="MiscFunctions_8cxx_source.html">MiscFunctions.cxx</a>.</p>
+<p>Definition at line <a class="el" href="MiscFunctions_8cxx_source.html#l00030">30</a> of file <a class="el" href="MiscFunctions_8cxx_source.html">MiscFunctions.cxx</a>.</p>
 
 </div>
 </div>

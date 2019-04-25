@@ -16,8 +16,8 @@ var searchData=
   ['clearthetameshpoints',['ClearThetaMeshpoints',['../classIntegral.html#a00d220bb62afcd2d8a07011f33cfaee0',1,'Integral']]],
   ['closestapproach',['ClosestApproach',['../classReaction.html#a73c8c0ec22c962ab3ece453836e074fa',1,'Reaction::ClosestApproach() const '],['../classReaction.html#a27a288df5efb87fb7c4b31702d313bba',1,'Reaction::ClosestApproach(int aBeam, int aTarget, int zBeam, int zTarget, double eLab) const ']]],
   ['connection',['Connection',['../classConnection.html#aa865a13af12c712d04723871157205ae',1,'Connection']]],
-  ['convertthetacmtolab',['ConvertThetaCmToLab',['../classReaction.html#a9ad94562bb8fb812c69b9586920c62f3',1,'Reaction']]],
-  ['convertthetalabtocm',['ConvertThetaLabToCm',['../classReaction.html#aba20cd636ca54ead991bbd2af995e241',1,'Reaction']]],
+  ['convertthetacmtolab',['ConvertThetaCmToLab',['../classReaction.html#aa0749dc9eb4a46e051bab88aab3ab10d',1,'Reaction']]],
+  ['convertthetalabtocm',['ConvertThetaLabToCm',['../classReaction.html#a1201e1afefe6cc09db1c96faf398f318',1,'Reaction']]],
   ['coulexminfcn',['CoulExMinFCN',['../classCoulExMinFCN.html#adbe1821d52bea6bdc1ec188958fe3e72',1,'CoulExMinFCN']]],
   ['coulexsimminfcn',['CoulExSimMinFCN',['../classCoulExSimMinFCN.html#a5b602166e9869a3315d91240688ff80b',1,'CoulExSimMinFCN']]],
   ['createscalingparameter',['CreateScalingParameter',['../classCoulExFitter.html#a5241e2d16d908fc409a2bd078846fa5e',1,'CoulExFitter::CreateScalingParameter()'],['../classCoulExSimFitter.html#a06aa31eb9c4dc51a2c69188373bf292d',1,'CoulExSimFitter::CreateScalingParameter()']]]

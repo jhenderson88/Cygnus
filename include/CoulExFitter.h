@@ -46,6 +46,22 @@ class CoulExMinFCN;
 ///	GSLSimAn	|
 ///	Genetic		|
 ///
+///	By default, the fitter will use the uncertainties provided by the user
+///	to perform the minimization. The user can specify, however, to use 
+///	a likelihood derived fit based on assumed Poisson statistics by calling
+///	the SetPoissonUncertainties() function.
+///
+///	<b>If using this method, the user should pass non-efficiency corrected yields</b>
+///	to the fitter, along with efficiencies (stored in the ExptData class)
+///	in order to properly determine the Poisson uncertainties. This option is especially
+///	important for low-statistics data, where the assumed symmetric, SQRT(N) behaviour 
+///	of the data breaks down.
+///
+///	By default, the fitter will create a standard covariance matrix using the 
+///	minimizer. In reality, most matrix elements will be have asymmetric uncertainties 
+///	which must be determined using the MINOS package. To do this, the user should
+///	call the DoFullUncertainty() function, prior to performing the minimization.
+///
 
 class CoulExFitter {
 
@@ -121,8 +137,14 @@ class CoulExFitter {
 		void	SetVerbose(bool b = true)					{ verbose = b;				}	/*!< Define verbocity */
 		bool	GetVerbose()						const	{ return verbose;			}	/*!< Return verbocity */
 
-		void	SetPoissonUncertainties(bool b = true)				{ fUsePoisson = b;			}	/*!< 	*/
-		bool	UsePoissonUncertainties()				const	{ return fUsePoisson;			}	/*!<	*/
+		void	SetPoissonUncertainties(bool b = true)				{ fUsePoisson = b;			}	/*!< Define whether to use user defined data uncertainties or to use Poisson uncertainties (and likelihood fit) 	*/
+		bool	UsePoissonUncertainties()				const	{ return fUsePoisson;			}	/*!< Return whether to use user defined data uncertainties or to use Poisson uncertainties (and likelihood fit) 	*/
+
+		TMatrixD	GetCovarianceMatrix()				const	{ return covMat;			}	/*!< Return covariance matrix from fit 	*/
+		TMatrixD	GetCorrelationMatrix()				const	{ return corMat;			}	/*!< Return correlation matrix from fit 	*/
+
+		void	SetDoFullUncertainty(bool b = true)				{ fDoFullUnc = b;			} 	/*!< Define whether to do a complete MINOS uncertainty analysis (slow)	*/
+		bool	DoFullUncertainty()					const	{ return fDoFullUnc;			} 	/*!< Return whether to do a complete MINOS uncertainty analysis (slow)	*/
 
 	private:
 
@@ -160,6 +182,11 @@ class CoulExFitter {
 		bool				verbose;
 
 		bool				fUsePoisson;
+
+		TMatrixD			covMat;
+		TMatrixD			corMat;
+
+		bool				fDoFullUnc;
 
 };
 #endif

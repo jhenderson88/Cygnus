@@ -106,6 +106,9 @@ Inheritance diagram for ParticleDetector:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a13be1b713dc004d1a739306bb7094f19"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a13be1b713dc004d1a739306bb7094f19"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ParticleDetector</b> (TGraph2D *, TGraph *)</td></tr>
+<tr class="separator:a13be1b713dc004d1a739306bb7094f19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4e67f0c8345fdc41aae3773b7207c32"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParticleDetector.html#ae4e67f0c8345fdc41aae3773b7207c32">ParticleDetector</a> (const <a class="el" href="classParticleDetector.html">ParticleDetector</a> &amp;d)</td></tr>
 <tr class="separator:ae4e67f0c8345fdc41aae3773b7207c32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0f3176c3ce050c7922631d14e4917b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classParticleDetector.html">ParticleDetector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParticleDetector.html#aa0f3176c3ce050c7922631d14e4917b4">operator=</a> (const <a class="el" href="classParticleDetector.html">ParticleDetector</a> &amp;d)</td></tr>
@@ -116,26 +119,32 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a67d7e51f3c565dd6cff3ff0225bd6572"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0380f4df4bbbaf307b4b475b337dd5b"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParticleDetector.html#ad0380f4df4bbbaf307b4b475b337dd5b">GetThetaMax</a> ()</td></tr>
 <tr class="separator:ad0380f4df4bbbaf307b4b475b337dd5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee088d19449faa1a4658a25f3e9a8491"><td class="memItemLeft" align="right" valign="top">virtual TH1F *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParticleDetector.html#aee088d19449faa1a4658a25f3e9a8491">GetThetaEfficiencyHist</a> () const </td></tr>
-<tr class="separator:aee088d19449faa1a4658a25f3e9a8491"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35f50afc4ffafcf9a9ff86e06cb5fa30"><td class="memItemLeft" align="right" valign="top">virtual TH2F *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParticleDetector.html#a35f50afc4ffafcf9a9ff86e06cb5fa30">GetThetaPhiMap</a> () const </td></tr>
-<tr class="separator:a35f50afc4ffafcf9a9ff86e06cb5fa30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5a51358fe30bfcef1a48da8930da4ea"><td class="memItemLeft" align="right" valign="top">virtual TGraph *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParticleDetector.html#ac5a51358fe30bfcef1a48da8930da4ea">GetThetaEfficiencyGraph</a> () const </td></tr>
+<tr class="separator:ac5a51358fe30bfcef1a48da8930da4ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5bc9115da65668ec8a2027f79dd0902"><td class="memItemLeft" align="right" valign="top">virtual TGraph2D *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParticleDetector.html#aa5bc9115da65668ec8a2027f79dd0902">GetThetaPhiMap</a> () const </td></tr>
+<tr class="separator:aa5bc9115da65668ec8a2027f79dd0902"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f27064544d26812431e508fefdf4945"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParticleDetector.html#a8f27064544d26812431e508fefdf4945">WriteParticleDetector</a> (const char *filename, const char *opt=&quot;UPDATE&quot;)</td></tr>
 <tr class="separator:a8f27064544d26812431e508fefdf4945"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a584af6669661283d25ce0037d665fa55"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a584af6669661283d25ce0037d665fa55"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetThetaEfficiencyGraph</b> (TGraph *g)</td></tr>
+<tr class="separator:a584af6669661283d25ce0037d665fa55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4db10eaa6c269a84041ac9c59f8cd39c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4db10eaa6c269a84041ac9c59f8cd39c"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetThetaPhiMap</b> (TGraph2D *g)</td></tr>
+<tr class="separator:a4db10eaa6c269a84041ac9c59f8cd39c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a23704fdd3fd36c821136ad14b89f8f4a"><td class="memItemLeft" align="right" valign="top">TH2F *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParticleDetector.html#a23704fdd3fd36c821136ad14b89f8f4a">hThetaPhi</a></td></tr>
-<tr class="separator:a23704fdd3fd36c821136ad14b89f8f4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a246ea62a664366cf8f05e870658bae09"><td class="memItemLeft" align="right" valign="top">TH1F *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParticleDetector.html#a246ea62a664366cf8f05e870658bae09">hThetaEff</a></td></tr>
-<tr class="separator:a246ea62a664366cf8f05e870658bae09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6db8f2e3f46b721f78a538e9ce4678f"><td class="memItemLeft" align="right" valign="top">TGraph2D *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParticleDetector.html#ab6db8f2e3f46b721f78a538e9ce4678f">gThetaPhi</a></td></tr>
+<tr class="separator:ab6db8f2e3f46b721f78a538e9ce4678f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5924d78e9a6870d6c0a16d886c9cf40c"><td class="memItemLeft" align="right" valign="top">TGraph *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParticleDetector.html#a5924d78e9a6870d6c0a16d886c9cf40c">gThetaEff</a></td></tr>
+<tr class="separator:a5924d78e9a6870d6c0a16d886c9cf40c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52a6f3a2af63e5d5b8cd61b53a47e944"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParticleDetector.html#a52a6f3a2af63e5d5b8cd61b53a47e944">setFlag</a></td></tr>
 <tr class="separator:a52a6f3a2af63e5d5b8cd61b53a47e944"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Generic class to defined particle detection efficiencies in theta and phi for corrections to the integrated yields. </p>
 
-<p>Definition at line <a class="el" href="ParticleDetector_8h_source.html#l00018">18</a> of file <a class="el" href="ParticleDetector_8h_source.html">ParticleDetector.h</a>.</p>
+<p>Definition at line <a class="el" href="ParticleDetector_8h_source.html#l00017">17</a> of file <a class="el" href="ParticleDetector_8h_source.html">ParticleDetector.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ae4e67f0c8345fdc41aae3773b7207c32"></a>
 <div class="memitem">
@@ -180,11 +189,11 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Get the particle detection efficiency for a given thete (lab frame) </p>
 
-<p>Definition at line <a class="el" href="ParticleDetector_8cxx_source.html#l00020">20</a> of file <a class="el" href="ParticleDetector_8cxx_source.html">ParticleDetector.cxx</a>.</p>
+<p>Definition at line <a class="el" href="ParticleDetector_8cxx_source.html#l00026">26</a> of file <a class="el" href="ParticleDetector_8cxx_source.html">ParticleDetector.cxx</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aee088d19449faa1a4658a25f3e9a8491"></a>
+<a class="anchor" id="ac5a51358fe30bfcef1a48da8930da4ea"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -192,7 +201,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual TH1F* ParticleDetector::GetThetaEfficiencyHist </td>
+          <td class="memname">virtual TGraph* ParticleDetector::GetThetaEfficiencyGraph </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -232,7 +241,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Find the maximum theta covered by the detector. For use to define the integration range. </p>
 
-<p>Definition at line <a class="el" href="ParticleDetector_8cxx_source.html#l00046">46</a> of file <a class="el" href="ParticleDetector_8cxx_source.html">ParticleDetector.cxx</a>.</p>
+<p>Definition at line <a class="el" href="ParticleDetector_8cxx_source.html#l00061">61</a> of file <a class="el" href="ParticleDetector_8cxx_source.html">ParticleDetector.cxx</a>.</p>
 
 </div>
 </div>
@@ -258,11 +267,11 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Find the minimum theta covered by the detector. For use to define the integration range. </p>
 
-<p>Definition at line <a class="el" href="ParticleDetector_8cxx_source.html#l00033">33</a> of file <a class="el" href="ParticleDetector_8cxx_source.html">ParticleDetector.cxx</a>.</p>
+<p>Definition at line <a class="el" href="ParticleDetector_8cxx_source.html#l00039">39</a> of file <a class="el" href="ParticleDetector_8cxx_source.html">ParticleDetector.cxx</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a35f50afc4ffafcf9a9ff86e06cb5fa30"></a>
+<a class="anchor" id="aa5bc9115da65668ec8a2027f79dd0902"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -270,7 +279,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual TH2F* ParticleDetector::GetThetaPhiMap </td>
+          <td class="memname">virtual TGraph2D* ParticleDetector::GetThetaPhiMap </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -340,12 +349,12 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Write the particle detection efficiencies to file, filename, with options, opt </p>
 
-<p>Definition at line <a class="el" href="ParticleDetector_8cxx_source.html#l00060">60</a> of file <a class="el" href="ParticleDetector_8cxx_source.html">ParticleDetector.cxx</a>.</p>
+<p>Definition at line <a class="el" href="ParticleDetector_8cxx_source.html#l00084">84</a> of file <a class="el" href="ParticleDetector_8cxx_source.html">ParticleDetector.cxx</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
-<a class="anchor" id="a246ea62a664366cf8f05e870658bae09"></a>
+<a class="anchor" id="a5924d78e9a6870d6c0a16d886c9cf40c"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -353,7 +362,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">TH1F* ParticleDetector::hThetaEff</td>
+          <td class="memname">TGraph* ParticleDetector::gThetaEff</td>
         </tr>
       </table>
   </td>
@@ -364,11 +373,11 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Histogram defining particle detection efficiency in theta </p>
 
-<p>Definition at line <a class="el" href="ParticleDetector_8h_source.html#l00039">39</a> of file <a class="el" href="ParticleDetector_8h_source.html">ParticleDetector.h</a>.</p>
+<p>Definition at line <a class="el" href="ParticleDetector_8h_source.html#l00043">43</a> of file <a class="el" href="ParticleDetector_8h_source.html">ParticleDetector.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a23704fdd3fd36c821136ad14b89f8f4a"></a>
+<a class="anchor" id="ab6db8f2e3f46b721f78a538e9ce4678f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -376,7 +385,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">TH2F* ParticleDetector::hThetaPhi</td>
+          <td class="memname">TGraph2D* ParticleDetector::gThetaPhi</td>
         </tr>
       </table>
   </td>
@@ -387,7 +396,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Histogram defining particle detection efficiency in theta and phi </p>
 
-<p>Definition at line <a class="el" href="ParticleDetector_8h_source.html#l00038">38</a> of file <a class="el" href="ParticleDetector_8h_source.html">ParticleDetector.h</a>.</p>
+<p>Definition at line <a class="el" href="ParticleDetector_8h_source.html#l00042">42</a> of file <a class="el" href="ParticleDetector_8h_source.html">ParticleDetector.h</a>.</p>
 
 </div>
 </div>
@@ -410,7 +419,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Indicates whether the efficiency maps have been defined </p>
 
-<p>Definition at line <a class="el" href="ParticleDetector_8h_source.html#l00040">40</a> of file <a class="el" href="ParticleDetector_8h_source.html">ParticleDetector.h</a>.</p>
+<p>Definition at line <a class="el" href="ParticleDetector_8h_source.html#l00044">44</a> of file <a class="el" href="ParticleDetector_8h_source.html">ParticleDetector.h</a>.</p>
 
 </div>
 </div>

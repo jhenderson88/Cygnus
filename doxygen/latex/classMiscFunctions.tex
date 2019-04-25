@@ -24,13 +24,31 @@ static void \hyperlink{classMiscFunctions_af49d629dced5a9125091a92bed3a4a0e}{Pri
 static void \hyperlink{classMiscFunctions_a6c137b98015696ba93abab4f31bcbb6b}{Print\-Vector\-Nucleus} (T\-Vector\-D, \hyperlink{classNucleus}{Nucleus}, const char $\ast$)
 \item 
 static double \hyperlink{classMiscFunctions_a91d1bb1bc78782da9523392de913efe9}{Rotation\-Function} (double, int, int, int)
+\item 
+\hypertarget{classMiscFunctions_aa0737f75b4e2e511f67e51fd51f1a897}{static unsigned int {\bfseries doublefactorial} (unsigned int)}\label{classMiscFunctions_aa0737f75b4e2e511f67e51fd51f1a897}
+
+\item 
+\hypertarget{classMiscFunctions_a8d5d0375b3d7f48877572368e1cd605f}{static double {\bfseries Spherical\-Harmonics} (double, int, int, bool b=true)}\label{classMiscFunctions_a8d5d0375b3d7f48877572368e1cd605f}
+
+\item 
+\hypertarget{classMiscFunctions_a069d0139e00238f697b837a55f8c5616}{static double {\bfseries Simpsons\-Rule} (T\-Graph $\ast$, int, double, double)}\label{classMiscFunctions_a069d0139e00238f697b837a55f8c5616}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classMiscFunctions_aa531a2ef1905c6293800d88b672a346c}{static double {\bfseries c} = 299792458}\label{classMiscFunctions_aa531a2ef1905c6293800d88b672a346c}
+
+\item 
+\hypertarget{classMiscFunctions_a45a1257814161b4a03617c6d3aac5543}{static double {\bfseries hbar} = 1.\-05457e-\/34}\label{classMiscFunctions_a45a1257814161b4a03617c6d3aac5543}
+
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 Useful static functions for use elsewhere in the software package. 
 
-Definition at line 16 of file Misc\-Functions.\-h.
+Definition at line 17 of file Misc\-Functions.\-h.
 
 
 
@@ -44,7 +62,7 @@ Definition at line 16 of file Misc\-Functions.\-h.
 )\hspace{0.3cm}{\ttfamily [static]}}}\label{classMiscFunctions_a013c73579d32d966d225b96304d39dda}
 Return the maximum absolute value in a T\-Matrix\-D 
 
-Definition at line 15 of file Misc\-Functions.\-cxx.
+Definition at line 18 of file Misc\-Functions.\-cxx.
 
 \hypertarget{classMiscFunctions_a94aa5dcad8b420d3b3e09554d42d8fc8}{\index{Misc\-Functions@{Misc\-Functions}!Get\-Max\-Matrix@{Get\-Max\-Matrix}}
 \index{Get\-Max\-Matrix@{Get\-Max\-Matrix}!MiscFunctions@{Misc\-Functions}}
@@ -55,7 +73,7 @@ Definition at line 15 of file Misc\-Functions.\-cxx.
 )\hspace{0.3cm}{\ttfamily [static]}}}\label{classMiscFunctions_a94aa5dcad8b420d3b3e09554d42d8fc8}
 Return the maximum value in a T\-Matrix\-D 
 
-Definition at line 3 of file Misc\-Functions.\-cxx.
+Definition at line 6 of file Misc\-Functions.\-cxx.
 
 \hypertarget{classMiscFunctions_af49d629dced5a9125091a92bed3a4a0e}{\index{Misc\-Functions@{Misc\-Functions}!Print\-Matrix\-Nucleus@{Print\-Matrix\-Nucleus}}
 \index{Print\-Matrix\-Nucleus@{Print\-Matrix\-Nucleus}!MiscFunctions@{Misc\-Functions}}
@@ -67,7 +85,7 @@ Definition at line 3 of file Misc\-Functions.\-cxx.
 )\hspace{0.3cm}{\ttfamily [static]}}}\label{classMiscFunctions_af49d629dced5a9125091a92bed3a4a0e}
 Print a well formatted T\-Matrix\-D based on states from a \hyperlink{classNucleus}{Nucleus} object 
 
-Definition at line 52 of file Misc\-Functions.\-cxx.
+Definition at line 55 of file Misc\-Functions.\-cxx.
 
 \hypertarget{classMiscFunctions_a6c137b98015696ba93abab4f31bcbb6b}{\index{Misc\-Functions@{Misc\-Functions}!Print\-Vector\-Nucleus@{Print\-Vector\-Nucleus}}
 \index{Print\-Vector\-Nucleus@{Print\-Vector\-Nucleus}!MiscFunctions@{Misc\-Functions}}
@@ -80,7 +98,7 @@ Definition at line 52 of file Misc\-Functions.\-cxx.
 )\hspace{0.3cm}{\ttfamily [static]}}}\label{classMiscFunctions_a6c137b98015696ba93abab4f31bcbb6b}
 Print a well formatted T\-Vector\-D based on states from a \hyperlink{classNucleus}{Nucleus} object 
 
-Definition at line 77 of file Misc\-Functions.\-cxx.
+Definition at line 80 of file Misc\-Functions.\-cxx.
 
 \hypertarget{classMiscFunctions_a91d1bb1bc78782da9523392de913efe9}{\index{Misc\-Functions@{Misc\-Functions}!Rotation\-Function@{Rotation\-Function}}
 \index{Rotation\-Function@{Rotation\-Function}!MiscFunctions@{Misc\-Functions}}
@@ -94,7 +112,7 @@ Definition at line 77 of file Misc\-Functions.\-cxx.
 )\hspace{0.3cm}{\ttfamily [static]}}}\label{classMiscFunctions_a91d1bb1bc78782da9523392de913efe9}
 Rotation function to convert \hyperlink{classReaction}{Reaction} frame tensors to laboratory frame 
 
-Definition at line 92 of file Misc\-Functions.\-cxx.
+Definition at line 95 of file Misc\-Functions.\-cxx.
 
 \hypertarget{classMiscFunctions_a53cef6044e7ce41d37789c2c76948226}{\index{Misc\-Functions@{Misc\-Functions}!Write\-Matrix\-Nucleus@{Write\-Matrix\-Nucleus}}
 \index{Write\-Matrix\-Nucleus@{Write\-Matrix\-Nucleus}!MiscFunctions@{Misc\-Functions}}
@@ -107,7 +125,7 @@ Definition at line 92 of file Misc\-Functions.\-cxx.
 )\hspace{0.3cm}{\ttfamily [static]}}}\label{classMiscFunctions_a53cef6044e7ce41d37789c2c76948226}
 Write a well formatted T\-Matrix\-D based on states from a \hyperlink{classNucleus}{Nucleus} object 
 
-Definition at line 27 of file Misc\-Functions.\-cxx.
+Definition at line 30 of file Misc\-Functions.\-cxx.
 
 
 

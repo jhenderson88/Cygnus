@@ -143,8 +143,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aaa0710c49d0b08575aa34ba1feefa00a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9e972e6be388fee7c9a38652991052c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classReaction.html#ab9e972e6be388fee7c9a38652991052c">Rutherford</a> (double theta_lab, int part=2)</td></tr>
 <tr class="separator:ab9e972e6be388fee7c9a38652991052c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac417a6e5c5809dc7ff6af8b52bc98f01"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classReaction.html#ac417a6e5c5809dc7ff6af8b52bc98f01">RutherfordCM</a> (double theta_cm)</td></tr>
-<tr class="separator:ac417a6e5c5809dc7ff6af8b52bc98f01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fdc487d0ef8e6286fe7385a24237b65"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classReaction.html#a9fdc487d0ef8e6286fe7385a24237b65">RutherfordCM</a> (double theta_cm, int part=2)</td></tr>
+<tr class="separator:a9fdc487d0ef8e6286fe7385a24237b65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa417a6fcfd67b4fcf3b1c437e255bf48"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classReaction.html#aa417a6fcfd67b4fcf3b1c437e255bf48">PrintReaction</a> () const </td></tr>
 <tr class="separator:aa417a6fcfd67b4fcf3b1c437e255bf48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a107e59773c72a5e780e688e45093de15"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classReaction.html#a107e59773c72a5e780e688e45093de15">SetMass</a> (double b, double t)</td></tr>
@@ -165,14 +165,20 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa36161ccf8b40d608e96bfbf47bc5f38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7bb2c8c05ec7099774042b495761c344"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classReaction.html#a7bb2c8c05ec7099774042b495761c344">SetCmFrame</a> (double)</td></tr>
 <tr class="separator:a7bb2c8c05ec7099774042b495761c344"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ad94562bb8fb812c69b9586920c62f3"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classReaction.html#a9ad94562bb8fb812c69b9586920c62f3">ConvertThetaCmToLab</a> (double, int) const </td></tr>
-<tr class="separator:a9ad94562bb8fb812c69b9586920c62f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba20cd636ca54ead991bbd2af995e241"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classReaction.html#aba20cd636ca54ead991bbd2af995e241">ConvertThetaLabToCm</a> (double, int) const </td></tr>
-<tr class="separator:aba20cd636ca54ead991bbd2af995e241"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a963c2db5f2690e76497c9df4cbbde1ea"><td class="memItemLeft" align="right" valign="top">TGraph *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classReaction.html#a963c2db5f2690e76497c9df4cbbde1ea">ThetaVsTheta</a> (double, double, int) const </td></tr>
-<tr class="separator:a963c2db5f2690e76497c9df4cbbde1ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9e6f9701b6c0f29ef05e4ae007d2c27"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classReaction.html#ad9e6f9701b6c0f29ef05e4ae007d2c27">SetGOSIAKinematics</a> (bool b=true)</td></tr>
+<tr class="separator:ad9e6f9701b6c0f29ef05e4ae007d2c27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa15a2f2000c54e1a5bcb5e6231b20a02"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classReaction.html#aa15a2f2000c54e1a5bcb5e6231b20a02">GOSIAKinematics</a> () const </td></tr>
+<tr class="separator:aa15a2f2000c54e1a5bcb5e6231b20a02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0749dc9eb4a46e051bab88aab3ab10d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classReaction.html#aa0749dc9eb4a46e051bab88aab3ab10d">ConvertThetaCmToLab</a> (double, int)</td></tr>
+<tr class="separator:aa0749dc9eb4a46e051bab88aab3ab10d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1201e1afefe6cc09db1c96faf398f318"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classReaction.html#a1201e1afefe6cc09db1c96faf398f318">ConvertThetaLabToCm</a> (double, int)</td></tr>
+<tr class="separator:a1201e1afefe6cc09db1c96faf398f318"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a1d393bace0a9c11b77769f020d34e2"><td class="memItemLeft" align="right" valign="top">TGraph *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classReaction.html#a5a1d393bace0a9c11b77769f020d34e2">ThetaVsTheta</a> (double, double, int)</td></tr>
+<tr class="separator:a5a1d393bace0a9c11b77769f020d34e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5be6997bfd61ea2a3cb14efdb72d3b45"><td class="memItemLeft" align="right" valign="top">TGraph *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classReaction.html#a5be6997bfd61ea2a3cb14efdb72d3b45">RutherfordGraph</a> (double, double, int)</td></tr>
 <tr class="separator:a5be6997bfd61ea2a3cb14efdb72d3b45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0eaf4784bc0fb9c15ea2cbf5c74fd70f"><td class="memItemLeft" align="right" valign="top">TGraph *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classReaction.html#a0eaf4784bc0fb9c15ea2cbf5c74fd70f">PlotClosestApproachvsEnergy</a> (double, double, int nsteps=101)</td></tr>
+<tr class="separator:a0eaf4784bc0fb9c15ea2cbf5c74fd70f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -182,9 +188,9 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:ae5cded739cd4c1b07a79a850c3d83b21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adbeaf76ca988330f57ccf5479284c51d"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classReaction.html#adbeaf76ca988330f57ccf5479284c51d">nuclearmagneton</a> = 0.105155</td></tr>
 <tr class="separator:adbeaf76ca988330f57ccf5479284c51d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a726225b505e6bad7ee271fd1165e1318"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classReaction.html#a726225b505e6bad7ee271fd1165e1318">dipole</a> =0.005</td></tr>
+<tr class="memitem:a726225b505e6bad7ee271fd1165e1318"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classReaction.html#a726225b505e6bad7ee271fd1165e1318">dipole</a> = 0.005</td></tr>
 <tr class="separator:a726225b505e6bad7ee271fd1165e1318"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1a709b13c8bb45fd259d7bda61343a9"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classReaction.html#ac1a709b13c8bb45fd259d7bda61343a9">electronCharge</a> =1.602e-19</td></tr>
+<tr class="memitem:ac1a709b13c8bb45fd259d7bda61343a9"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classReaction.html#ac1a709b13c8bb45fd259d7bda61343a9">electronCharge</a> = 1.602e-19</td></tr>
 <tr class="separator:ac1a709b13c8bb45fd259d7bda61343a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -240,7 +246,7 @@ Static Public Attributes</h2></td></tr>
 <p>Define the reaction:</p>
 <p>aBeam and zBeam are the beam A and Z. aTarget and zTarget are the target A and Z. eBeam is the beam energy in MeV (lab frame). </p>
 
-<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00019">19</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00021">21</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
 
 </div>
 </div>
@@ -289,7 +295,7 @@ Static Public Attributes</h2></td></tr>
 <p>mBeam and zBeam are the beam mass and Z. mTarget and zTarget are the target mass and Z. eBeam is the beam energy in MeV (lab frame).</p>
 <p>Masses are defined in atomic mass units </p>
 
-<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00034">34</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00038">38</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
 
 </div>
 </div>
@@ -308,7 +314,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Copy constructor </p>
 
-<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00049">49</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00055">55</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
 
 </div>
 </div>
@@ -382,11 +388,11 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Return the distance of closest approach from aBeam, aTarget, zBeam, zTarget, eLab (MeV) </p>
 
-<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00122">122</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00131">131</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a9ad94562bb8fb812c69b9586920c62f3"></a>
+<a class="anchor" id="aa0749dc9eb4a46e051bab88aab3ab10d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -405,17 +411,17 @@ Static Public Attributes</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td> const</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Convert theta in the center of mass frame to the lab frame (radians) </p>
 
-<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00260">260</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00305">305</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aba20cd636ca54ead991bbd2af995e241"></a>
+<a class="anchor" id="a1201e1afefe6cc09db1c96faf398f318"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -434,13 +440,13 @@ Static Public Attributes</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td> const</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Convert theta in the lab frame to the center of mass frame (radians) </p>
 
-<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00238">238</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00257">257</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
 
 </div>
 </div>
@@ -462,7 +468,7 @@ Static Public Attributes</h2></td></tr>
 <p>where:</p>
 <p><img class="formulaInl" alt="$ s = (1 + A_1/A2)$" src="form_1.png"/> </p>
 
-<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00130">130</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00139">139</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
 
 </div>
 </div>
@@ -778,6 +784,32 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="aa15a2f2000c54e1a5bcb5e6231b20a02"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Reaction::GOSIAKinematics </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return bool indicating whether GOSIA kinematics are being used </p>
+
+<p>Definition at line <a class="el" href="Reaction_8h_source.html#l00131">131</a> of file <a class="el" href="Reaction_8h_source.html">Reaction.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="aa36161ccf8b40d608e96bfbf47bc5f38"></a>
 <div class="memitem">
 <div class="memproto">
@@ -792,7 +824,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Set up the reaction kinematics calculations </p>
 
-<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00170">170</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00189">189</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
 
 </div>
 </div>
@@ -811,7 +843,42 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Assignment operator </p>
 
-<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00069">69</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00076">76</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0eaf4784bc0fb9c15ea2cbf5c74fd70f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TGraph * Reaction::PlotClosestApproachvsEnergy </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>eMin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>eMax</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nsteps</em> = <code>101</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Plot the distance of closest approach as a function of energy - distance between nuclear surfaces </p>
+
+<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00392">392</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
 
 </div>
 </div>
@@ -829,7 +896,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Print the details of the reaction </p>
 
-<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00333">333</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00404">404</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
 
 </div>
 </div>
@@ -848,7 +915,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Return the relative velocity for a given state. Presently unused. </p>
 
-<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00140">140</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00149">149</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
 
 </div>
 </div>
@@ -877,11 +944,11 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Return the Rutherford cross section (mb) for theta defined in the lab frame </p>
 
-<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00159">159</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00173">173</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ac417a6e5c5809dc7ff6af8b52bc98f01"></a>
+<a class="anchor" id="a9fdc487d0ef8e6286fe7385a24237b65"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -889,14 +956,24 @@ Static Public Attributes</h2></td></tr>
           <td class="memname">double Reaction::RutherfordCM </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>theta_cm</em></td><td>)</td>
+          <td class="paramname"><em>theta_cm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>part</em> = <code>2</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Return the Rutherford cross section (mb) for theta defined in the CoM frame </p>
 
-<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00148">148</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00157">157</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
 
 </div>
 </div>
@@ -931,7 +1008,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Plot the Rutherford cross section </p>
 
-<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00303">303</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00362">362</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
 
 </div>
 </div>
@@ -1004,7 +1081,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Set the beam energy in the center-of-mass frame (MeV) </p>
 
-<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00103">103</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00112">112</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
 
 </div>
 </div>
@@ -1023,7 +1100,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Define parameters in the center of mass frame </p>
 
-<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00207">207</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00226">226</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
 
 </div>
 </div>
@@ -1054,6 +1131,33 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ad9e6f9701b6c0f29ef05e4ae007d2c27"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Reaction::SetGOSIAKinematics </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>b</em> = <code>true</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>GOSIA kinematic flags Sets whether the GOSIA kinematics will be used. GOSIA kinematics differ from (for example) Catkin and the normal kinematics models used here. Primarily intended for debugging and providing a one-to-one comparison with GOSIA. </p>
+
+<p>Definition at line <a class="el" href="Reaction_8h_source.html#l00130">130</a> of file <a class="el" href="Reaction_8h_source.html">Reaction.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a0fe38599ec2bc9b0356c22c84893bd53"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1069,7 +1173,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Set the beam energy in the laboratory frame (MeV) </p>
 
-<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00092">92</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00101">101</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
 
 </div>
 </div>
@@ -1164,7 +1268,7 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a963c2db5f2690e76497c9df4cbbde1ea"></a>
+<a class="anchor" id="a5a1d393bace0a9c11b77769f020d34e2"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -1189,13 +1293,13 @@ Static Public Attributes</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td> const</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Plot theta lab vs theta center of mass </p>
 
-<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00274">274</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00333">333</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
 
 </div>
 </div>
@@ -1248,7 +1352,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Wigner 3J symbol from GSL </p>
 
-<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00114">114</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Reaction_8cxx_source.html#l00123">123</a> of file <a class="el" href="Reaction_8cxx_source.html">Reaction.cxx</a>.</p>
 
 </div>
 </div>
@@ -1261,7 +1365,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double Reaction::dipole =0.005</td>
+          <td class="memname">double Reaction::dipole = 0.005</td>
         </tr>
       </table>
   </td>
@@ -1284,7 +1388,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double Reaction::electronCharge =1.602e-19</td>
+          <td class="memname">double Reaction::electronCharge = 1.602e-19</td>
         </tr>
       </table>
   </td>

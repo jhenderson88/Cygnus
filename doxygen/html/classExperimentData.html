@@ -106,6 +106,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a81531d8462a74362d35794fe05018baa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1366e023080099fea2c8ead233e4f778"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExperimentData.html#a1366e023080099fea2c8ead233e4f778">ClearData</a> ()</td></tr>
 <tr class="separator:a1366e023080099fea2c8ead233e4f778"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ee32b0a4bec56393f65bf39dd302dc3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3ee32b0a4bec56393f65bf39dd302dc3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetDataEfficiency</b> (int i, double eff)</td></tr>
+<tr class="separator:a3ee32b0a4bec56393f65bf39dd302dc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebfccd487301e728c1cb00bbe970c2bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classExptData.html">ExptData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExperimentData.html#aebfccd487301e728c1cb00bbe970c2bb">GetDataPoint</a> (int i) const </td></tr>
 <tr class="separator:aebfccd487301e728c1cb00bbe970c2bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99aa8a266594cf9211c5cbdd8f2c7708"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classExptData.html">ExptData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExperimentData.html#a99aa8a266594cf9211c5cbdd8f2c7708">GetData</a> () const </td></tr>
@@ -121,7 +124,7 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>Holder class containing experimental data, stored in a vector of <a class="el" href="classExptData.html" title="Single transition information, stored within ExperimentData. ">ExptData</a> objects. </p>
 <p>The mean theta in the center-of-mass frame is also held in this class for convenience later </p>
 
-<p>Definition at line <a class="el" href="ExperimentalInput_8h_source.html#l00090">90</a> of file <a class="el" href="ExperimentalInput_8h_source.html">ExperimentalInput.h</a>.</p>
+<p>Definition at line <a class="el" href="ExperimentalInput_8h_source.html#l00094">94</a> of file <a class="el" href="ExperimentalInput_8h_source.html">ExperimentalInput.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a4fd4e938e3e2d3e19c764e5435adf853"></a>
 <div class="memitem">
@@ -138,7 +141,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Copy constructor </p>
 
-<p>Definition at line <a class="el" href="ExperimentalInput_8cxx_source.html#l00024">24</a> of file <a class="el" href="ExperimentalInput_8cxx_source.html">ExperimentalInput.cxx</a>.</p>
+<p>Definition at line <a class="el" href="ExperimentalInput_8cxx_source.html#l00025">25</a> of file <a class="el" href="ExperimentalInput_8cxx_source.html">ExperimentalInput.cxx</a>.</p>
 
 </div>
 </div>
@@ -188,7 +191,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add a new <a class="el" href="classExptData.html" title="Single transition information, stored within ExperimentData. ">ExptData</a> value with: initial state = i final state = f yield = c uncertainty = e </p>
 
-<p>Definition at line <a class="el" href="ExperimentalInput_8h_source.html#l00105">105</a> of file <a class="el" href="ExperimentalInput_8h_source.html">ExperimentalInput.h</a>.</p>
+<p>Definition at line <a class="el" href="ExperimentalInput_8h_source.html#l00109">109</a> of file <a class="el" href="ExperimentalInput_8h_source.html">ExperimentalInput.h</a>.</p>
 
 </div>
 </div>
@@ -214,7 +217,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Clear experimental data </p>
 
-<p>Definition at line <a class="el" href="ExperimentalInput_8h_source.html#l00107">107</a> of file <a class="el" href="ExperimentalInput_8h_source.html">ExperimentalInput.h</a>.</p>
+<p>Definition at line <a class="el" href="ExperimentalInput_8h_source.html#l00111">111</a> of file <a class="el" href="ExperimentalInput_8h_source.html">ExperimentalInput.h</a>.</p>
 
 </div>
 </div>
@@ -240,7 +243,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return vector of <a class="el" href="classExptData.html" title="Single transition information, stored within ExperimentData. ">ExptData</a> </p>
 
-<p>Definition at line <a class="el" href="ExperimentalInput_8h_source.html#l00110">110</a> of file <a class="el" href="ExperimentalInput_8h_source.html">ExperimentalInput.h</a>.</p>
+<p>Definition at line <a class="el" href="ExperimentalInput_8h_source.html#l00116">116</a> of file <a class="el" href="ExperimentalInput_8h_source.html">ExperimentalInput.h</a>.</p>
 
 </div>
 </div>
@@ -267,7 +270,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return <a class="el" href="classExptData.html" title="Single transition information, stored within ExperimentData. ">ExptData</a> object at index i </p>
 
-<p>Definition at line <a class="el" href="ExperimentalInput_8h_source.html#l00109">109</a> of file <a class="el" href="ExperimentalInput_8h_source.html">ExperimentalInput.h</a>.</p>
+<p>Definition at line <a class="el" href="ExperimentalInput_8h_source.html#l00115">115</a> of file <a class="el" href="ExperimentalInput_8h_source.html">ExperimentalInput.h</a>.</p>
 
 </div>
 </div>
@@ -293,7 +296,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return theta CM </p>
 
-<p>Definition at line <a class="el" href="ExperimentalInput_8h_source.html#l00113">113</a> of file <a class="el" href="ExperimentalInput_8h_source.html">ExperimentalInput.h</a>.</p>
+<p>Definition at line <a class="el" href="ExperimentalInput_8h_source.html#l00119">119</a> of file <a class="el" href="ExperimentalInput_8h_source.html">ExperimentalInput.h</a>.</p>
 
 </div>
 </div>
@@ -312,7 +315,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Assignment operator </p>
 
-<p>Definition at line <a class="el" href="ExperimentalInput_8cxx_source.html#l00033">33</a> of file <a class="el" href="ExperimentalInput_8cxx_source.html">ExperimentalInput.cxx</a>.</p>
+<p>Definition at line <a class="el" href="ExperimentalInput_8cxx_source.html#l00034">34</a> of file <a class="el" href="ExperimentalInput_8cxx_source.html">ExperimentalInput.cxx</a>.</p>
 
 </div>
 </div>
@@ -330,7 +333,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Print all experimental data </p>
 
-<p>Definition at line <a class="el" href="ExperimentalInput_8cxx_source.html#l00044">44</a> of file <a class="el" href="ExperimentalInput_8cxx_source.html">ExperimentalInput.cxx</a>.</p>
+<p>Definition at line <a class="el" href="ExperimentalInput_8cxx_source.html#l00045">45</a> of file <a class="el" href="ExperimentalInput_8cxx_source.html">ExperimentalInput.cxx</a>.</p>
 
 </div>
 </div>
@@ -367,7 +370,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Set experimental yield, index i to <a class="el" href="classExptData.html" title="Single transition information, stored within ExperimentData. ">ExptData</a> object exp </p>
 
-<p>Definition at line <a class="el" href="ExperimentalInput_8h_source.html#l00106">106</a> of file <a class="el" href="ExperimentalInput_8h_source.html">ExperimentalInput.h</a>.</p>
+<p>Definition at line <a class="el" href="ExperimentalInput_8h_source.html#l00110">110</a> of file <a class="el" href="ExperimentalInput_8h_source.html">ExperimentalInput.h</a>.</p>
 
 </div>
 </div>
@@ -394,7 +397,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Define theta CM </p>
 
-<p>Definition at line <a class="el" href="ExperimentalInput_8h_source.html#l00112">112</a> of file <a class="el" href="ExperimentalInput_8h_source.html">ExperimentalInput.h</a>.</p>
+<p>Definition at line <a class="el" href="ExperimentalInput_8h_source.html#l00118">118</a> of file <a class="el" href="ExperimentalInput_8h_source.html">ExperimentalInput.h</a>.</p>
 
 </div>
 </div>

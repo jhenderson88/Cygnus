@@ -96,6 +96,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a978a4161e37553ad42e30989d7c35f5f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a978a4161e37553ad42e30989d7c35f5f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>StateTensor</b> (const <a class="el" href="classStateTensor.html">StateTensor</a> &amp;)</td></tr>
+<tr class="separator:a978a4161e37553ad42e30989d7c35f5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8efc4683d973be8f92a30301679bd7d8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8efc4683d973be8f92a30301679bd7d8"></a>
+<a class="el" href="classStateTensor.html">StateTensor</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classStateTensor.html">StateTensor</a> &amp;)</td></tr>
+<tr class="separator:a8efc4683d973be8f92a30301679bd7d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a969a220f6a5be9b01afa78b6292e01d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStateTensor.html#a969a220f6a5be9b01afa78b6292e01d7">SetState</a> (int i)</td></tr>
 <tr class="separator:a969a220f6a5be9b01afa78b6292e01d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a830dc885eb4aa28cd39c144f07c2ec06"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStateTensor.html#a830dc885eb4aa28cd39c144f07c2ec06">AddElement</a> (double rho, double k, double kappa)</td></tr>
@@ -112,6 +118,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a596ba29aacb7231b5d9cef84071115de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10cd06b8aadf80ee0041f198bf1bbde4"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStateTensor.html#a10cd06b8aadf80ee0041f198bf1bbde4">IndexFromKkappa</a> (double, double)</td></tr>
 <tr class="separator:a10cd06b8aadf80ee0041f198bf1bbde4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3f5e96da9cfc45470d6dde9594d46dc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStateTensor.html#ad3f5e96da9cfc45470d6dde9594d46dc">GetMaxK</a> () const </td></tr>
+<tr class="separator:ad3f5e96da9cfc45470d6dde9594d46dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Statistical tensor information for a single state. </p>
@@ -149,7 +157,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Define the density matrix component, rho for given k and kappa </p>
 
-<p>Definition at line <a class="el" href="StatisticalTensor_8cxx_source.html#l00003">3</a> of file <a class="el" href="StatisticalTensor_8cxx_source.html">StatisticalTensor.cxx</a>.</p>
+<p>Definition at line <a class="el" href="StatisticalTensor_8cxx_source.html#l00028">28</a> of file <a class="el" href="StatisticalTensor_8cxx_source.html">StatisticalTensor.cxx</a>.</p>
 
 </div>
 </div>
@@ -176,7 +184,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return the k value for element i </p>
 
-<p>Definition at line <a class="el" href="StatisticalTensor_8h_source.html#l00027">27</a> of file <a class="el" href="StatisticalTensor_8h_source.html">StatisticalTensor.h</a>.</p>
+<p>Definition at line <a class="el" href="StatisticalTensor_8h_source.html#l00030">30</a> of file <a class="el" href="StatisticalTensor_8h_source.html">StatisticalTensor.h</a>.</p>
 
 </div>
 </div>
@@ -203,7 +211,33 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return the kappa value for element i </p>
 
-<p>Definition at line <a class="el" href="StatisticalTensor_8h_source.html#l00028">28</a> of file <a class="el" href="StatisticalTensor_8h_source.html">StatisticalTensor.h</a>.</p>
+<p>Definition at line <a class="el" href="StatisticalTensor_8h_source.html#l00031">31</a> of file <a class="el" href="StatisticalTensor_8h_source.html">StatisticalTensor.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad3f5e96da9cfc45470d6dde9594d46dc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int StateTensor::GetMaxK </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Largest K value for this state </p>
+
+<p>Definition at line <a class="el" href="StatisticalTensor_8h_source.html#l00035">35</a> of file <a class="el" href="StatisticalTensor_8h_source.html">StatisticalTensor.h</a>.</p>
 
 </div>
 </div>
@@ -229,7 +263,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return the number of components to the tensor </p>
 
-<p>Definition at line <a class="el" href="StatisticalTensor_8h_source.html#l00023">23</a> of file <a class="el" href="StatisticalTensor_8h_source.html">StatisticalTensor.h</a>.</p>
+<p>Definition at line <a class="el" href="StatisticalTensor_8h_source.html#l00026">26</a> of file <a class="el" href="StatisticalTensor_8h_source.html">StatisticalTensor.h</a>.</p>
 
 </div>
 </div>
@@ -255,7 +289,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return the state index </p>
 
-<p>Definition at line <a class="el" href="StatisticalTensor_8h_source.html#l00025">25</a> of file <a class="el" href="StatisticalTensor_8h_source.html">StatisticalTensor.h</a>.</p>
+<p>Definition at line <a class="el" href="StatisticalTensor_8h_source.html#l00028">28</a> of file <a class="el" href="StatisticalTensor_8h_source.html">StatisticalTensor.h</a>.</p>
 
 </div>
 </div>
@@ -282,7 +316,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return the tensor for element i </p>
 
-<p>Definition at line <a class="el" href="StatisticalTensor_8h_source.html#l00026">26</a> of file <a class="el" href="StatisticalTensor_8h_source.html">StatisticalTensor.h</a>.</p>
+<p>Definition at line <a class="el" href="StatisticalTensor_8h_source.html#l00029">29</a> of file <a class="el" href="StatisticalTensor_8h_source.html">StatisticalTensor.h</a>.</p>
 
 </div>
 </div>
@@ -311,7 +345,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>For a given k and kappa combination, find the element index </p>
 
-<p>Definition at line <a class="el" href="StatisticalTensor_8cxx_source.html#l00011">11</a> of file <a class="el" href="StatisticalTensor_8cxx_source.html">StatisticalTensor.cxx</a>.</p>
+<p>Definition at line <a class="el" href="StatisticalTensor_8cxx_source.html#l00039">39</a> of file <a class="el" href="StatisticalTensor_8cxx_source.html">StatisticalTensor.cxx</a>.</p>
 
 </div>
 </div>
@@ -338,7 +372,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Define the state </p>
 
-<p>Definition at line <a class="el" href="StatisticalTensor_8h_source.html#l00020">20</a> of file <a class="el" href="StatisticalTensor_8h_source.html">StatisticalTensor.h</a>.</p>
+<p>Definition at line <a class="el" href="StatisticalTensor_8h_source.html#l00023">23</a> of file <a class="el" href="StatisticalTensor_8h_source.html">StatisticalTensor.h</a>.</p>
 
 </div>
 </div>

@@ -231,12 +231,13 @@ double CoulExMinFCN::operator()(const double* par){
 	milliseconds ms = std::chrono::duration_cast<milliseconds>(t1-t0);
 
 	if((iter % 10) == 0 && !verbose)
-			std::cout 	<< "Iteration: " << std::setw(5) << iter 
-					<< ", chi-squared value: " << std::setw(7) << chisq 
-					<< " NDF: " << NDF 
-					<< ", reduced chi-squared: " << std::setw(7) << chisq / (double)NDF
-					<< ", literature component of chisq: " << std::setw(7) << litchisq 
-					<< " processing time:  " << std::setw(5) << ms.count() << " ms\r" << std::flush;
+			std::cout 	<< std::setw(12) << std::left << iter 
+					<< std::setw(13) << std::left << chisq 
+					<< std::setw(7)  << std::left << NDF
+					<< std::setw(13) << std::left << chisq/(double)NDF 
+					<< std::setw(12) << std::left << litchisq 
+					<< std::setw(24) << std::left << ms.count() 
+					<< "\r" << std::flush;
 
 	return chisq;	
 
