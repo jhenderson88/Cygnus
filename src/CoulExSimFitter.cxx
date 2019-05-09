@@ -127,10 +127,6 @@ void CoulExSimFitter::DoFit(const char* method, const char *algorithm){
 		}
 		else if(i < matrixElements_Target.size() + matrixElements_Beam.size()){
 			name = "Target-ME-"+std::to_string(i - matrixElements_Beam.size());
-		//	std::cout	<< i - matrixElements_Beam.size() << "\t"
-		//			<< name << "\t"
-		//			<< par_LL.at(i) << "\t"
-		//			<< par_UL.at(i) << std::endl;
 			min->SetLimitedVariable(i,name,parameters.at(i),0.001,par_LL.at(i),par_UL.at(i));
 		}
 		else{
