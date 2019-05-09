@@ -49,11 +49,6 @@ void CoulExFitter::DoFit(const char* method, const char *algorithm){
 
 	theFCN.SetPoisson(UsePoissonUncertainties());
 
-	//parameters.push_back(0.15);
-	//par_LL.push_back(0.05);
-	//par_UL.push_back(0.3);
-	//first = false;
-
 	for(size_t m=0;m<matrixElements.size();m++)
 		matrixElements.at(m).Print();
 
@@ -111,7 +106,6 @@ void CoulExFitter::DoFit(const char* method, const char *algorithm){
 	min->SetMaxIterations(maxIter);
 	min->SetTolerance(fitTolerance);
 	min->SetFunction(f);
-	//min->SetPrintLevel(printLevel);
 	for(unsigned int i=0; i<parameters.size(); i++){
 		std::string name;
 		if(i < matrixElements.size()){
@@ -120,7 +114,7 @@ void CoulExFitter::DoFit(const char* method, const char *algorithm){
 		}
 		else{
 			name = "Scaling-"+std::to_string(i-matrixElements.size());
-			min->SetLowerLimitedVariable(i,name,parameters.at(i),0.0001,0);//,par_LL.at(i),par_UL.at(i));
+			min->SetLowerLimitedVariable(i,name,parameters.at(i),0.0001,0);
 		}
 	}
 
@@ -192,9 +186,6 @@ void CoulExFitter::DoFit(const char* method, const char *algorithm){
 		}
 	}
 
-	//for(unsigned int i=0;i<parameters.size();i++)
-	//	parameters[i] = theFCN.GetParameter(i);
-
 }
 
 void CoulExFitter::CreateScalingParameter(std::vector<int> expnum, double scaling, double scaling_LL, double scaling_UL){
@@ -208,9 +199,6 @@ void CoulExFitter::CreateScalingParameter(std::vector<int> expnum, double scalin
 }
 
 void CoulExFitter::AddFittingMatrixElement(int lambda, int init, int fin, double ME, double LL, double UL){
-	//parameters.push_back(ME);
-	//par_LL.push_back(LL);
-	//par_UL.push_back(UL);
 	MatrixElement tmpME(matrixElements.size(),lambda,init,fin,ME,LL,UL);
 	matrixElements.push_back(tmpME);
 }

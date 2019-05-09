@@ -28,7 +28,7 @@ void RunFitter(const char* nuclfile = "NucleusFile.txt", const char* datafile = 
 	//	Define the experiment.
 	//	Note: ExperimentRanges in Cygnus correspond to any individual detector region, like a subset of rings on an annular silicon for which yields will be provided	
 	Experiments *expts = new Experiments(nucl,reac);		//	Construct the Experiment with the previously defined Nucleus and Reaction.
-	expts->SetAccuracy(1e-5);					//	Set the accuracy of the calculation. 1e-5 is rather low resolution. Default is 1e-8. Reduced accuracy leads to increased speed.
+	expts->SetAccuracy(1e-7);					//	Set the accuracy of the calculation. 1e-5 is rather low resolution. Default is 1e-8. Reduced accuracy leads to increased speed.
 	double tmin[6] = {20,30,40,20,30,40};				//	Minimum theta (lab, degrees) of each of the six defined experimental ranges
 	double tmax[6] = {30,40,50,30,40,50};				//	Maximum theta (lab, degrees) of each of the six defined experimental ranges
 	bool tarDet[6] = {false,false,false,true,true,true};		//	Is the target detected in the particle detector? Defines the kinematics of the reaction.
@@ -112,7 +112,7 @@ void RunFitter(const char* nuclfile = "NucleusFile.txt", const char* datafile = 
 
 	//	Define the matrix elements to be varied in the fit. Any not defined here will be fixed to the values in the Nucleus.
 	fitter->AddFittingMatrixElement(1,0,1,0.486,0.320,1.270);
-	fitter->AddFittingMatrixElement(1,0,3,0.571,0.05,0.2);
+	fitter->AddFittingMatrixElement(1,0,3,0.571,0.05,0.8);
 	fitter->AddFittingMatrixElement(1,1,1,-0.200,-1,-0.1);
 	fitter->AddFittingMatrixElement(1,1,2,0.6999,0.1,1);
 	fitter->AddFittingMatrixElement(1,1,3,0.412,0.1,1.8);
@@ -123,7 +123,7 @@ void RunFitter(const char* nuclfile = "NucleusFile.txt", const char* datafile = 
 	for(unsigned int e=0;e<6;e++)
 		tmpVec.push_back((int)e);
 	// 	Arguments: vector containing experiments to be scaled with this parameter, starting value, lower limit, upper limit
-	fitter->CreateScalingParameter(tmpVec,0.1375,0.01,1e6);	
+	fitter->CreateScalingParameter(tmpVec,0.002,1e-6,1e6);	
 	
 	//	Define the number of threads the fitter can use
 	fitter->SetNthreads(threads);
@@ -135,9 +135,9 @@ void RunFitter(const char* nuclfile = "NucleusFile.txt", const char* datafile = 
 	fitter->SetVerbose(true);							
 
 	//	MaxIterations/MaxFunctionCalls are for Minuit2 and GSL respectively
-	fitter->SetMaxIterations(1000);
-	fitter->SetMaxFunctionCalls(1000);
-	fitter->SetTolerance(0.0001);
+	fitter->SetMaxIterations(5000);
+	fitter->SetMaxFunctionCalls(5000);
+	fitter->SetTolerance(0.001);
 
 	//	Perform the fit
 	fitter->DoFit("Minuit2","Migrad");

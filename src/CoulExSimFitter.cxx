@@ -7,6 +7,8 @@ CoulExSimFitter::CoulExSimFitter()
 
 	first		= true;
 
+	fDoFullUnc	= false;
+
 	maxIter		= 500;
 	maxCalls	= 500;
 	fitTolerance	= 0.001;
@@ -119,16 +121,23 @@ void CoulExSimFitter::DoFit(const char* method, const char *algorithm){
 	min->SetFunction(f);
 	for(unsigned int i=0; i<parameters.size(); i++){
 		std::string name;
-		if(i < matrixElements_Beam.size())
+		if(i < matrixElements_Beam.size()){
 			name = "Beam-ME-"+std::to_string(i);
-		else if(i < matrixElements_Target.size())
-			name = "Beam-ME-"+std::to_string(i - matrixElements_Beam.size());
-		else
+			min->SetLimitedVariable(i,name,parameters.at(i),0.001,par_LL.at(i),par_UL.at(i));
+		}
+		else if(i < matrixElements_Target.size() + matrixElements_Beam.size()){
+			name = "Target-ME-"+std::to_string(i - matrixElements_Beam.size());
+		//	std::cout	<< i - matrixElements_Beam.size() << "\t"
+		//			<< name << "\t"
+		//			<< par_LL.at(i) << "\t"
+		//			<< par_UL.at(i) << std::endl;
+			min->SetLimitedVariable(i,name,parameters.at(i),0.001,par_LL.at(i),par_UL.at(i));
+		}
+		else{
 			name = "Scaling-"+std::to_string(i-(matrixElements_Beam.size() + matrixElements_Target.size()));
-		min->SetLimitedVariable(i,name,parameters.at(i),0.001,par_LL.at(i),par_UL.at(i));
+			min->SetLowerLimitedVariable(i,name,parameters.at(i),0.0001,0);
+		}
 	}
-
-	//return;
 	
 	typedef std::chrono::high_resolution_clock Clock;
 	typedef std::chrono::milliseconds milliseconds;
@@ -148,6 +157,45 @@ void CoulExSimFitter::DoFit(const char* method, const char *algorithm){
 	const double	*res = min->X();
 	for(unsigned int i=0;i<parameters.size();i++)
 		parameters[i] = res[i];
+
+	covMat.ResizeTo(parameters.size(),parameters.size());
+	corMat.ResizeTo(parameters.size(),parameters.size());
+	for(unsigned int i=0;i<parameters.size();i++){
+		for(unsigned int j=i;j<parameters.size();j++){
+			covMat[i][j] = min->CovMatrix(i,j);
+			covMat[j][i] = min->CovMatrix(j,i);
+			corMat[i][j] = min->Correlation(i,j);
+			corMat[j][i] = min->Correlation(j,i);
+		}
+	}
+
+	if(DoFullUncertainty()){
+		std::cout	<< "MINOS uncertainties (asymmetric):"
+				<< std::endl;
+		std::vector<double> errLowVec, errUpVec;
+		for(unsigned int i=0;i<parameters.size();i++){
+			double errLow, errUp;
+			min->GetMinosError(i,errLow,errUp);
+			errLowVec.push_back(errLow);
+			errUpVec.push_back(errUp);
+		}
+		std::cout	<< "Correlated uncertainty calculation completed"
+				<< std::endl;
+		std::cout	<< std::setw(14) << std::left << "Parameter" 
+				<< std::setw(14) << std::left << "Value" 
+				<< std::setw(14) << "+" 
+				<< std::setw(3) << "/"
+				<< std::setw(14) << "-" 
+				<< std::endl;
+		for(unsigned int i=0;i<parameters.size();i++){
+			std::cout	<< std::setw(14) << std::left << min->VariableName(i)
+					<< std::setw(14) << std::left << parameters[i]
+					<< std::setw(14) << errUpVec[i] 
+					<< std::setw(3) << ""
+					<< std::setw(14) << errLowVec[i]
+					<< std::endl;
+		}
+	}
 
 }
 

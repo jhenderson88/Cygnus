@@ -148,8 +148,6 @@ class CoulExFitter {
 
 	private:
 
-		//CoulExMinFCN		theFCN;
-
 		std::vector<int>		index;
 
 		std::vector<double>		parameters;			// Matrix elements + scaling factors

@@ -160,6 +160,12 @@ class CoulExSimFitter {
 		void	SetVerbose(bool b = true)					{ verbose = b;				}	/*!< Define verbocity */
 		bool	GetVerbose()						const	{ return verbose;			}	/*!< Return verbocity */
 
+		TMatrixD	GetCovarianceMatrix()				const	{ return covMat;			}	/*!< Return covariance matrix from fit 	*/
+		TMatrixD	GetCorrelationMatrix()				const	{ return corMat;			}	/*!< Return correlation matrix from fit 	*/
+
+		void	SetDoFullUncertainty(bool b = true)				{ fDoFullUnc = b;			} 	/*!< Define whether to do a complete MINOS uncertainty analysis (slow)	*/
+		bool	DoFullUncertainty()					const	{ return fDoFullUnc;			} 	/*!< Return whether to do a complete MINOS uncertainty analysis (slow)	*/
+
 	private:
 
 		std::vector<int>		index;
@@ -207,6 +213,11 @@ class CoulExSimFitter {
 
 		bool				first;
 		bool				verbose;
+
+		TMatrixD			covMat;
+		TMatrixD			corMat;
+
+		bool				fDoFullUnc;
 
 };
 

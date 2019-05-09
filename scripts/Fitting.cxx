@@ -35,7 +35,8 @@ void RunFitter(const char* nuclfile = "NucleusFile.txt", const char* datafile = 
 	}
 	
 	Reaction *reac = new Reaction(76,34,208,82,287.71);
-	reac->SetMass(71.927,207.9767); 
+	reac->SetMass(71.927,207.9767);
+	reac->SetGOSIAKinematics(); 
 	Experiments *expts = new Experiments(nucl,reac);
 	expts->SetAccuracy(1e-5);
 	bool tarDet[6] = {false,false,false,false,true,true};
@@ -57,6 +58,15 @@ void RunFitter(const char* nuclfile = "NucleusFile.txt", const char* datafile = 
 	expts->UseEfficiency();
 	expts->PointCorrections();
 
+	std::cout	<< "Rutherford cross-sections (integrated):"
+			<< std::endl;
+	for(unsigned int e=0;e<6;e++)
+		std::cout	<< std::setw(12) << std::left << e+1
+				<< std::setw(16) << std::left << expts->GetExperimentRange(e).GetIntegratedRutherford()
+				<< std::endl;
+
+	return;
+
 	TransitionRates *rates = new TransitionRates(nucl);
 
 	DataReader *dataReader = new DataReader(nucl,datafile);
@@ -76,6 +86,8 @@ void RunFitter(const char* nuclfile = "NucleusFile.txt", const char* datafile = 
 
 	//expts->PrintPointCorrections();
 	expts->WriteIntegralFits("OutputFitting.root");
+
+	return;
 
 	CoulExFitter *fitter = new CoulExFitter();
 	fitter->SetNucleus(nucl);
