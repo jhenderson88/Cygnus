@@ -242,6 +242,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3ed1f75a477a2386c801c9b003c11aed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abbcbf6dd58cc2bb7e069ca28335e0519"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCoulExSimFitter.html#abbcbf6dd58cc2bb7e069ca28335e0519">GetVerbose</a> () const </td></tr>
 <tr class="separator:abbcbf6dd58cc2bb7e069ca28335e0519"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad91f2c1cc9a8f70bcbb0230332512f74"><td class="memItemLeft" align="right" valign="top">TMatrixD&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCoulExSimFitter.html#ad91f2c1cc9a8f70bcbb0230332512f74">GetCovarianceMatrix</a> () const </td></tr>
+<tr class="separator:ad91f2c1cc9a8f70bcbb0230332512f74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03d49714b01305301f4cdbcd768c75ea"><td class="memItemLeft" align="right" valign="top">TMatrixD&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCoulExSimFitter.html#a03d49714b01305301f4cdbcd768c75ea">GetCorrelationMatrix</a> () const </td></tr>
+<tr class="separator:a03d49714b01305301f4cdbcd768c75ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74d529e145d3fdd3e2e6ae678f89710e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCoulExSimFitter.html#a74d529e145d3fdd3e2e6ae678f89710e">SetDoFullUncertainty</a> (bool b=true)</td></tr>
+<tr class="separator:a74d529e145d3fdd3e2e6ae678f89710e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f9ea9189d5f8d21c765b9fe9f0a0508"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCoulExSimFitter.html#a4f9ea9189d5f8d21c765b9fe9f0a0508">DoFullUncertainty</a> () const </td></tr>
+<tr class="separator:a4f9ea9189d5f8d21c765b9fe9f0a0508"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Calls the <a class="el" href="classCoulExSimMinFCN.html" title="Contains the definition of the chi-squared function used in simultaneous minimization of beam and tar...">CoulExSimMinFCN</a> class along with the ROOT::Minimizer to perform a chi-squared minimization for simultaneous beam and target analyses. </p>
@@ -296,7 +304,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add literature branching ratio data for the beam particle </p>
 
-<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00209">209</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00253">253</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -315,7 +323,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add beam point calculation correction factors (append) </p>
 
-<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00173">173</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00217">217</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -362,7 +370,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add experimental data to experiment defined by index i between initial (init) and final (fin) states with yield (c) and uncertainty (e) </p>
 
-<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00198">198</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00242">242</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -415,7 +423,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add a fitting matrix element for the beam </p>
 
-<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00164">164</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00208">208</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -450,7 +458,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add literature lifetime data for the beam particle </p>
 
-<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00205">205</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00249">249</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -491,7 +499,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add literature mixing ratio data for the beam particle </p>
 
-<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00213">213</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00257">257</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -592,7 +600,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add literature branching ratio data for the target particle </p>
 
-<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00221">221</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00265">265</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -611,7 +619,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add beam point calculation correction factors (append) </p>
 
-<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00182">182</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00226">226</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -658,7 +666,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add experimental data to experiment defined by index i between initial (init) and final (fin) states with yield (c) and uncertainty (e) </p>
 
-<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00201">201</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00245">245</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -711,7 +719,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add a fitting matrix element for the target </p>
 
-<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00168">168</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00212">212</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -746,7 +754,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add literature lifetime data for the target particle </p>
 
-<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00217">217</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00261">261</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -787,7 +795,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add literature mixing ratio data for the target particle </p>
 
-<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00225">225</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00269">269</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -840,7 +848,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Completely clear all previous input </p>
 
-<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00230">230</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00274">274</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -959,7 +967,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add a scaling parameter, with common scaling experiments defined by their indices in a vector of int </p>
 
-<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00154">154</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00198">198</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -978,7 +986,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Defines a new experiment with t = theta_cm </p>
 
-<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00192">192</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00236">236</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -1007,7 +1015,33 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Perform fitting routine with a user defined method and algorithm (default: Minuit2, Combined) </p>
 
-<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00019">19</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00021">21</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4f9ea9189d5f8d21c765b9fe9f0a0508"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CoulExSimFitter::DoFullUncertainty </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return whether to do a complete MINOS uncertainty analysis (slow) </p>
+
+<p>Definition at line <a class="el" href="CoulExSimFitter_8h_source.html#l00167">167</a> of file <a class="el" href="CoulExSimFitter_8h_source.html">CoulExSimFitter.h</a>.</p>
 
 </div>
 </div>
@@ -1268,6 +1302,58 @@ Public Member Functions</h2></td></tr>
 <p>Return vector of beam <a class="el" href="classPointCoulEx.html" title="Calculate point Coulomb excitation amplitudes and associated statistical tensors. ...">PointCoulEx</a> calculation objects </p>
 
 <p>Definition at line <a class="el" href="CoulExSimFitter_8h_source.html#l00102">102</a> of file <a class="el" href="CoulExSimFitter_8h_source.html">CoulExSimFitter.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a03d49714b01305301f4cdbcd768c75ea"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TMatrixD CoulExSimFitter::GetCorrelationMatrix </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return correlation matrix from fit </p>
+
+<p>Definition at line <a class="el" href="CoulExSimFitter_8h_source.html#l00164">164</a> of file <a class="el" href="CoulExSimFitter_8h_source.html">CoulExSimFitter.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad91f2c1cc9a8f70bcbb0230332512f74"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TMatrixD CoulExSimFitter::GetCovarianceMatrix </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return covariance matrix from fit </p>
+
+<p>Definition at line <a class="el" href="CoulExSimFitter_8h_source.html#l00163">163</a> of file <a class="el" href="CoulExSimFitter_8h_source.html">CoulExSimFitter.h</a>.</p>
 
 </div>
 </div>
@@ -1701,7 +1787,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Print fitting details (formatted) </p>
 
-<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00253">253</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00297">297</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -1784,7 +1870,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Define beam point calculation correction factors for experiment i </p>
 
-<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00176">176</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00220">220</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -1977,6 +2063,33 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a74d529e145d3fdd3e2e6ae678f89710e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CoulExSimFitter::SetDoFullUncertainty </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>b</em> = <code>true</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Define whether to do a complete MINOS uncertainty analysis (slow) </p>
+
+<p>Definition at line <a class="el" href="CoulExSimFitter_8h_source.html#l00166">166</a> of file <a class="el" href="CoulExSimFitter_8h_source.html">CoulExSimFitter.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a5d482897c57846bf1b83c645843c016f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -2110,7 +2223,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Define beam point calculation correction factors for experiment i </p>
 
-<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00185">185</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExSimFitter_8cxx_source.html#l00229">229</a> of file <a class="el" href="CoulExSimFitter_8cxx_source.html">CoulExSimFitter.cxx</a>.</p>
 
 </div>
 </div>

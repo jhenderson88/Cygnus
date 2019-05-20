@@ -52,12 +52,19 @@ double CoulExMinFCN::operator()(const double* par){
 		int	index		= litLifetimes.at(i).GetIndex();
 		double	lifetime	= litLifetimes.at(i).GetLifetime();
 		double	calcLifetime	= rates.GetLifetimes()[index];
-		if(calcLifetime > lifetime)
-			tmp = (calcLifetime - lifetime) / litLifetimes.at(i).GetUpUnc();
-		else
-			tmp = (calcLifetime - lifetime) / litLifetimes.at(i).GetDnUnc();
-		chisq += tmp * tmp;
-		lifetime_chisq += tmp*tmp;
+		if(fLikelihood){
+			double	sigma		= litLifetimes.at(i).GetUpUnc() * litLifetimes.at(i).GetDnUnc();
+			double	sigma_prime	= (litLifetimes.at(i).GetUpUnc() - litLifetimes.at(i).GetDnUnc());
+			chisq 			+= 0.5 * TMath::Power((calcLifetime - lifetime),2)/(sigma + sigma_prime * (calcLifetime - lifetime));
+		}
+		else{
+			if(calcLifetime > lifetime)
+				tmp = (calcLifetime - lifetime) / litLifetimes.at(i).GetUpUnc();
+			else
+				tmp = (calcLifetime - lifetime) / litLifetimes.at(i).GetDnUnc();
+			chisq += tmp * tmp;
+			lifetime_chisq += tmp*tmp;
+		}
 		NDF++;
 	}
 	double br_chisq = 0;
@@ -68,12 +75,19 @@ double CoulExMinFCN::operator()(const double* par){
 		int	index_final2	= litBranchingRatios.at(i).GetFinalIndex_2();
 		double	BR		= litBranchingRatios.at(i).GetBranchingRatio();
 		double  calcBR		= rates.GetBranchingRatios()[index_final1][index_init] / rates.GetBranchingRatios()[index_final2][index_init];
-		if(calcBR > BR)
-			tmp = (BR - calcBR) / litBranchingRatios.at(i).GetUpUnc();
-		else
-			tmp = (BR - calcBR) / litBranchingRatios.at(i).GetDnUnc();
-		chisq += tmp * tmp;
-		br_chisq += tmp*tmp;
+		if(fLikelihood){
+			double	sigma		= litBranchingRatios.at(i).GetUpUnc() * litBranchingRatios.at(i).GetDnUnc();
+			double	sigma_prime	= (litBranchingRatios.at(i).GetUpUnc() - litBranchingRatios.at(i).GetDnUnc());
+			chisq 			+= 0.5 * TMath::Power((calcBR - BR),2)/(sigma + sigma_prime * (calcBR - BR));
+		}
+		else{
+			if(calcBR > BR)
+				tmp = (BR - calcBR) / litBranchingRatios.at(i).GetUpUnc();
+			else
+				tmp = (BR - calcBR) / litBranchingRatios.at(i).GetDnUnc();
+			chisq += tmp * tmp;
+			br_chisq += tmp*tmp;
+		}
 		NDF++;
 	}
 	double mr_chisq = 0;
@@ -83,16 +97,25 @@ double CoulExMinFCN::operator()(const double* par){
 		int	index_final	= litMixingRatios.at(i).GetFinalIndex();
 		double	delta		= litMixingRatios.at(i).GetMixingRatio();
 		double	calcDelta	= rates.GetMixingRatios()[index_final][index_init];
-		if(calcDelta > delta)
-			tmp = (delta - calcDelta) / litMixingRatios.at(i).GetUpUnc();
-		else
-			tmp = (delta - calcDelta) / litMixingRatios.at(i).GetDnUnc();
-		chisq += tmp * tmp;		
-		mr_chisq += tmp*tmp;
+		if(fLikelihood){
+			double	sigma		= litMixingRatios.at(i).GetUpUnc() * litMixingRatios.at(i).GetDnUnc();
+			double	sigma_prime	= (litMixingRatios.at(i).GetUpUnc() - litMixingRatios.at(i).GetDnUnc());
+			chisq 			+= 0.5 * TMath::Power((calcDelta - delta),2)/(sigma + sigma_prime * (calcDelta - delta));
+		}
+		else{
+			if(calcDelta > delta)
+				tmp = (delta - calcDelta) / litMixingRatios.at(i).GetUpUnc();
+			else
+				tmp = (delta - calcDelta) / litMixingRatios.at(i).GetDnUnc();
+			chisq += tmp * tmp;		
+			mr_chisq += tmp*tmp;
+		}
 		NDF++;
 	}
-	if(verbose)
+	if(verbose && !fLikelihood)
 		std::cout << "Literature chi-squared: " << chisq << std::endl;
+	else
+		std::cout << "Literature likelihood contribution: " << chisq << std::endl;
 	double litchisq = chisq;
 	//	COULEX AND STUFF:
 	
@@ -152,7 +175,7 @@ double CoulExMinFCN::operator()(const double* par){
 
 	if(verbose)
 		std::cout << "Experiment scaling: " << scaling.at(0) << std::endl;
-	if(verbose){
+	if(verbose && !fLikelihood){
 		std::cout 	<< std::setw(7) << std::left << "Expt:";
 		for(unsigned int t=0;t<exptData.at(0).GetData().size();t++){
 			std::cout 	<< std::setw( 6) << std::left << "Init:"
@@ -161,6 +184,18 @@ double CoulExMinFCN::operator()(const double* par){
 					<< std::setw(12) << std::left << "Expt:"
 					<< std::setw(12) << std::left << "Calc/Expt:"
 					<< std::setw(14) << std::left << "Chisq cont.:";
+		}
+		std::cout 	<< std::endl;
+	}
+	else{
+		std::cout 	<< std::setw(7) << std::left << "Expt:";
+		for(unsigned int t=0;t<exptData.at(0).GetData().size();t++){
+			std::cout 	<< std::setw( 6) << std::left << "Init:"
+					<< std::setw( 6) << std::left << "Finl:"
+					<< std::setw(12) << std::left << "Calc:"
+					<< std::setw(12) << std::left << "Expt:"
+					<< std::setw(12) << std::left << "Calc/Expt:"
+					<< std::setw(14) << std::left << "-Ln(L) cont.:";
 		}
 		std::cout 	<< std::endl;
 	}
@@ -174,6 +209,8 @@ double CoulExMinFCN::operator()(const double* par){
 			int	index_final 	= exptData.at(i).GetData().at(t).GetFinalIndex();
 			double 	calcCounts 	= scaling.at(i) * EffectiveCrossSection.at(i)[index_final][index_init];
 			double 	exptCounts 	= exptData.at(i).GetData().at(t).GetCounts();
+			double	sigma		= exptData.at(i).GetData().at(t).GetUpUnc() * exptData.at(i).GetData().at(t).GetDnUnc();
+			double	sigma_prime	= (exptData.at(i).GetData().at(t).GetUpUnc() - exptData.at(i).GetData().at(t).GetDnUnc());
 			if(verbose){
 				if(UsePoisson()){
 					double effCounts = exptData.at(i).GetData().at(t).GetEfficiency() * calcCounts;
@@ -193,6 +230,14 @@ double CoulExMinFCN::operator()(const double* par){
 								<< std::setw(12) << std::left << effCounts/exptCounts
 								<< std::setw(14) << std::left << 0;
 					}
+				}
+				else if(fLikelihood){
+					std::cout 	<< std::setw( 6) << std::left << index_init 
+							<< std::setw( 6) << std::left << index_final 
+							<< std::setw(12) << std::left << calcCounts 
+							<< std::setw(12) << std::left << exptCounts 
+							<< std::setw(12) << std::left << calcCounts/exptCounts
+							<< std::setw(14) << std::left << 0.5 * TMath::Power((exptCounts - calcCounts),2)/(sigma + sigma_prime * (exptCounts - calcCounts));
 				}
 				else{
 					std::cout 	<< std::setw( 6) << std::left << index_init 
@@ -214,6 +259,10 @@ double CoulExMinFCN::operator()(const double* par){
 					NDF++;
 				}
 			}
+			else if(fLikelihood){
+				chisq		+= 0.5 * TMath::Power((exptCounts - calcCounts),2)/(sigma + sigma_prime * (exptCounts - calcCounts));
+				NDF++;
+			}
 			else{
 				chisq		+= tmp * tmp;
 				NDF++;
@@ -222,8 +271,10 @@ double CoulExMinFCN::operator()(const double* par){
 		if(verbose)
 			std::cout << std::endl;
 	}
-	if(verbose)
+	if(verbose && !fLikelihood)
 		std::cout << "Chisq: " << chisq << " scaling: " << par[nPar-1] << std::endl;
+	else
+		std::cout << "-Ln(L): " << chisq << " scaling: " << par[nPar-1] << std::endl;
 
 	iter++;
 

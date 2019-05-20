@@ -27,8 +27,22 @@ class LitMixingRatio;
 ///
 ///	\class CoulExMinFCN
 ///
-///	\brief Contains the definition of the chi-squared function used in the minimization
-///	routines
+///	\brief Contains the definition of the function used in the minimization	routines
+///
+///	By default the minimizer uses a chi-squared statistic to perform the minimization. The user can
+///	specify to use a likelihood method instead.
+///
+///	Asymmetric uncertainties in the likelihood method are treated using the empirical method
+///	recommended by Barlow (see: See Barlow, “Asymmetric Statistical Errors”, arXiv:physics/0406120):
+///
+///	\f[
+///		-lnL(\alpha) = \frac{1}{2} \frac{\alpha^2}{\sigma_1\sigma_2 + (\sigma_1 - \sigma_2)\alpha}
+///	\f]
+///
+///	With a chi-squared method, asymmetric uncertainties are treated in their respective ranges.
+///	Note that this results in a discontinuity about the experimental value. For the most part this
+///	shouldn't be an issue, but for large asymmetries this could cause problems in minimization.
+///
 ///
 
 
@@ -37,10 +51,11 @@ class CoulExMinFCN { // : public ROOT::Minuit2::FCNBase{
 	public : 
 
 		CoulExMinFCN(std::vector<ExperimentData> d) : exptData(d)		{
-												fUsePoisson = false; 
-												verbose = false;  
-												iter = 0;	
-												nThreads = 1;
+												fUsePoisson 	= false; 
+												verbose 	= false;  
+												iter 		= 0;	
+												nThreads 	= 1;
+												fLikelihood 	= false;
 											}	/*!< Construct object with vector of experimental data to be fit */
 		virtual ~CoulExMinFCN()							{;				}
 
@@ -106,6 +121,9 @@ class CoulExMinFCN { // : public ROOT::Minuit2::FCNBase{
 		void	SetPoisson(bool  b = true)					{ fUsePoisson = b;			}	/*!< Define whether we will use Poisson uncertainties (and a likelihood fit) or user defined uncertainties and a chi-square */
 		bool	UsePoisson()						const	{ return fUsePoisson;			}	/*!< Return whether we will use Poisson uncertainties (and a likelihood fit) or user defined uncertainties and a chi-square */
 
+		void	SetLikelihoodFit(bool b = true)					{ fLikelihood = b;			}	/*!< Define whether we do a log-likelihood based fit (default: chi-squared) */
+		bool	LikelihoodFit()						const	{ return fLikelihood;			}	/*!< Return whether we do a log-likelihood based fit (default: chi-squared) */
+
 	private :
 
 		std::vector<double>		parameters;			// Matrix elements + scaling factors
@@ -141,6 +159,8 @@ class CoulExMinFCN { // : public ROOT::Minuit2::FCNBase{
 		std::vector<int>		exptIndex;
 
 		bool				fUsePoisson;
+
+		bool				fLikelihood;
 
 };
 #endif

@@ -89,7 +89,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>Calls the <a class="el" href="classCoulExMinFCN.html" title="Contains the definition of the chi-squared function used in the minimization routines. ">CoulExMinFCN</a> class along with the ROOT::Minimizer to perform a chi-squared minimization.  
+<p>Calls the <a class="el" href="classCoulExMinFCN.html" title="Contains the definition of the function used in the minimization routines. ">CoulExMinFCN</a> class along with the ROOT::Minimizer to perform a chi-squared minimization.  
  <a href="classCoulExFitter.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="CoulExFitter_8h_source.html">CoulExFitter.h</a>&gt;</code></p>
@@ -200,9 +200,13 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aacc37bb66234dbd3f235683cad8e1427"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fd09244f82e3af46add6960543524d9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCoulExFitter.html#a4fd09244f82e3af46add6960543524d9">DoFullUncertainty</a> () const </td></tr>
 <tr class="separator:a4fd09244f82e3af46add6960543524d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fa4c365be49eb9f6cf47684ff6b15bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCoulExFitter.html#a7fa4c365be49eb9f6cf47684ff6b15bc">SetLikelihoodFit</a> (bool b=true)</td></tr>
+<tr class="separator:a7fa4c365be49eb9f6cf47684ff6b15bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42a28d4f2b2f85e8738b74ddb351bf24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCoulExFitter.html#a42a28d4f2b2f85e8738b74ddb351bf24">LikelihoodFit</a> () const </td></tr>
+<tr class="separator:a42a28d4f2b2f85e8738b74ddb351bf24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Calls the <a class="el" href="classCoulExMinFCN.html" title="Contains the definition of the chi-squared function used in the minimization routines. ">CoulExMinFCN</a> class along with the ROOT::Minimizer to perform a chi-squared minimization. </p>
+<div class="textblock"><p>Calls the <a class="el" href="classCoulExMinFCN.html" title="Contains the definition of the function used in the minimization routines. ">CoulExMinFCN</a> class along with the ROOT::Minimizer to perform a chi-squared minimization. </p>
 <p>A number of methods and algorithms can be used (as defined in the ROOT::Minimizer documentation in more detail):</p>
 <h2>Method | Algorithm </h2>
 <p>Minuit2 | Migrad | Simplex | Combined (default) | Scan | Fumili2 GSLMultiMin | ConjugateFR | ConjugatePR | BFGS | BFGS2 | SteepestDescent GSLMultiFit | GSLSimAn | Genetic |</p>
@@ -255,7 +259,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add literature branching ratio data </p>
 
-<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00241">241</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00231">231</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -274,7 +278,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add point calculation correction factors (append) </p>
 
-<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00218">218</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00208">208</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -321,7 +325,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add experimental data to experiment defined by index i between initial (init) and final (fin) states with yield (c) and uncertainty (e) </p>
 
-<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00233">233</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00223">223</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -374,7 +378,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add a fitting matrix element </p>
 
-<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00210">210</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00203">203</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -409,7 +413,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add literature lifetime data </p>
 
-<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00237">237</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00227">227</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -450,7 +454,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add literature mixing ratio data </p>
 
-<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00245">245</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00235">235</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -530,7 +534,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Completely clear all previous input </p>
 
-<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00250">250</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00240">240</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -623,7 +627,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add a scaling parameter, with common scaling experiments defined by their indices in a vector of int </p>
 
-<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00200">200</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00193">193</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -642,7 +646,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Defines a new experiment with t = theta_cm </p>
 
-<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00228">228</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00218">218</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -671,7 +675,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Perform fitting routine with a user defined method and algorithm (default: Minuit2, Combined) </p>
 
-<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00024">24</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00026">26</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -1169,6 +1173,32 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a42a28d4f2b2f85e8738b74ddb351bf24"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CoulExFitter::LikelihoodFit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return whether we do a log-likelihood based fit (default: chi-squared) </p>
+
+<p>Definition at line <a class="el" href="CoulExFitter_8h_source.html#l00150">150</a> of file <a class="el" href="CoulExFitter_8h_source.html">CoulExFitter.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a92e5a9e3b4fbbf8d3df93543d2bf00c5"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1183,7 +1213,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Print fitting details (formatted) </p>
 
-<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00264">264</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00254">254</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -1239,7 +1269,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Define point calculation correction factors for experiment i </p>
 
-<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00221">221</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00211">211</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -1294,6 +1324,33 @@ Public Member Functions</h2></td></tr>
 <p>Define whether to do a complete MINOS uncertainty analysis (slow) </p>
 
 <p>Definition at line <a class="el" href="CoulExFitter_8h_source.html#l00146">146</a> of file <a class="el" href="CoulExFitter_8h_source.html">CoulExFitter.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7fa4c365be49eb9f6cf47684ff6b15bc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CoulExFitter::SetLikelihoodFit </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>b</em> = <code>true</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Define whether we do a log-likelihood based fit (default: chi-squared) </p>
+
+<p>Definition at line <a class="el" href="CoulExFitter_8h_source.html#l00149">149</a> of file <a class="el" href="CoulExFitter_8h_source.html">CoulExFitter.h</a>.</p>
 
 </div>
 </div>

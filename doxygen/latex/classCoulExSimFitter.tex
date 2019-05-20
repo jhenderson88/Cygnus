@@ -158,6 +158,14 @@ int \hyperlink{classCoulExSimFitter_a2b33f0db4913d47610c616e0609709a4}{Get\-Nthr
 void \hyperlink{classCoulExSimFitter_a3ed1f75a477a2386c801c9b003c11aed}{Set\-Verbose} (bool b=true)
 \item 
 bool \hyperlink{classCoulExSimFitter_abbcbf6dd58cc2bb7e069ca28335e0519}{Get\-Verbose} () const 
+\item 
+T\-Matrix\-D \hyperlink{classCoulExSimFitter_ad91f2c1cc9a8f70bcbb0230332512f74}{Get\-Covariance\-Matrix} () const 
+\item 
+T\-Matrix\-D \hyperlink{classCoulExSimFitter_a03d49714b01305301f4cdbcd768c75ea}{Get\-Correlation\-Matrix} () const 
+\item 
+void \hyperlink{classCoulExSimFitter_a74d529e145d3fdd3e2e6ae678f89710e}{Set\-Do\-Full\-Uncertainty} (bool b=true)
+\item 
+bool \hyperlink{classCoulExSimFitter_a4f9ea9189d5f8d21c765b9fe9f0a0508}{Do\-Full\-Uncertainty} () const 
 \end{DoxyCompactItemize}
 
 
@@ -192,7 +200,7 @@ Definition at line 62 of file Coul\-Ex\-Sim\-Fitter.\-h.
 )}}\label{classCoulExSimFitter_a6a34bc77405a8c544b4631d89e341bc7}
 Add literature branching ratio data for the beam particle 
 
-Definition at line 209 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+Definition at line 253 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
 
 \hypertarget{classCoulExSimFitter_afe7d584cbdec110df18b34e5bd0bf2dc}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Add\-Beam\-Correction\-Factor@{Add\-Beam\-Correction\-Factor}}
 \index{Add\-Beam\-Correction\-Factor@{Add\-Beam\-Correction\-Factor}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
@@ -203,7 +211,7 @@ Definition at line 209 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
 )}}\label{classCoulExSimFitter_afe7d584cbdec110df18b34e5bd0bf2dc}
 Add beam point calculation correction factors (append) 
 
-Definition at line 173 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+Definition at line 217 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
 
 \hypertarget{classCoulExSimFitter_abd66fba489f3f3eafd70b729f2a56d2a}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Add\-Beam\-Data@{Add\-Beam\-Data}}
 \index{Add\-Beam\-Data@{Add\-Beam\-Data}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
@@ -218,7 +226,7 @@ Definition at line 173 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
 )}}\label{classCoulExSimFitter_abd66fba489f3f3eafd70b729f2a56d2a}
 Add experimental data to experiment defined by index i between initial (init) and final (fin) states with yield (c) and uncertainty (e) 
 
-Definition at line 198 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+Definition at line 242 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
 
 \hypertarget{classCoulExSimFitter_ae9617c526ced92e93aa33e8e849f8221}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Add\-Beam\-Fitting\-Matrix\-Element@{Add\-Beam\-Fitting\-Matrix\-Element}}
 \index{Add\-Beam\-Fitting\-Matrix\-Element@{Add\-Beam\-Fitting\-Matrix\-Element}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
@@ -234,7 +242,7 @@ Definition at line 198 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
 )}}\label{classCoulExSimFitter_ae9617c526ced92e93aa33e8e849f8221}
 Add a fitting matrix element for the beam 
 
-Definition at line 164 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+Definition at line 208 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
 
 \hypertarget{classCoulExSimFitter_a49e980169ce03a95e003ee789a7a093f}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Add\-Beam\-Lifetime@{Add\-Beam\-Lifetime}}
 \index{Add\-Beam\-Lifetime@{Add\-Beam\-Lifetime}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
@@ -247,7 +255,7 @@ Definition at line 164 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
 )}}\label{classCoulExSimFitter_a49e980169ce03a95e003ee789a7a093f}
 Add literature lifetime data for the beam particle 
 
-Definition at line 205 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+Definition at line 249 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
 
 \hypertarget{classCoulExSimFitter_a6898c4b40c84c2550c715a8e5ffb7e24}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Add\-Beam\-Mixing\-Ratio@{Add\-Beam\-Mixing\-Ratio}}
 \index{Add\-Beam\-Mixing\-Ratio@{Add\-Beam\-Mixing\-Ratio}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
@@ -261,7 +269,7 @@ Definition at line 205 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
 )}}\label{classCoulExSimFitter_a6898c4b40c84c2550c715a8e5ffb7e24}
 Add literature mixing ratio data for the beam particle 
 
-Definition at line 213 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+Definition at line 257 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
 
 \hypertarget{classCoulExSimFitter_a3cd07b08eaf376346bc36be2cab2b0af}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Add\-Beam\-Point\-Calc@{Add\-Beam\-Point\-Calc}}
 \index{Add\-Beam\-Point\-Calc@{Add\-Beam\-Point\-Calc}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
@@ -298,7 +306,7 @@ Definition at line 90 of file Coul\-Ex\-Sim\-Fitter.\-h.
 )}}\label{classCoulExSimFitter_ad7da9aa7feb7b6e84b553e29bb70edfb}
 Add literature branching ratio data for the target particle 
 
-Definition at line 221 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+Definition at line 265 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
 
 \hypertarget{classCoulExSimFitter_a9c4f96557f62a6f0dbd9386841cd8860}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Add\-Target\-Correction\-Factor@{Add\-Target\-Correction\-Factor}}
 \index{Add\-Target\-Correction\-Factor@{Add\-Target\-Correction\-Factor}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
@@ -309,7 +317,7 @@ Definition at line 221 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
 )}}\label{classCoulExSimFitter_a9c4f96557f62a6f0dbd9386841cd8860}
 Add beam point calculation correction factors (append) 
 
-Definition at line 182 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+Definition at line 226 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
 
 \hypertarget{classCoulExSimFitter_abdfaf0502ad8be70258a652704e8353a}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Add\-Target\-Data@{Add\-Target\-Data}}
 \index{Add\-Target\-Data@{Add\-Target\-Data}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
@@ -324,7 +332,7 @@ Definition at line 182 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
 )}}\label{classCoulExSimFitter_abdfaf0502ad8be70258a652704e8353a}
 Add experimental data to experiment defined by index i between initial (init) and final (fin) states with yield (c) and uncertainty (e) 
 
-Definition at line 201 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+Definition at line 245 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
 
 \hypertarget{classCoulExSimFitter_aaad08ace7ff19a3d647ba876ca6ff08c}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Add\-Target\-Fitting\-Matrix\-Element@{Add\-Target\-Fitting\-Matrix\-Element}}
 \index{Add\-Target\-Fitting\-Matrix\-Element@{Add\-Target\-Fitting\-Matrix\-Element}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
@@ -340,7 +348,7 @@ Definition at line 201 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
 )}}\label{classCoulExSimFitter_aaad08ace7ff19a3d647ba876ca6ff08c}
 Add a fitting matrix element for the target 
 
-Definition at line 168 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+Definition at line 212 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
 
 \hypertarget{classCoulExSimFitter_a5bc5460b494e5192955ca4e17f7e737e}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Add\-Target\-Lifetime@{Add\-Target\-Lifetime}}
 \index{Add\-Target\-Lifetime@{Add\-Target\-Lifetime}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
@@ -353,7 +361,7 @@ Definition at line 168 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
 )}}\label{classCoulExSimFitter_a5bc5460b494e5192955ca4e17f7e737e}
 Add literature lifetime data for the target particle 
 
-Definition at line 217 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+Definition at line 261 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
 
 \hypertarget{classCoulExSimFitter_a06812af2e0f8d29cd37b9a2c48239d5c}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Add\-Target\-Mixing\-Ratio@{Add\-Target\-Mixing\-Ratio}}
 \index{Add\-Target\-Mixing\-Ratio@{Add\-Target\-Mixing\-Ratio}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
@@ -367,7 +375,7 @@ Definition at line 217 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
 )}}\label{classCoulExSimFitter_a06812af2e0f8d29cd37b9a2c48239d5c}
 Add literature mixing ratio data for the target particle 
 
-Definition at line 225 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+Definition at line 269 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
 
 \hypertarget{classCoulExSimFitter_a256b37098b33f916f4c5f4eec14cf477}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Add\-Target\-Point\-Calc@{Add\-Target\-Point\-Calc}}
 \index{Add\-Target\-Point\-Calc@{Add\-Target\-Point\-Calc}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
@@ -389,7 +397,7 @@ Definition at line 103 of file Coul\-Ex\-Sim\-Fitter.\-h.
 )\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classCoulExSimFitter_a336cebbb05f665e879cf945288cd4a92}
 Completely clear all previous input 
 
-Definition at line 230 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+Definition at line 274 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
 
 \hypertarget{classCoulExSimFitter_ae4ba8e01614d5f3d50a22abb74dd4e8a}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Clear\-Beam\-Matrix\-Elements@{Clear\-Beam\-Matrix\-Elements}}
 \index{Clear\-Beam\-Matrix\-Elements@{Clear\-Beam\-Matrix\-Elements}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
@@ -436,7 +444,7 @@ Definition at line 98 of file Coul\-Ex\-Sim\-Fitter.\-h.
 )}}\label{classCoulExSimFitter_a06aa31eb9c4dc51a2c69188373bf292d}
 Add a scaling parameter, with common scaling experiments defined by their indices in a vector of int 
 
-Definition at line 154 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+Definition at line 198 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
 
 \hypertarget{classCoulExSimFitter_ab76717d256f884ad458cc64a9c4cbbd6}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Define\-Experiment@{Define\-Experiment}}
 \index{Define\-Experiment@{Define\-Experiment}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
@@ -447,7 +455,7 @@ Definition at line 154 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
 )}}\label{classCoulExSimFitter_ab76717d256f884ad458cc64a9c4cbbd6}
 Defines a new experiment with t = theta\-\_\-cm 
 
-Definition at line 192 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+Definition at line 236 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
 
 \hypertarget{classCoulExSimFitter_ad5cfafc630353728fc475dee4f416e3e}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Do\-Fit@{Do\-Fit}}
 \index{Do\-Fit@{Do\-Fit}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
@@ -459,7 +467,18 @@ Definition at line 192 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
 )}}\label{classCoulExSimFitter_ad5cfafc630353728fc475dee4f416e3e}
 Perform fitting routine with a user defined method and algorithm (default\-: Minuit2, Combined) 
 
-Definition at line 19 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+Definition at line 21 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+
+\hypertarget{classCoulExSimFitter_a4f9ea9189d5f8d21c765b9fe9f0a0508}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Do\-Full\-Uncertainty@{Do\-Full\-Uncertainty}}
+\index{Do\-Full\-Uncertainty@{Do\-Full\-Uncertainty}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Do\-Full\-Uncertainty}]{\setlength{\rightskip}{0pt plus 5cm}bool Coul\-Ex\-Sim\-Fitter\-::\-Do\-Full\-Uncertainty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a4f9ea9189d5f8d21c765b9fe9f0a0508}
+Return whether to do a complete M\-I\-N\-O\-S uncertainty analysis (slow) 
+
+Definition at line 167 of file Coul\-Ex\-Sim\-Fitter.\-h.
 
 \hypertarget{classCoulExSimFitter_aadd6ced090e569701768878ac944d1fb}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Get\-Base\-Beam\-Nucleus@{Get\-Base\-Beam\-Nucleus}}
 \index{Get\-Base\-Beam\-Nucleus@{Get\-Base\-Beam\-Nucleus}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
@@ -570,6 +589,28 @@ Definition at line 136 of file Coul\-Ex\-Sim\-Fitter.\-h.
 Return vector of beam \hyperlink{classPointCoulEx}{Point\-Coul\-Ex} calculation objects 
 
 Definition at line 102 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_a03d49714b01305301f4cdbcd768c75ea}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Get\-Correlation\-Matrix@{Get\-Correlation\-Matrix}}
+\index{Get\-Correlation\-Matrix@{Get\-Correlation\-Matrix}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Get\-Correlation\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}T\-Matrix\-D Coul\-Ex\-Sim\-Fitter\-::\-Get\-Correlation\-Matrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a03d49714b01305301f4cdbcd768c75ea}
+Return correlation matrix from fit 
+
+Definition at line 164 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
+\hypertarget{classCoulExSimFitter_ad91f2c1cc9a8f70bcbb0230332512f74}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Get\-Covariance\-Matrix@{Get\-Covariance\-Matrix}}
+\index{Get\-Covariance\-Matrix@{Get\-Covariance\-Matrix}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Get\-Covariance\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}T\-Matrix\-D Coul\-Ex\-Sim\-Fitter\-::\-Get\-Covariance\-Matrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_ad91f2c1cc9a8f70bcbb0230332512f74}
+Return covariance matrix from fit 
+
+Definition at line 163 of file Coul\-Ex\-Sim\-Fitter.\-h.
 
 \hypertarget{classCoulExSimFitter_aa5113d708b9c44717998ef6f81c4a8a7}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Get\-Effective\-Cross\-Section\-\_\-\-Beam@{Get\-Effective\-Cross\-Section\-\_\-\-Beam}}
 \index{Get\-Effective\-Cross\-Section\-\_\-\-Beam@{Get\-Effective\-Cross\-Section\-\_\-\-Beam}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
@@ -756,7 +797,7 @@ Definition at line 161 of file Coul\-Ex\-Sim\-Fitter.\-h.
 ) const}}\label{classCoulExSimFitter_ad2b70cca6d786a23f35231cf931ef65f}
 Print fitting details (formatted) 
 
-Definition at line 253 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+Definition at line 297 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
 
 \hypertarget{classCoulExSimFitter_a5f107c68537522704cfbea61406429e7}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Set\-Base\-Beam\-Nucleus@{Set\-Base\-Beam\-Nucleus}}
 \index{Set\-Base\-Beam\-Nucleus@{Set\-Base\-Beam\-Nucleus}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
@@ -790,7 +831,7 @@ Definition at line 132 of file Coul\-Ex\-Sim\-Fitter.\-h.
 )}}\label{classCoulExSimFitter_a38af2f165ee0e21c2f037b8d8eddee78}
 Define beam point calculation correction factors for experiment i 
 
-Definition at line 176 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+Definition at line 220 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
 
 \hypertarget{classCoulExSimFitter_a59ebba363d2aba7df840ed47cdbb8aa2}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Set\-Beam\-Data@{Set\-Beam\-Data}}
 \index{Set\-Beam\-Data@{Set\-Beam\-Data}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
@@ -869,6 +910,17 @@ Define vector of beam \hyperlink{classPointCoulEx}{Point\-Coul\-Ex} calculation 
 
 Definition at line 101 of file Coul\-Ex\-Sim\-Fitter.\-h.
 
+\hypertarget{classCoulExSimFitter_a74d529e145d3fdd3e2e6ae678f89710e}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Set\-Do\-Full\-Uncertainty@{Set\-Do\-Full\-Uncertainty}}
+\index{Set\-Do\-Full\-Uncertainty@{Set\-Do\-Full\-Uncertainty}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
+\subsubsection[{Set\-Do\-Full\-Uncertainty}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Set\-Do\-Full\-Uncertainty (
+\begin{DoxyParamCaption}
+\item[{bool}]{b = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExSimFitter_a74d529e145d3fdd3e2e6ae678f89710e}
+Define whether to do a complete M\-I\-N\-O\-S uncertainty analysis (slow) 
+
+Definition at line 166 of file Coul\-Ex\-Sim\-Fitter.\-h.
+
 \hypertarget{classCoulExSimFitter_a5d482897c57846bf1b83c645843c016f}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Set\-Max\-Function\-Calls@{Set\-Max\-Function\-Calls}}
 \index{Set\-Max\-Function\-Calls@{Set\-Max\-Function\-Calls}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
 \subsubsection[{Set\-Max\-Function\-Calls}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Sim\-Fitter\-::\-Set\-Max\-Function\-Calls (
@@ -923,7 +975,7 @@ Definition at line 89 of file Coul\-Ex\-Sim\-Fitter.\-h.
 )}}\label{classCoulExSimFitter_af4764a0abfbec937d6aaf51459d741a8}
 Define beam point calculation correction factors for experiment i 
 
-Definition at line 185 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
+Definition at line 229 of file Coul\-Ex\-Sim\-Fitter.\-cxx.
 
 \hypertarget{classCoulExSimFitter_aec8080c3f8a0edbce8400a6eaf935bb1}{\index{Coul\-Ex\-Sim\-Fitter@{Coul\-Ex\-Sim\-Fitter}!Set\-Target\-Data@{Set\-Target\-Data}}
 \index{Set\-Target\-Data@{Set\-Target\-Data}!CoulExSimFitter@{Coul\-Ex\-Sim\-Fitter}}
