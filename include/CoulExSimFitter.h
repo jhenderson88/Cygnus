@@ -166,6 +166,9 @@ class CoulExSimFitter {
 		void	SetDoFullUncertainty(bool b = true)				{ fDoFullUnc = b;			} 	/*!< Define whether to do a complete MINOS uncertainty analysis (slow)	*/
 		bool	DoFullUncertainty()					const	{ return fDoFullUnc;			} 	/*!< Return whether to do a complete MINOS uncertainty analysis (slow)	*/
 
+		void	SetLikelihoodFit(bool b = true)					{ fLikelihood = b;			}	/*!< Define whether we do a log-likelihood based fit (default: chi-squared) */
+		bool	LikelihoodFit()						const	{ return fLikelihood;			}	/*!< Return whether we do a log-likelihood based fit (default: chi-squared) */
+
 	private:
 
 		std::vector<int>		index;
@@ -218,6 +221,8 @@ class CoulExSimFitter {
 		TMatrixD			corMat;
 
 		bool				fDoFullUnc;
+
+		bool				fLikelihood;
 
 };
 

@@ -1,7 +1,6 @@
 #include "CoulExMinFCN.h"
 
 // This is the function which Minuit2 will attempt to minimize
-
 void ThreadTask(PointCoulEx &p, double theta){
 
 	p.CalculatePointProbabilities(theta);	
@@ -26,8 +25,7 @@ void CoulExMinFCN::SetupCalculation(){
 				<< std::setw(14) << std::left << exptIndex.at(i)
 				<< std::endl;
 	}
-		
-
+	
 }
 
 double CoulExMinFCN::operator()(const double* par){

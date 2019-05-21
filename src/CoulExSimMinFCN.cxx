@@ -9,8 +9,6 @@ void SimMinThreadTask(PointCoulEx &p, double theta){
 	
 }
 
-
-
 void CoulExSimMinFCN::SetupCalculation(){
 
 	exptIndex.resize(exptData_Beam.size());
@@ -20,6 +18,7 @@ void CoulExSimMinFCN::SetupCalculation(){
 
 	std::cout	<< std::setw(13) << std::left << "Experiment: "
 			<< std::setw(14) << std::left << "Scaling index: "
+			<< std::setw(14) << std::left << "Starting scaling:"
 			<< std::endl;
 	for(unsigned int i=0;i<exptIndex.size();i++){
 		std::cout	<< std::setw(13) << std::left << i+1
@@ -64,12 +63,19 @@ double CoulExSimMinFCN::operator()(const double* par){
 		int	index		= litLifetimes_Beam.at(i).GetIndex();
 		double	lifetime	= litLifetimes_Beam.at(i).GetLifetime();
 		double	calcLifetime	= rates_b.GetLifetimes()[index];
-		if(calcLifetime > lifetime)
-			tmp = (calcLifetime - lifetime) / litLifetimes_Beam.at(i).GetUpUnc();
-		else
-			tmp = (calcLifetime - lifetime) / litLifetimes_Beam.at(i).GetDnUnc();
-		chisq += tmp * tmp;
-		lifetime_chisq += tmp*tmp;
+		if(fLikelihood){
+			double	sigma		= litLifetimes_Beam.at(i).GetUpUnc() * litLifetimes_Beam.at(i).GetDnUnc();
+			double	sigma_prime	= (litLifetimes_Beam.at(i).GetUpUnc() - litLifetimes_Beam.at(i).GetDnUnc());
+			chisq 			+= 0.5 * TMath::Power((calcLifetime - lifetime),2)/(sigma + sigma_prime * (calcLifetime - lifetime));
+		}
+		else{
+			if(calcLifetime > lifetime)
+				tmp = (calcLifetime - lifetime) / litLifetimes_Beam.at(i).GetUpUnc();
+			else
+				tmp = (calcLifetime - lifetime) / litLifetimes_Beam.at(i).GetDnUnc();
+			chisq += tmp * tmp;
+			lifetime_chisq += tmp*tmp;
+		}
 		NDF++;
 	}
 	double br_chisq = 0;
@@ -80,12 +86,19 @@ double CoulExSimMinFCN::operator()(const double* par){
 		int	index_final2	= litBranchingRatios_Beam.at(i).GetFinalIndex_2();
 		double	BR		= litBranchingRatios_Beam.at(i).GetBranchingRatio();
 		double  calcBR		= rates_b.GetBranchingRatios()[index_final1][index_init] / rates_b.GetBranchingRatios()[index_final2][index_init];
-		if(calcBR > BR)
-			tmp = (BR - calcBR) / litBranchingRatios_Beam.at(i).GetUpUnc();
-		else
-			tmp = (BR - calcBR) / litBranchingRatios_Beam.at(i).GetDnUnc();
-		chisq += tmp * tmp;
-		br_chisq += tmp*tmp;
+		if(fLikelihood){
+			double	sigma		= litBranchingRatios_Beam.at(i).GetUpUnc() * litBranchingRatios_Beam.at(i).GetDnUnc();
+			double	sigma_prime	= (litBranchingRatios_Beam.at(i).GetUpUnc() - litBranchingRatios_Beam.at(i).GetDnUnc());
+			chisq 			+= 0.5 * TMath::Power((calcBR - BR),2)/(sigma + sigma_prime * (calcBR - BR));
+		}
+		else{
+			if(calcBR > BR)
+				tmp = (BR - calcBR) / litBranchingRatios_Beam.at(i).GetUpUnc();
+			else
+				tmp = (BR - calcBR) / litBranchingRatios_Beam.at(i).GetDnUnc();
+			chisq += tmp * tmp;
+			br_chisq += tmp*tmp;
+		}
 		NDF++;
 	}
 	double mr_chisq = 0;
@@ -95,12 +108,19 @@ double CoulExSimMinFCN::operator()(const double* par){
 		int	index_final	= litMixingRatios_Beam.at(i).GetFinalIndex();
 		double	delta		= litMixingRatios_Beam.at(i).GetMixingRatio();
 		double	calcDelta	= rates_b.GetMixingRatios()[index_final][index_init];
-		if(calcDelta > delta)
-			tmp = (delta - calcDelta) / litMixingRatios_Beam.at(i).GetUpUnc();
-		else
-			tmp = (delta - calcDelta) / litMixingRatios_Beam.at(i).GetDnUnc();
-		chisq += tmp * tmp;		
-		mr_chisq += tmp*tmp;
+		if(fLikelihood){
+			double	sigma		= litMixingRatios_Beam.at(i).GetUpUnc() * litMixingRatios_Beam.at(i).GetDnUnc();
+			double	sigma_prime	= (litMixingRatios_Beam.at(i).GetUpUnc() - litMixingRatios_Beam.at(i).GetDnUnc());
+			chisq 			+= 0.5 * TMath::Power((calcDelta - delta),2)/(sigma + sigma_prime * (calcDelta - delta));
+		}
+		else{
+			if(calcDelta > delta)
+				tmp = (delta - calcDelta) / litMixingRatios_Beam.at(i).GetUpUnc();
+			else
+				tmp = (delta - calcDelta) / litMixingRatios_Beam.at(i).GetDnUnc();
+			chisq += tmp * tmp;		
+			mr_chisq += tmp*tmp;
+		}
 		NDF++;
 	}
 	// 	Now, compare with the literature for the target:
@@ -110,12 +130,19 @@ double CoulExSimMinFCN::operator()(const double* par){
 		int	index		= litLifetimes_Target.at(i).GetIndex();
 		double	lifetime	= litLifetimes_Target.at(i).GetLifetime();
 		double	calcLifetime	= rates_t.GetLifetimes()[index];
-		if(calcLifetime > lifetime)
-			tmp = (calcLifetime - lifetime) / litLifetimes_Target.at(i).GetUpUnc();
-		else
-			tmp = (calcLifetime - lifetime) / litLifetimes_Target.at(i).GetDnUnc();
-		chisq += tmp * tmp;
-		lifetime_chisq += tmp*tmp;
+		if(fLikelihood){
+			double	sigma		= litLifetimes_Target.at(i).GetUpUnc() * litLifetimes_Target.at(i).GetDnUnc();
+			double	sigma_prime	= (litLifetimes_Target.at(i).GetUpUnc() - litLifetimes_Target.at(i).GetDnUnc());
+			chisq 			+= 0.5 * TMath::Power((calcLifetime - lifetime),2)/(sigma + sigma_prime * (calcLifetime - lifetime));
+		}
+		else{
+			if(calcLifetime > lifetime)
+				tmp = (calcLifetime - lifetime) / litLifetimes_Target.at(i).GetUpUnc();
+			else
+				tmp = (calcLifetime - lifetime) / litLifetimes_Target.at(i).GetDnUnc();
+			chisq += tmp * tmp;
+			lifetime_chisq += tmp*tmp;
+		}
 		NDF++;
 	}
 	for(unsigned int i=0;i<litBranchingRatios_Target.size();i++){
@@ -125,12 +152,19 @@ double CoulExSimMinFCN::operator()(const double* par){
 		int	index_final2	= litBranchingRatios_Target.at(i).GetFinalIndex_2();
 		double	BR		= litBranchingRatios_Target.at(i).GetBranchingRatio();
 		double  calcBR		= rates_t.GetBranchingRatios()[index_final1][index_init] / rates_t.GetBranchingRatios()[index_final2][index_init];
-		if(calcBR > BR)
-			tmp = (BR - calcBR) / litBranchingRatios_Target.at(i).GetUpUnc();
-		else
-			tmp = (BR - calcBR) / litBranchingRatios_Target.at(i).GetDnUnc();
-		chisq += tmp * tmp;
-		br_chisq += tmp*tmp;
+		if(fLikelihood){
+			double	sigma		= litBranchingRatios_Target.at(i).GetUpUnc() * litBranchingRatios_Target.at(i).GetDnUnc();
+			double	sigma_prime	= (litBranchingRatios_Target.at(i).GetUpUnc() - litBranchingRatios_Target.at(i).GetDnUnc());
+			chisq 			+= 0.5 * TMath::Power((calcBR - BR),2)/(sigma + sigma_prime * (calcBR - BR));
+		}
+		else{
+			if(calcBR > BR)
+				tmp = (BR - calcBR) / litBranchingRatios_Target.at(i).GetUpUnc();
+			else
+				tmp = (BR - calcBR) / litBranchingRatios_Target.at(i).GetDnUnc();
+			chisq += tmp * tmp;
+			br_chisq += tmp*tmp;
+		}
 		NDF++;
 	}
 	for(unsigned int i=0;i<litMixingRatios_Target.size();i++){
@@ -139,12 +173,19 @@ double CoulExSimMinFCN::operator()(const double* par){
 		int	index_final	= litMixingRatios_Target.at(i).GetFinalIndex();
 		double	delta		= litMixingRatios_Target.at(i).GetMixingRatio();
 		double	calcDelta	= rates_t.GetMixingRatios()[index_final][index_init];
-		if(calcDelta > delta)
-			tmp = (delta - calcDelta) / litMixingRatios_Target.at(i).GetUpUnc();
-		else
-			tmp = (delta - calcDelta) / litMixingRatios_Target.at(i).GetDnUnc();
-		chisq += tmp * tmp;		
-		mr_chisq += tmp*tmp;
+		if(fLikelihood){
+			double	sigma		= litMixingRatios_Target.at(i).GetUpUnc() * litMixingRatios_Target.at(i).GetDnUnc();
+			double	sigma_prime	= (litMixingRatios_Target.at(i).GetUpUnc() - litMixingRatios_Target.at(i).GetDnUnc());
+			chisq 			+= 0.5 * TMath::Power((calcDelta - delta),2)/(sigma + sigma_prime * (calcDelta - delta));
+		}
+		else{
+			if(calcDelta > delta)
+				tmp = (delta - calcDelta) / litMixingRatios_Target.at(i).GetUpUnc();
+			else
+				tmp = (delta - calcDelta) / litMixingRatios_Target.at(i).GetDnUnc();
+			chisq += tmp * tmp;		
+			mr_chisq += tmp*tmp;
+		}
 		NDF++;
 	}
 	if(verbose)
@@ -253,7 +294,7 @@ double CoulExSimMinFCN::operator()(const double* par){
 	if(verbose)
 		std::cout << "Experiment scaling: " << scaling.at(0) << std::endl;
 	//	Everything needs printing for both beam and target...
-	if(verbose){
+	if(verbose && !fLikelihood){
 		std::cout 	<< std::setw(7) << std::left << "Expt:";
 		for(unsigned int t=0;t<exptData_Beam.at(0).GetData().size();t++){
 			std::cout 	<< std::setw( 6) << std::left << "Init:"
@@ -264,7 +305,19 @@ double CoulExSimMinFCN::operator()(const double* par){
 					<< std::setw(14) << std::left << "Chisq cont.:";
 		}
 		std::cout 	<< std::endl;
-	}	
+	}
+	else{
+		std::cout 	<< std::setw(7) << std::left << "Expt:";
+		for(unsigned int t=0;t<exptData_Beam.at(0).GetData().size();t++){
+			std::cout 	<< std::setw( 6) << std::left << "Init:"
+					<< std::setw( 6) << std::left << "Finl:"
+					<< std::setw(12) << std::left << "Calc:"
+					<< std::setw(12) << std::left << "Expt:"
+					<< std::setw(12) << std::left << "Calc/Expt:"
+					<< std::setw(14) << std::left << "-Ln(L) cont.:";
+		}
+		std::cout 	<< std::endl;
+	}
 	for(unsigned int i=0;i<exptData_Beam.size();i++){
 		if(verbose)
 			std::cout	<< std::setw(7) << std::left << i+1;
@@ -274,25 +327,42 @@ double CoulExSimMinFCN::operator()(const double* par){
 			int	index_final 	= exptData_Beam.at(i).GetData().at(t).GetFinalIndex();
 			double 	calcCounts 	= scaling.at(i) * EffectiveCrossSection_Beam.at(i)[index_final][index_init];
 			double 	exptCounts 	= exptData_Beam.at(i).GetData().at(t).GetCounts();
+			double	sigma		= exptData_Beam.at(i).GetData().at(t).GetUpUnc() * exptData_Beam.at(i).GetData().at(t).GetDnUnc();
+			double	sigma_prime	= (exptData_Beam.at(i).GetData().at(t).GetUpUnc() - exptData_Beam.at(i).GetData().at(t).GetDnUnc());
 			if(verbose){
-				std::cout 	<< std::setw( 6) << std::left << index_init 
-						<< std::setw( 6) << std::left << index_final 
-						<< std::setw(12) << std::left << calcCounts 
-						<< std::setw(12) << std::left << exptCounts 
-						<< std::setw(12) << std::left << calcCounts/exptCounts
-						<< std::setw(14) << std::left << TMath::Power((calcCounts - exptCounts)/exptData_Beam.at(i).GetData().at(t).GetUpUnc(),2);
+				if(fLikelihood){
+					std::cout 	<< std::setw( 6) << std::left << index_init 
+							<< std::setw( 6) << std::left << index_final 
+							<< std::setw(12) << std::left << calcCounts 
+							<< std::setw(12) << std::left << exptCounts 
+							<< std::setw(12) << std::left << calcCounts/exptCounts
+							<< std::setw(14) << std::left << 0.5 * TMath::Power((exptCounts - calcCounts),2)/(sigma + sigma_prime * (exptCounts - calcCounts));
+				}
+				else{
+					std::cout 	<< std::setw( 6) << std::left << index_init 
+							<< std::setw( 6) << std::left << index_final 
+							<< std::setw(12) << std::left << calcCounts 
+							<< std::setw(12) << std::left << exptCounts 
+							<< std::setw(12) << std::left << calcCounts/exptCounts
+							<< std::setw(14) << std::left << TMath::Power((calcCounts - exptCounts)/exptData_Beam.at(i).GetData().at(t).GetUpUnc(),2);
+				}
 			}
-			if(calcCounts > exptCounts)
-				tmp 		= (calcCounts - exptCounts) / exptData_Beam.at(i).GetData().at(t).GetUpUnc();
-			else
-				tmp 		= (calcCounts - exptCounts) / exptData_Beam.at(i).GetData().at(t).GetDnUnc();
-			chisq 			+= tmp * tmp;
+			if(fLikelihood){
+				chisq		+= 0.5 * TMath::Power((exptCounts - calcCounts),2)/(sigma + sigma_prime * (exptCounts - calcCounts));
+			}
+			else{
+				if(calcCounts > exptCounts)
+					tmp 		= (calcCounts - exptCounts) / exptData_Beam.at(i).GetData().at(t).GetUpUnc();
+				else
+					tmp 		= (calcCounts - exptCounts) / exptData_Beam.at(i).GetData().at(t).GetDnUnc();
+				chisq		+= tmp * tmp;
+			}
 			NDF++;
 		}
 		if(verbose)
 			std::cout << std::endl;
 	}
-	if(verbose){
+	if(verbose && !fLikelihood){
 		std::cout 	<< std::setw(7) << std::left << "Expt:";
 		for(unsigned int t=0;t<exptData_Target.at(0).GetData().size();t++){
 			std::cout 	<< std::setw( 6) << std::left << "Init:"
@@ -303,7 +373,19 @@ double CoulExSimMinFCN::operator()(const double* par){
 					<< std::setw(14) << std::left << "Chisq cont.:";
 		}
 		std::cout 	<< std::endl;
-	}	
+	}
+	else{
+		std::cout 	<< std::setw(7) << std::left << "Expt:";
+		for(unsigned int t=0;t<exptData_Target.at(0).GetData().size();t++){
+			std::cout 	<< std::setw( 6) << std::left << "Init:"
+					<< std::setw( 6) << std::left << "Finl:"
+					<< std::setw(12) << std::left << "Calc:"
+					<< std::setw(12) << std::left << "Expt:"
+					<< std::setw(12) << std::left << "Calc/Expt:"
+					<< std::setw(14) << std::left << "-Ln(L) cont.:";
+		}
+		std::cout 	<< std::endl;
+	}
 	for(unsigned int i=0;i<exptData_Target.size();i++){
 		if(verbose)
 			std::cout	<< std::setw(7) << std::left << i+1;
@@ -313,26 +395,45 @@ double CoulExSimMinFCN::operator()(const double* par){
 			int	index_final 	= exptData_Target.at(i).GetData().at(t).GetFinalIndex();
 			double 	calcCounts 	= scaling.at(i) * EffectiveCrossSection_Target.at(i)[index_final][index_init];
 			double 	exptCounts 	= exptData_Target.at(i).GetData().at(t).GetCounts();
+			double	sigma		= exptData_Target.at(i).GetData().at(t).GetUpUnc() * exptData_Target.at(i).GetData().at(t).GetDnUnc();
+			double	sigma_prime	= (exptData_Target.at(i).GetData().at(t).GetUpUnc() - exptData_Target.at(i).GetData().at(t).GetDnUnc());
 			if(verbose){
-				std::cout 	<< std::setw( 6) << std::left << index_init 
-						<< std::setw( 6) << std::left << index_final 
-						<< std::setw(12) << std::left << calcCounts 
-						<< std::setw(12) << std::left << exptCounts 
-						<< std::setw(12) << std::left << calcCounts/exptCounts
-						<< std::setw(14) << std::left << TMath::Power((calcCounts - exptCounts)/exptData_Target.at(i).GetData().at(t).GetUpUnc(),2);
+				if(fLikelihood){
+					std::cout 	<< std::setw( 6) << std::left << index_init 
+							<< std::setw( 6) << std::left << index_final 
+							<< std::setw(12) << std::left << calcCounts 
+							<< std::setw(12) << std::left << exptCounts 
+							<< std::setw(12) << std::left << calcCounts/exptCounts
+							<< std::setw(14) << std::left << 0.5 * TMath::Power((exptCounts - calcCounts),2)/(sigma + sigma_prime * (exptCounts - calcCounts));
+				}
+				else{
+					std::cout 	<< std::setw( 6) << std::left << index_init 
+							<< std::setw( 6) << std::left << index_final 
+							<< std::setw(12) << std::left << calcCounts 
+							<< std::setw(12) << std::left << exptCounts 
+							<< std::setw(12) << std::left << calcCounts/exptCounts
+							<< std::setw(14) << std::left << TMath::Power((calcCounts - exptCounts)/exptData_Target.at(i).GetData().at(t).GetUpUnc(),2);
+				}
 			}
-			if(calcCounts > exptCounts)
-				tmp 		= (calcCounts - exptCounts) / exptData_Target.at(i).GetData().at(t).GetUpUnc();
-			else
-				tmp 		= (calcCounts - exptCounts) / exptData_Target.at(i).GetData().at(t).GetDnUnc();
-			chisq 			+= tmp * tmp;
+			if(fLikelihood){
+				chisq		+= 0.5 * TMath::Power((exptCounts - calcCounts),2)/(sigma + sigma_prime * (exptCounts - calcCounts));
+			}
+			else{
+				if(calcCounts > exptCounts)
+					tmp 		= (calcCounts - exptCounts) / exptData_Target.at(i).GetData().at(t).GetUpUnc();
+				else
+					tmp 		= (calcCounts - exptCounts) / exptData_Target.at(i).GetData().at(t).GetDnUnc();
+				chisq		+= tmp * tmp;
+			}
 			NDF++;
 		}
 		if(verbose)
 			std::cout << std::endl;
 	}
-	if(verbose)
+	if(verbose && !fLikelihood)
 		std::cout << "Chisq: " << chisq << " scaling: " << par[nPar-1] << std::endl;
+	else
+		std::cout << "-Ln(L): " << chisq << " scaling: " << par[nPar-1] << std::endl;
 
 	iter++;
 
@@ -340,19 +441,13 @@ double CoulExSimMinFCN::operator()(const double* par){
 	milliseconds ms = std::chrono::duration_cast<milliseconds>(t1-t0);
 
 	if((iter % 10) == 0 && !verbose)
-			std::cout 	<< std::setw(13) << std::left << "Iteration: " 
-					<< std::setw(7)  << std::left << iter 
-					<< std::setw(24) << std::left << " chi-squared value: " 
-					<< std::setw(7)  << std::left << chisq 
-					<< std::setw(7)  << std::left << " NDF: " 
-					<< std::setw(4)  << std::left << NDF 
-					<< std::setw(26) << std::left << " reduced chi-squared: " 
-					<< std::setw(7)  << std::left << chisq / (double)NDF
-					<< std::setw(36) << std::left << " literature component of chisq: " 
-					<< std::setw(7)  << std::left << litchisq 
-					<< std::setw(24) << std::left << " processing time:  " 
-					<< std::setw(7)  << std::left << ms.count() 
-					<< " ms\r" << std::flush;
+			std::cout 	<< std::setw(12) << std::left << iter 
+					<< std::setw(13) << std::left << chisq 
+					<< std::setw(7)  << std::left << NDF
+					<< std::setw(13) << std::left << chisq/(double)NDF 
+					<< std::setw(12) << std::left << litchisq 
+					<< std::setw(24) << std::left << ms.count() 
+					<< "\r" << std::flush;
 
 	return chisq;	
 

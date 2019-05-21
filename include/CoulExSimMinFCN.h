@@ -48,6 +48,7 @@ class CoulExSimMinFCN { // : public ROOT::Minuit2::FCNBase{
 												verbose = false;  
 												iter = 0;	
 												nThreads = 1;
+												fLikelihood 	= false;
 											}	/*!< Construct object with vector of experimental data to be fit */
 		virtual ~CoulExSimMinFCN()						{;					}
 
@@ -131,6 +132,9 @@ class CoulExSimMinFCN { // : public ROOT::Minuit2::FCNBase{
 
 		void	ResetIter()							{ iter = 0;				}	/*!< Reset the iteration number */
 
+		void	SetLikelihoodFit(bool b = true)					{ fLikelihood = b;			}	/*!< Define whether we do a log-likelihood based fit (default: chi-squared) */
+		bool	LikelihoodFit()						const	{ return fLikelihood;			}	/*!< Return whether we do a log-likelihood based fit (default: chi-squared) */
+
 	private :
 
 		std::vector<double>		parameters;			/*!< Matrix elements for both beam and target, and common scaling factors */
@@ -179,6 +183,8 @@ class CoulExSimMinFCN { // : public ROOT::Minuit2::FCNBase{
 		int				nThreads;
 
 		std::vector<int>		exptIndex;
+
+		bool				fLikelihood;
 
 };
 

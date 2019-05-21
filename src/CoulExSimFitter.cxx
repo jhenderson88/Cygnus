@@ -7,6 +7,8 @@ CoulExSimFitter::CoulExSimFitter()
 
 	first		= true;
 
+	fLikelihood	= false;
+
 	fDoFullUnc	= false;
 
 	maxIter		= 500;
@@ -50,6 +52,8 @@ void CoulExSimFitter::DoFit(const char* method, const char *algorithm){
 	theFCN.SetVerbose(verbose);
 
 	theFCN.SetupCalculation();
+
+	theFCN.SetLikelihoodFit(fLikelihood);
 
 	for(size_t m=0;m<matrixElements_Beam.size();m++)
 		matrixElements_Beam.at(m).Print();
@@ -112,6 +116,9 @@ void CoulExSimFitter::DoFit(const char* method, const char *algorithm){
 	//		ROOT::Math::Factory::CreateMinimizer("GSLMultiMin", "SteepestDescent");
 	ROOT::Math::Functor f(theFCN,parameters.size());
 
+	if(fLikelihood)
+		min->SetErrorDef(0.5);
+
 	std::cout << "Iterations: " << maxIter << std::endl;
 	std::cout << "Calls: " << maxCalls << std::endl;
 
@@ -133,6 +140,25 @@ void CoulExSimFitter::DoFit(const char* method, const char *algorithm){
 			name = "Scaling-"+std::to_string(i-(matrixElements_Beam.size() + matrixElements_Target.size()));
 			min->SetLowerLimitedVariable(i,name,parameters.at(i),0.0001,0);
 		}
+	}
+
+	if(!verbose && !fLikelihood){
+		std::cout 	<< std::setw(12) << std::left << "Iteration:" 
+				<< std::setw(13) << std::left << "Chi2 value:" 
+				<< std::setw(7)  << std::left << "NDF:"
+				<< std::setw(13) << std::left << "Red. Chi2:"
+				<< std::setw(12) << std::left << "Lit. Chi2:" 
+				<< std::setw(24) << std::left << "Processing time: (ms)" 
+				<< std::endl;
+	}
+	else{
+		std::cout 	<< std::setw(12) << std::left << "Iteration:" 
+				<< std::setw(13) << std::left << "-Ln(L) value:" 
+				<< std::setw(7)  << std::left << "NDF:"
+				<< std::setw(13) << std::left << "Red. Ln(L):"
+				<< std::setw(12) << std::left << "Lit. -Ln(L):" 
+				<< std::setw(24) << std::left << "Processing time: (ms)" 
+				<< std::endl;
 	}
 	
 	typedef std::chrono::high_resolution_clock Clock;
