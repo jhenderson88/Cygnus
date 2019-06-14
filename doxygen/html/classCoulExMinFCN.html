@@ -140,6 +140,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:afcfcae08a68fa14022c340302d78ec5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5603de360de9f503e9ed2a538652e3d7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classLitMixingRatio.html">LitMixingRatio</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCoulExMinFCN.html#a5603de360de9f503e9ed2a538652e3d7">GetLitMixing</a> () const </td></tr>
 <tr class="separator:a5603de360de9f503e9ed2a538652e3d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1746ad1d1192d6e6eb523dc78e6a4de2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCoulExMinFCN.html#a1746ad1d1192d6e6eb523dc78e6a4de2">SetLitMatrixElements</a> (std::vector&lt; <a class="el" href="classLitMatrixElement.html">LitMatrixElement</a> &gt; m)</td></tr>
+<tr class="separator:a1746ad1d1192d6e6eb523dc78e6a4de2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6518c89b7f351fff6535700877c66f07"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classLitMatrixElement.html">LitMatrixElement</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCoulExMinFCN.html#a6518c89b7f351fff6535700877c66f07">GetLitMatrixElements</a> () const </td></tr>
+<tr class="separator:a6518c89b7f351fff6535700877c66f07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5853fdc98470653111aef353b806166"><td class="memItemLeft" align="right" valign="top">std::vector&lt; TMatrixD &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCoulExMinFCN.html#ac5853fdc98470653111aef353b806166">GetEffectiveCrossSection</a> () const </td></tr>
 <tr class="separator:ac5853fdc98470653111aef353b806166"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3924912b5a05cb7966a569e11a6ab912"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCoulExMinFCN.html#a3924912b5a05cb7966a569e11a6ab912">SetBaseNucleus</a> (<a class="el" href="classNucleus.html">Nucleus</a> *nucl)</td></tr>
@@ -182,18 +186,19 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a076212903b18324a472ef11310bf8fc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17f18c83c3a60c89e038f91b946c495d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCoulExMinFCN.html#a17f18c83c3a60c89e038f91b946c495d">SetLikelihoodFit</a> (bool b=true)</td></tr>
 <tr class="separator:a17f18c83c3a60c89e038f91b946c495d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e9b3f67a357db9577c9b283e1afe57d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCoulExMinFCN.html#a7e9b3f67a357db9577c9b283e1afe57d">LikelihoodFit</a> () const </td></tr>
-<tr class="separator:a7e9b3f67a357db9577c9b283e1afe57d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a126ede898be9dd935ea7f65b7120f223"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCoulExMinFCN.html#a126ede898be9dd935ea7f65b7120f223">LikelihoodFit</a> () const </td></tr>
+<tr class="separator:a126ede898be9dd935ea7f65b7120f223"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains the definition of the function used in the minimization routines. </p>
 <p>By default the minimizer uses a chi-squared statistic to perform the minimization. The user can specify to use a likelihood method instead.</p>
-<p>Asymmetric uncertainties in the likelihood method are treated using the empirical method recommended by Barlowe:</p>
+<p>Asymmetric uncertainties in the likelihood method are treated using the empirical method recommended by Barlow (see: See Barlow, “Asymmetric Statistical Errors”, arXiv:physics/0406120):</p>
 <p class="formulaDsp">
 <img class="formulaDsp" alt="\[ -lnL(\alpha) = \frac{1}{2} \frac{\alpha^2}{\sigma_1\sigma_2 + (\sigma_1 - \sigma_2)\alpha} \]" src="form_0.png"/>
 </p>
- 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00045">45</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>With a chi-squared method, asymmetric uncertainties are treated in their respective ranges. Note that this results in a discontinuity about the experimental value. For the most part this shouldn't be an issue, but for large asymmetries this could cause problems in minimization. </p>
+
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00050">50</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="adbe1821d52bea6bdc1ec188958fe3e72"></a>
 <div class="memitem">
@@ -218,7 +223,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Construct object with vector of experimental data to be fit </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00049">49</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00054">54</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -246,7 +251,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Append a new <a class="el" href="classScalingParameter.html" title="Define common scaling parameters for calculation to experimental data. ">ScalingParameter</a> to the vector </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00071">71</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00076">76</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -272,7 +277,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Clear all vectors </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8cxx_source.html#l00246">246</a> of file <a class="el" href="CoulExMinFCN_8cxx_source.html">CoulExMinFCN.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8cxx_source.html#l00318">318</a> of file <a class="el" href="CoulExMinFCN_8cxx_source.html">CoulExMinFCN.cxx</a>.</p>
 
 </div>
 </div>
@@ -298,7 +303,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Clear the vector of <a class="el" href="classScalingParameter.html" title="Define common scaling parameters for calculation to experimental data. ">ScalingParameter</a> objects </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00072">72</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00077">77</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -324,7 +329,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return the base nucleus (not to be varied in fitting) </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00092">92</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00100">100</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -350,7 +355,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return the vector of correciton factors between point and integrated cross sections </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00101">101</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00109">109</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -376,7 +381,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return the vector of <a class="el" href="classExperimentData.html" title="Holder class containing experimental data, stored in a vector of ExptData objects. ">ExperimentData</a> objects (one for each experiment) </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00078">78</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00083">83</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -402,7 +407,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return the "effective cross section" = direct population + feeding </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00089">89</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00097">97</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -428,7 +433,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return the vector of <a class="el" href="classLitBranchingRatio.html" title="Holder for literature branching ratio information for fitting. ">LitBranchingRatio</a> objects defining the literature branching ratio data for fitting </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00084">84</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00089">89</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -454,7 +459,33 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return the vector of <a class="el" href="classLitLifetime.html" title="Holder for literature lifetime information for fitting. ">LitLifetime</a> objects defining the literature lifetime data for fitting </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00081">81</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00086">86</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6518c89b7f351fff6535700877c66f07"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classLitMatrixElement.html">LitMatrixElement</a>&gt; CoulExMinFCN::GetLitMatrixElements </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return the vector of <a class="el" href="classLitMatrixElement.html" title="Holder for literature matrix element information for fitting. ">LitMatrixElement</a> objects defining the literature mixing ratio data for fitting </p>
+
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00095">95</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -480,7 +511,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return the vector of <a class="el" href="classLitMixingRatio.html" title="Holder for literature mixing ratio information for fitting. ">LitMixingRatio</a> objects defining the literature mixing ratio data for fitting </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00087">87</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00092">92</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -506,7 +537,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return the vector of <a class="el" href="classMatrixElement.html" title="Holder class for matrix element information for use in fitting routines. ">MatrixElement</a> objects to be fitted </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00067">67</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00072">72</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -532,7 +563,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return the number of fitting parameters (fitting matrix elements + scaling parameters) </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00098">98</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00106">106</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -558,7 +589,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return the number of cores the function is allowed to use </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00110">110</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00118">118</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -584,7 +615,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return the fitting nucleus (varied in fitting) </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00095">95</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00103">103</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -611,7 +642,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return the fitting parameter indexed by i </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00112">112</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00120">120</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -637,7 +668,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return the vector of fitting parameters </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00113">113</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00121">121</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -663,7 +694,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return the vector of <a class="el" href="classPointCoulEx.html" title="Calculate point Coulomb excitation amplitudes and associated statistical tensors. ...">PointCoulEx</a> objects (one for each experiment) </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00075">75</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00080">80</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -689,7 +720,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return the vector of <a class="el" href="classScalingParameter.html" title="Define common scaling parameters for calculation to experimental data. ">ScalingParameter</a> objects for fitting </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00069">69</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00074">74</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -715,11 +746,11 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return the verbocity of the minimization </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00104">104</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00112">112</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a7e9b3f67a357db9577c9b283e1afe57d"></a>
+<a class="anchor" id="a126ede898be9dd935ea7f65b7120f223"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -727,7 +758,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void CoulExMinFCN::LikelihoodFit </td>
+          <td class="memname">bool CoulExMinFCN::LikelihoodFit </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -741,7 +772,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return whether we do a log-likelihood based fit (default: chi-squared) </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00121">121</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00129">129</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -760,7 +791,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Required by ROOT::Minimizer </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8cxx_source.html#l00033">33</a> of file <a class="el" href="CoulExMinFCN_8cxx_source.html">CoulExMinFCN.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8cxx_source.html#l00031">31</a> of file <a class="el" href="CoulExMinFCN_8cxx_source.html">CoulExMinFCN.cxx</a>.</p>
 
 </div>
 </div>
@@ -786,7 +817,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Reset the iteration number </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00115">115</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00123">123</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -813,7 +844,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Define the base nucleus (not to be varied in fitting) </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00091">91</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00099">99</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -840,7 +871,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Define the number of function calls (GSL) </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00107">107</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00115">115</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -867,7 +898,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Define the vector of correction factors between point and integrated cross sections </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00100">100</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00108">108</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -894,7 +925,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Define the vector of <a class="el" href="classExperimentData.html" title="Holder class containing experimental data, stored in a vector of ExptData objects. ">ExperimentData</a> objects (one for each experiment) </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00077">77</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00082">82</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -921,7 +952,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Required by ROOT::Minimizer </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00064">64</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00069">69</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -948,7 +979,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Define the number of iterations (MINUIT2) </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00106">106</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00114">114</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -975,7 +1006,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Define whether we do a log-likelihood based fit (default: chi-squared) </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00120">120</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00128">128</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -1002,7 +1033,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Define the vector of <a class="el" href="classLitBranchingRatio.html" title="Holder for literature branching ratio information for fitting. ">LitBranchingRatio</a> objects defining the literature branching ratio data for fitting </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00083">83</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00088">88</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -1029,7 +1060,34 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Define the vector of <a class="el" href="classLitLifetime.html" title="Holder for literature lifetime information for fitting. ">LitLifetime</a> objects defining the literature lifetime data for fitting </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00080">80</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00085">85</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1746ad1d1192d6e6eb523dc78e6a4de2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CoulExMinFCN::SetLitMatrixElements </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classLitMatrixElement.html">LitMatrixElement</a> &gt;&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Define the vector of <a class="el" href="classLitMatrixElement.html" title="Holder for literature matrix element information for fitting. ">LitMatrixElement</a> objects defining the literature mixing ratio data for fitting </p>
+
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00094">94</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -1056,7 +1114,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Define the vector of <a class="el" href="classLitMixingRatio.html" title="Holder for literature mixing ratio information for fitting. ">LitMixingRatio</a> objects defining the literature mixing ratio data for fitting </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00086">86</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00091">91</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -1083,7 +1141,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Define the vector of <a class="el" href="classMatrixElement.html" title="Holder class for matrix element information for use in fitting routines. ">MatrixElement</a> objects to be fitted </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00066">66</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00071">71</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -1110,7 +1168,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Define the number of fitting parameters (fitting matrix elements + scaling parameters) </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00097">97</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00105">105</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -1137,7 +1195,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Define the number of cores the function is allowed to use </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00109">109</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00117">117</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -1164,7 +1222,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Define the fitting nucleus (varied in fitting) </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00094">94</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00102">102</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -1191,7 +1249,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Define the vector of <a class="el" href="classPointCoulEx.html" title="Calculate point Coulomb excitation amplitudes and associated statistical tensors. ...">PointCoulEx</a> objects (one for each experiment) </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00074">74</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00079">79</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -1218,7 +1276,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Define whether we will use Poisson uncertainties (and a likelihood fit) or user defined uncertainties and a chi-square </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00117">117</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00125">125</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -1245,7 +1303,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Define the vector of <a class="el" href="classScalingParameter.html" title="Define common scaling parameters for calculation to experimental data. ">ScalingParameter</a> objects for fitting </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00070">70</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00075">75</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -1263,7 +1321,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Prepare the calculation </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8cxx_source.html#l00013">13</a> of file <a class="el" href="CoulExMinFCN_8cxx_source.html">CoulExMinFCN.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8cxx_source.html#l00012">12</a> of file <a class="el" href="CoulExMinFCN_8cxx_source.html">CoulExMinFCN.cxx</a>.</p>
 
 </div>
 </div>
@@ -1290,7 +1348,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Define the verbocity of the minimization </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00103">103</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00111">111</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -1316,7 +1374,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Required by ROOT::Minimizer </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00062">62</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00067">67</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
@@ -1342,7 +1400,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return whether we will use Poisson uncertainties (and a likelihood fit) or user defined uncertainties and a chi-square </p>
 
-<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00118">118</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExMinFCN_8h_source.html#l00126">126</a> of file <a class="el" href="CoulExMinFCN_8h_source.html">CoulExMinFCN.h</a>.</p>
 
 </div>
 </div>
