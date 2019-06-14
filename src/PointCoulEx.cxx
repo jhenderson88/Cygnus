@@ -250,6 +250,11 @@ void PointCoulEx::PrepareConnections()
 			//	Phase factor for coupling parameter, depends on INITIAL (sub)state only
 			double	phase	= TMath::Power(-1,fStates.at(s2).GetJ()-fSubstates.at(ss2).GetM());
 
+			/*std::cout	<< std::setw(10) << std::left << phase
+					<< std::setw(10) << std::left << fStates.at(s2).GetJ()
+					<< std::setw(10) << std::left << fSubstates.at(ss2).GetM()
+					<< std::endl;*/
+
 			//	Difference in wavenumber between final and initial sttae
 			double	tmpXi	= fStates.at(fSubstates.at(ss1).GetStateIndex()).GetEta() - fStates.at(fSubstates.at(ss2).GetStateIndex()).GetEta();
 
@@ -311,10 +316,10 @@ void PointCoulEx::PrepareConnections()
 
 				double	tmpZeta	= TMath::Power((2*lambda + 1),0.5) * phase * fReaction.ThreeJ(JInit,L2,JFinal,-MInit,Mu,MFinal) * tmpPsi * mePhase;
 
-				/*std::cout 	<< std::setw(5)  << std::left << fSubstates.at(ss1).GetM() 
-						<< std::setw(5)  << std::left << fSubstates.at(ss2).GetM() 
+				/*std::cout 	<< std::setw(8)  << std::left << fSubstates.at(ss1).GetM() 
+						<< std::setw(8)  << std::left << fSubstates.at(ss2).GetM() 
 						<< std::setw(15) << std::left << tmpZeta 
-						<< std::setw(5)  << std::left << phase 
+						<< std::setw(8)  << std::left << phase 
 						<< std::setw(15) << std::left << tmpPsi 
 						<< std::setw(15) << std::left << fReaction.ThreeJ(JInit,L2,JFinal,-MInit,Mu,MFinal)
 						<< std::setw(12) << std::left << C

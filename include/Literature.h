@@ -137,4 +137,53 @@ class LitMixingRatio{			// Literature mixing ratio information holder
 
 
 };
+
+///
+///	\class LitMatrixElement
+///
+///	\brief Holder for literature matrix element information for fitting
+///
+class LitMatrixElement{
+
+	public:
+		LitMatrixElement()	{;}
+		///
+		///	Construct literature mixing ratio with symmetric uncertainties:\n
+		///	Multipolarity = mult \n
+		///	Initial state index = i \n
+		///	Final state index = f \n
+		///	Matrix element = me \n
+		///	Uncertainty = e 
+		///
+		LitMatrixElement(int mult, int i, int f, double me, double e)			{ Multipolarity = mult; StateIndex_I = i; StateIndex_F = f; MatrixElement = me; UpUncertainty =	e; DnUncertainty =  e;	}
+		///
+		///	Construct literature mixing ratio with symmetric uncertainties:\n
+		///	Multipolarity = mult \n
+		///	Initial state index = i \n
+		///	Final state index = f \n
+		///	Matrix element = me \n
+		///	Positive uncertainty = ue 
+		///	Negative uncertainty = de
+		///
+		LitMatrixElement(int mult, int i, int f, double me, double ue, double de)	{ Multipolarity = mult; StateIndex_I = i; StateIndex_F = f; MatrixElement = me; UpUncertainty = ue; DnUncertainty = de;	}
+		~LitMatrixElement()	{;}
+		LitMatrixElement(const LitMatrixElement& lm);			 	/*!< Copy constructor */
+		LitMatrixElement& operator = (const LitMatrixElement& lm);          	/*!< Assignment operator */
+
+		double		GetMultipolarity()	const		{ return Multipolarity;		} 	/*!< Return multipolarity of the matrix element */
+		double		GetInitialIndex()	const		{ return StateIndex_I;		}	/*!< Return initial state index */
+		double		GetFinalIndex()		const		{ return StateIndex_F;		}	/*!< Return final state index */
+		double		GetMatrixElement()	const		{ return MatrixElement;		}	/*!< Return mixing ratio */
+		double		GetDnUnc()		const		{ return DnUncertainty;		}	/*!< Return negative uncertainty */
+		double		GetUpUnc()		const		{ return UpUncertainty;		}	/*!< Return positive uncertainty */
+
+	private:
+		double		Multipolarity;	/*!< Matrix element multipolarity */
+		int 		StateIndex_I;	/*!< Initial state index */
+		int 		StateIndex_F;	/*!< Final state index */
+		double		MatrixElement;	/*!< Literature matrix element */
+		double  	DnUncertainty;	/*!< Negative uncertainty */
+		double		UpUncertainty;	/*!< Positive uncertainty */
+};
 #endif
+

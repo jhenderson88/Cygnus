@@ -31,9 +31,11 @@ void CoulExSimFitter::DoFit(const char* method, const char *algorithm){
 	theFCN.SetBeamLitLifetimes(litLifetimes_Beam);
 	theFCN.SetBeamLitBranching(litBranchingRatios_Beam);
 	theFCN.SetBeamLitMixing(litMixingRatios_Beam);	
+	theFCN.SetBeamLitMatrixElements(litMatrixElements_Beam);	
 	theFCN.SetTargetLitLifetimes(litLifetimes_Target);
 	theFCN.SetTargetLitBranching(litBranchingRatios_Target);
 	theFCN.SetTargetLitMixing(litMixingRatios_Target);	
+	theFCN.SetTargetLitMatrixElements(litMatrixElements_Target);	
 
 	theFCN.SetBeamPointCalcs(pointCalcs_Beam);
 	theFCN.SetTargetPointCalcs(pointCalcs_Target);
@@ -130,15 +132,15 @@ void CoulExSimFitter::DoFit(const char* method, const char *algorithm){
 		std::string name;
 		if(i < matrixElements_Beam.size()){
 			name = "Beam-ME-"+std::to_string(i);
-			min->SetLimitedVariable(i,name,parameters.at(i),0.001,par_LL.at(i),par_UL.at(i));
+			min->SetLimitedVariable(i,name,parameters.at(i),0.01,par_LL.at(i),par_UL.at(i));
 		}
 		else if(i < matrixElements_Target.size() + matrixElements_Beam.size()){
 			name = "Target-ME-"+std::to_string(i - matrixElements_Beam.size());
-			min->SetLimitedVariable(i,name,parameters.at(i),0.001,par_LL.at(i),par_UL.at(i));
+			min->SetLimitedVariable(i,name,parameters.at(i),0.01,par_LL.at(i),par_UL.at(i));
 		}
 		else{
 			name = "Scaling-"+std::to_string(i-(matrixElements_Beam.size() + matrixElements_Target.size()));
-			min->SetLowerLimitedVariable(i,name,parameters.at(i),0.0001,0);
+			min->SetLowerLimitedVariable(i,name,parameters.at(i),0.01,0);
 		}
 	}
 
@@ -284,6 +286,10 @@ void CoulExSimFitter::AddBeamMixingRatio(int index_I, int index_F, double delta,
 	LitMixingRatio tmpMR(index_I,index_F,delta,unc);
 	litMixingRatios_Beam.push_back(tmpMR);	
 }
+void CoulExSimFitter::AddBeamMatrixElement(int mult, int index_I, int index_F, double me, double unc){
+	LitMatrixElement tmpME(mult,index_I,index_F,me,unc);
+	litMatrixElements_Beam.push_back(tmpME);	
+}
 void CoulExSimFitter::AddTargetLifetime(int index, double lifetime, double unc){
 	LitLifetime tmpLifetime(index,lifetime,unc);
 	litLifetimes_Target.push_back(tmpLifetime);	
@@ -295,6 +301,10 @@ void CoulExSimFitter::AddTargetBranchingRatio(int index_I1, int index_F1, int in
 void CoulExSimFitter::AddTargetMixingRatio(int index_I, int index_F, double delta, double unc){
 	LitMixingRatio tmpMR(index_I,index_F,delta,unc);
 	litMixingRatios_Target.push_back(tmpMR);	
+}    
+void CoulExSimFitter::AddTargetMatrixElement(int mult, int index_I, int index_F, double me, double unc){
+	LitMatrixElement tmpME(mult, index_I,index_F,me,unc);
+	litMatrixElements_Target.push_back(tmpME);	
 }    
 
 void CoulExSimFitter::ClearAll(){
@@ -308,6 +318,7 @@ void CoulExSimFitter::ClearAll(){
 	litLifetimes_Beam.clear();			
 	litBranchingRatios_Beam.clear();		
 	litMixingRatios_Beam.clear();		
+	litMatrixElements_Beam.clear();		
 	EffectiveCrossSection_Beam.clear();
 			
 	matrixElements_Target.clear();			
@@ -316,6 +327,7 @@ void CoulExSimFitter::ClearAll(){
 	litLifetimes_Target.clear();			
 	litBranchingRatios_Target.clear();		
 	litMixingRatios_Target.clear();		
+	litMatrixElements_Target.clear();		
 	EffectiveCrossSection_Target.clear();
 
 }

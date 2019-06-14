@@ -23,6 +23,7 @@ class ExperimentData;
 class LitLifetime;
 class LitBranchingRatio;
 class LitMixingRatio;
+class LitMatrixElement;
 
 ///
 ///	\class CoulExMinFCN
@@ -90,6 +91,9 @@ class CoulExMinFCN { // : public ROOT::Minuit2::FCNBase{
 		void	SetLitMixing(std::vector<LitMixingRatio> m)			{ litMixingRatios = m;			}	/*!< Define the vector of LitMixingRatio objects defining the literature mixing ratio data for fitting */
 		std::vector<LitMixingRatio>	GetLitMixing() 			const	{ return litMixingRatios;		}	/*!< Return the vector of LitMixingRatio objects defining the literature mixing ratio data for fitting */
 
+		void	SetLitMatrixElements(std::vector<LitMatrixElement> m)		{ litMatrixElements = m;			}	/*!< Define the vector of LitMatrixElement objects defining the literature mixing ratio data for fitting */
+		std::vector<LitMatrixElement>	GetLitMatrixElements() 		const	{ return litMatrixElements;		}	/*!< Return the vector of LitMatrixElement objects defining the literature mixing ratio data for fitting */
+
 		std::vector<TMatrixD>		GetEffectiveCrossSection() 	const	{ return EffectiveCrossSection;		}	/*!< Return the "effective cross section" = direct population + feeding */
 
 		void	SetBaseNucleus(Nucleus* nucl)					{ fNucleus_Base = *nucl;		}	/*!< Define the base nucleus (not to be varied in fitting) */
@@ -137,6 +141,7 @@ class CoulExMinFCN { // : public ROOT::Minuit2::FCNBase{
 		std::vector<LitLifetime>	litLifetimes;			// Literature data, lifetimes
 		std::vector<LitBranchingRatio>	litBranchingRatios;		// Literature data, branching ratios
 		std::vector<LitMixingRatio>	litMixingRatios;		// Literature data, mixing ratios
+		std::vector<LitMatrixElement>	litMatrixElements;		// Literature data, matrix elements
 		double				theErrorDef;
 
 		std::vector<TMatrixD>		EffectiveCrossSection;

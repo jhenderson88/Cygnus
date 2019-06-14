@@ -23,6 +23,7 @@ class ExperimentData;
 class LitLifetime;
 class LitBranchingRatio;
 class LitMixingRatio;
+class LitMatrixElement;
 
 ///
 ///	\class CoulExSimMinFCN
@@ -95,6 +96,11 @@ class CoulExSimMinFCN { // : public ROOT::Minuit2::FCNBase{
 		std::vector<LitMixingRatio>	GetBeamLitMixing() 		const	{ return litMixingRatios_Beam;		}	/*!< Return the vector of beam LitMixingRatio objects defining the literature mixing ratio data for fitting */
 		void	SetTargetLitMixing(std::vector<LitMixingRatio> m)		{ litMixingRatios_Target = m;		}	/*!< Define the vector of target LitMixingRatio objects defining the literature mixing ratio data for fitting */
 		std::vector<LitMixingRatio>	GetTargetLitMixing() 		const	{ return litMixingRatios_Target;	}	/*!< Return the vector of target LitMixingRatio objects defining the literature mixing ratio data for fitting */
+	
+		void	SetBeamLitMatrixElements(std::vector<LitMatrixElement> m)		{ litMatrixElements_Beam = m;		}	/*!< Define the vector of beam LitMatrixElement objects defining the literature mixing ratio data for fitting */
+		std::vector<LitMatrixElement>	GetBeamLitMatrixElements() 		const	{ return litMatrixElements_Beam;		}	/*!< Return the vector of beam LitMatrixElement objects defining the literature mixing ratio data for fitting */
+		void	SetTargetLitMatrixElements(std::vector<LitMatrixElement> m)		{ litMatrixElements_Target = m;		}	/*!< Define the vector of target LitMatrixElement objects defining the literature mixing ratio data for fitting */
+		std::vector<LitMatrixElement>	GetTargetLitMatrixElements() 		const	{ return litMatrixElements_Target;	}	/*!< Return the vector of target LitMatrixElement objects defining the literature mixing ratio data for fitting */
 
 		std::vector<TMatrixD>	GetEffectiveCrossSection_Beam()		const	{ return EffectiveCrossSection_Beam;	}	/*!< Return the beam's "effective cross section" = direct population + feeding */
 		std::vector<TMatrixD>	GetEffectiveCrossSection_Target() 	const	{ return EffectiveCrossSection_Target;	}	/*!< Return the target's "effective cross section" = direct population + feeding */
@@ -159,6 +165,9 @@ class CoulExSimMinFCN { // : public ROOT::Minuit2::FCNBase{
 
 		std::vector<LitMixingRatio>	litMixingRatios_Beam;		/*!< Literature data for the beam, mixing ratios */
 		std::vector<LitMixingRatio>	litMixingRatios_Target;		/*!< Literature data for the target, mixing ratios */
+
+		std::vector<LitMatrixElement>	litMatrixElements_Beam;		/*!< Literature data for the beam, matrix elements */
+		std::vector<LitMatrixElement>	litMatrixElements_Target;		/*!< Literature data for the target, matrix elements */
 
 		double				theErrorDef;
 

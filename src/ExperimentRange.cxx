@@ -215,6 +215,8 @@ double ExperimentRange::IntegrateThetaEnergy(int state){
 	double tMin = fReaction->ConvertThetaCmToLab(fIntegral->GetCMThetaPoints().at(0).at(0) * TMath::DegToRad(), nPart) * TMath::RadToDeg();
 	double tMax = fReaction->ConvertThetaCmToLab(fIntegral->GetCMThetaPoints().at(0).at(fIntegral->GetCMThetaPoints().at(0).size()-1) * TMath::DegToRad(), nPart) * TMath::RadToDeg();
 
+	if(tMin > tMax)
+		std::swap(tMin,tMax);
 
 	if(fDetectorEff && fUseEfficiency){
 		fDetectorEff_CM = new TGraph();
@@ -235,13 +237,17 @@ double ExperimentRange::IntegrateThetaEnergy(int state){
 
 	}
 
-	if(tMin > tMax){
-		double tmp = tMin;
-		tMin = tMax;
-		tMax = tmp;
-	}
 	double tStep = (tMax - tMin) / ((double)tSteps - 1.); // Theta stepsize
 	double eStep = (eMax - eMin) / ((double)eSteps - 1.); // Energy stepsize
+
+	/*std::cout	<< std::setw(10) << std::left << __LINE__ 
+			<< std::setw(10) << std::left << tMin
+			<< std::setw(10) << std::left << tMax
+			<< std::setw(10) << std::left << tStep
+			<< std::setw(10) << std::left << eMin
+			<< std::setw(10) << std::left << eMax
+			<< std::setw(10) << std::left << eStep
+			<< std::endl;*/
 	
 	// We can use Simpson's rule to integrate theta and energy and
 	// for every energy, divide out dE/dX
@@ -343,6 +349,8 @@ TGraph2D* ExperimentRange::InterpolatedEnergyTheta(int state, bool useDetector){
 	TSpline3 *eSplines[tSteps];
 	double tStep = (tMax - tMin) / ((double)tSteps - 1.); // Theta stepsize
 	double eStep = (eMax - eMin) / ((double)eSteps - 1.); // Energy stepsize
+
+
 	for(int t = 0; t < tSteps; t++){
 		TGraph gTmp;
 		double *tmp_x = new double[nEnergy];

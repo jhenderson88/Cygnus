@@ -32,7 +32,8 @@ void CoulExFitter::DoFit(const char* method, const char *algorithm){
 
 	theFCN.SetLitLifetimes(litLifetimes);
 	theFCN.SetLitBranching(litBranchingRatios);
-	theFCN.SetLitMixing(litMixingRatios);	
+	theFCN.SetLitMixing(litMixingRatios);
+	theFCN.SetLitMatrixElements(litMatrixElements);	
 
 	theFCN.SetPointCalcs(pointCalcs);
 
@@ -249,7 +250,11 @@ void CoulExFitter::AddBranchingRatio(int index_I1, int index_F1, int index_F2, d
 void CoulExFitter::AddMixingRatio(int index_I, int index_F, double delta, double unc){
 	LitMixingRatio tmpMR(index_I,index_F,delta,unc);
 	litMixingRatios.push_back(tmpMR);	
-}    
+}   
+void CoulExFitter::AddMatrixElement(int mult, int index_I, int index_F, double me, double unc){
+	LitMatrixElement tmpME(mult,index_I,index_F,me,unc);
+	litMatrixElements.push_back(tmpME);	
+}     
 
 void CoulExFitter::ClearAll(){
 
@@ -261,6 +266,7 @@ void CoulExFitter::ClearAll(){
 	litLifetimes.clear();			
 	litBranchingRatios.clear();		
 	litMixingRatios.clear();		
+	litMatrixElements.clear();		
 	EffectiveCrossSection.clear();
 
 }

@@ -110,6 +110,29 @@ double CoulExMinFCN::operator()(const double* par){
 		}
 		NDF++;
 	}
+	double me_chisq = 0;
+	for(unsigned int i=0;i<litMatrixElements.size();i++){
+		double tmp;
+		int	mult		= litMatrixElements.at(i).GetMultipolarity();
+		int 	index_init	= litMatrixElements.at(i).GetInitialIndex();
+		int	index_final	= litMatrixElements.at(i).GetFinalIndex();
+		double	ME		= litMatrixElements.at(i).GetMatrixElement();
+		double	calcME		= nucl.GetMatrixElements().at(mult)[index_init][index_final];
+		if(fLikelihood){
+			double	sigma		= litMatrixElements.at(i).GetUpUnc() * litMatrixElements.at(i).GetDnUnc();
+			double	sigma_prime	= (litMatrixElements.at(i).GetUpUnc() - litMatrixElements.at(i).GetDnUnc());
+			chisq 			+= 0.5 * TMath::Power((calcME - ME),2)/(sigma + sigma_prime * (calcME - ME));
+		}
+		else{
+			if(calcME > ME)
+				tmp = (ME - calcME) / litMatrixElements.at(i).GetUpUnc();
+			else
+				tmp = (ME - calcME) / litMatrixElements.at(i).GetDnUnc();
+			chisq += tmp * tmp;		
+			me_chisq += tmp*tmp;
+		}
+		NDF++;
+	}
 	if(verbose && !fLikelihood)
 		std::cout << "Literature chi-squared: " << chisq << std::endl;
 	else

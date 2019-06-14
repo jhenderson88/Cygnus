@@ -59,6 +59,28 @@ LitMixingRatio& LitMixingRatio::operator = (const LitMixingRatio& lm){
 	DnUncertainty	= lm.DnUncertainty;
 	UpUncertainty	= lm.UpUncertainty;
 
+	return *this;
+
+}
+
+LitMatrixElement::LitMatrixElement(const LitMatrixElement& lm){
+
+	Multipolarity	= lm.Multipolarity;
+	StateIndex_I	= lm.StateIndex_I;
+	StateIndex_F	= lm.StateIndex_F;
+	MatrixElement	= lm.MatrixElement;
+	DnUncertainty	= lm.DnUncertainty;
+	UpUncertainty	= lm.UpUncertainty;
+
+}
+LitMatrixElement& LitMatrixElement::operator = (const LitMatrixElement& lm){
+
+	Multipolarity	= lm.Multipolarity;
+	StateIndex_I	= lm.StateIndex_I;
+	StateIndex_F	= lm.StateIndex_F;
+	MatrixElement	= lm.MatrixElement;
+	DnUncertainty	= lm.DnUncertainty;
+	UpUncertainty	= lm.UpUncertainty;
 
 	return *this;
 

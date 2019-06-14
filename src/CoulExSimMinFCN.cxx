@@ -123,6 +123,29 @@ double CoulExSimMinFCN::operator()(const double* par){
 		}
 		NDF++;
 	}
+	double me_chisq = 0;
+	for(unsigned int i=0;i<litMatrixElements_Beam.size();i++){
+		double tmp;
+		int	mult		= litMatrixElements_Beam.at(i).GetMultipolarity();
+		int 	index_init	= litMatrixElements_Beam.at(i).GetInitialIndex();
+		int	index_final	= litMatrixElements_Beam.at(i).GetFinalIndex();
+		double	ME		= litMatrixElements_Beam.at(i).GetMatrixElement();
+		double	calcME		= nucl_b.GetMatrixElements().at(mult)[index_init][index_final];
+		if(fLikelihood){
+			double	sigma		= litMatrixElements_Beam.at(i).GetUpUnc() * litMatrixElements_Beam.at(i).GetDnUnc();
+			double	sigma_prime	= (litMatrixElements_Beam.at(i).GetUpUnc() - litMatrixElements_Beam.at(i).GetDnUnc());
+			chisq 			+= 0.5 * TMath::Power((calcME - ME),2)/(sigma + sigma_prime * (calcME - ME));
+		}
+		else{
+			if(calcME > ME)
+				tmp = (ME - calcME) / litMatrixElements_Beam.at(i).GetUpUnc();
+			else
+				tmp = (ME - calcME) / litMatrixElements_Beam.at(i).GetDnUnc();
+			chisq += tmp * tmp;		
+			me_chisq += tmp*tmp;
+		}
+		NDF++;
+	}
 	// 	Now, compare with the literature for the target:
 	TransitionRates rates_t(&nucl_t);
 	for(unsigned int i=0;i<litLifetimes_Target.size();i++){
@@ -185,6 +208,28 @@ double CoulExSimMinFCN::operator()(const double* par){
 				tmp = (delta - calcDelta) / litMixingRatios_Target.at(i).GetDnUnc();
 			chisq += tmp * tmp;		
 			mr_chisq += tmp*tmp;
+		}
+		NDF++;
+	}
+	for(unsigned int i=0;i<litMatrixElements_Target.size();i++){
+		double tmp;
+		int	mult		= litMatrixElements_Target.at(i).GetMultipolarity();
+		int 	index_init	= litMatrixElements_Target.at(i).GetInitialIndex();
+		int	index_final	= litMatrixElements_Target.at(i).GetFinalIndex();
+		double	ME		= litMatrixElements_Target.at(i).GetMatrixElement();
+		double	calcME		= nucl_t.GetMatrixElements().at(mult)[index_init][index_final];
+		if(fLikelihood){
+			double	sigma		= litMatrixElements_Target.at(i).GetUpUnc() * litMatrixElements_Target.at(i).GetDnUnc();
+			double	sigma_prime	= (litMatrixElements_Target.at(i).GetUpUnc() - litMatrixElements_Target.at(i).GetDnUnc());
+			chisq 			+= 0.5 * TMath::Power((calcME - ME),2)/(sigma + sigma_prime * (calcME - ME));
+		}
+		else{
+			if(calcME > ME)
+				tmp = (ME - calcME) / litMatrixElements_Target.at(i).GetUpUnc();
+			else
+				tmp = (ME - calcME) / litMatrixElements_Target.at(i).GetDnUnc();
+			chisq += tmp * tmp;		
+			me_chisq += tmp*tmp;
 		}
 		NDF++;
 	}
@@ -430,8 +475,14 @@ double CoulExSimMinFCN::operator()(const double* par){
 		if(verbose)
 			std::cout << std::endl;
 	}
-	if(verbose && !fLikelihood)
-		std::cout << "Chisq: " << chisq << " scaling: " << par[nPar-1] << std::endl;
+	if(verbose && !fLikelihood){
+		std::cout 	<< "Chisq: " << chisq
+				<< std::endl; 
+		std::cout	<< "Scaling: ";
+		for(size_t i=0;i<scaling.size();i++)
+			std::cout	<< std::setw(8) << std::left << scaling.at(i);
+		std::cout 	<< std::endl;
+	}
 	else
 		std::cout << "-Ln(L): " << chisq << " scaling: " << par[nPar-1] << std::endl;
 

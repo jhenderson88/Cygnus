@@ -79,6 +79,7 @@ class CoulExFitter {
 		void	AddLifetime(int,double,double);		/*!< Add literature lifetime data */
 		void	AddBranchingRatio(int,int,int,double,double);	/*!< Add literature branching ratio data */
 		void	AddMixingRatio(int,int,double,double);		/*!< Add literature mixing ratio data */
+		void	AddMatrixElement(int,int,int,double,double);		/*!< Add literature matrix element data */
 
 		void	AddFittingMatrixElement(int,int,int,double,double,double);	/*!< Add a fitting matrix element */
 		void	CreateScalingParameter(std::vector<int>,double,double,double);	/*!< Add a scaling parameter, with common scaling experiments defined by their indices in a vector of int */
@@ -108,6 +109,9 @@ class CoulExFitter {
 	
 		void	SetLitMixing(std::vector<LitMixingRatio> m)		   	{ litMixingRatios = m;			}	/*!< Define vector of LitMixingRatio objects */
 		std::vector<LitMixingRatio>	GetLitMixing() 				{ return litMixingRatios;		}	/*!< Return vector of LitMixingRatio objects */
+	
+		void	SetLitMatrixElements(std::vector<LitMatrixElement> m)	   	{ litMatrixElements = m;		}	/*!< Define vector of LitMatrixElement objects */
+		std::vector<LitMatrixElement>	GetLitMatrixElements() 			{ return litMatrixElements;		}	/*!< Return vector of LitMatrixElement objects */
 
 		std::vector<TMatrixD>		GetEffectiveCrossSection() 		{ return EffectiveCrossSection;		}	/*!< Return vector of effective cross sections (direct population + feeding) */
 
@@ -166,6 +170,7 @@ class CoulExFitter {
 		std::vector<LitLifetime>	litLifetimes;			// Literature data, lifetimes
 		std::vector<LitBranchingRatio>	litBranchingRatios;		// Literature data, branching ratios
 		std::vector<LitMixingRatio>	litMixingRatios;		// Literature data, mixing ratios
+		std::vector<LitMatrixElement>	litMatrixElements;		// Literature data, matrix elements
 		double				theErrorDef;
 
 		std::vector<TMatrixD>		EffectiveCrossSection;

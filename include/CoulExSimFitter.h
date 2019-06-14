@@ -76,9 +76,11 @@ class CoulExSimFitter {
 		void	AddBeamLifetime(int,double,double);			/*!< Add literature lifetime data for the beam particle */
 		void	AddBeamBranchingRatio(int,int,int,double,double);	/*!< Add literature branching ratio data for the beam particle*/
 		void	AddBeamMixingRatio(int,int,double,double);		/*!< Add literature mixing ratio data for the beam particle*/
+		void	AddBeamMatrixElement(int,int,int,double,double);		/*!< Add literature matrix element data for the beam particle*/
 		void	AddTargetLifetime(int,double,double);			/*!< Add literature lifetime data for the target particle*/
 		void	AddTargetBranchingRatio(int,int,int,double,double);	/*!< Add literature branching ratio data for the target particle*/
 		void	AddTargetMixingRatio(int,int,double,double);		/*!< Add literature mixing ratio data for the target particle*/
+		void	AddTargetMatrixElement(int,int,int,double,double);		/*!< Add literature matrix element data for the target particle*/
 
 		void	AddBeamFittingMatrixElement(int,int,int,double,double,double);		/*!< Add a fitting matrix element for the beam */
 		void	AddTargetFittingMatrixElement(int,int,int,double,double,double);	/*!< Add a fitting matrix element for the target */
@@ -119,10 +121,15 @@ class CoulExSimFitter {
 		void	SetTargetLitBranching(std::vector<LitBranchingRatio> b) 	{ litBranchingRatios_Target = b;	}	/*!< Define the vector of target LitBranchingRatio objects defining the literature branching ratio data for fitting */
 		std::vector<LitBranchingRatio>	GetTargetLitBranching() 	const	{ return litBranchingRatios_Target;	}	/*!< Return the vector of target LitBranchingRatio objects defining the literature branching ratio data for fitting */
 	
-		void	SetBeamLitMixing(std::vector<LitMixingRatio> m)			{ litMixingRatios_Beam = m;		}	/*!< Define the vector of beam LitMixingRatio objects defining the literature mixing ratio data for fitting */
-		std::vector<LitMixingRatio>	GetBeamLitMixing() 		const	{ return litMixingRatios_Beam;		}	/*!< Return the vector of beam LitMixingRatio objects defining the literature mixing ratio data for fitting */
-		void	SetTargetLitMixing(std::vector<LitMixingRatio> m)		{ litMixingRatios_Target = m;		}	/*!< Define the vector of target LitMixingRatio objects defining the literature mixing ratio data for fitting */
-		std::vector<LitMixingRatio>	GetTargetLitMixing() 		const	{ return litMixingRatios_Target;	}	/*!< Return the vector of target LitMixingRatio objects defining the literature mixing ratio data for fitting */
+		void	SetBeamLitMixing(std::vector<LitMixingRatio> m)				{ litMixingRatios_Beam = m;		}	/*!< Define the vector of beam LitMixingRatio objects defining the literature mixing ratio data for fitting */
+		std::vector<LitMixingRatio>	GetBeamLitMixing() 			const	{ return litMixingRatios_Beam;		}	/*!< Return the vector of beam LitMixingRatio objects defining the literature mixing ratio data for fitting */
+		void	SetTargetLitMixing(std::vector<LitMixingRatio> m)			{ litMixingRatios_Target = m;		}	/*!< Define the vector of target LitMixingRatio objects defining the literature mixing ratio data for fitting */
+		std::vector<LitMixingRatio>	GetTargetLitMixing() 			const	{ return litMixingRatios_Target;	}	/*!< Return the vector of target LitMixingRatio objects defining the literature mixing ratio data for fitting */
+	
+		void	SetBeamLitMatrixElement(std::vector<LitMatrixElement> m)		{ litMatrixElements_Beam = m;		}	/*!< Define the vector of beam LitMatrixElement objects defining the literature mixing ratio data for fitting */
+		std::vector<LitMatrixElement>	GetBeamLitMatrixElement() 		const	{ return litMatrixElements_Beam;		}	/*!< Return the vector of beam LitMatrixElement objects defining the literature mixing ratio data for fitting */
+		void	SetTargetLitMatrixElement(std::vector<LitMatrixElement> m)		{ litMatrixElements_Target = m;		}	/*!< Define the vector of target LitMatrixElement objects defining the literature mixing ratio data for fitting */
+		std::vector<LitMatrixElement>	GetTargetLitMatrixElement() 		const	{ return litMatrixElements_Target;	}	/*!< Return the vector of target LitMatrixElement objects defining the literature mixing ratio data for fitting */
 
 		std::vector<TMatrixD>	GetEffectiveCrossSection_Beam()		const	{ return EffectiveCrossSection_Beam;	}	/*!< Return the beam's "effective cross section" = direct population + feeding */
 		std::vector<TMatrixD>	GetEffectiveCrossSection_Target() 	const	{ return EffectiveCrossSection_Target;	}	/*!< Return the target's "effective cross section" = direct population + feeding */
@@ -197,6 +204,9 @@ class CoulExSimFitter {
 
 		std::vector<LitMixingRatio>	litMixingRatios_Beam;		/*!< Literature data for the beam, mixing ratios */
 		std::vector<LitMixingRatio>	litMixingRatios_Target;		/*!< Literature data for the target, mixing ratios */
+
+		std::vector<LitMatrixElement>	litMatrixElements_Beam;		/*!< Literature data for the beam, matrix elements */
+		std::vector<LitMatrixElement>	litMatrixElements_Target;		/*!< Literature data for the target, matrix elements */
 
 		double				theErrorDef;
 
