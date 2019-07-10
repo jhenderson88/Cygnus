@@ -269,3 +269,51 @@ double MiscFunctions::SimpsonsRule(TGraph* g, int nSteps, double xMin, double xM
 	return integral;
 	
 }
+
+TGraph* MiscFunctions::PlotCrossSection(PointCoulEx* poin, double tMin, double tMax, int nTheta, int nState, bool cm, int nPart){
+
+	//double tMinPlot = tMin;
+	//double tMaxPlot = tMax;
+	double tStep = (tMax - tMin)/(nTheta - 1);
+	if(!cm){	// If theta is in lab units
+		tMin = poin->GetReaction()->ConvertThetaLabToCm(tMin * TMath::DegToRad(), nPart) * TMath::RadToDeg(); 
+		tMax = poin->GetReaction()->ConvertThetaLabToCm(tMax * TMath::DegToRad(), nPart) * TMath::RadToDeg();
+		tStep = (tMax - tMin)/(nTheta - 1);
+	}
+
+	TGraph *g = new TGraph();
+	for(int t = 0; t < nTheta; t++){
+		poin->CalculatePointProbabilities(tMin + t*tStep);
+		double theta = tMin + t*tStep;
+		if(!cm)
+			theta = poin->GetReaction()->ConvertThetaLabToCm(theta * TMath::DegToRad(), nPart) * TMath::RadToDeg();
+		g->SetPoint(t, theta, poin->GetProbabilitiesVector()[nState]*poin->GetReaction()->RutherfordCM(tMin + t*tStep));
+	}
+
+	return g;
+
+}
+
+TGraph* MiscFunctions::PlotProbability(PointCoulEx* poin, double tMin, double tMax, int nTheta, int nState, bool cm, int nPart){
+
+	//double tMinPlot = tMin;
+	//double tMaxPlot = tMax;
+	double tStep = (tMax - tMin)/(nTheta - 1);
+	if(!cm){	// If theta is in lab units
+		tMin = poin->GetReaction()->ConvertThetaLabToCm(tMin * TMath::DegToRad(), nPart) * TMath::RadToDeg(); 
+		tMax = poin->GetReaction()->ConvertThetaLabToCm(tMax * TMath::DegToRad(), nPart) * TMath::RadToDeg();
+		tStep = (tMax - tMin)/(nTheta - 1);
+	}
+
+	TGraph *g = new TGraph();
+	for(int t = 0; t < nTheta; t++){
+		poin->CalculatePointProbabilities(tMin + t*tStep);
+		double theta = tMin + t*tStep;
+		if(!cm)
+			theta = poin->GetReaction()->ConvertThetaCmToLab(theta * TMath::DegToRad(), nPart) * TMath::RadToDeg();
+		g->SetPoint(t, theta, poin->GetProbabilitiesVector()[nState]);
+	}
+
+	return g;
+
+}

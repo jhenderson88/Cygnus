@@ -1,6 +1,8 @@
 #ifndef MiscFunctions_h
 #define MiscFunctions_h
 
+#include "PointCoulEx.h"
+#include "Reaction.h"
 #include "TMatrixD.h"
 #include "TVectorD.h"
 #include "TGraph.h"
@@ -13,6 +15,8 @@
 ///
 ///	\brief Useful static functions for use elsewhere in the software package
 ///
+
+class PointCoulEx;
 
 class MiscFunctions {
 
@@ -34,6 +38,9 @@ class MiscFunctions {
 		static 	double	SphericalHarmonics(double,int,int,bool b = true);
 
 		static	double	SimpsonsRule(TGraph*,int,double,double);
+
+		static	TGraph*	PlotCrossSection(PointCoulEx*, double, double, int, int, bool cm = true, int nPart = 2);
+		static	TGraph*	PlotProbability(PointCoulEx*, double, double, int, int, bool cm = true, int nPart = 2);
 	
 };
 
