@@ -34,6 +34,7 @@ class ScalingParameter{
 		void	AddExperiment(int i)			{ experimentNumber.push_back(i);	}	/*!< Add experiment of index, i, to this common scaling */
 		void	ClearExperiments()			{ experimentNumber.clear();		}	/*!< Delete all experiments coupled to this scaling */
 		void	SetExperimentVector(std::vector<int> s)	{ experimentNumber = s;			}	/*!< Define the vector experimental indices coupled to this common scaling */
+		void	SetScalingParameter(double v)		{ scaling = v;				}
 
 		double	GetScalingParameter()		const	{ return scaling;			}	/*!< Return common scaling */
 		double	GetScalingLowerLimit()		const	{ return scaling_LL;			}	/*!< Return common scaling lower allowed limit */

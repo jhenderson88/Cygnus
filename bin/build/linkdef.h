@@ -34,6 +34,7 @@
 #pragma link C++ defined_in "include/ParticleDetectorS3.h";
 #pragma link C++ defined_in "include/AngularDistribution.h";
 #pragma link C++ defined_in "include/Plotting.h";
+#pragma link C++ defined_in "include/MCMCWalker.h";
 
 #endif
 

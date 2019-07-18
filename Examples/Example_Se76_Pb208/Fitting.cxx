@@ -111,12 +111,12 @@ void RunFitter(const char* nuclfile = "NucleusFile.txt", const char* datafile = 
 	fitter->AddBranchingRatio(3,0,1,0.584,0.032);
 
 	//	Define the matrix elements to be varied in the fit. Any not defined here will be fixed to the values in the Nucleus.
-	fitter->AddFittingMatrixElement(1,0,1,0.486,0.320,1.270);
-	fitter->AddFittingMatrixElement(1,0,3,0.571,0.05,0.8);
-	fitter->AddFittingMatrixElement(1,1,1,-0.200,-1,-0.1);
-	fitter->AddFittingMatrixElement(1,1,2,0.6999,0.1,1);
-	fitter->AddFittingMatrixElement(1,1,3,0.412,0.1,1.8);
-	fitter->AddFittingMatrixElement(1,1,4,1.7054,0.2,2.2);
+	fitter->AddFittingMatrixElement(1,0,1,0.4860,0.32,1.27);
+	fitter->AddFittingMatrixElement(1,0,3,0.5710,0.05,0.80);
+	fitter->AddFittingMatrixElement(1,1,1,-0.200,-1.0,-0.1);
+	fitter->AddFittingMatrixElement(1,1,2,0.6999,0.10,1.00);
+	fitter->AddFittingMatrixElement(1,1,3,0.4120,0.10,1.80);
+	fitter->AddFittingMatrixElement(1,1,4,1.7054,0.20,2.20);
 
 	//	This section tells the fitter to use common scaling for all ExperimentRanges
 	std::vector<int> tmpVec;
@@ -127,6 +127,7 @@ void RunFitter(const char* nuclfile = "NucleusFile.txt", const char* datafile = 
 	
 	//	Define the number of threads the fitter can use
 	fitter->SetNthreads(threads);
+	fitter->SetLikelihoodFit(true);
 	// 	Print the starting values
 	fitter->Print();					
 	//	Set verbocity:
@@ -135,8 +136,8 @@ void RunFitter(const char* nuclfile = "NucleusFile.txt", const char* datafile = 
 	fitter->SetVerbose(true);							
 
 	//	MaxIterations/MaxFunctionCalls are for Minuit2 and GSL respectively
-	fitter->SetMaxIterations(5000);
-	fitter->SetMaxFunctionCalls(5000);
+	fitter->SetMaxIterations(1000);
+	fitter->SetMaxFunctionCalls(1000);
 	fitter->SetTolerance(0.001);
 
 	//	Perform the fit

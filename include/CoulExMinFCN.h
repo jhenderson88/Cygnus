@@ -128,6 +128,10 @@ class CoulExMinFCN { // : public ROOT::Minuit2::FCNBase{
 		void	SetLikelihoodFit(bool b = true)					{ fLikelihood = b;			}	/*!< Define whether we do a log-likelihood based fit (default: chi-squared) */
 		bool	LikelihoodFit()						const	{ return fLikelihood;			}	/*!< Return whether we do a log-likelihood based fit (default: chi-squared) */
 
+		void	PrintParameters(const double*);
+
+		void	PrintLiterature()	const;
+
 	private :
 
 		std::vector<double>		parameters;			// Matrix elements + scaling factors

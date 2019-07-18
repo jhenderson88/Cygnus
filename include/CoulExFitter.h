@@ -84,9 +84,9 @@ class CoulExFitter {
 		void	AddFittingMatrixElement(int,int,int,double,double,double);	/*!< Add a fitting matrix element */
 		void	CreateScalingParameter(std::vector<int>,double,double,double);	/*!< Add a scaling parameter, with common scaling experiments defined by their indices in a vector of int */
 
-
 		void	SetMatrixElements(std::vector<MatrixElement> m)		   	{ matrixElements = m;			}	/*!< Define vector of fitting MatrixElements */
 		std::vector<MatrixElement>	GetMatrixElements() 			{ return matrixElements;		}	/*!< Return vector of fitting MatrixElements */
+		void	AddMatrixElement(MatrixElement m)				{ matrixElements.push_back(m);		}
 		void	ClearMatrixElements()						{ matrixElements.clear();		}	/*!< Clear vector of fitting MatrixElements */
 
 		std::vector<ScalingParameter>	GetScalingParameters()			{ return scalingParameters;		}	/*!< Return vector of ScalingParameter objects */
@@ -153,6 +153,18 @@ class CoulExFitter {
 		void	SetLikelihoodFit(bool b = true)					{ fLikelihood = b;			}	/*!< Define whether we do a log-likelihood based fit (default: chi-squared) */
 		bool	LikelihoodFit()						const	{ return fLikelihood;			}	/*!< Return whether we do a log-likelihood based fit (default: chi-squared) */
 
+		std::vector<int>	GetFitIndices()					{ return index;				}
+		std::vector<double>	GetFitParameters()				{ return parameters;			}
+		std::vector<double>	GetFitUL()					{ return par_UL;			}
+		std::vector<double>	GetFitLL()					{ return par_LL;			}
+
+		void    SetFitIndices(std::vector<int> i)				{ index = i;				}
+		void	SetFitParameters(std::vector<double> p)				{ parameters = p;			}
+		void	SetFitUL(std::vector<double> p)					{ par_UL = p;				}
+		void	SetFitLL(std::vector<double> p)					{ par_LL = p;				}
+
+		void	SetFittingParameter(size_t i, double v)				{ parameters.at(i) = v;			}
+	
 	private:
 
 		std::vector<int>		index;

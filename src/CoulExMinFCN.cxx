@@ -15,15 +15,16 @@ void CoulExMinFCN::SetupCalculation(){
 	for(unsigned int i=0;i<scalingParameters.size();i++)
 		for(unsigned int s=0;s<scalingParameters.at(i).GetExperimentNumbers().size();s++)
 			exptIndex[scalingParameters.at(i).GetExperimentNumbers().at(s)] = (int)i;
-
-	std::cout	<< std::setw(13) << std::left << "Experiment: "
-			<< std::setw(14) << std::left << "Scaling index: "
-			<< std::setw(14) << std::left << "Starting scaling:"
-			<< std::endl;
-	for(unsigned int i=0;i<exptIndex.size();i++){
-		std::cout	<< std::setw(13) << std::left << i+1
-				<< std::setw(14) << std::left << exptIndex.at(i)
+	if(verbose){
+		std::cout	<< std::setw(13) << std::left << "Experiment: "
+				<< std::setw(14) << std::left << "Scaling index: "
+				<< std::setw(14) << std::left << "Starting scaling:"
 				<< std::endl;
+		for(unsigned int i=0;i<exptIndex.size();i++){
+			std::cout	<< std::setw(13) << std::left << i+1
+					<< std::setw(14) << std::left << exptIndex.at(i)
+					<< std::endl;
+		}
 	}
 	
 }
@@ -135,8 +136,10 @@ double CoulExMinFCN::operator()(const double* par){
 	}
 	if(verbose && !fLikelihood)
 		std::cout << "Literature chi-squared: " << chisq << std::endl;
-	else
-		std::cout << "Literature likelihood contribution: " << chisq << std::endl;
+	else{
+		if(verbose)
+			std::cout << "Literature likelihood contribution: " << chisq << std::endl;
+	}
 	double litchisq = chisq;
 	//	COULEX AND STUFF:
 	
@@ -171,7 +174,7 @@ double CoulExMinFCN::operator()(const double* par){
 	}
 	EffectiveCrossSection.clear();	// "Effective" cross section = cross section + feeding
 	//	Now, determine the cross-sections to each state
-
+	
 	for(unsigned int i=0;i<pointCalcs.size();i++){
 		TVectorD tmpVec;
 		tmpVec.ResizeTo(pointCalcs.at(i).GetProbabilitiesVector().GetNrows());
@@ -209,16 +212,18 @@ double CoulExMinFCN::operator()(const double* par){
 		std::cout 	<< std::endl;
 	}
 	else{
-		std::cout 	<< std::setw(7) << std::left << "Expt:";
-		for(unsigned int t=0;t<exptData.at(0).GetData().size();t++){
-			std::cout 	<< std::setw( 6) << std::left << "Init:"
-					<< std::setw( 6) << std::left << "Finl:"
-					<< std::setw(12) << std::left << "Calc:"
-					<< std::setw(12) << std::left << "Expt:"
-					<< std::setw(12) << std::left << "Calc/Expt:"
-					<< std::setw(14) << std::left << "-Ln(L) cont.:";
+		if(verbose){
+			std::cout 	<< std::setw(7) << std::left << "Expt:";
+			for(unsigned int t=0;t<exptData.at(0).GetData().size();t++){
+				std::cout 	<< std::setw( 6) << std::left << "Init:"
+						<< std::setw( 6) << std::left << "Finl:"
+						<< std::setw(12) << std::left << "Calc:"
+						<< std::setw(12) << std::left << "Expt:"
+						<< std::setw(12) << std::left << "Calc/Expt:"
+						<< std::setw(14) << std::left << "-Ln(L) cont.:";
+			}
+			std::cout 	<< std::endl;
 		}
-		std::cout 	<< std::endl;
 	}
 	
 	for(unsigned int i=0;i<exptData.size();i++){
@@ -294,22 +299,19 @@ double CoulExMinFCN::operator()(const double* par){
 	}
 	if(verbose && !fLikelihood)
 		std::cout << "Chisq: " << chisq << " scaling: " << par[nPar-1] << std::endl;
-	else
-		std::cout << "-Ln(L): " << chisq << " scaling: " << par[nPar-1] << std::endl;
+	else{
+		if(verbose)
+			std::cout 	<< std::setw(16) << std::left << "Likelihood:"
+					<< std::setw(16) << std::left << chisq
+					<< std::setw(16) << std::left << "Lit. contr.:"
+					<< std::setw(16) << std::left << litchisq
+					<< std::endl;
+	}
 
 	iter++;
 
 	Clock::time_point t1 = Clock::now();
 	milliseconds ms = std::chrono::duration_cast<milliseconds>(t1-t0);
-
-	if((iter % 10) == 0 && !verbose)
-			std::cout 	<< std::setw(12) << std::left << iter 
-					<< std::setw(13) << std::left << chisq 
-					<< std::setw(7)  << std::left << NDF
-					<< std::setw(13) << std::left << chisq/(double)NDF 
-					<< std::setw(12) << std::left << litchisq 
-					<< std::setw(24) << std::left << ms.count() 
-					<< "\r" << std::flush;
 
 	return chisq;	
 
@@ -325,5 +327,113 @@ void CoulExMinFCN::ClearAll(){
 	litBranchingRatios.clear();		
 	litMixingRatios.clear();		
 	EffectiveCrossSection.clear();
+
+}
+
+void CoulExMinFCN::PrintParameters(const double *par){
+
+	for(size_t i = 0; i < parameters.size(); i++)
+		std::cout	<< std::setw(10) << std::left << par[i];
+	std::cout 	<< std::endl;	
+
+}
+
+void CoulExMinFCN::PrintLiterature() const{
+
+	if(exptData.size()>0){
+		std::cout 	<< "\n\n"
+				<< "Experimental data:" << std::endl;
+		
+		std::cout 	<< exptData.size() << " experiments" << std::endl;
+		
+		for(unsigned int i=0;i<exptData.size();i++){
+			std::cout	<< "Experiment " << i+1 << std::endl;
+			std::cout	<< "Theta [CM]: " << exptData.at(i).GetThetaCM() << std::endl;
+			std::cout 	<< std::setw(15) << std::left << "Init. index:" 
+					<< std::setw(15) << std::left << "Final index:"
+					<< std::setw(15) << std::left << "Init. J:" 
+					<< std::setw(15) << std::left << "Final J:"
+					<< std::setw(10) << std::left << "Counts:"
+					<< std::setw(10) << std::left << "Unc:"
+					<< std::endl;
+			for(unsigned int t=0;t<exptData.at(i).GetData().size();t++){
+				std::cout 	<< std::setw(15) << std::left << exptData.at(i).GetDataPoint(t).GetInitialIndex()
+						<< std::setw(15) << std::left << exptData.at(i).GetDataPoint(t).GetFinalIndex()
+						<< std::setw(15) << std::left << fNucleus.GetLevelJ().at(exptData.at(i).GetDataPoint(t).GetInitialIndex())
+						<< std::setw(15) << std::left << fNucleus.GetLevelJ().at(exptData.at(i).GetDataPoint(t).GetFinalIndex())
+						<< std::setw(10) << std::left << exptData.at(i).GetDataPoint(t).GetCounts()
+						<< std::setw(10) << std::left << exptData.at(i).GetDataPoint(t).GetUpUnc()
+						<< std::endl;
+			}			
+		}
+	}
+	else	
+		std::cout << "No experimental data declared" << std::endl;
+
+	if(litLifetimes.size()>0){
+		std::cout	<< "\n\n"
+				<< "Literature lifetimes:"
+				<< std::endl;
+		std::cout	<< std::setw(8)  << std::left << "Index"
+				<< std::setw(6)  << std::left << "J:"
+				<< std::setw(15) << std::left << "Lifetime (ps)" 
+				<< std::setw(15) << std::left << "Uncertainty:"
+				<< std::endl;
+		for(unsigned int i=0;i<litLifetimes.size();i++){
+			std::cout 	<< std::setw(8)  << std::left << litLifetimes.at(i).GetIndex()
+					<< std::setw(6)  << std::left << fNucleus.GetLevelJ().at(litLifetimes.at(i).GetIndex())
+					<< std::setw(15) << std::left << litLifetimes.at(i).GetLifetime()
+					<< std::setw(15) << std::left << litLifetimes.at(i).GetUpUnc()
+					<< std::endl;
+		}
+	}
+
+	if(litBranchingRatios.size()>0){
+		std::cout	<< "\n\n"
+				<< "Literature Branching Ratios:"
+				<< std::endl;
+		std::cout	<< std::setw(15) << std::left << "Init. Index"
+				<< std::setw(15) << std::left << "Final Index 1"
+				<< std::setw(15) << std::left << "Final Index 2"
+				<< std::setw(10) << std::left << "J init:"
+				<< std::setw(12) << std::left << "J final 1:"
+				<< std::setw(12) << std::left << "J final 2:"
+				<< std::setw(17) << std::left << "Branching Ratio" 
+				<< std::setw(15) << std::left << "Uncertainty:"
+				<< std::endl;
+		for(unsigned int i=0;i<litBranchingRatios.size();i++){
+			std::cout 	<< std::setw(15) << std::left << litBranchingRatios.at(i).GetInitialIndex()
+					<< std::setw(15) << std::left << litBranchingRatios.at(i).GetFinalIndex_1()
+					<< std::setw(15) << std::left << litBranchingRatios.at(i).GetFinalIndex_2()
+					<< std::setw(10) << std::left << fNucleus.GetLevelJ().at(litBranchingRatios.at(i).GetInitialIndex())
+					<< std::setw(12) << std::left << fNucleus.GetLevelJ().at(litBranchingRatios.at(i).GetFinalIndex_1())
+					<< std::setw(12) << std::left << fNucleus.GetLevelJ().at(litBranchingRatios.at(i).GetFinalIndex_2())
+					<< std::setw(17) << std::left << litBranchingRatios.at(i).GetBranchingRatio()
+					<< std::setw(15) << std::left << litBranchingRatios.at(i).GetUpUnc()
+					<< std::endl;
+		}
+	}
+	
+	if(litMixingRatios.size()>0){
+		std::cout	<< "\n\n"
+				<< "Literature Mixing Ratios:"
+				<< std::endl;
+		std::cout	<< std::setw(15) << std::left << "Init. Index"
+				<< std::setw(15) << std::left << "Final Index"
+				<< std::setw(10) << std::left << "J init:"
+				<< std::setw(10) << std::left << "J final:"
+				<< std::setw(14) << std::left << "Mixing Ratio" 
+				<< std::setw(15) << std::left << "Uncertainty:"
+				<< std::endl;
+		for(unsigned int i=0;i<litMixingRatios.size();i++){
+			std::cout 	<< std::setw(15) << std::left << litMixingRatios.at(i).GetInitialIndex()
+					<< std::setw(15) << std::left << litMixingRatios.at(i).GetFinalIndex()
+					<< std::setw(10) << std::left << fNucleus.GetLevelJ().at(litMixingRatios.at(i).GetInitialIndex())
+					<< std::setw(10) << std::left << fNucleus.GetLevelJ().at(litMixingRatios.at(i).GetFinalIndex())
+					<< std::setw(14) << std::left << litMixingRatios.at(i).GetMixingRatio()
+					<< std::setw(15) << std::left << litMixingRatios.at(i).GetUpUnc()
+					<< std::endl;
+		}
+	}
 
 }

@@ -174,6 +174,9 @@ void CoulExSimFitter::DoFit(const char* method, const char *algorithm){
 
 	std::cout << std::endl;
 
+	std::cout	<< "**************************************** FIT COMPLETE ****************************************"
+			<< std::endl;
+
 	min->PrintResults();
 
 	std::cout << "Fitting time: " << ms.count() << " ms" <<	std::endl;
@@ -194,6 +197,9 @@ void CoulExSimFitter::DoFit(const char* method, const char *algorithm){
 	}
 
 	if(DoFullUncertainty()){
+
+		std::cout	<< "************************************** UNCERTAINTY EVAL. **************************************"
+				<< std::endl;
 		std::cout	<< "MINOS uncertainties (asymmetric):"
 				<< std::endl;
 		std::vector<double> errLowVec, errUpVec;
