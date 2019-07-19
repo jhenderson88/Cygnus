@@ -7,6 +7,9 @@
 #include "TMatrixD.h"
 #include "TVectorD.h"
 
+#include <iostream>
+#include <fstream>
+
 ///
 ///	\class GammaYield
 ///
@@ -23,7 +26,8 @@ class GammaYield {
 		static TMatrixD GammaRayYield(TVectorD v, TransitionRates t)				{ return GammaRayYield(v,t.GetBranchingRatios());					}	/*!< Matrix of gamma-ray yields from TVectorD (cross-sections) and TransitionRates object */
 		static TMatrixD GammaRayYield(ExperimentRange r, TransitionRates t)			{ return GammaRayYield(r.GetIntegratedCrossSection_TVec(),t.GetBranchingRatios());	}	/*!< Matrix of gamma-ray yields from an ExperimentRange (cross-sections) and TransitionRates object */
 
-		static void	PrintYields(ExperimentRange r, TransitionRates t, Nucleus n);		/*!< Print well-formatted yields based on ExperimentRange (cross-sections), TransitionRates (branching ratios) and Nucleus (level labelling) objects */
+		static void	PrintYields(ExperimentRange r, TransitionRates t, Nucleus n, double scale = 1);		/*!< Print well-formatted yields based on ExperimentRange (cross-sections), TransitionRates (branching ratios) and Nucleus (level labelling) objects */
+		static void	WriteYields(ExperimentRange r, TransitionRates t, Nucleus n, std::ofstream& outfile, double scale = 1);		/*!< Print well-formatted yields based on ExperimentRange (cross-sections), TransitionRates (branching ratios) and Nucleus (level labelling) objects */
 
 		static double	GetYield(ExperimentRange r, TransitionRates t, Nucleus n, int i, int f);
 

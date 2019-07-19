@@ -22,7 +22,35 @@ TMatrixD GammaYield::GammaRayYield(TVectorD vec, TMatrixD mat){
 	
 }
 
-void GammaYield::PrintYields(ExperimentRange r, TransitionRates t, Nucleus nucl){
+void GammaYield::WriteYields(ExperimentRange r, TransitionRates t, Nucleus nucl, std::ofstream& outfile, double scale){
+
+	TMatrixD mat;
+	mat.ResizeTo(GammaRayYield(r,t).GetNrows(),GammaRayYield(r,t).GetNcols());
+	mat 	= GammaRayYield(r,t);
+
+	outfile		<< std::setw(15) << std::left << "Init. Index:" 
+			<< std::setw(15) << std::left << "Final Index:"
+			<< std::setw(10) << std::left << "Init. J:"
+			<< std::setw(10) << std::left << "Final J:"
+			<< std::setw(10) << std::left << "Yield:"
+			<< std::endl;
+
+	for(int x=0;x<mat.GetNcols();x++){
+		for(int y=0;y<mat.GetNrows();y++){
+			if(mat[y][x] > 0){
+				outfile		<< std::setw(15) << std::left << x 
+						<< std::setw(15) << std::left << y
+						<< std::setw(10) << std::left << nucl.GetLevelJ().at(x)
+						<< std::setw(10) << std::left << nucl.GetLevelJ().at(y)
+						<< std::setw(10) << std::left << mat[y][x] * scale
+						<< std::endl;
+			}
+		}
+	}
+
+}
+
+void GammaYield::PrintYields(ExperimentRange r, TransitionRates t, Nucleus nucl, double scale){
 
 	TMatrixD mat;
 	mat.ResizeTo(GammaRayYield(r,t).GetNrows(),GammaRayYield(r,t).GetNcols());
@@ -42,7 +70,7 @@ void GammaYield::PrintYields(ExperimentRange r, TransitionRates t, Nucleus nucl)
 						<< std::setw(15) << std::left << y
 						<< std::setw(10) << std::left << nucl.GetLevelJ().at(x)
 						<< std::setw(10) << std::left << nucl.GetLevelJ().at(y)
-						<< std::setw(10) << std::left << mat[y][x]
+						<< std::setw(10) << std::left << mat[y][x] * scale
 						<< std::endl;
 			}
 		}

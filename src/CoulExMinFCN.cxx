@@ -137,7 +137,7 @@ double CoulExMinFCN::operator()(const double* par){
 	if(verbose && !fLikelihood)
 		std::cout << "Literature chi-squared: " << chisq << std::endl;
 	else{
-		if(verbose)
+		if(!verbose)
 			std::cout << "Literature likelihood contribution: " << chisq << std::endl;
 	}
 	double litchisq = chisq;
@@ -181,7 +181,7 @@ double CoulExMinFCN::operator()(const double* par){
 		tmpVec	= pointCalcs.at(i).GetProbabilitiesVector();
 
 		for(int s = 0; s<tmpVec.GetNrows(); s++){
-			tmpVec[s] *= pointCalcs.at(i).GetReaction()->RutherfordCM(exptData.at(i).GetThetaCM()) * correctionFactors.at(i)[s] * 1e5;
+			tmpVec[s] *= pointCalcs.at(i).GetReaction()->RutherfordCM(exptData.at(i).GetThetaCM()) * correctionFactors.at(i)[s];
 		}
 		TMatrixD tmpMat;
 		tmpMat.ResizeTo(rates.GetBranchingRatios().GetNrows(),rates.GetBranchingRatios().GetNcols());

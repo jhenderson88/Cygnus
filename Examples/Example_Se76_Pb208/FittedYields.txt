@@ -1,0 +1,36 @@
+Init. Index:   Final Index:   Init. J:  Final J:  Yield:    
+1              0              2         0         18879.2   
+2              1              0         2         6.38682   
+3              0              2         0         48.0892   
+3              1              2         2         81.9997   
+4              1              4         2         260.605   
+Init. Index:   Final Index:   Init. J:  Final J:  Yield:    
+1              0              2         0         20401.6   
+2              1              0         2         36.0994   
+3              0              2         0         107.834   
+3              1              2         2         183.873   
+4              1              4         2         862.704   
+Init. Index:   Final Index:   Init. J:  Final J:  Yield:    
+1              0              2         0         18294     
+2              1              0         2         99.3014   
+3              0              2         0         167.758   
+3              1              2         2         286.053   
+4              1              4         2         1587.98   
+Init. Index:   Final Index:   Init. J:  Final J:  Yield:    
+1              0              2         0         6089.28   
+2              1              0         2         402.337   
+3              0              2         0         187.521   
+3              1              2         2         319.753   
+4              1              4         2         1621.22   
+Init. Index:   Final Index:   Init. J:  Final J:  Yield:    
+1              0              2         0         10559.1   
+2              1              0         2         510.516   
+3              0              2         0         301.993   
+3              1              2         2         514.946   
+4              1              4         2         2843.59   
+Init. Index:   Final Index:   Init. J:  Final J:  Yield:    
+1              0              2         0         17109.2   
+2              1              0         2         463.675   
+3              0              2         0         370.629   
+3              1              2         2         631.981   
+4              1              4         2         3699.09   

@@ -113,10 +113,12 @@ class Experiments
 		void	FixStep(bool b = true)						{ fUseFixedStep = b;						}
 		bool	UseFixedStep()						const	{ return fUseFixedStep;						}	
 
+		void	SetNucleus(Nucleus *nucl)					{ fNucleus = *nucl;						}
+
 	private:
 
-		bool			fUseFixedStep;
-		bool			fUseSymmetry;	
+		bool		fUseFixedStep;
+		bool		fUseSymmetry;	
 
 		double		fAccuracy;
 
