@@ -145,6 +145,10 @@ void RunFitter(const char* nuclfile = "NucleusFile.txt", const char* datafile = 
 	//	Perform the fit
 	fitter->DoFit("Minuit2","Migrad");
 
+	//******************************************************************************//
+	//                     REPEAT INTEGRAL AND FIT FINAL YIELDS                     //
+	//******************************************************************************//
+
 	std::vector<double> fittedPar = fitter->GetFitParameters();
 	Nucleus *nuclFitted = nuclreader->GetNucleus();
 	for(size_t me = 0; me < fitter->GetMatrixElements().size(); me++){
