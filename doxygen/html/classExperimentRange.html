@@ -170,6 +170,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a90e7681ee2de091d7011d546922763d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3091c15329dd483ad78d1a14370c3111"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExperimentRange.html#a3091c15329dd483ad78d1a14370c3111">UseFit</a> () const </td></tr>
 <tr class="separator:a3091c15329dd483ad78d1a14370c3111"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21dcba393bf6ebb91c00ed8905216be5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExperimentRange.html#a21dcba393bf6ebb91c00ed8905216be5">SetUseSymmetry</a> (bool b=true)</td></tr>
+<tr class="separator:a21dcba393bf6ebb91c00ed8905216be5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addecffed92c4b2f7072c19d1dfcc5cb1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExperimentRange.html#addecffed92c4b2f7072c19d1dfcc5cb1">UseSymmetry</a> () const </td></tr>
+<tr class="separator:addecffed92c4b2f7072c19d1dfcc5cb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4885e22d841b39492688eae10f101eb2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExperimentRange.html#a4885e22d841b39492688eae10f101eb2">FixStep</a> (bool b=true)</td></tr>
+<tr class="separator:a4885e22d841b39492688eae10f101eb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a882a794265e1b146e6e3902626a579fd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExperimentRange.html#a882a794265e1b146e6e3902626a579fd">UseFixedStep</a> () const </td></tr>
+<tr class="separator:a882a794265e1b146e6e3902626a579fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Define an experimental range, for determining integrated yields. </p>
@@ -202,7 +210,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Constructor with a <a class="el" href="classNucleus.html" title="Holds information about the nucleus for which the CoulEx calculation will be performed. ">Nucleus</a> and <a class="el" href="classReaction.html" title="Define the reaction kinematics. ">Reaction</a> class </p>
 
-<p>Definition at line <a class="el" href="ExperimentRange_8cxx_source.html#l00020">20</a> of file <a class="el" href="ExperimentRange_8cxx_source.html">ExperimentRange.cxx</a>.</p>
+<p>Definition at line <a class="el" href="ExperimentRange_8cxx_source.html#l00023">23</a> of file <a class="el" href="ExperimentRange_8cxx_source.html">ExperimentRange.cxx</a>.</p>
 
 </div>
 </div>
@@ -221,11 +229,38 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Copy constructor </p>
 
-<p>Definition at line <a class="el" href="ExperimentRange_8cxx_source.html#l00040">40</a> of file <a class="el" href="ExperimentRange_8cxx_source.html">ExperimentRange.cxx</a>.</p>
+<p>Definition at line <a class="el" href="ExperimentRange_8cxx_source.html#l00046">46</a> of file <a class="el" href="ExperimentRange_8cxx_source.html">ExperimentRange.cxx</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a4885e22d841b39492688eae10f101eb2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ExperimentRange::FixStep </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>b</em> = <code>true</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Set whether a fixed step (dOmega = 0.03, accuracy 1e-6) can be used - approx. equivalent to GOSIA INT,1000 </p>
+
+<p>Definition at line <a class="el" href="ExperimentRange_8h_source.html#l00126">126</a> of file <a class="el" href="ExperimentRange_8h_source.html">ExperimentRange.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="af06d3d2a7d54cd09ee413c1b7f54e74e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -448,7 +483,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Create a TGraph2D of the Rutherford cross section over theta (cm) and energy </p>
 
-<p>Definition at line <a class="el" href="ExperimentRange_8cxx_source.html#l00516">516</a> of file <a class="el" href="ExperimentRange_8cxx_source.html">ExperimentRange.cxx</a>.</p>
+<p>Definition at line <a class="el" href="ExperimentRange_8cxx_source.html#l00531">531</a> of file <a class="el" href="ExperimentRange_8cxx_source.html">ExperimentRange.cxx</a>.</p>
 
 </div>
 </div>
@@ -467,7 +502,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return the cross-section graph vs theta and energy for a given state, s </p>
 
-<p>Definition at line <a class="el" href="ExperimentRange_8cxx_source.html#l00612">612</a> of file <a class="el" href="ExperimentRange_8cxx_source.html">ExperimentRange.cxx</a>.</p>
+<p>Definition at line <a class="el" href="ExperimentRange_8cxx_source.html#l00627">627</a> of file <a class="el" href="ExperimentRange_8cxx_source.html">ExperimentRange.cxx</a>.</p>
 
 </div>
 </div>
@@ -537,7 +572,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Perform the integration over the theta and energy ranges </p>
 
-<p>Definition at line <a class="el" href="ExperimentRange_8cxx_source.html#l00120">120</a> of file <a class="el" href="ExperimentRange_8cxx_source.html">ExperimentRange.cxx</a>.</p>
+<p>Definition at line <a class="el" href="ExperimentRange_8cxx_source.html#l00132">132</a> of file <a class="el" href="ExperimentRange_8cxx_source.html">ExperimentRange.cxx</a>.</p>
 
 </div>
 </div>
@@ -555,7 +590,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Integrate the Rutherford cross section over the angle and energy range </p>
 
-<p>Definition at line <a class="el" href="ExperimentRange_8cxx_source.html#l00397">397</a> of file <a class="el" href="ExperimentRange_8cxx_source.html">ExperimentRange.cxx</a>.</p>
+<p>Definition at line <a class="el" href="ExperimentRange_8cxx_source.html#l00412">412</a> of file <a class="el" href="ExperimentRange_8cxx_source.html">ExperimentRange.cxx</a>.</p>
 
 </div>
 </div>
@@ -584,7 +619,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Perform an interpolation between the meshpoints determined in the integration </p>
 
-<p>Definition at line <a class="el" href="ExperimentRange_8cxx_source.html#l00280">280</a> of file <a class="el" href="ExperimentRange_8cxx_source.html">ExperimentRange.cxx</a>.</p>
+<p>Definition at line <a class="el" href="ExperimentRange_8cxx_source.html#l00295">295</a> of file <a class="el" href="ExperimentRange_8cxx_source.html">ExperimentRange.cxx</a>.</p>
 
 </div>
 </div>
@@ -603,7 +638,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Assignment operator </p>
 
-<p>Definition at line <a class="el" href="ExperimentRange_8cxx_source.html#l00077">77</a> of file <a class="el" href="ExperimentRange_8cxx_source.html">ExperimentRange.cxx</a>.</p>
+<p>Definition at line <a class="el" href="ExperimentRange_8cxx_source.html#l00086">86</a> of file <a class="el" href="ExperimentRange_8cxx_source.html">ExperimentRange.cxx</a>.</p>
 
 </div>
 </div>
@@ -621,7 +656,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Print the details of the experimental range </p>
 
-<p>Definition at line <a class="el" href="ExperimentRange_8cxx_source.html#l00657">657</a> of file <a class="el" href="ExperimentRange_8cxx_source.html">ExperimentRange.cxx</a>.</p>
+<p>Definition at line <a class="el" href="ExperimentRange_8cxx_source.html#l00672">672</a> of file <a class="el" href="ExperimentRange_8cxx_source.html">ExperimentRange.cxx</a>.</p>
 
 </div>
 </div>
@@ -747,7 +782,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Define the mean theta and mean energy, for use in the point calculations </p>
 
-<p>Definition at line <a class="el" href="ExperimentRange_8cxx_source.html#l00640">640</a> of file <a class="el" href="ExperimentRange_8cxx_source.html">ExperimentRange.cxx</a>.</p>
+<p>Definition at line <a class="el" href="ExperimentRange_8cxx_source.html#l00655">655</a> of file <a class="el" href="ExperimentRange_8cxx_source.html">ExperimentRange.cxx</a>.</p>
 
 </div>
 </div>
@@ -1056,6 +1091,33 @@ tmin - minimum theta (lab) tmax - maximum theta (lab) nt - number of theta meshp
 
 </div>
 </div>
+<a class="anchor" id="a21dcba393bf6ebb91c00ed8905216be5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ExperimentRange::SetUseSymmetry </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>b</em> = <code>true</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Sets whether symmetry arguments can be used to speed up the calculation (default = true) </p>
+
+<p>Definition at line <a class="el" href="ExperimentRange_8h_source.html#l00123">123</a> of file <a class="el" href="ExperimentRange_8h_source.html">ExperimentRange.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a95d3a225080af35191f59fe518bdb10f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1133,6 +1195,58 @@ tmin - minimum theta (lab) tmax - maximum theta (lab) nt - number of theta meshp
 <p>Return whether using a fit to perform interpolation </p>
 
 <p>Definition at line <a class="el" href="ExperimentRange_8h_source.html#l00121">121</a> of file <a class="el" href="ExperimentRange_8h_source.html">ExperimentRange.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a882a794265e1b146e6e3902626a579fd"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ExperimentRange::UseFixedStep </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return whether a fixed step will be used for the CoulEx calculation </p>
+
+<p>Definition at line <a class="el" href="ExperimentRange_8h_source.html#l00127">127</a> of file <a class="el" href="ExperimentRange_8h_source.html">ExperimentRange.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="addecffed92c4b2f7072c19d1dfcc5cb1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ExperimentRange::UseSymmetry </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns whether symmetry arguments can be used to speed up the calculation </p>
+
+<p>Definition at line <a class="el" href="ExperimentRange_8h_source.html#l00124">124</a> of file <a class="el" href="ExperimentRange_8h_source.html">ExperimentRange.h</a>.</p>
 
 </div>
 </div>

@@ -93,6 +93,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <a href="classCoulExFitter.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="CoulExFitter_8h_source.html">CoulExFitter.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for CoulExFitter:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classCoulExFitter.png" usemap="#CoulExFitter_map" alt=""/>
+  <map id="CoulExFitter_map" name="CoulExFitter_map">
+<area href="classMCMCWalker.html" title="Markov-Chain Monte Carlo iterator. " alt="MCMCWalker" shape="rect" coords="0,56,91,80"/>
+</map>
+ </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -120,6 +129,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3ed4407b3cbd821bafc4aabc13dfd44a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae866bffb9fe2ef25c03e79cedd1357a8"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classMatrixElement.html">MatrixElement</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCoulExFitter.html#ae866bffb9fe2ef25c03e79cedd1357a8">GetMatrixElements</a> ()</td></tr>
 <tr class="separator:ae866bffb9fe2ef25c03e79cedd1357a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a655f0e51447913ee942522c8ddf0a1c2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a655f0e51447913ee942522c8ddf0a1c2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>AddMatrixElement</b> (<a class="el" href="classMatrixElement.html">MatrixElement</a> m)</td></tr>
+<tr class="separator:a655f0e51447913ee942522c8ddf0a1c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e300781a246a5f162a8c12b1d1d5461"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCoulExFitter.html#a3e300781a246a5f162a8c12b1d1d5461">ClearMatrixElements</a> ()</td></tr>
 <tr class="separator:a3e300781a246a5f162a8c12b1d1d5461"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1eeaeb97c9f1133f1d8140bee0deddad"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classScalingParameter.html">ScalingParameter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCoulExFitter.html#a1eeaeb97c9f1133f1d8140bee0deddad">GetScalingParameters</a> ()</td></tr>
@@ -210,6 +222,20 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7fa4c365be49eb9f6cf47684ff6b15bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96b4e6bd340c279bc913e875d11eca7c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCoulExFitter.html#a96b4e6bd340c279bc913e875d11eca7c">LikelihoodFit</a> () const </td></tr>
 <tr class="separator:a96b4e6bd340c279bc913e875d11eca7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e07d4efae33831d05b24b20359aac38"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCoulExFitter.html#a0e07d4efae33831d05b24b20359aac38">GetFitParameters</a> ()</td></tr>
+<tr class="separator:a0e07d4efae33831d05b24b20359aac38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e775dd9b516260f3763e7a20bab6eae"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCoulExFitter.html#a4e775dd9b516260f3763e7a20bab6eae">GetFitUL</a> ()</td></tr>
+<tr class="separator:a4e775dd9b516260f3763e7a20bab6eae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae11e633a06fb57003ed0aefce142da39"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCoulExFitter.html#ae11e633a06fb57003ed0aefce142da39">GetFitLL</a> ()</td></tr>
+<tr class="separator:ae11e633a06fb57003ed0aefce142da39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51c86356259152d1a85a8c8a306cf211"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCoulExFitter.html#a51c86356259152d1a85a8c8a306cf211">SetFitParameters</a> (std::vector&lt; double &gt; p)</td></tr>
+<tr class="separator:a51c86356259152d1a85a8c8a306cf211"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9fdcb9a745875306b9ae242cc735221"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCoulExFitter.html#ab9fdcb9a745875306b9ae242cc735221">SetFitUL</a> (std::vector&lt; double &gt; p)</td></tr>
+<tr class="separator:ab9fdcb9a745875306b9ae242cc735221"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d9efed6bd8fa2ddd77a3d0a4ce707bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCoulExFitter.html#a0d9efed6bd8fa2ddd77a3d0a4ce707bc">SetFitLL</a> (std::vector&lt; double &gt; p)</td></tr>
+<tr class="separator:a0d9efed6bd8fa2ddd77a3d0a4ce707bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83475c9b135e7f3afdd55ce57ee307d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCoulExFitter.html#a83475c9b135e7f3afdd55ce57ee307d7">SetFittingParameter</a> (size_t i, double v)</td></tr>
+<tr class="separator:a83475c9b135e7f3afdd55ce57ee307d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Calls the <a class="el" href="classCoulExMinFCN.html" title="Contains the definition of the function used in the minimization routines. ">CoulExMinFCN</a> class along with the ROOT::Minimizer to perform a chi-squared minimization. </p>
@@ -265,7 +291,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add literature branching ratio data </p>
 
-<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00246">246</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00252">252</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -284,7 +310,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add point calculation correction factors (append) </p>
 
-<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00223">223</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00229">229</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -331,7 +357,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add experimental data to experiment defined by index i between initial (init) and final (fin) states with yield (c) and uncertainty (e) </p>
 
-<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00238">238</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00244">244</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -384,7 +410,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add a fitting matrix element </p>
 
-<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00218">218</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00224">224</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -419,7 +445,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add literature lifetime data </p>
 
-<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00242">242</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00248">248</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -466,7 +492,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add literature matrix element data </p>
 
-<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00254">254</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00260">260</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -507,7 +533,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add literature mixing ratio data </p>
 
-<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00250">250</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00256">256</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -587,7 +613,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Completely clear all previous input </p>
 
-<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00259">259</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00265">265</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -680,7 +706,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add a scaling parameter, with common scaling experiments defined by their indices in a vector of int </p>
 
-<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00208">208</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00214">214</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -699,7 +725,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Defines a new experiment with t = theta_cm </p>
 
-<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00233">233</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00239">239</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -914,6 +940,84 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ae11e633a06fb57003ed0aefce142da39"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;double&gt; CoulExFitter::GetFitLL </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return the fit parameter lower limits - Used in MCMC methods </p>
+
+<p>Definition at line <a class="el" href="CoulExFitter_8h_source.html#l00158">158</a> of file <a class="el" href="CoulExFitter_8h_source.html">CoulExFitter.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0e07d4efae33831d05b24b20359aac38"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;double&gt; CoulExFitter::GetFitParameters </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return fit parameters - note that these will be updated with the fit result after the fit - Used in MCMC methods </p>
+
+<p>Definition at line <a class="el" href="CoulExFitter_8h_source.html#l00156">156</a> of file <a class="el" href="CoulExFitter_8h_source.html">CoulExFitter.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4e775dd9b516260f3763e7a20bab6eae"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;double&gt; CoulExFitter::GetFitUL </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return the fit parameter upper limits - Used in MCMC methods </p>
+
+<p>Definition at line <a class="el" href="CoulExFitter_8h_source.html#l00157">157</a> of file <a class="el" href="CoulExFitter_8h_source.html">CoulExFitter.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a74d75b806bee4687703d1611c7710ad8"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1040,7 +1144,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return vector of fitting MatrixElements </p>
 
-<p>Definition at line <a class="el" href="CoulExFitter_8h_source.html#l00089">89</a> of file <a class="el" href="CoulExFitter_8h_source.html">CoulExFitter.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExFitter_8h_source.html#l00088">88</a> of file <a class="el" href="CoulExFitter_8h_source.html">CoulExFitter.h</a>.</p>
 
 </div>
 </div>
@@ -1292,7 +1396,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Print fitting details (formatted) </p>
 
-<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00274">274</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00279">279</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -1348,7 +1452,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Define point calculation correction factors for experiment i </p>
 
-<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00226">226</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
+<p>Definition at line <a class="el" href="CoulExFitter_8cxx_source.html#l00232">232</a> of file <a class="el" href="CoulExFitter_8cxx_source.html">CoulExFitter.cxx</a>.</p>
 
 </div>
 </div>
@@ -1403,6 +1507,124 @@ Public Member Functions</h2></td></tr>
 <p>Define whether to do a complete MINOS uncertainty analysis (slow) </p>
 
 <p>Definition at line <a class="el" href="CoulExFitter_8h_source.html#l00150">150</a> of file <a class="el" href="CoulExFitter_8h_source.html">CoulExFitter.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0d9efed6bd8fa2ddd77a3d0a4ce707bc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CoulExFitter::SetFitLL </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; double &gt;&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Set the fit parameter lower limits - Used in MCMC methods </p>
+
+<p>Definition at line <a class="el" href="CoulExFitter_8h_source.html#l00162">162</a> of file <a class="el" href="CoulExFitter_8h_source.html">CoulExFitter.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a51c86356259152d1a85a8c8a306cf211"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CoulExFitter::SetFitParameters </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; double &gt;&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Set the fit parameters - note that these will be updated after the fit has been performed - Used in MCMC methods </p>
+
+<p>Definition at line <a class="el" href="CoulExFitter_8h_source.html#l00160">160</a> of file <a class="el" href="CoulExFitter_8h_source.html">CoulExFitter.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a83475c9b135e7f3afdd55ce57ee307d7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CoulExFitter::SetFittingParameter </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Set an individual fitting parameter - Used in MCMC methods </p>
+
+<p>Definition at line <a class="el" href="CoulExFitter_8h_source.html#l00164">164</a> of file <a class="el" href="CoulExFitter_8h_source.html">CoulExFitter.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab9fdcb9a745875306b9ae242cc735221"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CoulExFitter::SetFitUL </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; double &gt;&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Set the fit parameter upper limits - Used in MCMC methods </p>
+
+<p>Definition at line <a class="el" href="CoulExFitter_8h_source.html#l00161">161</a> of file <a class="el" href="CoulExFitter_8h_source.html">CoulExFitter.h</a>.</p>
 
 </div>
 </div>
@@ -1564,7 +1786,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Define vector of fitting MatrixElements </p>
 
-<p>Definition at line <a class="el" href="CoulExFitter_8h_source.html#l00088">88</a> of file <a class="el" href="CoulExFitter_8h_source.html">CoulExFitter.h</a>.</p>
+<p>Definition at line <a class="el" href="CoulExFitter_8h_source.html#l00087">87</a> of file <a class="el" href="CoulExFitter_8h_source.html">CoulExFitter.h</a>.</p>
 
 </div>
 </div>

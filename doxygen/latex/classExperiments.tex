@@ -62,6 +62,16 @@ void \hyperlink{classExperiments_a7902dd87eee8cf24ded441ba889f97fb}{Use\-Efficie
 void \hyperlink{classExperiments_a2766ab644312a272bde08e4abfa02c18}{Set\-Projectile\-Excitation} (bool b=true)
 \item 
 void \hyperlink{classExperiments_a9be7f0d32798b9d3bd747b64bfde10bf}{Set\-Stopping} ()
+\item 
+void \hyperlink{classExperiments_accb72436627285ddd8af0942880a2923}{Set\-Use\-Symmetry} (bool b=true)
+\item 
+bool \hyperlink{classExperiments_a663cb76eb3eca8b3f7dcea60e6095160}{Use\-Symmetry} () const 
+\item 
+void \hyperlink{classExperiments_afd01d2d6c4234e033e7bf9b51685e80c}{Fix\-Step} (bool b=true)
+\item 
+bool \hyperlink{classExperiments_aea5750858fe154f1e56bc0da6cd755f3}{Use\-Fixed\-Step} () const 
+\item 
+void \hyperlink{classExperiments_aaf5c83e47839907971daae64ea4385df}{Set\-Nucleus} (\hyperlink{classNucleus}{Nucleus} $\ast$nucl)
 \end{DoxyCompactItemize}
 
 
@@ -87,7 +97,7 @@ Definition at line 46 of file Experiments.\-h.
 )}}\label{classExperiments_a5eb52e04ded64f6c80f6c149d7b0ef50}
 Constructor passing a \hyperlink{classNucleus}{Nucleus} and \hyperlink{classReaction}{Reaction} kinematics to the object 
 
-Definition at line 15 of file Experiments.\-cxx.
+Definition at line 18 of file Experiments.\-cxx.
 
 \hypertarget{classExperiments_aa443f070178209bb45171fafc4aa1823}{\index{Experiments@{Experiments}!Experiments@{Experiments}}
 \index{Experiments@{Experiments}!Experiments@{Experiments}}
@@ -98,7 +108,7 @@ Definition at line 15 of file Experiments.\-cxx.
 )}}\label{classExperiments_aa443f070178209bb45171fafc4aa1823}
 Copy constructor 
 
-Definition at line 33 of file Experiments.\-cxx.
+Definition at line 39 of file Experiments.\-cxx.
 
 
 
@@ -113,6 +123,17 @@ Definition at line 33 of file Experiments.\-cxx.
 Delete all previously defined experimental ranges 
 
 Definition at line 74 of file Experiments.\-h.
+
+\hypertarget{classExperiments_afd01d2d6c4234e033e7bf9b51685e80c}{\index{Experiments@{Experiments}!Fix\-Step@{Fix\-Step}}
+\index{Fix\-Step@{Fix\-Step}!Experiments@{Experiments}}
+\subsubsection[{Fix\-Step}]{\setlength{\rightskip}{0pt plus 5cm}void Experiments\-::\-Fix\-Step (
+\begin{DoxyParamCaption}
+\item[{bool}]{b = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperiments_afd01d2d6c4234e033e7bf9b51685e80c}
+Set whether a fixed step (d\-Omega = 0.\-03, accuracy 1e-\/6) can be used -\/ approx. equivalent to G\-O\-S\-I\-A I\-N\-T,1000 
+
+Definition at line 113 of file Experiments.\-h.
 
 \hypertarget{classExperiments_aeff55245693c52c828c4f193174a4095}{\index{Experiments@{Experiments}!Get\-Correction\-Factors@{Get\-Correction\-Factors}}
 \index{Get\-Correction\-Factors@{Get\-Correction\-Factors}!Experiments@{Experiments}}
@@ -223,7 +244,7 @@ energy\-Min and energy\-Max define the energy range over which the integration w
 
 target\-Detection (default = false) determines whether the beam-\/ or target-\/like nucleus was detected, allowing for the correct kinematic conversion. 
 
-Definition at line 121 of file Experiments.\-cxx.
+Definition at line 133 of file Experiments.\-cxx.
 
 \hypertarget{classExperiments_afee4f319e5380461a1894759c9968b60}{\index{Experiments@{Experiments}!operator=@{operator=}}
 \index{operator=@{operator=}!Experiments@{Experiments}}
@@ -234,7 +255,7 @@ Definition at line 121 of file Experiments.\-cxx.
 )}}\label{classExperiments_afee4f319e5380461a1894759c9968b60}
 Assignment operator 
 
-Definition at line 76 of file Experiments.\-cxx.
+Definition at line 85 of file Experiments.\-cxx.
 
 \hypertarget{classExperiments_afdfa4aa08db9ec85ca899439bdcd813a}{\index{Experiments@{Experiments}!Point\-Corrections@{Point\-Corrections}}
 \index{Point\-Corrections@{Point\-Corrections}!Experiments@{Experiments}}
@@ -245,7 +266,7 @@ Definition at line 76 of file Experiments.\-cxx.
 )}}\label{classExperiments_afdfa4aa08db9ec85ca899439bdcd813a}
 Determine the correction factor required to convert a point to an energy and angle integrated calculation 
 
-Definition at line 147 of file Experiments.\-cxx.
+Definition at line 159 of file Experiments.\-cxx.
 
 \hypertarget{classExperiments_ae668ff4f1bf3a6d6ae04d0e1a05aecf2}{\index{Experiments@{Experiments}!Print\-Details@{Print\-Details}}
 \index{Print\-Details@{Print\-Details}!Experiments@{Experiments}}
@@ -256,7 +277,7 @@ Definition at line 147 of file Experiments.\-cxx.
 ) const}}\label{classExperiments_ae668ff4f1bf3a6d6ae04d0e1a05aecf2}
 Print the details of the experimental ranges stored within the class 
 
-Definition at line 199 of file Experiments.\-cxx.
+Definition at line 215 of file Experiments.\-cxx.
 
 \hypertarget{classExperiments_a3f5c399a9ef5a852fc7045669ca05f74}{\index{Experiments@{Experiments}!Print\-Point\-Corrections@{Print\-Point\-Corrections}}
 \index{Print\-Point\-Corrections@{Print\-Point\-Corrections}!Experiments@{Experiments}}
@@ -267,7 +288,7 @@ Definition at line 199 of file Experiments.\-cxx.
 )}}\label{classExperiments_a3f5c399a9ef5a852fc7045669ca05f74}
 Print the correction factors as determined by Point\-Corrections 
 
-Definition at line 210 of file Experiments.\-cxx.
+Definition at line 226 of file Experiments.\-cxx.
 
 \hypertarget{classExperiments_a8aa4eb6fa6131902a90a4c602bb055f7}{\index{Experiments@{Experiments}!Set\-Accuracy@{Set\-Accuracy}}
 \index{Set\-Accuracy@{Set\-Accuracy}!Experiments@{Experiments}}
@@ -290,6 +311,17 @@ Definition at line 98 of file Experiments.\-h.
 Set the number of cores the code can use for integration 
 
 Definition at line 95 of file Experiments.\-h.
+
+\hypertarget{classExperiments_aaf5c83e47839907971daae64ea4385df}{\index{Experiments@{Experiments}!Set\-Nucleus@{Set\-Nucleus}}
+\index{Set\-Nucleus@{Set\-Nucleus}!Experiments@{Experiments}}
+\subsubsection[{Set\-Nucleus}]{\setlength{\rightskip}{0pt plus 5cm}void Experiments\-::\-Set\-Nucleus (
+\begin{DoxyParamCaption}
+\item[{{\bf Nucleus} $\ast$}]{nucl}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperiments_aaf5c83e47839907971daae64ea4385df}
+Reset the nucleus used in the experiment calculation 
+
+Definition at line 116 of file Experiments.\-h.
 
 \hypertarget{classExperiments_ac3ecd5d912831599b4b4a2ae290a012e}{\index{Experiments@{Experiments}!Set\-Particle\-Detector\-Eff@{Set\-Particle\-Detector\-Eff}}
 \index{Set\-Particle\-Detector\-Eff@{Set\-Particle\-Detector\-Eff}!Experiments@{Experiments}}
@@ -334,7 +366,18 @@ Definition at line 100 of file Experiments.\-h.
 )}}\label{classExperiments_a9be7f0d32798b9d3bd747b64bfde10bf}
 Set stopping powers for experiment ranges 
 
-Definition at line 136 of file Experiments.\-cxx.
+Definition at line 148 of file Experiments.\-cxx.
+
+\hypertarget{classExperiments_accb72436627285ddd8af0942880a2923}{\index{Experiments@{Experiments}!Set\-Use\-Symmetry@{Set\-Use\-Symmetry}}
+\index{Set\-Use\-Symmetry@{Set\-Use\-Symmetry}!Experiments@{Experiments}}
+\subsubsection[{Set\-Use\-Symmetry}]{\setlength{\rightskip}{0pt plus 5cm}void Experiments\-::\-Set\-Use\-Symmetry (
+\begin{DoxyParamCaption}
+\item[{bool}]{b = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperiments_accb72436627285ddd8af0942880a2923}
+Sets whether symmetry arguments can be used to speed up the calculation (default = true) 
+
+Definition at line 110 of file Experiments.\-h.
 
 \hypertarget{classExperiments_a5bc069b7d1388ed1aac87600bff18b43}{\index{Experiments@{Experiments}!Set\-Verbose@{Set\-Verbose}}
 \index{Set\-Verbose@{Set\-Verbose}!Experiments@{Experiments}}
@@ -358,6 +401,28 @@ Use the efficiencies of the particle detector
 
 Definition at line 104 of file Experiments.\-h.
 
+\hypertarget{classExperiments_aea5750858fe154f1e56bc0da6cd755f3}{\index{Experiments@{Experiments}!Use\-Fixed\-Step@{Use\-Fixed\-Step}}
+\index{Use\-Fixed\-Step@{Use\-Fixed\-Step}!Experiments@{Experiments}}
+\subsubsection[{Use\-Fixed\-Step}]{\setlength{\rightskip}{0pt plus 5cm}bool Experiments\-::\-Use\-Fixed\-Step (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperiments_aea5750858fe154f1e56bc0da6cd755f3}
+Return whether a fixed step will be used for the Coul\-Ex calculation 
+
+Definition at line 114 of file Experiments.\-h.
+
+\hypertarget{classExperiments_a663cb76eb3eca8b3f7dcea60e6095160}{\index{Experiments@{Experiments}!Use\-Symmetry@{Use\-Symmetry}}
+\index{Use\-Symmetry@{Use\-Symmetry}!Experiments@{Experiments}}
+\subsubsection[{Use\-Symmetry}]{\setlength{\rightskip}{0pt plus 5cm}bool Experiments\-::\-Use\-Symmetry (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperiments_a663cb76eb3eca8b3f7dcea60e6095160}
+Returns whether symmetry arguments can be used to speed up the calculation 
+
+Definition at line 111 of file Experiments.\-h.
+
 \hypertarget{classExperiments_add6a2b8636244411a03515f396b3603d}{\index{Experiments@{Experiments}!Write\-Integral\-Fits@{Write\-Integral\-Fits}}
 \index{Write\-Integral\-Fits@{Write\-Integral\-Fits}!Experiments@{Experiments}}
 \subsubsection[{Write\-Integral\-Fits}]{\setlength{\rightskip}{0pt plus 5cm}void Experiments\-::\-Write\-Integral\-Fits (
@@ -368,7 +433,7 @@ Definition at line 104 of file Experiments.\-h.
 )}}\label{classExperiments_add6a2b8636244411a03515f396b3603d}
 Writes the theta-\/energy cross section surfaces (T\-Graph \& T\-Graph2\-D) to a R\-O\-O\-T file 
 
-Definition at line 232 of file Experiments.\-cxx.
+Definition at line 248 of file Experiments.\-cxx.
 
 
 

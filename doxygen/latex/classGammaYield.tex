@@ -19,17 +19,18 @@ static T\-Matrix\-D \hyperlink{classGammaYield_adbeac7ddd28892dcc254452e6365e851
 \item 
 static T\-Matrix\-D \hyperlink{classGammaYield_a1345958656129277ed4371937903b363}{Gamma\-Ray\-Yield} (\hyperlink{classExperimentRange}{Experiment\-Range} r, \hyperlink{classTransitionRates}{Transition\-Rates} t)
 \item 
-static void \hyperlink{classGammaYield_adc91c5581c8f77170515083002d8422f}{Print\-Yields} (\hyperlink{classExperimentRange}{Experiment\-Range} r, \hyperlink{classTransitionRates}{Transition\-Rates} t, \hyperlink{classNucleus}{Nucleus} n)
+static void \hyperlink{classGammaYield_aae8b1e302534834dc32f990f2d8e7946}{Print\-Yields} (\hyperlink{classExperimentRange}{Experiment\-Range} r, \hyperlink{classTransitionRates}{Transition\-Rates} t, \hyperlink{classNucleus}{Nucleus} n, double scale=1)
 \item 
-\hypertarget{classGammaYield_a8a83680f6744d15cc4764312cf90a66e}{static double {\bfseries Get\-Yield} (\hyperlink{classExperimentRange}{Experiment\-Range} r, \hyperlink{classTransitionRates}{Transition\-Rates} t, \hyperlink{classNucleus}{Nucleus} n, int i, int f)}\label{classGammaYield_a8a83680f6744d15cc4764312cf90a66e}
-
+static void \hyperlink{classGammaYield_aeb91801ba3431b7642f91977aa794791}{Write\-Yields} (\hyperlink{classExperimentRange}{Experiment\-Range} r, \hyperlink{classTransitionRates}{Transition\-Rates} t, \hyperlink{classNucleus}{Nucleus} n, std\-::ofstream \&outfile, double scale=1)
+\item 
+static double \hyperlink{classGammaYield_a8a83680f6744d15cc4764312cf90a66e}{Get\-Yield} (\hyperlink{classExperimentRange}{Experiment\-Range} r, \hyperlink{classTransitionRates}{Transition\-Rates} t, \hyperlink{classNucleus}{Nucleus} n, int i, int f)
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 Converts cross sections to gamma-\/ray yields. 
 
-Definition at line 16 of file Gamma\-Yield.\-h.
+Definition at line 19 of file Gamma\-Yield.\-h.
 
 
 
@@ -56,7 +57,7 @@ Definition at line 3 of file Gamma\-Yield.\-cxx.
 )\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{classGammaYield_adbeac7ddd28892dcc254452e6365e851}
 Matrix of gamma-\/ray yields from T\-Vector\-D (cross-\/sections) and \hyperlink{classTransitionRates}{Transition\-Rates} object 
 
-Definition at line 23 of file Gamma\-Yield.\-h.
+Definition at line 26 of file Gamma\-Yield.\-h.
 
 \hypertarget{classGammaYield_a1345958656129277ed4371937903b363}{\index{Gamma\-Yield@{Gamma\-Yield}!Gamma\-Ray\-Yield@{Gamma\-Ray\-Yield}}
 \index{Gamma\-Ray\-Yield@{Gamma\-Ray\-Yield}!GammaYield@{Gamma\-Yield}}
@@ -68,18 +69,49 @@ Definition at line 23 of file Gamma\-Yield.\-h.
 )\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{classGammaYield_a1345958656129277ed4371937903b363}
 Matrix of gamma-\/ray yields from an \hyperlink{classExperimentRange}{Experiment\-Range} (cross-\/sections) and \hyperlink{classTransitionRates}{Transition\-Rates} object 
 
-Definition at line 24 of file Gamma\-Yield.\-h.
+Definition at line 27 of file Gamma\-Yield.\-h.
 
-\hypertarget{classGammaYield_adc91c5581c8f77170515083002d8422f}{\index{Gamma\-Yield@{Gamma\-Yield}!Print\-Yields@{Print\-Yields}}
+\hypertarget{classGammaYield_a8a83680f6744d15cc4764312cf90a66e}{\index{Gamma\-Yield@{Gamma\-Yield}!Get\-Yield@{Get\-Yield}}
+\index{Get\-Yield@{Get\-Yield}!GammaYield@{Gamma\-Yield}}
+\subsubsection[{Get\-Yield}]{\setlength{\rightskip}{0pt plus 5cm}double Gamma\-Yield\-::\-Get\-Yield (
+\begin{DoxyParamCaption}
+\item[{{\bf Experiment\-Range}}]{r, }
+\item[{{\bf Transition\-Rates}}]{t, }
+\item[{{\bf Nucleus}}]{n, }
+\item[{int}]{i, }
+\item[{int}]{f}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classGammaYield_a8a83680f6744d15cc4764312cf90a66e}
+Return a yield for a single transition between initial state i and final state f 
+
+Definition at line 82 of file Gamma\-Yield.\-cxx.
+
+\hypertarget{classGammaYield_aae8b1e302534834dc32f990f2d8e7946}{\index{Gamma\-Yield@{Gamma\-Yield}!Print\-Yields@{Print\-Yields}}
 \index{Print\-Yields@{Print\-Yields}!GammaYield@{Gamma\-Yield}}
 \subsubsection[{Print\-Yields}]{\setlength{\rightskip}{0pt plus 5cm}void Gamma\-Yield\-::\-Print\-Yields (
 \begin{DoxyParamCaption}
 \item[{{\bf Experiment\-Range}}]{r, }
 \item[{{\bf Transition\-Rates}}]{t, }
-\item[{{\bf Nucleus}}]{n}
+\item[{{\bf Nucleus}}]{n, }
+\item[{double}]{scale = {\ttfamily 1}}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [static]}}}\label{classGammaYield_adc91c5581c8f77170515083002d8422f}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classGammaYield_aae8b1e302534834dc32f990f2d8e7946}
 Print well-\/formatted yields based on \hyperlink{classExperimentRange}{Experiment\-Range} (cross-\/sections), \hyperlink{classTransitionRates}{Transition\-Rates} (branching ratios) and \hyperlink{classNucleus}{Nucleus} (level labelling) objects 
+
+Definition at line 53 of file Gamma\-Yield.\-cxx.
+
+\hypertarget{classGammaYield_aeb91801ba3431b7642f91977aa794791}{\index{Gamma\-Yield@{Gamma\-Yield}!Write\-Yields@{Write\-Yields}}
+\index{Write\-Yields@{Write\-Yields}!GammaYield@{Gamma\-Yield}}
+\subsubsection[{Write\-Yields}]{\setlength{\rightskip}{0pt plus 5cm}void Gamma\-Yield\-::\-Write\-Yields (
+\begin{DoxyParamCaption}
+\item[{{\bf Experiment\-Range}}]{r, }
+\item[{{\bf Transition\-Rates}}]{t, }
+\item[{{\bf Nucleus}}]{n, }
+\item[{std\-::ofstream \&}]{outfile, }
+\item[{double}]{scale = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classGammaYield_aeb91801ba3431b7642f91977aa794791}
+Write well-\/formatted yields to file based on \hyperlink{classExperimentRange}{Experiment\-Range} (cross-\/sections), \hyperlink{classTransitionRates}{Transition\-Rates} (branching ratios) and \hyperlink{classNucleus}{Nucleus} (level labelling) objects 
 
 Definition at line 25 of file Gamma\-Yield.\-cxx.
 

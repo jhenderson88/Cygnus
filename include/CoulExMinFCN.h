@@ -91,7 +91,7 @@ class CoulExMinFCN { // : public ROOT::Minuit2::FCNBase{
 		void	SetLitMixing(std::vector<LitMixingRatio> m)			{ litMixingRatios = m;			}	/*!< Define the vector of LitMixingRatio objects defining the literature mixing ratio data for fitting */
 		std::vector<LitMixingRatio>	GetLitMixing() 			const	{ return litMixingRatios;		}	/*!< Return the vector of LitMixingRatio objects defining the literature mixing ratio data for fitting */
 
-		void	SetLitMatrixElements(std::vector<LitMatrixElement> m)		{ litMatrixElements = m;			}	/*!< Define the vector of LitMatrixElement objects defining the literature mixing ratio data for fitting */
+		void	SetLitMatrixElements(std::vector<LitMatrixElement> m)		{ litMatrixElements = m;		}	/*!< Define the vector of LitMatrixElement objects defining the literature mixing ratio data for fitting */
 		std::vector<LitMatrixElement>	GetLitMatrixElements() 		const	{ return litMatrixElements;		}	/*!< Return the vector of LitMatrixElement objects defining the literature mixing ratio data for fitting */
 
 		std::vector<TMatrixD>		GetEffectiveCrossSection() 	const	{ return EffectiveCrossSection;		}	/*!< Return the "effective cross section" = direct population + feeding */
@@ -128,9 +128,8 @@ class CoulExMinFCN { // : public ROOT::Minuit2::FCNBase{
 		void	SetLikelihoodFit(bool b = true)					{ fLikelihood = b;			}	/*!< Define whether we do a log-likelihood based fit (default: chi-squared) */
 		bool	LikelihoodFit()						const	{ return fLikelihood;			}	/*!< Return whether we do a log-likelihood based fit (default: chi-squared) */
 
-		void	PrintParameters(const double*);
-
-		void	PrintLiterature()	const;
+		void	PrintParameters(const double*)	const;										/*!< Print the parameters passed - useful for debugging */
+		void	PrintLiterature()	const;											/*!< Print the literature values - useful for debugging */
 
 	private :
 

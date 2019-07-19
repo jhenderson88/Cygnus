@@ -146,6 +146,16 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2766ab644312a272bde08e4abfa02c18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9be7f0d32798b9d3bd747b64bfde10bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExperiments.html#a9be7f0d32798b9d3bd747b64bfde10bf">SetStopping</a> ()</td></tr>
 <tr class="separator:a9be7f0d32798b9d3bd747b64bfde10bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accb72436627285ddd8af0942880a2923"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExperiments.html#accb72436627285ddd8af0942880a2923">SetUseSymmetry</a> (bool b=true)</td></tr>
+<tr class="separator:accb72436627285ddd8af0942880a2923"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a663cb76eb3eca8b3f7dcea60e6095160"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExperiments.html#a663cb76eb3eca8b3f7dcea60e6095160">UseSymmetry</a> () const </td></tr>
+<tr class="separator:a663cb76eb3eca8b3f7dcea60e6095160"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd01d2d6c4234e033e7bf9b51685e80c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExperiments.html#afd01d2d6c4234e033e7bf9b51685e80c">FixStep</a> (bool b=true)</td></tr>
+<tr class="separator:afd01d2d6c4234e033e7bf9b51685e80c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea5750858fe154f1e56bc0da6cd755f3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExperiments.html#aea5750858fe154f1e56bc0da6cd755f3">UseFixedStep</a> () const </td></tr>
+<tr class="separator:aea5750858fe154f1e56bc0da6cd755f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf5c83e47839907971daae64ea4385df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExperiments.html#aaf5c83e47839907971daae64ea4385df">SetNucleus</a> (<a class="el" href="classNucleus.html">Nucleus</a> *nucl)</td></tr>
+<tr class="separator:aaf5c83e47839907971daae64ea4385df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="classExperiments.html" title="The Experiments class is the umbrella class into which all defined experiments are stored...">Experiments</a> class is the umbrella class into which all defined experiments are stored. </p>
@@ -179,7 +189,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Constructor passing a <a class="el" href="classNucleus.html" title="Holds information about the nucleus for which the CoulEx calculation will be performed. ">Nucleus</a> and <a class="el" href="classReaction.html" title="Define the reaction kinematics. ">Reaction</a> kinematics to the object </p>
 
-<p>Definition at line <a class="el" href="Experiments_8cxx_source.html#l00015">15</a> of file <a class="el" href="Experiments_8cxx_source.html">Experiments.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Experiments_8cxx_source.html#l00018">18</a> of file <a class="el" href="Experiments_8cxx_source.html">Experiments.cxx</a>.</p>
 
 </div>
 </div>
@@ -198,7 +208,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Copy constructor </p>
 
-<p>Definition at line <a class="el" href="Experiments_8cxx_source.html#l00033">33</a> of file <a class="el" href="Experiments_8cxx_source.html">Experiments.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Experiments_8cxx_source.html#l00039">39</a> of file <a class="el" href="Experiments_8cxx_source.html">Experiments.cxx</a>.</p>
 
 </div>
 </div>
@@ -226,6 +236,33 @@ Public Member Functions</h2></td></tr>
 <p>Delete all previously defined experimental ranges </p>
 
 <p>Definition at line <a class="el" href="Experiments_8h_source.html#l00074">74</a> of file <a class="el" href="Experiments_8h_source.html">Experiments.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afd01d2d6c4234e033e7bf9b51685e80c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Experiments::FixStep </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>b</em> = <code>true</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Set whether a fixed step (dOmega = 0.03, accuracy 1e-6) can be used - approx. equivalent to GOSIA INT,1000 </p>
+
+<p>Definition at line <a class="el" href="Experiments_8h_source.html#l00113">113</a> of file <a class="el" href="Experiments_8h_source.html">Experiments.h</a>.</p>
 
 </div>
 </div>
@@ -497,7 +534,7 @@ Public Member Functions</h2></td></tr>
 <p>energyMin and energyMax define the energy range over which the integration will be performed, with nEnergy defining the number of energy meshpoints to be used.</p>
 <p>targetDetection (default = false) determines whether the beam- or target-like nucleus was detected, allowing for the correct kinematic conversion. </p>
 
-<p>Definition at line <a class="el" href="Experiments_8cxx_source.html#l00121">121</a> of file <a class="el" href="Experiments_8cxx_source.html">Experiments.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Experiments_8cxx_source.html#l00133">133</a> of file <a class="el" href="Experiments_8cxx_source.html">Experiments.cxx</a>.</p>
 
 </div>
 </div>
@@ -516,7 +553,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Assignment operator </p>
 
-<p>Definition at line <a class="el" href="Experiments_8cxx_source.html#l00076">76</a> of file <a class="el" href="Experiments_8cxx_source.html">Experiments.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Experiments_8cxx_source.html#l00085">85</a> of file <a class="el" href="Experiments_8cxx_source.html">Experiments.cxx</a>.</p>
 
 </div>
 </div>
@@ -534,7 +571,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Determine the correction factor required to convert a point to an energy and angle integrated calculation </p>
 
-<p>Definition at line <a class="el" href="Experiments_8cxx_source.html#l00147">147</a> of file <a class="el" href="Experiments_8cxx_source.html">Experiments.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Experiments_8cxx_source.html#l00159">159</a> of file <a class="el" href="Experiments_8cxx_source.html">Experiments.cxx</a>.</p>
 
 </div>
 </div>
@@ -552,7 +589,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Print the details of the experimental ranges stored within the class </p>
 
-<p>Definition at line <a class="el" href="Experiments_8cxx_source.html#l00199">199</a> of file <a class="el" href="Experiments_8cxx_source.html">Experiments.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Experiments_8cxx_source.html#l00215">215</a> of file <a class="el" href="Experiments_8cxx_source.html">Experiments.cxx</a>.</p>
 
 </div>
 </div>
@@ -570,7 +607,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Print the correction factors as determined by PointCorrections </p>
 
-<p>Definition at line <a class="el" href="Experiments_8cxx_source.html#l00210">210</a> of file <a class="el" href="Experiments_8cxx_source.html">Experiments.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Experiments_8cxx_source.html#l00226">226</a> of file <a class="el" href="Experiments_8cxx_source.html">Experiments.cxx</a>.</p>
 
 </div>
 </div>
@@ -625,6 +662,33 @@ Public Member Functions</h2></td></tr>
 <p>Set the number of cores the code can use for integration </p>
 
 <p>Definition at line <a class="el" href="Experiments_8h_source.html#l00095">95</a> of file <a class="el" href="Experiments_8h_source.html">Experiments.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaf5c83e47839907971daae64ea4385df"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Experiments::SetNucleus </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNucleus.html">Nucleus</a> *&#160;</td>
+          <td class="paramname"><em>nucl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Reset the nucleus used in the experiment calculation </p>
+
+<p>Definition at line <a class="el" href="Experiments_8h_source.html#l00116">116</a> of file <a class="el" href="Experiments_8h_source.html">Experiments.h</a>.</p>
 
 </div>
 </div>
@@ -733,7 +797,34 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Set stopping powers for experiment ranges </p>
 
-<p>Definition at line <a class="el" href="Experiments_8cxx_source.html#l00136">136</a> of file <a class="el" href="Experiments_8cxx_source.html">Experiments.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Experiments_8cxx_source.html#l00148">148</a> of file <a class="el" href="Experiments_8cxx_source.html">Experiments.cxx</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="accb72436627285ddd8af0942880a2923"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Experiments::SetUseSymmetry </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>b</em> = <code>true</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Sets whether symmetry arguments can be used to speed up the calculation (default = true) </p>
+
+<p>Definition at line <a class="el" href="Experiments_8h_source.html#l00110">110</a> of file <a class="el" href="Experiments_8h_source.html">Experiments.h</a>.</p>
 
 </div>
 </div>
@@ -791,6 +882,58 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="aea5750858fe154f1e56bc0da6cd755f3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Experiments::UseFixedStep </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return whether a fixed step will be used for the CoulEx calculation </p>
+
+<p>Definition at line <a class="el" href="Experiments_8h_source.html#l00114">114</a> of file <a class="el" href="Experiments_8h_source.html">Experiments.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a663cb76eb3eca8b3f7dcea60e6095160"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Experiments::UseSymmetry </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns whether symmetry arguments can be used to speed up the calculation </p>
+
+<p>Definition at line <a class="el" href="Experiments_8h_source.html#l00111">111</a> of file <a class="el" href="Experiments_8h_source.html">Experiments.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="add6a2b8636244411a03515f396b3603d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -816,7 +959,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Writes the theta-energy cross section surfaces (TGraph &amp; TGraph2D) to a ROOT file </p>
 
-<p>Definition at line <a class="el" href="Experiments_8cxx_source.html#l00232">232</a> of file <a class="el" href="Experiments_8cxx_source.html">Experiments.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Experiments_8cxx_source.html#l00248">248</a> of file <a class="el" href="Experiments_8cxx_source.html">Experiments.cxx</a>.</p>
 
 </div>
 </div>

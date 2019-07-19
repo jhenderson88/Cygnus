@@ -79,7 +79,7 @@ class PointCoulEx
 										PrepareConnections();	
 									}				/*!< Define whether projectile or target excitation is being calculated */
 
-		void			SetTargetDetection(bool b = true)	{ bTargetDetection = b;		}
+		void			SetTargetDetection(bool b = true)	{ bTargetDetection = b;		}	/*!< Define whether the beam or target nucleus was detected */
 	
 		Nucleus*		GetNucleus()			{ return &fNucleus;	}	/*!< Return the Nucleus used in the calculation */
 		Reaction*		GetReaction()			{ return &fReaction;	}	/*!< Return the Reaction used in the calculation */
@@ -112,11 +112,11 @@ class PointCoulEx
 
 		double			GetTheta()				const	{ return fTheta;		}	/*!< Return the theta value */
 
-		void			FixStep(bool b = true)		{ fUseFixedStep = b;		}
-		bool			UseFixedStep()		const	{ return fUseFixedStep;		}
+		void			FixStep(bool b = true)		{ fUseFixedStep = b;		}	/*!< Set whether a fixed step (dOmega = 0.03, accuracy 1e-6) can be used - approx. equivalent to GOSIA INT,1000 */
+		bool			UseFixedStep()		const	{ return fUseFixedStep;		}	/*!< Return whether a fixed step will be used for the CoulEx calculation */
 
-		void			SetUseSymmetry(bool b = true)	{ fUseSymmetry = b;		}
-		bool			UseSymmetry()		const	{ return fUseSymmetry;		}	
+		void			SetUseSymmetry(bool b = true)	{ fUseSymmetry = b;		}	/*!< Sets whether symmetry arguments can be used to speed up the calculation (default = true) */
+		bool			UseSymmetry()		const	{ return fUseSymmetry;		}	/*!< Returns whether symmetry arguments can be used to speed up the calculation */             	
 
 	private :
 

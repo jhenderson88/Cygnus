@@ -10,6 +10,12 @@ Calls the \hyperlink{classCoulExMinFCN}{Coul\-Ex\-Min\-F\-C\-N} class along with
 
 {\ttfamily \#include $<$Coul\-Ex\-Fitter.\-h$>$}
 
+Inheritance diagram for Coul\-Ex\-Fitter\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classCoulExFitter}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -36,6 +42,9 @@ void \hyperlink{classCoulExFitter_a5241e2d16d908fc409a2bd078846fa5e}{Create\-Sca
 void \hyperlink{classCoulExFitter_a3ed4407b3cbd821bafc4aabc13dfd44a}{Set\-Matrix\-Elements} (std\-::vector$<$ \hyperlink{classMatrixElement}{Matrix\-Element} $>$ m)
 \item 
 std\-::vector$<$ \hyperlink{classMatrixElement}{Matrix\-Element} $>$ \hyperlink{classCoulExFitter_ae866bffb9fe2ef25c03e79cedd1357a8}{Get\-Matrix\-Elements} ()
+\item 
+\hypertarget{classCoulExFitter_a655f0e51447913ee942522c8ddf0a1c2}{void {\bfseries Add\-Matrix\-Element} (\hyperlink{classMatrixElement}{Matrix\-Element} m)}\label{classCoulExFitter_a655f0e51447913ee942522c8ddf0a1c2}
+
 \item 
 void \hyperlink{classCoulExFitter_a3e300781a246a5f162a8c12b1d1d5461}{Clear\-Matrix\-Elements} ()
 \item 
@@ -126,6 +135,20 @@ bool \hyperlink{classCoulExFitter_a4fd09244f82e3af46add6960543524d9}{Do\-Full\-U
 void \hyperlink{classCoulExFitter_a7fa4c365be49eb9f6cf47684ff6b15bc}{Set\-Likelihood\-Fit} (bool b=true)
 \item 
 bool \hyperlink{classCoulExFitter_a96b4e6bd340c279bc913e875d11eca7c}{Likelihood\-Fit} () const 
+\item 
+std\-::vector$<$ double $>$ \hyperlink{classCoulExFitter_a0e07d4efae33831d05b24b20359aac38}{Get\-Fit\-Parameters} ()
+\item 
+std\-::vector$<$ double $>$ \hyperlink{classCoulExFitter_a4e775dd9b516260f3763e7a20bab6eae}{Get\-Fit\-U\-L} ()
+\item 
+std\-::vector$<$ double $>$ \hyperlink{classCoulExFitter_ae11e633a06fb57003ed0aefce142da39}{Get\-Fit\-L\-L} ()
+\item 
+void \hyperlink{classCoulExFitter_a51c86356259152d1a85a8c8a306cf211}{Set\-Fit\-Parameters} (std\-::vector$<$ double $>$ p)
+\item 
+void \hyperlink{classCoulExFitter_ab9fdcb9a745875306b9ae242cc735221}{Set\-Fit\-U\-L} (std\-::vector$<$ double $>$ p)
+\item 
+void \hyperlink{classCoulExFitter_a0d9efed6bd8fa2ddd77a3d0a4ce707bc}{Set\-Fit\-L\-L} (std\-::vector$<$ double $>$ p)
+\item 
+void \hyperlink{classCoulExFitter_a83475c9b135e7f3afdd55ce57ee307d7}{Set\-Fitting\-Parameter} (size\-\_\-t i, double v)
 \end{DoxyCompactItemize}
 
 
@@ -162,7 +185,7 @@ Definition at line 66 of file Coul\-Ex\-Fitter.\-h.
 )}}\label{classCoulExFitter_a483e51a7fd5262d65b94f3d0e9d9a2b1}
 Add literature branching ratio data 
 
-Definition at line 246 of file Coul\-Ex\-Fitter.\-cxx.
+Definition at line 252 of file Coul\-Ex\-Fitter.\-cxx.
 
 \hypertarget{classCoulExFitter_acd5ed89489dfbb4ec2a480d5ae933b04}{\index{Coul\-Ex\-Fitter@{Coul\-Ex\-Fitter}!Add\-Correction\-Factor@{Add\-Correction\-Factor}}
 \index{Add\-Correction\-Factor@{Add\-Correction\-Factor}!CoulExFitter@{Coul\-Ex\-Fitter}}
@@ -173,7 +196,7 @@ Definition at line 246 of file Coul\-Ex\-Fitter.\-cxx.
 )}}\label{classCoulExFitter_acd5ed89489dfbb4ec2a480d5ae933b04}
 Add point calculation correction factors (append) 
 
-Definition at line 223 of file Coul\-Ex\-Fitter.\-cxx.
+Definition at line 229 of file Coul\-Ex\-Fitter.\-cxx.
 
 \hypertarget{classCoulExFitter_a81f503e2d4de8f39ad33b98327e5b8ab}{\index{Coul\-Ex\-Fitter@{Coul\-Ex\-Fitter}!Add\-Data@{Add\-Data}}
 \index{Add\-Data@{Add\-Data}!CoulExFitter@{Coul\-Ex\-Fitter}}
@@ -188,7 +211,7 @@ Definition at line 223 of file Coul\-Ex\-Fitter.\-cxx.
 )}}\label{classCoulExFitter_a81f503e2d4de8f39ad33b98327e5b8ab}
 Add experimental data to experiment defined by index i between initial (init) and final (fin) states with yield (c) and uncertainty (e) 
 
-Definition at line 238 of file Coul\-Ex\-Fitter.\-cxx.
+Definition at line 244 of file Coul\-Ex\-Fitter.\-cxx.
 
 \hypertarget{classCoulExFitter_a8d2a0995d0d2239629e23810362177b8}{\index{Coul\-Ex\-Fitter@{Coul\-Ex\-Fitter}!Add\-Fitting\-Matrix\-Element@{Add\-Fitting\-Matrix\-Element}}
 \index{Add\-Fitting\-Matrix\-Element@{Add\-Fitting\-Matrix\-Element}!CoulExFitter@{Coul\-Ex\-Fitter}}
@@ -204,7 +227,7 @@ Definition at line 238 of file Coul\-Ex\-Fitter.\-cxx.
 )}}\label{classCoulExFitter_a8d2a0995d0d2239629e23810362177b8}
 Add a fitting matrix element 
 
-Definition at line 218 of file Coul\-Ex\-Fitter.\-cxx.
+Definition at line 224 of file Coul\-Ex\-Fitter.\-cxx.
 
 \hypertarget{classCoulExFitter_a5e2fa54175664c1ff80ec1562d7deb9d}{\index{Coul\-Ex\-Fitter@{Coul\-Ex\-Fitter}!Add\-Lifetime@{Add\-Lifetime}}
 \index{Add\-Lifetime@{Add\-Lifetime}!CoulExFitter@{Coul\-Ex\-Fitter}}
@@ -217,7 +240,7 @@ Definition at line 218 of file Coul\-Ex\-Fitter.\-cxx.
 )}}\label{classCoulExFitter_a5e2fa54175664c1ff80ec1562d7deb9d}
 Add literature lifetime data 
 
-Definition at line 242 of file Coul\-Ex\-Fitter.\-cxx.
+Definition at line 248 of file Coul\-Ex\-Fitter.\-cxx.
 
 \hypertarget{classCoulExFitter_ae2580c027c32cdd4eb5d4e6283b8bca1}{\index{Coul\-Ex\-Fitter@{Coul\-Ex\-Fitter}!Add\-Matrix\-Element@{Add\-Matrix\-Element}}
 \index{Add\-Matrix\-Element@{Add\-Matrix\-Element}!CoulExFitter@{Coul\-Ex\-Fitter}}
@@ -232,7 +255,7 @@ Definition at line 242 of file Coul\-Ex\-Fitter.\-cxx.
 )}}\label{classCoulExFitter_ae2580c027c32cdd4eb5d4e6283b8bca1}
 Add literature matrix element data 
 
-Definition at line 254 of file Coul\-Ex\-Fitter.\-cxx.
+Definition at line 260 of file Coul\-Ex\-Fitter.\-cxx.
 
 \hypertarget{classCoulExFitter_a6359add575cbb5eaa3f1f0a04a108643}{\index{Coul\-Ex\-Fitter@{Coul\-Ex\-Fitter}!Add\-Mixing\-Ratio@{Add\-Mixing\-Ratio}}
 \index{Add\-Mixing\-Ratio@{Add\-Mixing\-Ratio}!CoulExFitter@{Coul\-Ex\-Fitter}}
@@ -246,7 +269,7 @@ Definition at line 254 of file Coul\-Ex\-Fitter.\-cxx.
 )}}\label{classCoulExFitter_a6359add575cbb5eaa3f1f0a04a108643}
 Add literature mixing ratio data 
 
-Definition at line 250 of file Coul\-Ex\-Fitter.\-cxx.
+Definition at line 256 of file Coul\-Ex\-Fitter.\-cxx.
 
 \hypertarget{classCoulExFitter_aa61a8d54329e77a5a8ffc7d760a7acad}{\index{Coul\-Ex\-Fitter@{Coul\-Ex\-Fitter}!Add\-Point\-Calc@{Add\-Point\-Calc}}
 \index{Add\-Point\-Calc@{Add\-Point\-Calc}!CoulExFitter@{Coul\-Ex\-Fitter}}
@@ -279,7 +302,7 @@ Definition at line 94 of file Coul\-Ex\-Fitter.\-h.
 )\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classCoulExFitter_a3dc34ce26c8906acefada4da62ebe27f}
 Completely clear all previous input 
 
-Definition at line 259 of file Coul\-Ex\-Fitter.\-cxx.
+Definition at line 265 of file Coul\-Ex\-Fitter.\-cxx.
 
 \hypertarget{classCoulExFitter_a3e300781a246a5f162a8c12b1d1d5461}{\index{Coul\-Ex\-Fitter@{Coul\-Ex\-Fitter}!Clear\-Matrix\-Elements@{Clear\-Matrix\-Elements}}
 \index{Clear\-Matrix\-Elements@{Clear\-Matrix\-Elements}!CoulExFitter@{Coul\-Ex\-Fitter}}
@@ -315,7 +338,7 @@ Definition at line 95 of file Coul\-Ex\-Fitter.\-h.
 )}}\label{classCoulExFitter_a5241e2d16d908fc409a2bd078846fa5e}
 Add a scaling parameter, with common scaling experiments defined by their indices in a vector of int 
 
-Definition at line 208 of file Coul\-Ex\-Fitter.\-cxx.
+Definition at line 214 of file Coul\-Ex\-Fitter.\-cxx.
 
 \hypertarget{classCoulExFitter_adf6c8ef07257352eee65ad39eb900eb1}{\index{Coul\-Ex\-Fitter@{Coul\-Ex\-Fitter}!Define\-Experiment@{Define\-Experiment}}
 \index{Define\-Experiment@{Define\-Experiment}!CoulExFitter@{Coul\-Ex\-Fitter}}
@@ -326,7 +349,7 @@ Definition at line 208 of file Coul\-Ex\-Fitter.\-cxx.
 )}}\label{classCoulExFitter_adf6c8ef07257352eee65ad39eb900eb1}
 Defines a new experiment with t = theta\-\_\-cm 
 
-Definition at line 233 of file Coul\-Ex\-Fitter.\-cxx.
+Definition at line 239 of file Coul\-Ex\-Fitter.\-cxx.
 
 \hypertarget{classCoulExFitter_a08b4d7487381e52c0da70ab809e70fd4}{\index{Coul\-Ex\-Fitter@{Coul\-Ex\-Fitter}!Do\-Fit@{Do\-Fit}}
 \index{Do\-Fit@{Do\-Fit}!CoulExFitter@{Coul\-Ex\-Fitter}}
@@ -417,6 +440,39 @@ Return vector of effective cross sections (direct population + feeding)
 
 Definition at line 116 of file Coul\-Ex\-Fitter.\-h.
 
+\hypertarget{classCoulExFitter_ae11e633a06fb57003ed0aefce142da39}{\index{Coul\-Ex\-Fitter@{Coul\-Ex\-Fitter}!Get\-Fit\-L\-L@{Get\-Fit\-L\-L}}
+\index{Get\-Fit\-L\-L@{Get\-Fit\-L\-L}!CoulExFitter@{Coul\-Ex\-Fitter}}
+\subsubsection[{Get\-Fit\-L\-L}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$double$>$ Coul\-Ex\-Fitter\-::\-Get\-Fit\-L\-L (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExFitter_ae11e633a06fb57003ed0aefce142da39}
+Return the fit parameter lower limits -\/ Used in M\-C\-M\-C methods 
+
+Definition at line 158 of file Coul\-Ex\-Fitter.\-h.
+
+\hypertarget{classCoulExFitter_a0e07d4efae33831d05b24b20359aac38}{\index{Coul\-Ex\-Fitter@{Coul\-Ex\-Fitter}!Get\-Fit\-Parameters@{Get\-Fit\-Parameters}}
+\index{Get\-Fit\-Parameters@{Get\-Fit\-Parameters}!CoulExFitter@{Coul\-Ex\-Fitter}}
+\subsubsection[{Get\-Fit\-Parameters}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$double$>$ Coul\-Ex\-Fitter\-::\-Get\-Fit\-Parameters (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExFitter_a0e07d4efae33831d05b24b20359aac38}
+Return fit parameters -\/ note that these will be updated with the fit result after the fit -\/ Used in M\-C\-M\-C methods 
+
+Definition at line 156 of file Coul\-Ex\-Fitter.\-h.
+
+\hypertarget{classCoulExFitter_a4e775dd9b516260f3763e7a20bab6eae}{\index{Coul\-Ex\-Fitter@{Coul\-Ex\-Fitter}!Get\-Fit\-U\-L@{Get\-Fit\-U\-L}}
+\index{Get\-Fit\-U\-L@{Get\-Fit\-U\-L}!CoulExFitter@{Coul\-Ex\-Fitter}}
+\subsubsection[{Get\-Fit\-U\-L}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$double$>$ Coul\-Ex\-Fitter\-::\-Get\-Fit\-U\-L (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExFitter_a4e775dd9b516260f3763e7a20bab6eae}
+Return the fit parameter upper limits -\/ Used in M\-C\-M\-C methods 
+
+Definition at line 157 of file Coul\-Ex\-Fitter.\-h.
+
 \hypertarget{classCoulExFitter_a74d75b806bee4687703d1611c7710ad8}{\index{Coul\-Ex\-Fitter@{Coul\-Ex\-Fitter}!Get\-Lit\-Branching@{Get\-Lit\-Branching}}
 \index{Get\-Lit\-Branching@{Get\-Lit\-Branching}!CoulExFitter@{Coul\-Ex\-Fitter}}
 \subsubsection[{Get\-Lit\-Branching}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Lit\-Branching\-Ratio}$>$ Coul\-Ex\-Fitter\-::\-Get\-Lit\-Branching (
@@ -470,7 +526,7 @@ Definition at line 111 of file Coul\-Ex\-Fitter.\-h.
 )\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExFitter_ae866bffb9fe2ef25c03e79cedd1357a8}
 Return vector of fitting Matrix\-Elements 
 
-Definition at line 89 of file Coul\-Ex\-Fitter.\-h.
+Definition at line 88 of file Coul\-Ex\-Fitter.\-h.
 
 \hypertarget{classCoulExFitter_a96352023871d7431849e35c23a59ee48}{\index{Coul\-Ex\-Fitter@{Coul\-Ex\-Fitter}!Get\-Max\-Function\-Calls@{Get\-Max\-Function\-Calls}}
 \index{Get\-Max\-Function\-Calls@{Get\-Max\-Function\-Calls}!CoulExFitter@{Coul\-Ex\-Fitter}}
@@ -580,7 +636,7 @@ Definition at line 154 of file Coul\-Ex\-Fitter.\-h.
 ) const}}\label{classCoulExFitter_a92e5a9e3b4fbbf8d3df93543d2bf00c5}
 Print fitting details (formatted) 
 
-Definition at line 274 of file Coul\-Ex\-Fitter.\-cxx.
+Definition at line 279 of file Coul\-Ex\-Fitter.\-cxx.
 
 \hypertarget{classCoulExFitter_a1c7724db2db1fd9c41e7daf28cbf5271}{\index{Coul\-Ex\-Fitter@{Coul\-Ex\-Fitter}!Set\-Base\-Nucleus@{Set\-Base\-Nucleus}}
 \index{Set\-Base\-Nucleus@{Set\-Base\-Nucleus}!CoulExFitter@{Coul\-Ex\-Fitter}}
@@ -603,7 +659,7 @@ Definition at line 118 of file Coul\-Ex\-Fitter.\-h.
 )}}\label{classCoulExFitter_aec7d01311ac98f4e6a909cc76ee79a1a}
 Define point calculation correction factors for experiment i 
 
-Definition at line 226 of file Coul\-Ex\-Fitter.\-cxx.
+Definition at line 232 of file Coul\-Ex\-Fitter.\-cxx.
 
 \hypertarget{classCoulExFitter_a44ec14a6b681ac7feccdf2dc119a5450}{\index{Coul\-Ex\-Fitter@{Coul\-Ex\-Fitter}!Set\-Data@{Set\-Data}}
 \index{Set\-Data@{Set\-Data}!CoulExFitter@{Coul\-Ex\-Fitter}}
@@ -626,6 +682,51 @@ Definition at line 101 of file Coul\-Ex\-Fitter.\-h.
 Define whether to do a complete M\-I\-N\-O\-S uncertainty analysis (slow) 
 
 Definition at line 150 of file Coul\-Ex\-Fitter.\-h.
+
+\hypertarget{classCoulExFitter_a0d9efed6bd8fa2ddd77a3d0a4ce707bc}{\index{Coul\-Ex\-Fitter@{Coul\-Ex\-Fitter}!Set\-Fit\-L\-L@{Set\-Fit\-L\-L}}
+\index{Set\-Fit\-L\-L@{Set\-Fit\-L\-L}!CoulExFitter@{Coul\-Ex\-Fitter}}
+\subsubsection[{Set\-Fit\-L\-L}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Fitter\-::\-Set\-Fit\-L\-L (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ double $>$}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExFitter_a0d9efed6bd8fa2ddd77a3d0a4ce707bc}
+Set the fit parameter lower limits -\/ Used in M\-C\-M\-C methods 
+
+Definition at line 162 of file Coul\-Ex\-Fitter.\-h.
+
+\hypertarget{classCoulExFitter_a51c86356259152d1a85a8c8a306cf211}{\index{Coul\-Ex\-Fitter@{Coul\-Ex\-Fitter}!Set\-Fit\-Parameters@{Set\-Fit\-Parameters}}
+\index{Set\-Fit\-Parameters@{Set\-Fit\-Parameters}!CoulExFitter@{Coul\-Ex\-Fitter}}
+\subsubsection[{Set\-Fit\-Parameters}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Fitter\-::\-Set\-Fit\-Parameters (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ double $>$}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExFitter_a51c86356259152d1a85a8c8a306cf211}
+Set the fit parameters -\/ note that these will be updated after the fit has been performed -\/ Used in M\-C\-M\-C methods 
+
+Definition at line 160 of file Coul\-Ex\-Fitter.\-h.
+
+\hypertarget{classCoulExFitter_a83475c9b135e7f3afdd55ce57ee307d7}{\index{Coul\-Ex\-Fitter@{Coul\-Ex\-Fitter}!Set\-Fitting\-Parameter@{Set\-Fitting\-Parameter}}
+\index{Set\-Fitting\-Parameter@{Set\-Fitting\-Parameter}!CoulExFitter@{Coul\-Ex\-Fitter}}
+\subsubsection[{Set\-Fitting\-Parameter}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Fitter\-::\-Set\-Fitting\-Parameter (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{i, }
+\item[{double}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExFitter_a83475c9b135e7f3afdd55ce57ee307d7}
+Set an individual fitting parameter -\/ Used in M\-C\-M\-C methods 
+
+Definition at line 164 of file Coul\-Ex\-Fitter.\-h.
+
+\hypertarget{classCoulExFitter_ab9fdcb9a745875306b9ae242cc735221}{\index{Coul\-Ex\-Fitter@{Coul\-Ex\-Fitter}!Set\-Fit\-U\-L@{Set\-Fit\-U\-L}}
+\index{Set\-Fit\-U\-L@{Set\-Fit\-U\-L}!CoulExFitter@{Coul\-Ex\-Fitter}}
+\subsubsection[{Set\-Fit\-U\-L}]{\setlength{\rightskip}{0pt plus 5cm}void Coul\-Ex\-Fitter\-::\-Set\-Fit\-U\-L (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ double $>$}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExFitter_ab9fdcb9a745875306b9ae242cc735221}
+Set the fit parameter upper limits -\/ Used in M\-C\-M\-C methods 
+
+Definition at line 161 of file Coul\-Ex\-Fitter.\-h.
 
 \hypertarget{classCoulExFitter_a7fa4c365be49eb9f6cf47684ff6b15bc}{\index{Coul\-Ex\-Fitter@{Coul\-Ex\-Fitter}!Set\-Likelihood\-Fit@{Set\-Likelihood\-Fit}}
 \index{Set\-Likelihood\-Fit@{Set\-Likelihood\-Fit}!CoulExFitter@{Coul\-Ex\-Fitter}}
@@ -691,7 +792,7 @@ Definition at line 110 of file Coul\-Ex\-Fitter.\-h.
 )\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCoulExFitter_a3ed4407b3cbd821bafc4aabc13dfd44a}
 Define vector of fitting Matrix\-Elements 
 
-Definition at line 88 of file Coul\-Ex\-Fitter.\-h.
+Definition at line 87 of file Coul\-Ex\-Fitter.\-h.
 
 \hypertarget{classCoulExFitter_aa4176694fecb8647bf90443c0be564d4}{\index{Coul\-Ex\-Fitter@{Coul\-Ex\-Fitter}!Set\-Max\-Function\-Calls@{Set\-Max\-Function\-Calls}}
 \index{Set\-Max\-Function\-Calls@{Set\-Max\-Function\-Calls}!CoulExFitter@{Coul\-Ex\-Fitter}}

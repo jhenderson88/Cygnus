@@ -264,7 +264,6 @@ void CoulExFitter::AddMatrixElement(int mult, int index_I, int index_F, double m
 
 void CoulExFitter::ClearAll(){
 
-	index.clear();
 	parameters.clear();			
 	matrixElements.clear();			
 	pointCalcs.clear();			

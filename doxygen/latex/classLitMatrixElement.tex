@@ -1,0 +1,183 @@
+\hypertarget{classLitMatrixElement}{\section{Lit\-Matrix\-Element Class Reference}
+\label{classLitMatrixElement}\index{Lit\-Matrix\-Element@{Lit\-Matrix\-Element}}
+}
+
+
+Holder for literature matrix element information for fitting.  
+
+
+
+
+{\ttfamily \#include $<$Literature.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classLitMatrixElement_a4e7e58478592e997126bbce544d0f60e}{Lit\-Matrix\-Element} (int mult, int i, int f, double me, double e)
+\item 
+\hyperlink{classLitMatrixElement_adcce2a88c148edc9282cbb904a481e7b}{Lit\-Matrix\-Element} (int mult, int i, int f, double me, double ue, double de)
+\item 
+\hyperlink{classLitMatrixElement_a557a7030501da531631de4538c568a2a}{Lit\-Matrix\-Element} (const \hyperlink{classLitMatrixElement}{Lit\-Matrix\-Element} \&lm)
+\item 
+\hyperlink{classLitMatrixElement}{Lit\-Matrix\-Element} \& \hyperlink{classLitMatrixElement_a07e75cb4e608186b8359fb9b0111d9f6}{operator=} (const \hyperlink{classLitMatrixElement}{Lit\-Matrix\-Element} \&lm)
+\item 
+double \hyperlink{classLitMatrixElement_af528ba9511d16f12e8574e73a0492df5}{Get\-Multipolarity} () const 
+\item 
+double \hyperlink{classLitMatrixElement_af8e215126b3c4c6373b78ffd2c0f61bd}{Get\-Initial\-Index} () const 
+\item 
+double \hyperlink{classLitMatrixElement_a6c4afde8ca56112da851f0127ebf7167}{Get\-Final\-Index} () const 
+\item 
+double \hyperlink{classLitMatrixElement_a116167b1cae1c4e34eeb79c9fdd6de74}{Get\-Matrix\-Element} () const 
+\item 
+double \hyperlink{classLitMatrixElement_aaf8fb29e4540e135a8a47251d0de4afd}{Get\-Dn\-Unc} () const 
+\item 
+double \hyperlink{classLitMatrixElement_a7727b59fc5afbf41f9826c01aa56dfeb}{Get\-Up\-Unc} () const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Holder for literature matrix element information for fitting. 
+
+Definition at line 146 of file Literature.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classLitMatrixElement_a4e7e58478592e997126bbce544d0f60e}{\index{Lit\-Matrix\-Element@{Lit\-Matrix\-Element}!Lit\-Matrix\-Element@{Lit\-Matrix\-Element}}
+\index{Lit\-Matrix\-Element@{Lit\-Matrix\-Element}!LitMatrixElement@{Lit\-Matrix\-Element}}
+\subsubsection[{Lit\-Matrix\-Element}]{\setlength{\rightskip}{0pt plus 5cm}Lit\-Matrix\-Element\-::\-Lit\-Matrix\-Element (
+\begin{DoxyParamCaption}
+\item[{int}]{mult, }
+\item[{int}]{i, }
+\item[{int}]{f, }
+\item[{double}]{me, }
+\item[{double}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLitMatrixElement_a4e7e58478592e997126bbce544d0f60e}
+Construct literature mixing ratio with symmetric uncertainties\-:\par
+Multipolarity = mult \par
+Initial state index = i \par
+Final state index = f \par
+Matrix element = me \par
+Uncertainty = e 
+
+Definition at line 158 of file Literature.\-h.
+
+\hypertarget{classLitMatrixElement_adcce2a88c148edc9282cbb904a481e7b}{\index{Lit\-Matrix\-Element@{Lit\-Matrix\-Element}!Lit\-Matrix\-Element@{Lit\-Matrix\-Element}}
+\index{Lit\-Matrix\-Element@{Lit\-Matrix\-Element}!LitMatrixElement@{Lit\-Matrix\-Element}}
+\subsubsection[{Lit\-Matrix\-Element}]{\setlength{\rightskip}{0pt plus 5cm}Lit\-Matrix\-Element\-::\-Lit\-Matrix\-Element (
+\begin{DoxyParamCaption}
+\item[{int}]{mult, }
+\item[{int}]{i, }
+\item[{int}]{f, }
+\item[{double}]{me, }
+\item[{double}]{ue, }
+\item[{double}]{de}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLitMatrixElement_adcce2a88c148edc9282cbb904a481e7b}
+Construct literature mixing ratio with symmetric uncertainties\-:\par
+Multipolarity = mult \par
+Initial state index = i \par
+Final state index = f \par
+Matrix element = me \par
+Positive uncertainty = ue Negative uncertainty = de 
+
+Definition at line 168 of file Literature.\-h.
+
+\hypertarget{classLitMatrixElement_a557a7030501da531631de4538c568a2a}{\index{Lit\-Matrix\-Element@{Lit\-Matrix\-Element}!Lit\-Matrix\-Element@{Lit\-Matrix\-Element}}
+\index{Lit\-Matrix\-Element@{Lit\-Matrix\-Element}!LitMatrixElement@{Lit\-Matrix\-Element}}
+\subsubsection[{Lit\-Matrix\-Element}]{\setlength{\rightskip}{0pt plus 5cm}Lit\-Matrix\-Element\-::\-Lit\-Matrix\-Element (
+\begin{DoxyParamCaption}
+\item[{const {\bf Lit\-Matrix\-Element} \&}]{lm}
+\end{DoxyParamCaption}
+)}}\label{classLitMatrixElement_a557a7030501da531631de4538c568a2a}
+Copy constructor 
+
+Definition at line 66 of file Literature.\-cxx.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classLitMatrixElement_aaf8fb29e4540e135a8a47251d0de4afd}{\index{Lit\-Matrix\-Element@{Lit\-Matrix\-Element}!Get\-Dn\-Unc@{Get\-Dn\-Unc}}
+\index{Get\-Dn\-Unc@{Get\-Dn\-Unc}!LitMatrixElement@{Lit\-Matrix\-Element}}
+\subsubsection[{Get\-Dn\-Unc}]{\setlength{\rightskip}{0pt plus 5cm}double Lit\-Matrix\-Element\-::\-Get\-Dn\-Unc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLitMatrixElement_aaf8fb29e4540e135a8a47251d0de4afd}
+Return negative uncertainty 
+
+Definition at line 177 of file Literature.\-h.
+
+\hypertarget{classLitMatrixElement_a6c4afde8ca56112da851f0127ebf7167}{\index{Lit\-Matrix\-Element@{Lit\-Matrix\-Element}!Get\-Final\-Index@{Get\-Final\-Index}}
+\index{Get\-Final\-Index@{Get\-Final\-Index}!LitMatrixElement@{Lit\-Matrix\-Element}}
+\subsubsection[{Get\-Final\-Index}]{\setlength{\rightskip}{0pt plus 5cm}double Lit\-Matrix\-Element\-::\-Get\-Final\-Index (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLitMatrixElement_a6c4afde8ca56112da851f0127ebf7167}
+Return final state index 
+
+Definition at line 175 of file Literature.\-h.
+
+\hypertarget{classLitMatrixElement_af8e215126b3c4c6373b78ffd2c0f61bd}{\index{Lit\-Matrix\-Element@{Lit\-Matrix\-Element}!Get\-Initial\-Index@{Get\-Initial\-Index}}
+\index{Get\-Initial\-Index@{Get\-Initial\-Index}!LitMatrixElement@{Lit\-Matrix\-Element}}
+\subsubsection[{Get\-Initial\-Index}]{\setlength{\rightskip}{0pt plus 5cm}double Lit\-Matrix\-Element\-::\-Get\-Initial\-Index (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLitMatrixElement_af8e215126b3c4c6373b78ffd2c0f61bd}
+Return initial state index 
+
+Definition at line 174 of file Literature.\-h.
+
+\hypertarget{classLitMatrixElement_a116167b1cae1c4e34eeb79c9fdd6de74}{\index{Lit\-Matrix\-Element@{Lit\-Matrix\-Element}!Get\-Matrix\-Element@{Get\-Matrix\-Element}}
+\index{Get\-Matrix\-Element@{Get\-Matrix\-Element}!LitMatrixElement@{Lit\-Matrix\-Element}}
+\subsubsection[{Get\-Matrix\-Element}]{\setlength{\rightskip}{0pt plus 5cm}double Lit\-Matrix\-Element\-::\-Get\-Matrix\-Element (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLitMatrixElement_a116167b1cae1c4e34eeb79c9fdd6de74}
+Return mixing ratio 
+
+Definition at line 176 of file Literature.\-h.
+
+\hypertarget{classLitMatrixElement_af528ba9511d16f12e8574e73a0492df5}{\index{Lit\-Matrix\-Element@{Lit\-Matrix\-Element}!Get\-Multipolarity@{Get\-Multipolarity}}
+\index{Get\-Multipolarity@{Get\-Multipolarity}!LitMatrixElement@{Lit\-Matrix\-Element}}
+\subsubsection[{Get\-Multipolarity}]{\setlength{\rightskip}{0pt plus 5cm}double Lit\-Matrix\-Element\-::\-Get\-Multipolarity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLitMatrixElement_af528ba9511d16f12e8574e73a0492df5}
+Return multipolarity of the matrix element 
+
+Definition at line 173 of file Literature.\-h.
+
+\hypertarget{classLitMatrixElement_a7727b59fc5afbf41f9826c01aa56dfeb}{\index{Lit\-Matrix\-Element@{Lit\-Matrix\-Element}!Get\-Up\-Unc@{Get\-Up\-Unc}}
+\index{Get\-Up\-Unc@{Get\-Up\-Unc}!LitMatrixElement@{Lit\-Matrix\-Element}}
+\subsubsection[{Get\-Up\-Unc}]{\setlength{\rightskip}{0pt plus 5cm}double Lit\-Matrix\-Element\-::\-Get\-Up\-Unc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLitMatrixElement_a7727b59fc5afbf41f9826c01aa56dfeb}
+Return positive uncertainty 
+
+Definition at line 178 of file Literature.\-h.
+
+\hypertarget{classLitMatrixElement_a07e75cb4e608186b8359fb9b0111d9f6}{\index{Lit\-Matrix\-Element@{Lit\-Matrix\-Element}!operator=@{operator=}}
+\index{operator=@{operator=}!LitMatrixElement@{Lit\-Matrix\-Element}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lit\-Matrix\-Element} \& Lit\-Matrix\-Element\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Lit\-Matrix\-Element} \&}]{lm}
+\end{DoxyParamCaption}
+)}}\label{classLitMatrixElement_a07e75cb4e608186b8359fb9b0111d9f6}
+Assignment operator 
+
+Definition at line 76 of file Literature.\-cxx.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Literature.\-h\item 
+Literature.\-cxx\end{DoxyCompactItemize}

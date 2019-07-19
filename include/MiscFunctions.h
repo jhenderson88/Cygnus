@@ -30,17 +30,17 @@ class MiscFunctions {
 
 		static	double	RotationFunction(double,int,int,int);	/*!< Rotation function to convert Reaction frame tensors to laboratory frame */
 
-		static	double	c;	
-		static 	double	hbar;
+		static	double	c;					/*!< Speed of light for use in calculations */	
+		static 	double	hbar;					/*!< Planks constant / 2pi for use in calculations */
 
-		static	unsigned int	doublefactorial(unsigned int);
+		static	unsigned int	doublefactorial(unsigned int);	/*!<	*/
 
-		static 	double	SphericalHarmonics(double,int,int,bool b = true);
+		static 	double	SphericalHarmonics(double,int,int,bool b = true);	/*!<	*/
 
-		static	double	SimpsonsRule(TGraph*,int,double,double);
+		static	double	SimpsonsRule(TGraph*,int nSteps, double xMin, double xMax);	/*!<	Perform a numerical integration of a TGraph using Simpson's rule using nSteps between xMin and xMax	*/
 
-		static	TGraph*	PlotCrossSection(PointCoulEx*, double, double, int, int, bool cm = true, int nPart = 2);
-		static	TGraph*	PlotProbability(PointCoulEx*, double, double, int, int, bool cm = true, int nPart = 2);
+		static	TGraph*	PlotCrossSection(PointCoulEx*, double, double, int, int, bool cm = true, int nPart = 2);	/*!<	Plot the excitation cross section to a state over a range of angles in the center of mass (cm = true) or lab (cm = false) frame	*/
+		static	TGraph*	PlotProbability(PointCoulEx*, double, double, int, int, bool cm = true, int nPart = 2);		/*!<	Plot the excitation probability to a state over a range of angles in the center of mass (cm = true) or lab (cm = false) frame	*/
 	
 };
 

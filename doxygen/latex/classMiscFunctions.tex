@@ -31,24 +31,25 @@ static double \hyperlink{classMiscFunctions_a91d1bb1bc78782da9523392de913efe9}{R
 \hypertarget{classMiscFunctions_a8d5d0375b3d7f48877572368e1cd605f}{static double {\bfseries Spherical\-Harmonics} (double, int, int, bool b=true)}\label{classMiscFunctions_a8d5d0375b3d7f48877572368e1cd605f}
 
 \item 
-\hypertarget{classMiscFunctions_a069d0139e00238f697b837a55f8c5616}{static double {\bfseries Simpsons\-Rule} (T\-Graph $\ast$, int, double, double)}\label{classMiscFunctions_a069d0139e00238f697b837a55f8c5616}
-
+static double \hyperlink{classMiscFunctions_a0fdc08c8589cdeb940e62bf5f95f29d6}{Simpsons\-Rule} (T\-Graph $\ast$, int n\-Steps, double x\-Min, double x\-Max)
+\item 
+static T\-Graph $\ast$ \hyperlink{classMiscFunctions_a0c114db3ac783fc2c303ef6d715cbee9}{Plot\-Cross\-Section} (\hyperlink{classPointCoulEx}{Point\-Coul\-Ex} $\ast$, double, double, int, int, bool cm=true, int n\-Part=2)
+\item 
+static T\-Graph $\ast$ \hyperlink{classMiscFunctions_a979724afe1aa04bce4071b323a93bdd1}{Plot\-Probability} (\hyperlink{classPointCoulEx}{Point\-Coul\-Ex} $\ast$, double, double, int, int, bool cm=true, int n\-Part=2)
 \end{DoxyCompactItemize}
 \subsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classMiscFunctions_aa531a2ef1905c6293800d88b672a346c}{static double {\bfseries c} = 299792458}\label{classMiscFunctions_aa531a2ef1905c6293800d88b672a346c}
-
+static double \hyperlink{classMiscFunctions_aa531a2ef1905c6293800d88b672a346c}{c} = 299792458
 \item 
-\hypertarget{classMiscFunctions_a45a1257814161b4a03617c6d3aac5543}{static double {\bfseries hbar} = 1.\-05457e-\/34}\label{classMiscFunctions_a45a1257814161b4a03617c6d3aac5543}
-
+static double \hyperlink{classMiscFunctions_a45a1257814161b4a03617c6d3aac5543}{hbar} = 1.\-05457e-\/34
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 Useful static functions for use elsewhere in the software package. 
 
-Definition at line 17 of file Misc\-Functions.\-h.
+Definition at line 21 of file Misc\-Functions.\-h.
 
 
 
@@ -74,6 +75,40 @@ Definition at line 18 of file Misc\-Functions.\-cxx.
 Return the maximum value in a T\-Matrix\-D 
 
 Definition at line 6 of file Misc\-Functions.\-cxx.
+
+\hypertarget{classMiscFunctions_a0c114db3ac783fc2c303ef6d715cbee9}{\index{Misc\-Functions@{Misc\-Functions}!Plot\-Cross\-Section@{Plot\-Cross\-Section}}
+\index{Plot\-Cross\-Section@{Plot\-Cross\-Section}!MiscFunctions@{Misc\-Functions}}
+\subsubsection[{Plot\-Cross\-Section}]{\setlength{\rightskip}{0pt plus 5cm}T\-Graph $\ast$ Misc\-Functions\-::\-Plot\-Cross\-Section (
+\begin{DoxyParamCaption}
+\item[{{\bf Point\-Coul\-Ex} $\ast$}]{poin, }
+\item[{double}]{t\-Min, }
+\item[{double}]{t\-Max, }
+\item[{int}]{n\-Theta, }
+\item[{int}]{n\-State, }
+\item[{bool}]{cm = {\ttfamily true}, }
+\item[{int}]{n\-Part = {\ttfamily 2}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classMiscFunctions_a0c114db3ac783fc2c303ef6d715cbee9}
+Plot the excitation cross section to a state over a range of angles in the center of mass (cm = true) or lab (cm = false) frame 
+
+Definition at line 273 of file Misc\-Functions.\-cxx.
+
+\hypertarget{classMiscFunctions_a979724afe1aa04bce4071b323a93bdd1}{\index{Misc\-Functions@{Misc\-Functions}!Plot\-Probability@{Plot\-Probability}}
+\index{Plot\-Probability@{Plot\-Probability}!MiscFunctions@{Misc\-Functions}}
+\subsubsection[{Plot\-Probability}]{\setlength{\rightskip}{0pt plus 5cm}T\-Graph $\ast$ Misc\-Functions\-::\-Plot\-Probability (
+\begin{DoxyParamCaption}
+\item[{{\bf Point\-Coul\-Ex} $\ast$}]{poin, }
+\item[{double}]{t\-Min, }
+\item[{double}]{t\-Max, }
+\item[{int}]{n\-Theta, }
+\item[{int}]{n\-State, }
+\item[{bool}]{cm = {\ttfamily true}, }
+\item[{int}]{n\-Part = {\ttfamily 2}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classMiscFunctions_a979724afe1aa04bce4071b323a93bdd1}
+Plot the excitation probability to a state over a range of angles in the center of mass (cm = true) or lab (cm = false) frame 
+
+Definition at line 297 of file Misc\-Functions.\-cxx.
 
 \hypertarget{classMiscFunctions_af49d629dced5a9125091a92bed3a4a0e}{\index{Misc\-Functions@{Misc\-Functions}!Print\-Matrix\-Nucleus@{Print\-Matrix\-Nucleus}}
 \index{Print\-Matrix\-Nucleus@{Print\-Matrix\-Nucleus}!MiscFunctions@{Misc\-Functions}}
@@ -114,6 +149,20 @@ Rotation function to convert \hyperlink{classReaction}{Reaction} frame tensors t
 
 Definition at line 95 of file Misc\-Functions.\-cxx.
 
+\hypertarget{classMiscFunctions_a0fdc08c8589cdeb940e62bf5f95f29d6}{\index{Misc\-Functions@{Misc\-Functions}!Simpsons\-Rule@{Simpsons\-Rule}}
+\index{Simpsons\-Rule@{Simpsons\-Rule}!MiscFunctions@{Misc\-Functions}}
+\subsubsection[{Simpsons\-Rule}]{\setlength{\rightskip}{0pt plus 5cm}double Misc\-Functions\-::\-Simpsons\-Rule (
+\begin{DoxyParamCaption}
+\item[{T\-Graph $\ast$}]{g, }
+\item[{int}]{n\-Steps, }
+\item[{double}]{x\-Min, }
+\item[{double}]{x\-Max}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classMiscFunctions_a0fdc08c8589cdeb940e62bf5f95f29d6}
+Perform a numerical integration of a T\-Graph using Simpson's rule using n\-Steps between x\-Min and x\-Max 
+
+Definition at line 252 of file Misc\-Functions.\-cxx.
+
 \hypertarget{classMiscFunctions_a53cef6044e7ce41d37789c2c76948226}{\index{Misc\-Functions@{Misc\-Functions}!Write\-Matrix\-Nucleus@{Write\-Matrix\-Nucleus}}
 \index{Write\-Matrix\-Nucleus@{Write\-Matrix\-Nucleus}!MiscFunctions@{Misc\-Functions}}
 \subsubsection[{Write\-Matrix\-Nucleus}]{\setlength{\rightskip}{0pt plus 5cm}void Misc\-Functions\-::\-Write\-Matrix\-Nucleus (
@@ -126,6 +175,23 @@ Definition at line 95 of file Misc\-Functions.\-cxx.
 Write a well formatted T\-Matrix\-D based on states from a \hyperlink{classNucleus}{Nucleus} object 
 
 Definition at line 30 of file Misc\-Functions.\-cxx.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{classMiscFunctions_aa531a2ef1905c6293800d88b672a346c}{\index{Misc\-Functions@{Misc\-Functions}!c@{c}}
+\index{c@{c}!MiscFunctions@{Misc\-Functions}}
+\subsubsection[{c}]{\setlength{\rightskip}{0pt plus 5cm}double Misc\-Functions\-::c = 299792458\hspace{0.3cm}{\ttfamily [static]}}}\label{classMiscFunctions_aa531a2ef1905c6293800d88b672a346c}
+Speed of light for use in calculations 
+
+Definition at line 33 of file Misc\-Functions.\-h.
+
+\hypertarget{classMiscFunctions_a45a1257814161b4a03617c6d3aac5543}{\index{Misc\-Functions@{Misc\-Functions}!hbar@{hbar}}
+\index{hbar@{hbar}!MiscFunctions@{Misc\-Functions}}
+\subsubsection[{hbar}]{\setlength{\rightskip}{0pt plus 5cm}double Misc\-Functions\-::hbar = 1.\-05457e-\/34\hspace{0.3cm}{\ttfamily [static]}}}\label{classMiscFunctions_a45a1257814161b4a03617c6d3aac5543}
+Planks constant / 2pi for use in calculations 
+
+Definition at line 34 of file Misc\-Functions.\-h.
 
 
 

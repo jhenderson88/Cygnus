@@ -65,6 +65,14 @@ void \hyperlink{classIntegral_a303ccbd05093c67ce911a016bb799392}{Set\-Accuracy} 
 void \hyperlink{classIntegral_a3d7ffeb56e3b5da4567b7c66e7d495cc}{Set\-Projectile\-Excitation} (bool b=true)
 \item 
 bool \hyperlink{classIntegral_af4e9c4f0f2e00a52d6651eec01d8109e}{Integral\-Complete} ()
+\item 
+void \hyperlink{classIntegral_a51c1c84c25d323b4f27f9f70d0ce2318}{Set\-Use\-Symmetry} (bool b=true)
+\item 
+bool \hyperlink{classIntegral_a90ab017beb6086d40e009cf5d260a9a0}{Use\-Symmetry} () const 
+\item 
+void \hyperlink{classIntegral_a055018e0bea5e22c5ad09ce1baa919fc}{Fix\-Step} (bool b=true)
+\item 
+bool \hyperlink{classIntegral_acfb413dfcb3227602102ea73d25a59f1}{Use\-Fixed\-Step} () const 
 \end{DoxyCompactItemize}
 
 
@@ -92,7 +100,7 @@ Definition at line 38 of file Integral.\-h.
 )}}\label{classIntegral_a6fe4f7ff63a6cf0d9f66be50d2facf5a}
 Construct the \hyperlink{classIntegral}{Integral} object with a \hyperlink{classNucleus}{Nucleus} and \hyperlink{classReaction}{Reaction} 
 
-Definition at line 30 of file Integral.\-cxx.
+Definition at line 33 of file Integral.\-cxx.
 
 \hypertarget{classIntegral_aaa1d5d5a90ff03465e713dc0f680a369}{\index{Integral@{Integral}!Integral@{Integral}}
 \index{Integral@{Integral}!Integral@{Integral}}
@@ -103,7 +111,7 @@ Definition at line 30 of file Integral.\-cxx.
 )}}\label{classIntegral_aaa1d5d5a90ff03465e713dc0f680a369}
 Copy constructor 
 
-Definition at line 48 of file Integral.\-cxx.
+Definition at line 54 of file Integral.\-cxx.
 
 
 
@@ -139,7 +147,7 @@ Definition at line 50 of file Integral.\-h.
 )}}\label{classIntegral_a9afe2a7e70e391621fdd1c1a8ccec9c7}
 Perform the integration over the theta and energy meshpoints 
 
-Definition at line 150 of file Integral.\-cxx.
+Definition at line 162 of file Integral.\-cxx.
 
 \hypertarget{classIntegral_a16107fb7e111c7d2829309b9881388a1}{\index{Integral@{Integral}!Clear\-Energy\-Meshpoints@{Clear\-Energy\-Meshpoints}}
 \index{Clear\-Energy\-Meshpoints@{Clear\-Energy\-Meshpoints}!Integral@{Integral}}
@@ -162,6 +170,17 @@ Definition at line 54 of file Integral.\-h.
 Clear the theta meshpoint vector 
 
 Definition at line 53 of file Integral.\-h.
+
+\hypertarget{classIntegral_a055018e0bea5e22c5ad09ce1baa919fc}{\index{Integral@{Integral}!Fix\-Step@{Fix\-Step}}
+\index{Fix\-Step@{Fix\-Step}!Integral@{Integral}}
+\subsubsection[{Fix\-Step}]{\setlength{\rightskip}{0pt plus 5cm}void Integral\-::\-Fix\-Step (
+\begin{DoxyParamCaption}
+\item[{bool}]{b = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classIntegral_a055018e0bea5e22c5ad09ce1baa919fc}
+Set whether a fixed step (d\-Omega = 0.\-03, accuracy 1e-\/6) can be used -\/ approx. equivalent to G\-O\-S\-I\-A I\-N\-T,1000 
+
+Definition at line 85 of file Integral.\-h.
 
 \hypertarget{classIntegral_a79c05e036d4bde6f0a4b58c43609341a}{\index{Integral@{Integral}!Get\-C\-M\-Theta\-Points@{Get\-C\-M\-Theta\-Points}}
 \index{Get\-C\-M\-Theta\-Points@{Get\-C\-M\-Theta\-Points}!Integral@{Integral}}
@@ -249,7 +268,7 @@ Definition at line 74 of file Integral.\-h.
 )}}\label{classIntegral_aa2e6fcbf8d95bc23ba123d684917e571}
 Returns the vector of T\-Vector\-D values containing the probabilities at each meshpoint 
 
-Definition at line 319 of file Integral.\-cxx.
+Definition at line 333 of file Integral.\-cxx.
 
 \hypertarget{classIntegral_acc8a52e50e9686382b268ac8d1de39e5}{\index{Integral@{Integral}!Get\-Theta@{Get\-Theta}}
 \index{Get\-Theta@{Get\-Theta}!Integral@{Integral}}
@@ -282,7 +301,7 @@ Definition at line 80 of file Integral.\-h.
 )}}\label{classIntegral_a19146b107c8d1b38b6b7abc70260e0e9}
 Assigment operator 
 
-Definition at line 84 of file Integral.\-cxx.
+Definition at line 93 of file Integral.\-cxx.
 
 \hypertarget{classIntegral_a303ccbd05093c67ce911a016bb799392}{\index{Integral@{Integral}!Set\-Accuracy@{Set\-Accuracy}}
 \index{Set\-Accuracy@{Set\-Accuracy}!Integral@{Integral}}
@@ -305,7 +324,7 @@ Definition at line 76 of file Integral.\-h.
 )}}\label{classIntegral_a82da64fa035b5c54b3748d32d1396815}
 Add a new energy meshpoint. If i is smaller than the current size of the meshpoints vector, e is added at position i. Otherwise, the meshpoint t is appended to the vector. 
 
-Definition at line 138 of file Integral.\-cxx.
+Definition at line 150 of file Integral.\-cxx.
 
 \hypertarget{classIntegral_a84f4e01efa07c82a073b7dec58fe0c4e}{\index{Integral@{Integral}!Set\-Nthreads@{Set\-Nthreads}}
 \index{Set\-Nthreads@{Set\-Nthreads}!Integral@{Integral}}
@@ -350,7 +369,18 @@ Definition at line 69 of file Integral.\-h.
 )}}\label{classIntegral_a3c865040dae6d43d9111da3f602a60ed}
 Add a new theta meshpoint. If i is smaller than the current size of the meshpoints vector, t is added at position i. Otherwise, the meshpoint t is appended to the vector. 
 
-Definition at line 127 of file Integral.\-cxx.
+Definition at line 139 of file Integral.\-cxx.
+
+\hypertarget{classIntegral_a51c1c84c25d323b4f27f9f70d0ce2318}{\index{Integral@{Integral}!Set\-Use\-Symmetry@{Set\-Use\-Symmetry}}
+\index{Set\-Use\-Symmetry@{Set\-Use\-Symmetry}!Integral@{Integral}}
+\subsubsection[{Set\-Use\-Symmetry}]{\setlength{\rightskip}{0pt plus 5cm}void Integral\-::\-Set\-Use\-Symmetry (
+\begin{DoxyParamCaption}
+\item[{bool}]{b = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classIntegral_a51c1c84c25d323b4f27f9f70d0ce2318}
+Sets whether symmetry arguments can be used to speed up the calculation (default = true) 
+
+Definition at line 82 of file Integral.\-h.
 
 \hypertarget{classIntegral_a8becba09d3bc70a3eb3b6efe2322f2f2}{\index{Integral@{Integral}!Set\-Verbose@{Set\-Verbose}}
 \index{Set\-Verbose@{Set\-Verbose}!Integral@{Integral}}
@@ -362,6 +392,28 @@ Definition at line 127 of file Integral.\-cxx.
 Define verbocity of calculations 
 
 Definition at line 71 of file Integral.\-h.
+
+\hypertarget{classIntegral_acfb413dfcb3227602102ea73d25a59f1}{\index{Integral@{Integral}!Use\-Fixed\-Step@{Use\-Fixed\-Step}}
+\index{Use\-Fixed\-Step@{Use\-Fixed\-Step}!Integral@{Integral}}
+\subsubsection[{Use\-Fixed\-Step}]{\setlength{\rightskip}{0pt plus 5cm}bool Integral\-::\-Use\-Fixed\-Step (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classIntegral_acfb413dfcb3227602102ea73d25a59f1}
+Return whether a fixed step will be used for the Coul\-Ex calculation 
+
+Definition at line 86 of file Integral.\-h.
+
+\hypertarget{classIntegral_a90ab017beb6086d40e009cf5d260a9a0}{\index{Integral@{Integral}!Use\-Symmetry@{Use\-Symmetry}}
+\index{Use\-Symmetry@{Use\-Symmetry}!Integral@{Integral}}
+\subsubsection[{Use\-Symmetry}]{\setlength{\rightskip}{0pt plus 5cm}bool Integral\-::\-Use\-Symmetry (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classIntegral_a90ab017beb6086d40e009cf5d260a9a0}
+Returns whether symmetry arguments can be used to speed up the calculation 
+
+Definition at line 83 of file Integral.\-h.
 
 
 

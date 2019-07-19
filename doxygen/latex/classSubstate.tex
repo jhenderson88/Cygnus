@@ -32,6 +32,10 @@ unsigned int \hyperlink{classSubstate_a720d7bdf9c506bde448c9dd68eaa2914}{Get\-Nc
 \hyperlink{classConnection}{Connection} \hyperlink{classSubstate_af5850558a667f170661f5fcb7bcc9f28}{Get\-Connection} (int i) const 
 \item 
 void \hyperlink{classSubstate_a14f86d11fdf7540b3a6efd5006900cea}{Add\-Connection} (\hyperlink{classConnection}{Connection} c)
+\item 
+void \hyperlink{classSubstate_ad4b6a12d9cbb52240ad6b48f80564c46}{Set\-Mirror\-Index} (int i)
+\item 
+int \hyperlink{classSubstate_aeb9299af9f8c4ba676a223dc6c7ca9eb}{Get\-Mirror\-Index} () const 
 \end{DoxyCompactItemize}
 
 
@@ -75,7 +79,7 @@ Definition at line 3 of file Substate.\-cxx.
 )}}\label{classSubstate_a094e9816b8d0e1ca8a925060aa666a10}
 Copy constructor 
 
-Definition at line 12 of file Substate.\-cxx.
+Definition at line 13 of file Substate.\-cxx.
 
 
 
@@ -113,6 +117,17 @@ Return the magnetic quantum number
 
 Definition at line 43 of file Substate.\-h.
 
+\hypertarget{classSubstate_aeb9299af9f8c4ba676a223dc6c7ca9eb}{\index{Substate@{Substate}!Get\-Mirror\-Index@{Get\-Mirror\-Index}}
+\index{Get\-Mirror\-Index@{Get\-Mirror\-Index}!Substate@{Substate}}
+\subsubsection[{Get\-Mirror\-Index}]{\setlength{\rightskip}{0pt plus 5cm}int Substate\-::\-Get\-Mirror\-Index (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSubstate_aeb9299af9f8c4ba676a223dc6c7ca9eb}
+Get mirror state index (M = -\/\-M) for use with symmetry arguments 
+
+Definition at line 52 of file Substate.\-h.
+
 \hypertarget{classSubstate_a720d7bdf9c506bde448c9dd68eaa2914}{\index{Substate@{Substate}!Get\-Nconnections@{Get\-Nconnections}}
 \index{Get\-Nconnections@{Get\-Nconnections}!Substate@{Substate}}
 \subsubsection[{Get\-Nconnections}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Substate\-::\-Get\-Nconnections (
@@ -144,7 +159,7 @@ Definition at line 40 of file Substate.\-h.
 )}}\label{classSubstate_a1fdb1a8a82baf2d03f42a1b7ce37421d}
 Assignment operator 
 
-Definition at line 24 of file Substate.\-cxx.
+Definition at line 26 of file Substate.\-cxx.
 
 \hypertarget{classSubstate_ab36c3c3b2a3862f67d8f0ca69c79b625}{\index{Substate@{Substate}!Set\-M@{Set\-M}}
 \index{Set\-M@{Set\-M}!Substate@{Substate}}
@@ -156,6 +171,17 @@ Definition at line 24 of file Substate.\-cxx.
 Define the magnetic quantum number 
 
 Definition at line 44 of file Substate.\-h.
+
+\hypertarget{classSubstate_ad4b6a12d9cbb52240ad6b48f80564c46}{\index{Substate@{Substate}!Set\-Mirror\-Index@{Set\-Mirror\-Index}}
+\index{Set\-Mirror\-Index@{Set\-Mirror\-Index}!Substate@{Substate}}
+\subsubsection[{Set\-Mirror\-Index}]{\setlength{\rightskip}{0pt plus 5cm}void Substate\-::\-Set\-Mirror\-Index (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSubstate_ad4b6a12d9cbb52240ad6b48f80564c46}
+Define mirror state index (M = -\/\-M) for use with symmetry arguments 
+
+Definition at line 51 of file Substate.\-h.
 
 \hypertarget{classSubstate_ae5dc83066f50c796155954d7f9c3c1b8}{\index{Substate@{Substate}!Set\-State\-Index@{Set\-State\-Index}}
 \index{Set\-State\-Index@{Set\-State\-Index}!Substate@{Substate}}

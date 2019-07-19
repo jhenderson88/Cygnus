@@ -15,7 +15,7 @@ var searchData=
   ['addelement',['AddElement',['../classStateTensor.html#a830dc885eb4aa28cd39c144f07c2ec06',1,'StateTensor']]],
   ['addenergymeshpoint',['AddEnergyMeshpoint',['../classIntegral.html#a8b87a614966c357e0b6c094a561ec49f',1,'Integral']]],
   ['addexperiment',['AddExperiment',['../classScalingParameter.html#a0df5af5ed8792882f967e63809e00a25',1,'ScalingParameter']]],
-  ['addfittingmatrixelement',['AddFittingMatrixElement',['../classCoulExFitter.html#a8d2a0995d0d2239629e23810362177b8',1,'CoulExFitter']]],
+  ['addfittingmatrixelement',['AddFittingMatrixElement',['../classCoulExFitter.html#a8d2a0995d0d2239629e23810362177b8',1,'CoulExFitter::AddFittingMatrixElement()'],['../classMCMCWalker.html#a8890a051f7886b15e4e74dfeb7d49369',1,'MCMCWalker::AddFittingMatrixElement()']]],
   ['addlambda',['AddLambda',['../classConnection.html#a72732be03e5f2670f2c9d61b9fd65bc0',1,'Connection']]],
   ['addlifetime',['AddLifetime',['../classCoulExFitter.html#a5e2fa54175664c1ff80ec1562d7deb9d',1,'CoulExFitter']]],
   ['addmatrixelement',['AddMatrixElement',['../classCoulExFitter.html#ae2580c027c32cdd4eb5d4e6283b8bca1',1,'CoulExFitter']]],

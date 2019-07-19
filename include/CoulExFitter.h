@@ -153,21 +153,17 @@ class CoulExFitter {
 		void	SetLikelihoodFit(bool b = true)					{ fLikelihood = b;			}	/*!< Define whether we do a log-likelihood based fit (default: chi-squared) */
 		bool	LikelihoodFit()						const	{ return fLikelihood;			}	/*!< Return whether we do a log-likelihood based fit (default: chi-squared) */
 
-		std::vector<int>	GetFitIndices()					{ return index;				}
-		std::vector<double>	GetFitParameters()				{ return parameters;			}
-		std::vector<double>	GetFitUL()					{ return par_UL;			}
-		std::vector<double>	GetFitLL()					{ return par_LL;			}
+		std::vector<double>	GetFitParameters()				{ return parameters;			}	/*!< Return fit parameters - note that these will be updated with the fit result after the fit - Used in MCMC methods */
+		std::vector<double>	GetFitUL()					{ return par_UL;			}	/*!< Return the fit parameter upper limits - Used in MCMC methods */
+		std::vector<double>	GetFitLL()					{ return par_LL;			}	/*!< Return the fit parameter lower limits - Used in MCMC methods */
 
-		void    SetFitIndices(std::vector<int> i)				{ index = i;				}
-		void	SetFitParameters(std::vector<double> p)				{ parameters = p;			}
-		void	SetFitUL(std::vector<double> p)					{ par_UL = p;				}
-		void	SetFitLL(std::vector<double> p)					{ par_LL = p;				}
+		void	SetFitParameters(std::vector<double> p)				{ parameters = p;			}	/*!< Set the fit parameters - note that these will be updated after the fit has been performed - Used in MCMC methods */
+		void	SetFitUL(std::vector<double> p)					{ par_UL = p;				}	/*!< Set the fit parameter upper limits - Used in MCMC methods */
+		void	SetFitLL(std::vector<double> p)					{ par_LL = p;				}	/*!< Set the fit parameter lower limits - Used in MCMC methods */
 
-		void	SetFittingParameter(size_t i, double v)				{ parameters.at(i) = v;			}
+		void	SetFittingParameter(size_t i, double v)				{ parameters.at(i) = v;			}	/*!< Set an individual fitting parameter - Used in MCMC methods */
 	
 	private:
-
-		std::vector<int>		index;
 
 		std::vector<double>		parameters;			// Matrix elements + scaling factors
 		std::vector<double>		par_LL;				// Matrix elements + scaling factors - LOWER LIMIT

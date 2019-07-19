@@ -115,23 +115,24 @@ static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>double
 <tr class="memitem:a8d5d0375b3d7f48877572368e1cd605f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8d5d0375b3d7f48877572368e1cd605f"></a>
 static double&#160;</td><td class="memItemRight" valign="bottom"><b>SphericalHarmonics</b> (double, int, int, bool b=true)</td></tr>
 <tr class="separator:a8d5d0375b3d7f48877572368e1cd605f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a069d0139e00238f697b837a55f8c5616"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a069d0139e00238f697b837a55f8c5616"></a>
-static double&#160;</td><td class="memItemRight" valign="bottom"><b>SimpsonsRule</b> (TGraph *, int, double, double)</td></tr>
-<tr class="separator:a069d0139e00238f697b837a55f8c5616"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fdc08c8589cdeb940e62bf5f95f29d6"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMiscFunctions.html#a0fdc08c8589cdeb940e62bf5f95f29d6">SimpsonsRule</a> (TGraph *, int nSteps, double xMin, double xMax)</td></tr>
+<tr class="separator:a0fdc08c8589cdeb940e62bf5f95f29d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c114db3ac783fc2c303ef6d715cbee9"><td class="memItemLeft" align="right" valign="top">static TGraph *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMiscFunctions.html#a0c114db3ac783fc2c303ef6d715cbee9">PlotCrossSection</a> (<a class="el" href="classPointCoulEx.html">PointCoulEx</a> *, double, double, int, int, bool cm=true, int nPart=2)</td></tr>
+<tr class="separator:a0c114db3ac783fc2c303ef6d715cbee9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a979724afe1aa04bce4071b323a93bdd1"><td class="memItemLeft" align="right" valign="top">static TGraph *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMiscFunctions.html#a979724afe1aa04bce4071b323a93bdd1">PlotProbability</a> (<a class="el" href="classPointCoulEx.html">PointCoulEx</a> *, double, double, int, int, bool cm=true, int nPart=2)</td></tr>
+<tr class="separator:a979724afe1aa04bce4071b323a93bdd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:aa531a2ef1905c6293800d88b672a346c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa531a2ef1905c6293800d88b672a346c"></a>
-static double&#160;</td><td class="memItemRight" valign="bottom"><b>c</b> = 299792458</td></tr>
+<tr class="memitem:aa531a2ef1905c6293800d88b672a346c"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMiscFunctions.html#aa531a2ef1905c6293800d88b672a346c">c</a> = 299792458</td></tr>
 <tr class="separator:aa531a2ef1905c6293800d88b672a346c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45a1257814161b4a03617c6d3aac5543"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a45a1257814161b4a03617c6d3aac5543"></a>
-static double&#160;</td><td class="memItemRight" valign="bottom"><b>hbar</b> = 1.05457e-34</td></tr>
+<tr class="memitem:a45a1257814161b4a03617c6d3aac5543"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMiscFunctions.html#a45a1257814161b4a03617c6d3aac5543">hbar</a> = 1.05457e-34</td></tr>
 <tr class="separator:a45a1257814161b4a03617c6d3aac5543"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Useful static functions for use elsewhere in the software package. </p>
 
-<p>Definition at line <a class="el" href="MiscFunctions_8h_source.html#l00017">17</a> of file <a class="el" href="MiscFunctions_8h_source.html">MiscFunctions.h</a>.</p>
+<p>Definition at line <a class="el" href="MiscFunctions_8h_source.html#l00021">21</a> of file <a class="el" href="MiscFunctions_8h_source.html">MiscFunctions.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a013c73579d32d966d225b96304d39dda"></a>
 <div class="memitem">
@@ -184,6 +185,140 @@ static double&#160;</td><td class="memItemRight" valign="bottom"><b>hbar</b> = 1
 <p>Return the maximum value in a TMatrixD </p>
 
 <p>Definition at line <a class="el" href="MiscFunctions_8cxx_source.html#l00006">6</a> of file <a class="el" href="MiscFunctions_8cxx_source.html">MiscFunctions.cxx</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0c114db3ac783fc2c303ef6d715cbee9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TGraph * MiscFunctions::PlotCrossSection </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPointCoulEx.html">PointCoulEx</a> *&#160;</td>
+          <td class="paramname"><em>poin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>tMin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>tMax</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nTheta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nState</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>cm</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nPart</em> = <code>2</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Plot the excitation cross section to a state over a range of angles in the center of mass (cm = true) or lab (cm = false) frame </p>
+
+<p>Definition at line <a class="el" href="MiscFunctions_8cxx_source.html#l00273">273</a> of file <a class="el" href="MiscFunctions_8cxx_source.html">MiscFunctions.cxx</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a979724afe1aa04bce4071b323a93bdd1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TGraph * MiscFunctions::PlotProbability </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPointCoulEx.html">PointCoulEx</a> *&#160;</td>
+          <td class="paramname"><em>poin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>tMin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>tMax</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nTheta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nState</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>cm</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nPart</em> = <code>2</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Plot the excitation probability to a state over a range of angles in the center of mass (cm = true) or lab (cm = false) frame </p>
+
+<p>Definition at line <a class="el" href="MiscFunctions_8cxx_source.html#l00297">297</a> of file <a class="el" href="MiscFunctions_8cxx_source.html">MiscFunctions.cxx</a>.</p>
 
 </div>
 </div>
@@ -316,6 +451,55 @@ static double&#160;</td><td class="memItemRight" valign="bottom"><b>hbar</b> = 1
 
 </div>
 </div>
+<a class="anchor" id="a0fdc08c8589cdeb940e62bf5f95f29d6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double MiscFunctions::SimpsonsRule </td>
+          <td>(</td>
+          <td class="paramtype">TGraph *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nSteps</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>xMin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>xMax</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Perform a numerical integration of a TGraph using Simpson's rule using nSteps between xMin and xMax </p>
+
+<p>Definition at line <a class="el" href="MiscFunctions_8cxx_source.html#l00252">252</a> of file <a class="el" href="MiscFunctions_8cxx_source.html">MiscFunctions.cxx</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a53cef6044e7ce41d37789c2c76948226"></a>
 <div class="memitem">
 <div class="memproto">
@@ -356,6 +540,53 @@ static double&#160;</td><td class="memItemRight" valign="bottom"><b>hbar</b> = 1
 <p>Write a well formatted TMatrixD based on states from a <a class="el" href="classNucleus.html" title="Holds information about the nucleus for which the CoulEx calculation will be performed. ">Nucleus</a> object </p>
 
 <p>Definition at line <a class="el" href="MiscFunctions_8cxx_source.html#l00030">30</a> of file <a class="el" href="MiscFunctions_8cxx_source.html">MiscFunctions.cxx</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Field Documentation</h2>
+<a class="anchor" id="aa531a2ef1905c6293800d88b672a346c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double MiscFunctions::c = 299792458</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Speed of light for use in calculations </p>
+
+<p>Definition at line <a class="el" href="MiscFunctions_8h_source.html#l00033">33</a> of file <a class="el" href="MiscFunctions_8h_source.html">MiscFunctions.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a45a1257814161b4a03617c6d3aac5543"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double MiscFunctions::hbar = 1.05457e-34</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Planks constant / 2pi for use in calculations </p>
+
+<p>Definition at line <a class="el" href="MiscFunctions_8h_source.html#l00034">34</a> of file <a class="el" href="MiscFunctions_8h_source.html">MiscFunctions.h</a>.</p>
 
 </div>
 </div>

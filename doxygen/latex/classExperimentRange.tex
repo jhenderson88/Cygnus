@@ -86,6 +86,14 @@ double \hyperlink{classExperimentRange_a33b2e3936a2d5933397e82bdcd29d06c}{Get\-I
 void \hyperlink{classExperimentRange_a90e7681ee2de091d7011d546922763d1}{Set\-Use\-Fit} (bool b=true)
 \item 
 bool \hyperlink{classExperimentRange_a3091c15329dd483ad78d1a14370c3111}{Use\-Fit} () const 
+\item 
+void \hyperlink{classExperimentRange_a21dcba393bf6ebb91c00ed8905216be5}{Set\-Use\-Symmetry} (bool b=true)
+\item 
+bool \hyperlink{classExperimentRange_addecffed92c4b2f7072c19d1dfcc5cb1}{Use\-Symmetry} () const 
+\item 
+void \hyperlink{classExperimentRange_a4885e22d841b39492688eae10f101eb2}{Fix\-Step} (bool b=true)
+\item 
+bool \hyperlink{classExperimentRange_a882a794265e1b146e6e3902626a579fd}{Use\-Fixed\-Step} () const 
 \end{DoxyCompactItemize}
 
 
@@ -109,7 +117,7 @@ Definition at line 37 of file Experiment\-Range.\-h.
 )}}\label{classExperimentRange_a79480db17f0803e470c5f7100c84f8c8}
 Constructor with a \hyperlink{classNucleus}{Nucleus} and \hyperlink{classReaction}{Reaction} class 
 
-Definition at line 20 of file Experiment\-Range.\-cxx.
+Definition at line 23 of file Experiment\-Range.\-cxx.
 
 \hypertarget{classExperimentRange_a092597ab070b91bab8bba8b171d39fda}{\index{Experiment\-Range@{Experiment\-Range}!Experiment\-Range@{Experiment\-Range}}
 \index{Experiment\-Range@{Experiment\-Range}!ExperimentRange@{Experiment\-Range}}
@@ -120,11 +128,22 @@ Definition at line 20 of file Experiment\-Range.\-cxx.
 )}}\label{classExperimentRange_a092597ab070b91bab8bba8b171d39fda}
 Copy constructor 
 
-Definition at line 40 of file Experiment\-Range.\-cxx.
+Definition at line 46 of file Experiment\-Range.\-cxx.
 
 
 
 \subsection{Member Function Documentation}
+\hypertarget{classExperimentRange_a4885e22d841b39492688eae10f101eb2}{\index{Experiment\-Range@{Experiment\-Range}!Fix\-Step@{Fix\-Step}}
+\index{Fix\-Step@{Fix\-Step}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Fix\-Step}]{\setlength{\rightskip}{0pt plus 5cm}void Experiment\-Range\-::\-Fix\-Step (
+\begin{DoxyParamCaption}
+\item[{bool}]{b = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentRange_a4885e22d841b39492688eae10f101eb2}
+Set whether a fixed step (d\-Omega = 0.\-03, accuracy 1e-\/6) can be used -\/ approx. equivalent to G\-O\-S\-I\-A I\-N\-T,1000 
+
+Definition at line 126 of file Experiment\-Range.\-h.
+
 \hypertarget{classExperimentRange_af06d3d2a7d54cd09ee413c1b7f54e74e}{\index{Experiment\-Range@{Experiment\-Range}!Get\-E\-Max@{Get\-E\-Max}}
 \index{Get\-E\-Max@{Get\-E\-Max}!ExperimentRange@{Experiment\-Range}}
 \subsubsection[{Get\-E\-Max}]{\setlength{\rightskip}{0pt plus 5cm}double Experiment\-Range\-::\-Get\-E\-Max (
@@ -222,7 +241,7 @@ Definition at line 101 of file Experiment\-Range.\-h.
 )}}\label{classExperimentRange_a5c660c8ac6f863d179ca2d465a0eaa3e}
 Create a T\-Graph2\-D of the Rutherford cross section over theta (cm) and energy 
 
-Definition at line 516 of file Experiment\-Range.\-cxx.
+Definition at line 531 of file Experiment\-Range.\-cxx.
 
 \hypertarget{classExperimentRange_a047d78a553fbfbaf8d7a840ecdbbb03e}{\index{Experiment\-Range@{Experiment\-Range}!Get\-Theta\-Energy\-Graph@{Get\-Theta\-Energy\-Graph}}
 \index{Get\-Theta\-Energy\-Graph@{Get\-Theta\-Energy\-Graph}!ExperimentRange@{Experiment\-Range}}
@@ -233,7 +252,7 @@ Definition at line 516 of file Experiment\-Range.\-cxx.
 )}}\label{classExperimentRange_a047d78a553fbfbaf8d7a840ecdbbb03e}
 Return the cross-\/section graph vs theta and energy for a given state, s 
 
-Definition at line 612 of file Experiment\-Range.\-cxx.
+Definition at line 627 of file Experiment\-Range.\-cxx.
 
 \hypertarget{classExperimentRange_a93a9a3a0216f1abfb874b404e4c13601}{\index{Experiment\-Range@{Experiment\-Range}!Get\-Theta\-Max@{Get\-Theta\-Max}}
 \index{Get\-Theta\-Max@{Get\-Theta\-Max}!ExperimentRange@{Experiment\-Range}}
@@ -266,7 +285,7 @@ Definition at line 91 of file Experiment\-Range.\-h.
 )}}\label{classExperimentRange_afbbbb4137620aa9ce50c2a42c7b7ed5d}
 Perform the integration over the theta and energy ranges 
 
-Definition at line 120 of file Experiment\-Range.\-cxx.
+Definition at line 132 of file Experiment\-Range.\-cxx.
 
 \hypertarget{classExperimentRange_af75dd0bb5ca1f09b00009409edbf82cb}{\index{Experiment\-Range@{Experiment\-Range}!Integrate\-Rutherford@{Integrate\-Rutherford}}
 \index{Integrate\-Rutherford@{Integrate\-Rutherford}!ExperimentRange@{Experiment\-Range}}
@@ -277,7 +296,7 @@ Definition at line 120 of file Experiment\-Range.\-cxx.
 )}}\label{classExperimentRange_af75dd0bb5ca1f09b00009409edbf82cb}
 Integrate the Rutherford cross section over the angle and energy range 
 
-Definition at line 397 of file Experiment\-Range.\-cxx.
+Definition at line 412 of file Experiment\-Range.\-cxx.
 
 \hypertarget{classExperimentRange_a7814ead31c329c275f928dbf97d7b68b}{\index{Experiment\-Range@{Experiment\-Range}!Interpolated\-Energy\-Theta@{Interpolated\-Energy\-Theta}}
 \index{Interpolated\-Energy\-Theta@{Interpolated\-Energy\-Theta}!ExperimentRange@{Experiment\-Range}}
@@ -289,7 +308,7 @@ Definition at line 397 of file Experiment\-Range.\-cxx.
 )}}\label{classExperimentRange_a7814ead31c329c275f928dbf97d7b68b}
 Perform an interpolation between the meshpoints determined in the integration 
 
-Definition at line 280 of file Experiment\-Range.\-cxx.
+Definition at line 295 of file Experiment\-Range.\-cxx.
 
 \hypertarget{classExperimentRange_a241106c9e2ecdd984b3ed38987f439bd}{\index{Experiment\-Range@{Experiment\-Range}!operator=@{operator=}}
 \index{operator=@{operator=}!ExperimentRange@{Experiment\-Range}}
@@ -300,7 +319,7 @@ Definition at line 280 of file Experiment\-Range.\-cxx.
 )}}\label{classExperimentRange_a241106c9e2ecdd984b3ed38987f439bd}
 Assignment operator 
 
-Definition at line 77 of file Experiment\-Range.\-cxx.
+Definition at line 86 of file Experiment\-Range.\-cxx.
 
 \hypertarget{classExperimentRange_a78aeaf6af38c928af3c390d0dbd23cd2}{\index{Experiment\-Range@{Experiment\-Range}!Print\-Details@{Print\-Details}}
 \index{Print\-Details@{Print\-Details}!ExperimentRange@{Experiment\-Range}}
@@ -311,7 +330,7 @@ Definition at line 77 of file Experiment\-Range.\-cxx.
 ) const}}\label{classExperimentRange_a78aeaf6af38c928af3c390d0dbd23cd2}
 Print the details of the experimental range 
 
-Definition at line 657 of file Experiment\-Range.\-cxx.
+Definition at line 672 of file Experiment\-Range.\-cxx.
 
 \hypertarget{classExperimentRange_a0043948469f3eaa80e4c17783614941c}{\index{Experiment\-Range@{Experiment\-Range}!Set\-Accuracy@{Set\-Accuracy}}
 \index{Set\-Accuracy@{Set\-Accuracy}!ExperimentRange@{Experiment\-Range}}
@@ -366,7 +385,7 @@ Definition at line 70 of file Experiment\-Range.\-h.
 )}}\label{classExperimentRange_a0e190c12e091608e70d44695f946c7c9}
 Define the mean theta and mean energy, for use in the point calculations 
 
-Definition at line 640 of file Experiment\-Range.\-cxx.
+Definition at line 655 of file Experiment\-Range.\-cxx.
 
 \hypertarget{classExperimentRange_a84cd068a026d0ab30ac0612aee68f74b}{\index{Experiment\-Range@{Experiment\-Range}!Set\-Nenergy@{Set\-Nenergy}}
 \index{Set\-Nenergy@{Set\-Nenergy}!ExperimentRange@{Experiment\-Range}}
@@ -484,6 +503,17 @@ Use a fit to interpolate. Default is a spline
 
 Definition at line 120 of file Experiment\-Range.\-h.
 
+\hypertarget{classExperimentRange_a21dcba393bf6ebb91c00ed8905216be5}{\index{Experiment\-Range@{Experiment\-Range}!Set\-Use\-Symmetry@{Set\-Use\-Symmetry}}
+\index{Set\-Use\-Symmetry@{Set\-Use\-Symmetry}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Set\-Use\-Symmetry}]{\setlength{\rightskip}{0pt plus 5cm}void Experiment\-Range\-::\-Set\-Use\-Symmetry (
+\begin{DoxyParamCaption}
+\item[{bool}]{b = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentRange_a21dcba393bf6ebb91c00ed8905216be5}
+Sets whether symmetry arguments can be used to speed up the calculation (default = true) 
+
+Definition at line 123 of file Experiment\-Range.\-h.
+
 \hypertarget{classExperimentRange_a95d3a225080af35191f59fe518bdb10f}{\index{Experiment\-Range@{Experiment\-Range}!Set\-Verbose@{Set\-Verbose}}
 \index{Set\-Verbose@{Set\-Verbose}!ExperimentRange@{Experiment\-Range}}
 \subsubsection[{Set\-Verbose}]{\setlength{\rightskip}{0pt plus 5cm}void Experiment\-Range\-::\-Set\-Verbose (
@@ -516,6 +546,28 @@ Definition at line 112 of file Experiment\-Range.\-h.
 Return whether using a fit to perform interpolation 
 
 Definition at line 121 of file Experiment\-Range.\-h.
+
+\hypertarget{classExperimentRange_a882a794265e1b146e6e3902626a579fd}{\index{Experiment\-Range@{Experiment\-Range}!Use\-Fixed\-Step@{Use\-Fixed\-Step}}
+\index{Use\-Fixed\-Step@{Use\-Fixed\-Step}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Use\-Fixed\-Step}]{\setlength{\rightskip}{0pt plus 5cm}bool Experiment\-Range\-::\-Use\-Fixed\-Step (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentRange_a882a794265e1b146e6e3902626a579fd}
+Return whether a fixed step will be used for the Coul\-Ex calculation 
+
+Definition at line 127 of file Experiment\-Range.\-h.
+
+\hypertarget{classExperimentRange_addecffed92c4b2f7072c19d1dfcc5cb1}{\index{Experiment\-Range@{Experiment\-Range}!Use\-Symmetry@{Use\-Symmetry}}
+\index{Use\-Symmetry@{Use\-Symmetry}!ExperimentRange@{Experiment\-Range}}
+\subsubsection[{Use\-Symmetry}]{\setlength{\rightskip}{0pt plus 5cm}bool Experiment\-Range\-::\-Use\-Symmetry (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classExperimentRange_addecffed92c4b2f7072c19d1dfcc5cb1}
+Returns whether symmetry arguments can be used to speed up the calculation 
+
+Definition at line 124 of file Experiment\-Range.\-h.
 
 
 

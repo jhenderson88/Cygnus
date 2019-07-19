@@ -102,16 +102,17 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:adbeac7ddd28892dcc254452e6365e851"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1345958656129277ed4371937903b363"><td class="memItemLeft" align="right" valign="top">static TMatrixD&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGammaYield.html#a1345958656129277ed4371937903b363">GammaRayYield</a> (<a class="el" href="classExperimentRange.html">ExperimentRange</a> r, <a class="el" href="classTransitionRates.html">TransitionRates</a> t)</td></tr>
 <tr class="separator:a1345958656129277ed4371937903b363"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc91c5581c8f77170515083002d8422f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGammaYield.html#adc91c5581c8f77170515083002d8422f">PrintYields</a> (<a class="el" href="classExperimentRange.html">ExperimentRange</a> r, <a class="el" href="classTransitionRates.html">TransitionRates</a> t, <a class="el" href="classNucleus.html">Nucleus</a> n)</td></tr>
-<tr class="separator:adc91c5581c8f77170515083002d8422f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a83680f6744d15cc4764312cf90a66e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8a83680f6744d15cc4764312cf90a66e"></a>
-static double&#160;</td><td class="memItemRight" valign="bottom"><b>GetYield</b> (<a class="el" href="classExperimentRange.html">ExperimentRange</a> r, <a class="el" href="classTransitionRates.html">TransitionRates</a> t, <a class="el" href="classNucleus.html">Nucleus</a> n, int i, int f)</td></tr>
+<tr class="memitem:aae8b1e302534834dc32f990f2d8e7946"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGammaYield.html#aae8b1e302534834dc32f990f2d8e7946">PrintYields</a> (<a class="el" href="classExperimentRange.html">ExperimentRange</a> r, <a class="el" href="classTransitionRates.html">TransitionRates</a> t, <a class="el" href="classNucleus.html">Nucleus</a> n, double scale=1)</td></tr>
+<tr class="separator:aae8b1e302534834dc32f990f2d8e7946"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb91801ba3431b7642f91977aa794791"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGammaYield.html#aeb91801ba3431b7642f91977aa794791">WriteYields</a> (<a class="el" href="classExperimentRange.html">ExperimentRange</a> r, <a class="el" href="classTransitionRates.html">TransitionRates</a> t, <a class="el" href="classNucleus.html">Nucleus</a> n, std::ofstream &amp;outfile, double scale=1)</td></tr>
+<tr class="separator:aeb91801ba3431b7642f91977aa794791"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a83680f6744d15cc4764312cf90a66e"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGammaYield.html#a8a83680f6744d15cc4764312cf90a66e">GetYield</a> (<a class="el" href="classExperimentRange.html">ExperimentRange</a> r, <a class="el" href="classTransitionRates.html">TransitionRates</a> t, <a class="el" href="classNucleus.html">Nucleus</a> n, int i, int f)</td></tr>
 <tr class="separator:a8a83680f6744d15cc4764312cf90a66e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Converts cross sections to gamma-ray yields. </p>
 
-<p>Definition at line <a class="el" href="GammaYield_8h_source.html#l00016">16</a> of file <a class="el" href="GammaYield_8h_source.html">GammaYield.h</a>.</p>
+<p>Definition at line <a class="el" href="GammaYield_8h_source.html#l00019">19</a> of file <a class="el" href="GammaYield_8h_source.html">GammaYield.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="ae2eae4ee7762789e0a70765e09b8383e"></a>
 <div class="memitem">
@@ -183,7 +184,7 @@ static double&#160;</td><td class="memItemRight" valign="bottom"><b>GetYield</b>
 </div><div class="memdoc">
 <p>Matrix of gamma-ray yields from TVectorD (cross-sections) and <a class="el" href="classTransitionRates.html" title="Determine spectroscopic information from matrix elements. ">TransitionRates</a> object </p>
 
-<p>Definition at line <a class="el" href="GammaYield_8h_source.html#l00023">23</a> of file <a class="el" href="GammaYield_8h_source.html">GammaYield.h</a>.</p>
+<p>Definition at line <a class="el" href="GammaYield_8h_source.html#l00026">26</a> of file <a class="el" href="GammaYield_8h_source.html">GammaYield.h</a>.</p>
 
 </div>
 </div>
@@ -220,11 +221,66 @@ static double&#160;</td><td class="memItemRight" valign="bottom"><b>GetYield</b>
 </div><div class="memdoc">
 <p>Matrix of gamma-ray yields from an <a class="el" href="classExperimentRange.html" title="Define an experimental range, for determining integrated yields. ">ExperimentRange</a> (cross-sections) and <a class="el" href="classTransitionRates.html" title="Determine spectroscopic information from matrix elements. ">TransitionRates</a> object </p>
 
-<p>Definition at line <a class="el" href="GammaYield_8h_source.html#l00024">24</a> of file <a class="el" href="GammaYield_8h_source.html">GammaYield.h</a>.</p>
+<p>Definition at line <a class="el" href="GammaYield_8h_source.html#l00027">27</a> of file <a class="el" href="GammaYield_8h_source.html">GammaYield.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="adc91c5581c8f77170515083002d8422f"></a>
+<a class="anchor" id="a8a83680f6744d15cc4764312cf90a66e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double GammaYield::GetYield </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classExperimentRange.html">ExperimentRange</a>&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classTransitionRates.html">TransitionRates</a>&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classNucleus.html">Nucleus</a>&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>f</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return a yield for a single transition between initial state i and final state f </p>
+
+<p>Definition at line <a class="el" href="GammaYield_8cxx_source.html#l00082">82</a> of file <a class="el" href="GammaYield_8cxx_source.html">GammaYield.cxx</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aae8b1e302534834dc32f990f2d8e7946"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -247,7 +303,13 @@ static double&#160;</td><td class="memItemRight" valign="bottom"><b>GetYield</b>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="classNucleus.html">Nucleus</a>&#160;</td>
-          <td class="paramname"><em>n</em>&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>scale</em> = <code>1</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -262,6 +324,61 @@ static double&#160;</td><td class="memItemRight" valign="bottom"><b>GetYield</b>
 </table>
 </div><div class="memdoc">
 <p>Print well-formatted yields based on <a class="el" href="classExperimentRange.html" title="Define an experimental range, for determining integrated yields. ">ExperimentRange</a> (cross-sections), <a class="el" href="classTransitionRates.html" title="Determine spectroscopic information from matrix elements. ">TransitionRates</a> (branching ratios) and <a class="el" href="classNucleus.html" title="Holds information about the nucleus for which the CoulEx calculation will be performed. ">Nucleus</a> (level labelling) objects </p>
+
+<p>Definition at line <a class="el" href="GammaYield_8cxx_source.html#l00053">53</a> of file <a class="el" href="GammaYield_8cxx_source.html">GammaYield.cxx</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aeb91801ba3431b7642f91977aa794791"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GammaYield::WriteYields </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classExperimentRange.html">ExperimentRange</a>&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classTransitionRates.html">TransitionRates</a>&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classNucleus.html">Nucleus</a>&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::ofstream &amp;&#160;</td>
+          <td class="paramname"><em>outfile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>scale</em> = <code>1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Write well-formatted yields to file based on <a class="el" href="classExperimentRange.html" title="Define an experimental range, for determining integrated yields. ">ExperimentRange</a> (cross-sections), <a class="el" href="classTransitionRates.html" title="Determine spectroscopic information from matrix elements. ">TransitionRates</a> (branching ratios) and <a class="el" href="classNucleus.html" title="Holds information about the nucleus for which the CoulEx calculation will be performed. ">Nucleus</a> (level labelling) objects </p>
 
 <p>Definition at line <a class="el" href="GammaYield_8cxx_source.html#l00025">25</a> of file <a class="el" href="GammaYield_8cxx_source.html">GammaYield.cxx</a>.</p>
 

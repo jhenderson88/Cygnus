@@ -149,6 +149,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3d7ffeb56e3b5da4567b7c66e7d495cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4e9c4f0f2e00a52d6651eec01d8109e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntegral.html#af4e9c4f0f2e00a52d6651eec01d8109e">IntegralComplete</a> ()</td></tr>
 <tr class="separator:af4e9c4f0f2e00a52d6651eec01d8109e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51c1c84c25d323b4f27f9f70d0ce2318"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntegral.html#a51c1c84c25d323b4f27f9f70d0ce2318">SetUseSymmetry</a> (bool b=true)</td></tr>
+<tr class="separator:a51c1c84c25d323b4f27f9f70d0ce2318"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90ab017beb6086d40e009cf5d260a9a0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntegral.html#a90ab017beb6086d40e009cf5d260a9a0">UseSymmetry</a> () const </td></tr>
+<tr class="separator:a90ab017beb6086d40e009cf5d260a9a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a055018e0bea5e22c5ad09ce1baa919fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntegral.html#a055018e0bea5e22c5ad09ce1baa919fc">FixStep</a> (bool b=true)</td></tr>
+<tr class="separator:a055018e0bea5e22c5ad09ce1baa919fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfb413dfcb3227602102ea73d25a59f1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntegral.html#acfb413dfcb3227602102ea73d25a59f1">UseFixedStep</a> () const </td></tr>
+<tr class="separator:acfb413dfcb3227602102ea73d25a59f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Perform the point calculations at the user defined energy and theta meshpoints. </p>
@@ -183,7 +191,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Construct the <a class="el" href="classIntegral.html" title="Perform the point calculations at the user defined energy and theta meshpoints. ">Integral</a> object with a <a class="el" href="classNucleus.html" title="Holds information about the nucleus for which the CoulEx calculation will be performed. ">Nucleus</a> and <a class="el" href="classReaction.html" title="Define the reaction kinematics. ">Reaction</a> </p>
 
-<p>Definition at line <a class="el" href="Integral_8cxx_source.html#l00030">30</a> of file <a class="el" href="Integral_8cxx_source.html">Integral.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Integral_8cxx_source.html#l00033">33</a> of file <a class="el" href="Integral_8cxx_source.html">Integral.cxx</a>.</p>
 
 </div>
 </div>
@@ -202,7 +210,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Copy constructor </p>
 
-<p>Definition at line <a class="el" href="Integral_8cxx_source.html#l00048">48</a> of file <a class="el" href="Integral_8cxx_source.html">Integral.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Integral_8cxx_source.html#l00054">54</a> of file <a class="el" href="Integral_8cxx_source.html">Integral.cxx</a>.</p>
 
 </div>
 </div>
@@ -275,7 +283,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Perform the integration over the theta and energy meshpoints </p>
 
-<p>Definition at line <a class="el" href="Integral_8cxx_source.html#l00150">150</a> of file <a class="el" href="Integral_8cxx_source.html">Integral.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Integral_8cxx_source.html#l00162">162</a> of file <a class="el" href="Integral_8cxx_source.html">Integral.cxx</a>.</p>
 
 </div>
 </div>
@@ -328,6 +336,33 @@ Public Member Functions</h2></td></tr>
 <p>Clear the theta meshpoint vector </p>
 
 <p>Definition at line <a class="el" href="Integral_8h_source.html#l00053">53</a> of file <a class="el" href="Integral_8h_source.html">Integral.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a055018e0bea5e22c5ad09ce1baa919fc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Integral::FixStep </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>b</em> = <code>true</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Set whether a fixed step (dOmega = 0.03, accuracy 1e-6) can be used - approx. equivalent to GOSIA INT,1000 </p>
+
+<p>Definition at line <a class="el" href="Integral_8h_source.html#l00085">85</a> of file <a class="el" href="Integral_8h_source.html">Integral.h</a>.</p>
 
 </div>
 </div>
@@ -528,7 +563,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns the vector of TVectorD values containing the probabilities at each meshpoint </p>
 
-<p>Definition at line <a class="el" href="Integral_8cxx_source.html#l00319">319</a> of file <a class="el" href="Integral_8cxx_source.html">Integral.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Integral_8cxx_source.html#l00333">333</a> of file <a class="el" href="Integral_8cxx_source.html">Integral.cxx</a>.</p>
 
 </div>
 </div>
@@ -600,7 +635,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Assigment operator </p>
 
-<p>Definition at line <a class="el" href="Integral_8cxx_source.html#l00084">84</a> of file <a class="el" href="Integral_8cxx_source.html">Integral.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Integral_8cxx_source.html#l00093">93</a> of file <a class="el" href="Integral_8cxx_source.html">Integral.cxx</a>.</p>
 
 </div>
 </div>
@@ -656,7 +691,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add a new energy meshpoint. If i is smaller than the current size of the meshpoints vector, e is added at position i. Otherwise, the meshpoint t is appended to the vector. </p>
 
-<p>Definition at line <a class="el" href="Integral_8cxx_source.html#l00138">138</a> of file <a class="el" href="Integral_8cxx_source.html">Integral.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Integral_8cxx_source.html#l00150">150</a> of file <a class="el" href="Integral_8cxx_source.html">Integral.cxx</a>.</p>
 
 </div>
 </div>
@@ -766,7 +801,34 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add a new theta meshpoint. If i is smaller than the current size of the meshpoints vector, t is added at position i. Otherwise, the meshpoint t is appended to the vector. </p>
 
-<p>Definition at line <a class="el" href="Integral_8cxx_source.html#l00127">127</a> of file <a class="el" href="Integral_8cxx_source.html">Integral.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Integral_8cxx_source.html#l00139">139</a> of file <a class="el" href="Integral_8cxx_source.html">Integral.cxx</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a51c1c84c25d323b4f27f9f70d0ce2318"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Integral::SetUseSymmetry </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>b</em> = <code>true</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Sets whether symmetry arguments can be used to speed up the calculation (default = true) </p>
+
+<p>Definition at line <a class="el" href="Integral_8h_source.html#l00082">82</a> of file <a class="el" href="Integral_8h_source.html">Integral.h</a>.</p>
 
 </div>
 </div>
@@ -794,6 +856,58 @@ Public Member Functions</h2></td></tr>
 <p>Define verbocity of calculations </p>
 
 <p>Definition at line <a class="el" href="Integral_8h_source.html#l00071">71</a> of file <a class="el" href="Integral_8h_source.html">Integral.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acfb413dfcb3227602102ea73d25a59f1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Integral::UseFixedStep </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return whether a fixed step will be used for the CoulEx calculation </p>
+
+<p>Definition at line <a class="el" href="Integral_8h_source.html#l00086">86</a> of file <a class="el" href="Integral_8h_source.html">Integral.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a90ab017beb6086d40e009cf5d260a9a0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Integral::UseSymmetry </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns whether symmetry arguments can be used to speed up the calculation </p>
+
+<p>Definition at line <a class="el" href="Integral_8h_source.html#l00083">83</a> of file <a class="el" href="Integral_8h_source.html">Integral.h</a>.</p>
 
 </div>
 </div>

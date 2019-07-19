@@ -116,6 +116,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af5850558a667f170661f5fcb7bcc9f28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14f86d11fdf7540b3a6efd5006900cea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSubstate.html#a14f86d11fdf7540b3a6efd5006900cea">AddConnection</a> (<a class="el" href="classConnection.html">Connection</a> c)</td></tr>
 <tr class="separator:a14f86d11fdf7540b3a6efd5006900cea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4b6a12d9cbb52240ad6b48f80564c46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSubstate.html#ad4b6a12d9cbb52240ad6b48f80564c46">SetMirrorIndex</a> (int i)</td></tr>
+<tr class="separator:ad4b6a12d9cbb52240ad6b48f80564c46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb9299af9f8c4ba676a223dc6c7ca9eb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSubstate.html#aeb9299af9f8c4ba676a223dc6c7ca9eb">GetMirrorIndex</a> () const </td></tr>
+<tr class="separator:aeb9299af9f8c4ba676a223dc6c7ca9eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Holder class for substate information. </p>
@@ -177,7 +181,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Copy constructor </p>
 
-<p>Definition at line <a class="el" href="Substate_8cxx_source.html#l00012">12</a> of file <a class="el" href="Substate_8cxx_source.html">Substate.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Substate_8cxx_source.html#l00013">13</a> of file <a class="el" href="Substate_8cxx_source.html">Substate.cxx</a>.</p>
 
 </div>
 </div>
@@ -262,6 +266,32 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="aeb9299af9f8c4ba676a223dc6c7ca9eb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Substate::GetMirrorIndex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get mirror state index (M = -M) for use with symmetry arguments </p>
+
+<p>Definition at line <a class="el" href="Substate_8h_source.html#l00052">52</a> of file <a class="el" href="Substate_8h_source.html">Substate.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a720d7bdf9c506bde448c9dd68eaa2914"></a>
 <div class="memitem">
 <div class="memproto">
@@ -329,7 +359,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Assignment operator </p>
 
-<p>Definition at line <a class="el" href="Substate_8cxx_source.html#l00024">24</a> of file <a class="el" href="Substate_8cxx_source.html">Substate.cxx</a>.</p>
+<p>Definition at line <a class="el" href="Substate_8cxx_source.html#l00026">26</a> of file <a class="el" href="Substate_8cxx_source.html">Substate.cxx</a>.</p>
 
 </div>
 </div>
@@ -357,6 +387,33 @@ Public Member Functions</h2></td></tr>
 <p>Define the magnetic quantum number </p>
 
 <p>Definition at line <a class="el" href="Substate_8h_source.html#l00044">44</a> of file <a class="el" href="Substate_8h_source.html">Substate.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad4b6a12d9cbb52240ad6b48f80564c46"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Substate::SetMirrorIndex </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Define mirror state index (M = -M) for use with symmetry arguments </p>
+
+<p>Definition at line <a class="el" href="Substate_8h_source.html#l00051">51</a> of file <a class="el" href="Substate_8h_source.html">Substate.h</a>.</p>
 
 </div>
 </div>

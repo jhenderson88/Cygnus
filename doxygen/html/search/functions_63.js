@@ -20,5 +20,5 @@ var searchData=
   ['convertthetalabtocm',['ConvertThetaLabToCm',['../classReaction.html#a1201e1afefe6cc09db1c96faf398f318',1,'Reaction']]],
   ['coulexminfcn',['CoulExMinFCN',['../classCoulExMinFCN.html#adbe1821d52bea6bdc1ec188958fe3e72',1,'CoulExMinFCN']]],
   ['coulexsimminfcn',['CoulExSimMinFCN',['../classCoulExSimMinFCN.html#a5b602166e9869a3315d91240688ff80b',1,'CoulExSimMinFCN']]],
-  ['createscalingparameter',['CreateScalingParameter',['../classCoulExFitter.html#a5241e2d16d908fc409a2bd078846fa5e',1,'CoulExFitter::CreateScalingParameter()'],['../classCoulExSimFitter.html#a06aa31eb9c4dc51a2c69188373bf292d',1,'CoulExSimFitter::CreateScalingParameter()']]]
+  ['createscalingparameter',['CreateScalingParameter',['../classCoulExFitter.html#a5241e2d16d908fc409a2bd078846fa5e',1,'CoulExFitter::CreateScalingParameter()'],['../classCoulExSimFitter.html#a06aa31eb9c4dc51a2c69188373bf292d',1,'CoulExSimFitter::CreateScalingParameter()'],['../classMCMCWalker.html#aad4526c93ec92271d749c0ede942513b',1,'MCMCWalker::CreateScalingParameter()']]]
 ];

@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['c',['c',['../classMiscFunctions.html#aa531a2ef1905c6293800d88b672a346c',1,'MiscFunctions']]],
   ['calculateintegral',['CalculateIntegral',['../classIntegral.html#a9afe2a7e70e391621fdd1c1a8ccec9c7',1,'Integral']]],
   ['calculatepointprobabilities',['CalculatePointProbabilities',['../classPointCoulEx.html#a350a143e891ac63bb7088559a20081dc',1,'PointCoulEx']]],
   ['calculatetensors',['CalculateTensors',['../classPointCoulEx.html#a276ea0591ad200fbd40a53ac80c61634',1,'PointCoulEx']]],
@@ -22,5 +23,5 @@ var searchData=
   ['coulexminfcn',['CoulExMinFCN',['../classCoulExMinFCN.html',1,'CoulExMinFCN'],['../classCoulExMinFCN.html#adbe1821d52bea6bdc1ec188958fe3e72',1,'CoulExMinFCN::CoulExMinFCN()']]],
   ['coulexsimfitter',['CoulExSimFitter',['../classCoulExSimFitter.html',1,'']]],
   ['coulexsimminfcn',['CoulExSimMinFCN',['../classCoulExSimMinFCN.html',1,'CoulExSimMinFCN'],['../classCoulExSimMinFCN.html#a5b602166e9869a3315d91240688ff80b',1,'CoulExSimMinFCN::CoulExSimMinFCN()']]],
-  ['createscalingparameter',['CreateScalingParameter',['../classCoulExFitter.html#a5241e2d16d908fc409a2bd078846fa5e',1,'CoulExFitter::CreateScalingParameter()'],['../classCoulExSimFitter.html#a06aa31eb9c4dc51a2c69188373bf292d',1,'CoulExSimFitter::CreateScalingParameter()']]]
+  ['createscalingparameter',['CreateScalingParameter',['../classCoulExFitter.html#a5241e2d16d908fc409a2bd078846fa5e',1,'CoulExFitter::CreateScalingParameter()'],['../classCoulExSimFitter.html#a06aa31eb9c4dc51a2c69188373bf292d',1,'CoulExSimFitter::CreateScalingParameter()'],['../classMCMCWalker.html#aad4526c93ec92271d749c0ede942513b',1,'MCMCWalker::CreateScalingParameter()']]]
 ];

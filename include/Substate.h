@@ -48,8 +48,8 @@ class Substate {
 	
 		void			AddConnection(Connection c)	{ fConnections.push_back(c);		}	/*!< Define a new connection to another substate */
 
-		void			SetMirrorIndex(int i)		{ fMirrorIndex = i;			}
-		int			GetMirrorIndex()	const	{ return fMirrorIndex;			}
+		void			SetMirrorIndex(int i)		{ fMirrorIndex = i;			}	/*!< Define mirror state index (M = -M) for use with symmetry arguments */
+		int			GetMirrorIndex()	const	{ return fMirrorIndex;			}	/*!< Get mirror state index (M = -M) for use with symmetry arguments */
 
 	private:
 		int 			fSubstateIndex;

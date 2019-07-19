@@ -1,0 +1,163 @@
+\hypertarget{classMCMCWalker}{\section{M\-C\-M\-C\-Walker Class Reference}
+\label{classMCMCWalker}\index{M\-C\-M\-C\-Walker@{M\-C\-M\-C\-Walker}}
+}
+
+
+Markov-\/\-Chain Monte Carlo iterator.  
+
+
+
+
+{\ttfamily \#include $<$M\-C\-M\-C\-Walker.\-h$>$}
+
+Inheritance diagram for M\-C\-M\-C\-Walker\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classMCMCWalker}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMCMCWalker_accc107b974667b36797f3d66e59c191e}{M\-C\-M\-C\-Walker} ()
+\item 
+virtual \hyperlink{classMCMCWalker_a9e7c2ab3ad45e714c5ec1981fd628d62}{$\sim$\-M\-C\-M\-C\-Walker} ()
+\item 
+void \hyperlink{classMCMCWalker_a8890a051f7886b15e4e74dfeb7d49369}{Add\-Fitting\-Matrix\-Element} (int, int, int, double, double, double, double)
+\item 
+void \hyperlink{classMCMCWalker_aad4526c93ec92271d749c0ede942513b}{Create\-Scaling\-Parameter} (std\-::vector$<$ int $>$, double, double, double, double)
+\item 
+void \hyperlink{classMCMCWalker_a39f6b9668e471ae8bfbf884db39ee48f}{Do\-M\-C\-M\-C\-Fit} ()
+\item 
+double \hyperlink{classMCMCWalker_ac2cbcfb38c9ef809abeecae53b805968}{Stepping\-Kernel} (double, double, double, double)
+\item 
+void \hyperlink{classMCMCWalker_aeeefa3cecc1578a8342f130df75f8e7a}{Write\-Tracked\-Parameters} (const char $\ast$)
+\item 
+void \hyperlink{classMCMCWalker_a9d71c0b83fab055912e71d8dcb33bc54}{Randomize\-Starting} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Markov-\/\-Chain Monte Carlo iterator. 
+
+\hyperlink{classMCMCWalker}{M\-C\-M\-C\-Walker}
+
+Using a Metropolis-\/\-Hastings algorithm the \hyperlink{classMCMCWalker}{M\-C\-M\-C\-Walker} class iterates through the parameter space, with a weighting towards the most likely solutions, causing eventual convergence while sampling the probability distribution of the parameters.
+
+Inherits from \hyperlink{classCoulExFitter}{Coul\-Ex\-Fitter} 
+
+Definition at line 21 of file M\-C\-M\-C\-Walker.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classMCMCWalker_accc107b974667b36797f3d66e59c191e}{\index{M\-C\-M\-C\-Walker@{M\-C\-M\-C\-Walker}!M\-C\-M\-C\-Walker@{M\-C\-M\-C\-Walker}}
+\index{M\-C\-M\-C\-Walker@{M\-C\-M\-C\-Walker}!MCMCWalker@{M\-C\-M\-C\-Walker}}
+\subsubsection[{M\-C\-M\-C\-Walker}]{\setlength{\rightskip}{0pt plus 5cm}M\-C\-M\-C\-Walker\-::\-M\-C\-M\-C\-Walker (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classMCMCWalker_accc107b974667b36797f3d66e59c191e}
+Constructor 
+
+Definition at line 3 of file M\-C\-M\-C\-Walker.\-cxx.
+
+\hypertarget{classMCMCWalker_a9e7c2ab3ad45e714c5ec1981fd628d62}{\index{M\-C\-M\-C\-Walker@{M\-C\-M\-C\-Walker}!$\sim$\-M\-C\-M\-C\-Walker@{$\sim$\-M\-C\-M\-C\-Walker}}
+\index{$\sim$\-M\-C\-M\-C\-Walker@{$\sim$\-M\-C\-M\-C\-Walker}!MCMCWalker@{M\-C\-M\-C\-Walker}}
+\subsubsection[{$\sim$\-M\-C\-M\-C\-Walker}]{\setlength{\rightskip}{0pt plus 5cm}virtual M\-C\-M\-C\-Walker\-::$\sim$\-M\-C\-M\-C\-Walker (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classMCMCWalker_a9e7c2ab3ad45e714c5ec1981fd628d62}
+Destructor 
+
+Definition at line 25 of file M\-C\-M\-C\-Walker.\-h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classMCMCWalker_a8890a051f7886b15e4e74dfeb7d49369}{\index{M\-C\-M\-C\-Walker@{M\-C\-M\-C\-Walker}!Add\-Fitting\-Matrix\-Element@{Add\-Fitting\-Matrix\-Element}}
+\index{Add\-Fitting\-Matrix\-Element@{Add\-Fitting\-Matrix\-Element}!MCMCWalker@{M\-C\-M\-C\-Walker}}
+\subsubsection[{Add\-Fitting\-Matrix\-Element}]{\setlength{\rightskip}{0pt plus 5cm}void M\-C\-M\-C\-Walker\-::\-Add\-Fitting\-Matrix\-Element (
+\begin{DoxyParamCaption}
+\item[{int}]{lambda, }
+\item[{int}]{init, }
+\item[{int}]{fin, }
+\item[{double}]{M\-E, }
+\item[{double}]{L\-L, }
+\item[{double}]{U\-L, }
+\item[{double}]{sigma}
+\end{DoxyParamCaption}
+)}}\label{classMCMCWalker_a8890a051f7886b15e4e74dfeb7d49369}
+Add a fitting matrix element 
+
+Definition at line 34 of file M\-C\-M\-C\-Walker.\-cxx.
+
+\hypertarget{classMCMCWalker_aad4526c93ec92271d749c0ede942513b}{\index{M\-C\-M\-C\-Walker@{M\-C\-M\-C\-Walker}!Create\-Scaling\-Parameter@{Create\-Scaling\-Parameter}}
+\index{Create\-Scaling\-Parameter@{Create\-Scaling\-Parameter}!MCMCWalker@{M\-C\-M\-C\-Walker}}
+\subsubsection[{Create\-Scaling\-Parameter}]{\setlength{\rightskip}{0pt plus 5cm}void M\-C\-M\-C\-Walker\-::\-Create\-Scaling\-Parameter (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ int $>$}]{expnum, }
+\item[{double}]{scaling, }
+\item[{double}]{scaling\-\_\-\-L\-L, }
+\item[{double}]{scaling\-\_\-\-U\-L, }
+\item[{double}]{sigma}
+\end{DoxyParamCaption}
+)}}\label{classMCMCWalker_aad4526c93ec92271d749c0ede942513b}
+Add a scaling parameter, with common scaling experiments defined by their indices in a vector of int 
+
+Definition at line 23 of file M\-C\-M\-C\-Walker.\-cxx.
+
+\hypertarget{classMCMCWalker_a39f6b9668e471ae8bfbf884db39ee48f}{\index{M\-C\-M\-C\-Walker@{M\-C\-M\-C\-Walker}!Do\-M\-C\-M\-C\-Fit@{Do\-M\-C\-M\-C\-Fit}}
+\index{Do\-M\-C\-M\-C\-Fit@{Do\-M\-C\-M\-C\-Fit}!MCMCWalker@{M\-C\-M\-C\-Walker}}
+\subsubsection[{Do\-M\-C\-M\-C\-Fit}]{\setlength{\rightskip}{0pt plus 5cm}void M\-C\-M\-C\-Walker\-::\-Do\-M\-C\-M\-C\-Fit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classMCMCWalker_a39f6b9668e471ae8bfbf884db39ee48f}
+Perform the M\-C\-M\-C walk through parameter space 
+
+Definition at line 55 of file M\-C\-M\-C\-Walker.\-cxx.
+
+\hypertarget{classMCMCWalker_a9d71c0b83fab055912e71d8dcb33bc54}{\index{M\-C\-M\-C\-Walker@{M\-C\-M\-C\-Walker}!Randomize\-Starting@{Randomize\-Starting}}
+\index{Randomize\-Starting@{Randomize\-Starting}!MCMCWalker@{M\-C\-M\-C\-Walker}}
+\subsubsection[{Randomize\-Starting}]{\setlength{\rightskip}{0pt plus 5cm}void M\-C\-M\-C\-Walker\-::\-Randomize\-Starting (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classMCMCWalker_a9d71c0b83fab055912e71d8dcb33bc54}
+Randomize the starting points 
+
+Definition at line 40 of file M\-C\-M\-C\-Walker.\-cxx.
+
+\hypertarget{classMCMCWalker_ac2cbcfb38c9ef809abeecae53b805968}{\index{M\-C\-M\-C\-Walker@{M\-C\-M\-C\-Walker}!Stepping\-Kernel@{Stepping\-Kernel}}
+\index{Stepping\-Kernel@{Stepping\-Kernel}!MCMCWalker@{M\-C\-M\-C\-Walker}}
+\subsubsection[{Stepping\-Kernel}]{\setlength{\rightskip}{0pt plus 5cm}double M\-C\-M\-C\-Walker\-::\-Stepping\-Kernel (
+\begin{DoxyParamCaption}
+\item[{double}]{x, }
+\item[{double}]{s, }
+\item[{double}]{U\-L, }
+\item[{double}]{L\-L}
+\end{DoxyParamCaption}
+)}}\label{classMCMCWalker_ac2cbcfb38c9ef809abeecae53b805968}
+Defines the transition kernel between points in the Markov Chain -\/ by default a normal distribution about the current point 
+
+Definition at line 185 of file M\-C\-M\-C\-Walker.\-cxx.
+
+\hypertarget{classMCMCWalker_aeeefa3cecc1578a8342f130df75f8e7a}{\index{M\-C\-M\-C\-Walker@{M\-C\-M\-C\-Walker}!Write\-Tracked\-Parameters@{Write\-Tracked\-Parameters}}
+\index{Write\-Tracked\-Parameters@{Write\-Tracked\-Parameters}!MCMCWalker@{M\-C\-M\-C\-Walker}}
+\subsubsection[{Write\-Tracked\-Parameters}]{\setlength{\rightskip}{0pt plus 5cm}void M\-C\-M\-C\-Walker\-::\-Write\-Tracked\-Parameters (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{outfilename}
+\end{DoxyParamCaption}
+)}}\label{classMCMCWalker_aeeefa3cecc1578a8342f130df75f8e7a}
+Write the chain to a text file 
+
+Definition at line 195 of file M\-C\-M\-C\-Walker.\-cxx.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+M\-C\-M\-C\-Walker.\-h\item 
+M\-C\-M\-C\-Walker.\-cxx\end{DoxyCompactItemize}
