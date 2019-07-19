@@ -13,6 +13,9 @@ ExperimentRange::ExperimentRange() : fNucleus(NULL), fReaction(NULL), fIntegral(
 
 	fUseFit		= false;
 
+	fUseFixedStep	= false;
+	fUseSymmetry	= true;
+
 	integratedRutherford 	= 0;
 
 }
@@ -33,12 +36,18 @@ ExperimentRange::ExperimentRange(Nucleus* nucl, Reaction* reac) : fNucleus(nucl)
 
 	fUseFit		= false;
 
+	fUseFixedStep	= false;
+	fUseSymmetry	= true;
+
 	integratedRutherford 	= 0;
 
 }
 
 ExperimentRange::ExperimentRange(const ExperimentRange& e) : fNucleus(e.fNucleus), fReaction(e.fReaction), fIntegral(e.fIntegral)
 {
+
+	fUseFixedStep		= e.fUseFixedStep;
+	fUseSymmetry		= e.fUseSymmetry;
 
 	IntegratedCrossSection_TVec.ResizeTo(e.IntegratedCrossSection_TVec.GetNrows());
 	IntegratedCrossSection_TVec = e.IntegratedCrossSection_TVec;
@@ -75,6 +84,9 @@ ExperimentRange::ExperimentRange(const ExperimentRange& e) : fNucleus(e.fNucleus
 
 }
 ExperimentRange& ExperimentRange::operator = (const ExperimentRange &e){
+
+	fUseFixedStep		= e.fUseFixedStep;
+	fUseSymmetry		= e.fUseSymmetry;
 
 	fProjectileExcitation	= e.fProjectileExcitation;
 
@@ -126,6 +138,9 @@ void ExperimentRange::IntegrateRange()
 	
 	fIntegral->SetProjectileExcitation(fProjectileExcitation);
 	fIntegral->SetTargetDetection(targetDetection);
+
+	fIntegral->SetUseSymmetry(fUseSymmetry);
+	fIntegral->FixStep(fUseFixedStep);
 
 	fIntegral->ClearThetaMeshpoints();
 	fIntegral->ClearEnergyMeshpoints();

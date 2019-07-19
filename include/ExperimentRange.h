@@ -120,7 +120,16 @@ class ExperimentRange {
 		void		SetUseFit(bool b = true)				{ fUseFit = b;				}	/*!< Use a fit to interpolate. Default is a spline */
 		bool		UseFit()					const	{ return fUseFit;			}	/*!< Return whether using a fit to perform interpolation */
 
+		void	SetUseSymmetry(bool b = true)					{ fUseSymmetry = b;						}
+		bool	UseSymmetry()						const	{ return fUseSymmetry;						}
+
+		void	FixStep(bool b = true)						{ fUseFixedStep = b;						}
+		bool	UseFixedStep()						const	{ return fUseFixedStep;						}	
+
 	private:
+
+		bool		fUseFixedStep;
+		bool		fUseSymmetry;	
 
 		double		IntegrateThetaEnergy(int s);	
 

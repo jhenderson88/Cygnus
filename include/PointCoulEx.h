@@ -11,8 +11,13 @@
 #include <complex>
 #include <iostream>
 #include <fstream>
-#include "MiscFunctions.h"
+#include <ctime>
+#include <chrono>
 
+#include "StatisticalTensor.h"
+#include "Nucleus.h"
+#include "Reaction.h"
+#include "MiscFunctions.h"
 #include "Connection.h"
 #include "State.h"
 #include "Substate.h"
@@ -106,8 +111,17 @@ class PointCoulEx
 		std::vector<std::vector<double>> 	GetProbabilityTrack()	const	{ return fStateProbTracking;	}	/*!< Return the probabilities, step-by-step, during the reaction*/
 
 		double			GetTheta()				const	{ return fTheta;		}	/*!< Return the theta value */
-	
+
+		void			FixStep(bool b = true)		{ fUseFixedStep = b;		}
+		bool			UseFixedStep()		const	{ return fUseFixedStep;		}
+
+		void			SetUseSymmetry(bool b = true)	{ fUseSymmetry = b;		}
+		bool			UseSymmetry()		const	{ return fUseSymmetry;		}	
+
 	private :
+
+		bool			fUseFixedStep;
+		bool			fUseSymmetry;	
 
 		double			fAccuracy;
 

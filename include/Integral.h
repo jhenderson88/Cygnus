@@ -79,7 +79,16 @@ class Integral{
 
 		bool	IntegralComplete()				{ return fComplete;			}	/*!< Returns flag indicating whether the integration has been performed */
 
+		void	SetUseSymmetry(bool b = true)					{ fUseSymmetry = b;						}
+		bool	UseSymmetry()						const	{ return fUseSymmetry;						}
+
+		void	FixStep(bool b = true)						{ fUseFixedStep = b;						}
+		bool	UseFixedStep()						const	{ return fUseFixedStep;						}	
+
 	private:
+
+		bool				fUseFixedStep;
+		bool				fUseSymmetry;	
 
 		Nucleus*			fNucleus;
 		Reaction*			fReaction;

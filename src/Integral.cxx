@@ -25,6 +25,9 @@ Integral::Integral() : fNucleus(NULL), fReaction(NULL){
 
 	fComplete	= false;
 
+	fUseFixedStep	= false;
+	fUseSymmetry	= true;
+
 }
 
 Integral::Integral(Nucleus *nucl, Reaction *reac) : fNucleus(nucl), fReaction(reac) {
@@ -43,6 +46,9 @@ Integral::Integral(Nucleus *nucl, Reaction *reac) : fNucleus(nucl), fReaction(re
 
 	fComplete	= false;
 
+	fUseFixedStep	= false;
+	fUseSymmetry	= true;
+
 }
 
 Integral::Integral(const Integral& x) : 
@@ -50,6 +56,9 @@ Integral::Integral(const Integral& x) :
 	point_calculations(x.point_calculations.size()), energymeshpoint_reaction(x.energymeshpoint_reaction.size()), 
 	meshpointCrossSections(x.meshpointCrossSections.size()), meshpointProbabilities(x.meshpointProbabilities.size())	
 {
+
+	fUseFixedStep		= x.fUseFixedStep;
+	fUseSymmetry		= x.fUseSymmetry;
 
 	fProjectileExcitation	= x.fProjectileExcitation;
 
@@ -82,6 +91,9 @@ Integral::Integral(const Integral& x) :
 
 }
 Integral& Integral::operator = (const Integral& x){
+
+	fUseFixedStep		= x.fUseFixedStep;
+	fUseSymmetry		= x.fUseSymmetry;
 
 	fProjectileExcitation	= x.fProjectileExcitation;
 
@@ -182,6 +194,8 @@ void Integral::CalculateIntegral(){
 		for(unsigned int mT = 0; mT < theta_meshpoints.size(); mT++){
 			Nucleus nucl = *fNucleus;
 			PointCoulEx tmpPoint(&nucl,&energymeshpoint_reaction[mE]);
+			tmpPoint.SetUseSymmetry(fUseSymmetry);
+			tmpPoint.FixStep(fUseFixedStep);
 			tmpPoint.SetAccuracy(fAccuracy);
 			tmpPoint.SetProjectileExcitation(fProjectileExcitation);
 			tmpPoinVec.push_back(tmpPoint);

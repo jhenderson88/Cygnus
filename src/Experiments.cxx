@@ -10,6 +10,9 @@ Experiments::Experiments()
 	verbose		= false; 
 	nThreads	= 1;
 
+	fUseFixedStep	= false;
+	fUseSymmetry	= true;
+
 }
 
 Experiments::Experiments(Nucleus* nucl, Reaction* reac) 
@@ -22,6 +25,9 @@ Experiments::Experiments(Nucleus* nucl, Reaction* reac)
 	verbose		= false;
 	nThreads	= 1;
 
+	fUseFixedStep	= false;
+	fUseSymmetry	= true;
+
 	fNucleus	= *nucl;
 	fReaction	= *reac;
 
@@ -33,6 +39,9 @@ Experiments::Experiments(Nucleus* nucl, Reaction* reac)
 Experiments::Experiments(const Experiments &e) : 
 experimentRanges(e.experimentRanges.size()), pointCalculation(e.pointCalculation.size())
 {
+
+	fUseFixedStep		= e.fUseFixedStep;
+	fUseSymmetry		= e.fUseSymmetry;
 
 	fProjectileExcitation 	= e.fProjectileExcitation;
 
@@ -74,6 +83,9 @@ experimentRanges(e.experimentRanges.size()), pointCalculation(e.pointCalculation
 
 }
 Experiments& Experiments::operator = (const Experiments& e){
+
+	fUseFixedStep		= e.fUseFixedStep;
+	fUseSymmetry		= e.fUseSymmetry;
 
 	fProjectileExcitation 	= e.fProjectileExcitation;
 
@@ -168,6 +180,8 @@ void Experiments::PointCorrections(){
 		experimentRanges.at(c).SetNthreads(nThreads);
 		experimentRanges.at(c).SetAccuracy(fAccuracy);
 		experimentRanges.at(c).SetStopping(fStopping);
+		experimentRanges.at(c).SetUseSymmetry(fUseSymmetry);
+		experimentRanges.at(c).FixStep(fUseFixedStep);
 		//experimentRanges.at(c).UseEfficiency(fUseEfficiency);
 		experimentRanges.at(c).IntegrateRutherford();
 		experimentRanges.at(c).IntegrateRange();
@@ -178,6 +192,8 @@ void Experiments::PointCorrections(){
 		pointCalculation.at(c).SetProjectileExcitation(fProjectileExcitation);
 		pointCalculation.at(c).SetVerbose(verbose);
 		pointCalculation.at(c).SetAccuracy(fAccuracy);
+		pointCalculation.at(c).SetUseSymmetry(fUseSymmetry);
+		pointCalculation.at(c).FixStep(fUseFixedStep);
 		pointCalculation.at(c).CalculatePointProbabilities(experimentRanges.at(c).GetMeanThetaCM());
 		TVectorD tmpVec;
 		tmpVec.ResizeTo(pointCalculation.at(c).GetProbabilitiesVector().GetNrows());

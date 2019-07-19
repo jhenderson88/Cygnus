@@ -14,6 +14,9 @@ PointCoulEx::PointCoulEx(){
 
 	fAccuracy		= 1e-8;
 
+	fUseFixedStep		= false;
+	fUseSymmetry		= true;
+
 }
 
 // Construct with a nucleus:
@@ -34,6 +37,9 @@ PointCoulEx::PointCoulEx(Nucleus *nuc, Reaction *reac)
 
 	fAccuracy		= 1e-8;
 
+	fUseFixedStep		= false;
+	fUseSymmetry		= true;
+
 	// Because we have a reaction and  nucleus we can immediately define
 	// connections between substates from state and reaction information
 	PrepareConnections();
@@ -43,6 +49,9 @@ PointCoulEx::PointCoulEx(Nucleus *nuc, Reaction *reac)
 //	Copy constructor:
 PointCoulEx::PointCoulEx(const PointCoulEx& p)
 {
+
+	fUseFixedStep		= p.fUseFixedStep;
+	fUseSymmetry		= p.fUseSymmetry;
 
 	bTargetDetection	= p.bTargetDetection;
 
@@ -96,6 +105,9 @@ PointCoulEx::PointCoulEx(const PointCoulEx& p)
 //	Assignment operator:
 PointCoulEx& PointCoulEx::operator = (const PointCoulEx &p)
 {
+
+	fUseFixedStep		= p.fUseFixedStep;
+	fUseSymmetry		= p.fUseSymmetry;
 
 	bTargetDetection	= p.bTargetDetection;
 
@@ -239,6 +251,11 @@ void PointCoulEx::PrepareConnections()
 		for(size_t ss2 = 0; ss2 < fSubstates.size(); ss2++){ // Substate 2 is the INITIAL state
 			//	Select the state corresponding to the substate ss1
 			int 	s2 	= fSubstates.at(ss2).GetStateIndex();
+
+			if(fSubstates.at(ss1).GetM() == -fSubstates.at(ss2).GetM() && s1 == s2){
+				fSubstates.at(ss1).SetMirrorIndex(ss2);
+				fSubstates.at(ss2).SetMirrorIndex(ss1);
+			}
 
 			//	Phase convention for matrix elements:
 			int	mePhase	= TMath::Power(-1,(fStates.at(s2).GetJ()-fStates.at(s1).GetJ()));
@@ -444,7 +461,18 @@ TVectorD PointCoulEx::Integration(double theta)
 	ImagAmpF.at(3).ResizeTo(fSubstates.size(),LMax);
 	Q1_Matrix.at(0).ResizeTo(fSubstates.size(),LMax);
 	Q1_Matrix.at(1).ResizeTo(fSubstates.size(),LMax);
-	
+
+	double Up;
+	double dOmega;	
+	// Redefine theta into units of eliptical eccentricity, a more convenient system for
+	// the upcoming calculation:
+	double Epsilon = 1 / (TMath::Sin(theta * TMath::DegToRad() / 2.0));
+	// We take our accuracy condition here to determine integration range and step size
+	double Accuracy = fAccuracy; 
+	double Accuracy_50 = Accuracy / 50.;
+	// Defines the closest approach given our value of theta 
+	double Distance = fReaction.ClosestApproach() * (1 + Epsilon) / 2.0;
+	double ABW = 0.0;
 	// Now we're onto the serious stuff, here we define the accuracy and the range and
 	// steps of the integration we're going to perform. We also redefine everything into 
 	// a more convenient coordinate system.
@@ -452,24 +480,35 @@ TVectorD PointCoulEx::Integration(double theta)
 	// For more details on the coordinate system especially, see GOSIA manual section 3.3 
 	// - but note that omega = 0 corresponds to the closest approach
 	//
-	// We take our accuracy condition here to determine integration range and step size
-	double Accuracy = fAccuracy; 
-	double Accuracy_50 = Accuracy / 50.;
-	// Redefine theta into units of eliptical eccentricity, a more convenient system for
-	// the upcoming calculation:
-	double Epsilon = 1 / (TMath::Sin(theta * TMath::DegToRad() / 2.0));
-	// Defines the closest approach given our value of theta 
-	double Distance = fReaction.ClosestApproach() * (1 + Epsilon) / 2.0;
-	// The logic for determining integration range (Omega -> Up) is based on that used
-	// in the CLX code, determined from the accuracy and maximum difference in wavenumber 
-	// between initial and final states (XiMax):
-	double Up = TMath::Log(1 / (Epsilon * TMath::Sqrt(Accuracy))); 
-	double ABW = 0.0;
-	double dOmega = (double) 40.0 * (pow(Accuracy,0.2)) / (10.0 + 48.0 * XiMax + 16.0 * XiMax * Epsilon); 
-	int Steps = Up / (8.0*dOmega) + 1.;
-	Steps *= 8;
-	dOmega = Up / (Steps - 0.25);
-	Up = dOmega * Steps;
+	if(UseFixedStep()){
+		// If we're using a fixed step (no adjustment - see INT flag in GOSIA) then we have
+		// some preset values to use here. 
+		if(fabs(MiscFunctions::GetMaxMatrix(fNucleus.GetMatrixElements().at(0))) > 1e-6)
+			Up	= 13.12;
+		else if (fabs(MiscFunctions::GetMaxMatrix(fNucleus.GetMatrixElements().at(6))) > 1e-6)
+			Up	= 7.11;
+		else if (fabs(MiscFunctions::GetMaxMatrix(fNucleus.GetMatrixElements().at(1))) > 1e-6)
+			Up 	= 7.11;
+		else if (fabs(MiscFunctions::GetMaxMatrix(fNucleus.GetMatrixElements().at(3))) > 1e-6)
+			Up	= 5.14;
+		else{	// No E1, M1, E2 or E3... this is weird (so default to E2 and print warning)
+			std::cout	<< "No E1, M1, E2 or E2 matrix elements found, omega defaulting to E2"
+					<< std::endl;
+			Up	= 7.11;
+		}
+		dOmega = 0.03;
+	}
+	else{
+		// The logic for determining integration range (Omega -> Up) is based on that used
+		// in the CLX code, determined from the accuracy and maximum difference in wavenumber 
+		// between initial and final states (XiMax):
+		Up = TMath::Log(1 / (Epsilon * TMath::Sqrt(Accuracy))); 
+		dOmega = (double) 40.0 * (pow(Accuracy,0.2)) / (10.0 + 48.0 * XiMax + 16.0 * XiMax * Epsilon); 
+		int Steps = Up / (8.0*dOmega) + 1.;
+		Steps *= 8;
+		dOmega = Up / (Steps - 0.25);
+		Up = dOmega * Steps;
+	}
 	double Omega = -Up; 
 
 	if(verbose){ 
@@ -523,6 +562,18 @@ TVectorD PointCoulEx::Integration(double theta)
 			Q1_Matrix.at(1) = dOmega * AmplitudeDerivative.at(1); 
 			Amplitude.at(0) = Amplitude.at(0) + Q1_Matrix.at(0); 
 			Amplitude.at(1) = Amplitude.at(1) + Q1_Matrix.at(1);
+			if(fNucleus.GetLevelJ()[0] == 0 && UseSymmetry()){
+				for(size_t ss = 0; ss < fSubstates.size(); ss++){
+					if(fSubstates.at(ss).GetM() < 0){
+						int stateindex = fSubstates.at(ss).GetStateIndex();
+						double par = pow(-1,fNucleus.GetLevelP()[0]-fNucleus.GetLevelP()[stateindex]-fNucleus.GetLevelJ()[stateindex]); 
+						for(int i = 0; i < LMax; i++){
+							Amplitude.at(0)[ss][i] = Amplitude.at(0)[fSubstates.at(ss).GetMirrorIndex()][i] * par; 
+							Amplitude.at(1)[ss][i] = Amplitude.at(1)[fSubstates.at(ss).GetMirrorIndex()][i] * par; 
+						}
+					}
+				}
+			}		
 
 			// Increment Omega
 			Omega = Omega + dOmega; 
@@ -554,6 +605,18 @@ TVectorD PointCoulEx::Integration(double theta)
 			Amplitude.at(1) = Amplitude.at(1) + 0.5857864 * (dOmega*AmplitudeDerivative.at(1) - Q1_Matrix.at(1)); 
 			Q1_Matrix.at(0) = 0.5857864 * dOmega * AmplitudeDerivative.at(0) + 0.1213204 * Q1_Matrix.at(0); 
 			Q1_Matrix.at(1) = 0.5857864 * dOmega * AmplitudeDerivative.at(1) + 0.1213204 * Q1_Matrix.at(1);
+			if(fNucleus.GetLevelJ()[0] == 0 && UseSymmetry()){
+				for(size_t ss = 0; ss < fSubstates.size(); ss++){
+					if(fSubstates.at(ss).GetM() < 0){
+						int stateindex = fSubstates.at(ss).GetStateIndex();
+						double par = pow(-1,fNucleus.GetLevelP()[0]-fNucleus.GetLevelP()[stateindex]-fNucleus.GetLevelJ()[stateindex]); 
+						for(int i = 0; i < LMax; i++){
+							Amplitude.at(0)[ss][i] = Amplitude.at(0)[fSubstates.at(ss).GetMirrorIndex()][i] * par; 
+							Amplitude.at(1)[ss][i] = Amplitude.at(1)[fSubstates.at(ss).GetMirrorIndex()][i] * par; 
+						}
+					}
+				}
+			}				
 
 			// Determine amplitude derivative at omega based on updated initial amplitude
 			AmplitudeDerivative = ComputeAmpDerivativeMatrices(Amplitude, Epsilon, Omega); 
@@ -562,6 +625,18 @@ TVectorD PointCoulEx::Integration(double theta)
 			Amplitude.at(1) = Amplitude.at(1) + 3.414214 * (dOmega * AmplitudeDerivative.at(1) - Q1_Matrix.at(1)); 
 			Q1_Matrix.at(0) = 3.414214 * dOmega * AmplitudeDerivative.at(0) - 4.1213204 * Q1_Matrix.at(0); 
 			Q1_Matrix.at(1) = 3.414214 * dOmega * AmplitudeDerivative.at(1) - 4.1213204 * Q1_Matrix.at(1); 
+			if(fNucleus.GetLevelJ()[0] == 0 && UseSymmetry()){
+				for(size_t ss = 0; ss < fSubstates.size(); ss++){
+					if(fSubstates.at(ss).GetM() < 0){
+						int stateindex = fSubstates.at(ss).GetStateIndex();
+						double par = pow(-1,fNucleus.GetLevelP()[0]-fNucleus.GetLevelP()[stateindex]-fNucleus.GetLevelJ()[stateindex]); 
+						for(int i = 0; i < LMax; i++){
+							Amplitude.at(0)[ss][i] = Amplitude.at(0)[fSubstates.at(ss).GetMirrorIndex()][i] * par; 
+							Amplitude.at(1)[ss][i] = Amplitude.at(1)[fSubstates.at(ss).GetMirrorIndex()][i] * par; 
+						}
+					}
+				}
+			}				
 
 			Omega = Omega + dOmega;
 
@@ -570,6 +645,18 @@ TVectorD PointCoulEx::Integration(double theta)
 
 			Amplitude.at(0) = Amplitude.at(0) + (1./3.) * dOmega * AmplitudeDerivative.at(0) - (2./3.) * Q1_Matrix.at(0); 
 			Amplitude.at(1) = Amplitude.at(1) + (1./3.) * dOmega * AmplitudeDerivative.at(1) - (2./3.) * Q1_Matrix.at(1);
+			if(fNucleus.GetLevelJ()[0] == 0 && UseSymmetry()){
+				for(size_t ss = 0; ss < fSubstates.size(); ss++){
+					if(fSubstates.at(ss).GetM() < 0){
+						int stateindex = fSubstates.at(ss).GetStateIndex();
+						double par = pow(-1,fNucleus.GetLevelP()[0]-fNucleus.GetLevelP()[stateindex]-fNucleus.GetLevelJ()[stateindex]); 
+						for(int i = 0; i < LMax; i++){
+							Amplitude.at(0)[ss][i] = Amplitude.at(0)[fSubstates.at(ss).GetMirrorIndex()][i] * par; 
+							Amplitude.at(1)[ss][i] = Amplitude.at(1)[fSubstates.at(ss).GetMirrorIndex()][i] * par; 
+						}
+					}
+				}
+			}				
 			
 			if(fTrack){
 				// Check excitation probabilities
@@ -611,7 +698,19 @@ TVectorD PointCoulEx::Integration(double theta)
 
 			AmplitudeP.at(0) = Amplitude.at(0) + (dOmega/12.0) * (55.0 * RealAmpF.at(3) - 59.0 * RealAmpF.at(2) + 37.0 * RealAmpF.at(1) - 9.0 * RealAmpF.at(0));
 			AmplitudeP.at(1) = Amplitude.at(1) + (dOmega/12.0) * (55.0 * ImagAmpF.at(3) - 59.0 * ImagAmpF.at(2) + 37.0 * ImagAmpF.at(1) - 9.0 * ImagAmpF.at(0)); 
-			
+			if(fNucleus.GetLevelJ()[0] == 0 && UseSymmetry()){
+				for(size_t ss = 0; ss < fSubstates.size(); ss++){
+					if(fSubstates.at(ss).GetM() < 0){
+						int stateindex = fSubstates.at(ss).GetStateIndex();
+						double par = pow(-1,fNucleus.GetLevelP()[0]-fNucleus.GetLevelP()[stateindex]-fNucleus.GetLevelJ()[stateindex]); 
+						for(int i = 0; i < LMax; i++){
+							AmplitudeP.at(0)[ss][i] = AmplitudeP.at(0)[fSubstates.at(ss).GetMirrorIndex()][i] * par; 
+							AmplitudeP.at(1)[ss][i] = AmplitudeP.at(1)[fSubstates.at(ss).GetMirrorIndex()][i] * par; 
+						}
+					}
+				}
+			}
+	
 			Omega = Omega + dOmega + dOmega;
 
 			// Determine amplitude derivative at new omega
@@ -619,6 +718,18 @@ TVectorD PointCoulEx::Integration(double theta)
 
 			Amplitude.at(0) = Amplitude.at(0) + (dOmega/12.0) * (9.0 * AmplitudeDerivative.at(0) + 19.0 * RealAmpF.at(3) - 5.0 * RealAmpF.at(2) + RealAmpF.at(1));
 			Amplitude.at(1) = Amplitude.at(1) + (dOmega/12.0) * (9.0 * AmplitudeDerivative.at(1) + 19.0 * ImagAmpF.at(3) - 5.0 * ImagAmpF.at(2) + ImagAmpF.at(1));
+			if(fNucleus.GetLevelJ()[0] == 0 && UseSymmetry()){
+				for(size_t ss = 0; ss < fSubstates.size(); ss++){
+					if(fSubstates.at(ss).GetM() < 0){
+						int stateindex = fSubstates.at(ss).GetStateIndex();
+						double par = pow(-1,fNucleus.GetLevelP()[0]-fNucleus.GetLevelP()[stateindex]-fNucleus.GetLevelJ()[stateindex]); 
+						for(int i = 0; i < LMax; i++){
+							Amplitude.at(0)[ss][i] = Amplitude.at(0)[fSubstates.at(ss).GetMirrorIndex()][i] * par; 
+							Amplitude.at(1)[ss][i] = Amplitude.at(1)[fSubstates.at(ss).GetMirrorIndex()][i] * par; 
+						}
+					}
+				}
+			}
 	
 			// Determine amplitude derivative at omega based on updated initial amplitude
 			AmplitudeDerivative = ComputeAmpDerivativeMatrices(Amplitude, Epsilon, Omega);
@@ -635,7 +746,7 @@ TVectorD PointCoulEx::Integration(double theta)
 			ImagAmpF.at(3) = AmplitudeDerivative.at(1);	
 
 			// Check amplitudes to see if the stepsize needs changing
-			if(Omega + dOmega <= Up)
+			if(Omega + dOmega <= Up && !UseFixedStep())
 			{
 				double FF=0;
 				for(int i=0;i<LMax;i++)
@@ -649,6 +760,7 @@ TVectorD PointCoulEx::Integration(double theta)
 
 					}
 				}
+
 				if(FF <= Accuracy_50)
 				{
 					dOmegaFlag = false;
@@ -668,7 +780,8 @@ TVectorD PointCoulEx::Integration(double theta)
 								<< "Stepwidth halved to:  " << std::setw(12) << std::left << 2*dOmega
 								<< std::endl;
 					}
-				}				
+				}
+								
 			}
 
 			// Check excitation probabilities
@@ -734,6 +847,8 @@ TVectorD PointCoulEx::Integration(double theta)
 std::vector<TMatrixD> PointCoulEx::ComputeAmpDerivativeMatrices(std::vector<TMatrixD> AmplitudeIn, double Epsilon, double Omega)
 {
 
+	double	omega_max[7] = {13.12,7.11,5.14,4.17,3.59,3.26,7.11};
+
 	// Calculate the exponent from Eq. 3.20 in the GOSIA manual
 	double RAlfa = Epsilon * TMath::SinH(Omega) + Omega; 
 
@@ -755,11 +870,16 @@ std::vector<TMatrixD> PointCoulEx::ComputeAmpDerivativeMatrices(std::vector<TMat
 		// No need to continue with this lambda if there aren't any matrix elements
 		if(fabs(MiscFunctions::GetMaxMatrix(fNucleus.GetMatrixElements().at(l))) < 1e-6)
 			continue;
-		
+
+		if(UseFixedStep() && fabs(Omega) > omega_max[l])
+			continue;
+			
 		// Grab the collision functions for this lambda, omega, epsilon combination
-		std::vector< std::complex<double> > Q_Matrix = CollisionFunction((l+1),Epsilon,Omega); 
+		std::vector< std::complex<double> > Q_Matrix = CollisionFunction((l+1),Epsilon,Omega);
 
 		for(size_t fs = 0; fs < fSubstates.size(); fs++){ 	// Loop over all substates - this is the "final state" of this step
+			if(UseSymmetry() && fNucleus.GetLevelJ()[0] == 0 && fSubstates.at(fs).GetM() < 0)
+				continue;
 			for(size_t c = 0; c < fSubstates.at(fs).GetNconnections(); c++){ 	// Loop over all connections to this final state
 				Connection tmpConnection = fSubstates.at(fs).GetConnection(c);	// Grab the connection	
 				int is = tmpConnection.GetConnectedState();			
@@ -810,9 +930,8 @@ std::vector<TMatrixD> PointCoulEx::ComputeAmpDerivativeMatrices(std::vector<TMat
 					}
 				}
 			}
-		}
+		} 
 	}
-
 
 	return AmpDot;
 

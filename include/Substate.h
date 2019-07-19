@@ -48,9 +48,13 @@ class Substate {
 	
 		void			AddConnection(Connection c)	{ fConnections.push_back(c);		}	/*!< Define a new connection to another substate */
 
+		void			SetMirrorIndex(int i)		{ fMirrorIndex = i;			}
+		int			GetMirrorIndex()	const	{ return fMirrorIndex;			}
+
 	private:
 		int 			fSubstateIndex;
 		int 			fStateIndex;
+		int			fMirrorIndex;	// Index of the state with M = -M (for symmetry)
 		double			fM;
 		std::vector<Connection>	fConnections;
 
