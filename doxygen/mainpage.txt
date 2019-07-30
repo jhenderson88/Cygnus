@@ -7,9 +7,13 @@ CYGNUS is still in a testing phase and should not yet be used in isolation for a
 
 A few known problems/differences with GOSIA:
 
-Kinematics treatments disagree with those in GOSIA. Conversion from the lab to the center-of-mass sometimes differ by up to 0.1 degrees. This can translate to a 0.1% discrepancy in excitation probabilities. In all likelihood this is below experimental sensitivity, but should be remembered when preparing outputs. The kinematics used in CYGNUS have been tested against (for example) CatKin, and agree well.
+\subsection To-do:
 
-Tensors are currently calculated but are not yet used. 
+Gamma-ray angular distributions (tensors are currently calculated but are not yet used)
+
+Allow for modification of yields due to internal conversion
+
+Improve multi-threading - fold into the PointCoulEx to further speed up the calculation
 
 \section install_sec Installation
 
