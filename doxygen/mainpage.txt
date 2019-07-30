@@ -7,7 +7,7 @@ CYGNUS is still in a testing phase and should not yet be used in isolation for a
 
 A few known problems/differences with GOSIA:
 
-\subsection To-do:
+\subsection todo To-do
 
 Gamma-ray angular distributions (tensors are currently calculated but are not yet used)
 
