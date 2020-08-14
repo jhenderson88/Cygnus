@@ -47,7 +47,9 @@ void RunFitter(const char* nuclfile = "NucleusFile_Se76.txt", int threads = 1){
 	//	Define the experiment.
 	//	Note: ExperimentRanges in Cygnus correspond to any individual detector region, like a subset of rings on an annular silicon for which yields will be provided	
 	Experiments *expts = new Experiments(nucl,reac);		//	Construct the Experiment with the previously defined Nucleus and Reaction.
-	expts->SetAccuracy(1e-6);					//	Set the accuracy of the calculation. 1e-5 is rather low resolution. Default is 1e-8. Reduced accuracy leads to increased speed.
+	expts->FixStep(true);
+	expts->SetUseSymmetry(true);
+	//expts->SetAccuracy(1e-6);					//	Set the accuracy of the calculation. 1e-5 is rather low resolution. Default is 1e-8. Reduced accuracy leads to increased speed.
 	double tmin[6] = {20,30,40,20,30,40};				//	Minimum theta (lab, degrees) of each of the six defined experimental ranges
 	double tmax[6] = {30,40,50,30,40,50};				//	Maximum theta (lab, degrees) of each of the six defined experimental ranges
 	bool tarDet[6] = {false,false,false,true,true,true};		//	Is the target detected in the particle detector? Defines the kinematics of the reaction.
@@ -197,16 +199,49 @@ void RunFitter(const char* nuclfile = "NucleusFile_Se76.txt", int threads = 1){
 	//	Set verbocity:
 	//	If verbose, fitter will output detailed overview of agreement every 10 steps
 	//	If not, fitter will update chi-squared value only	
-	fitter->SetVerbose(true);							
+	fitter->SetVerbose(false);							
+	fitter->SetLikelihoodFit();
 
 	//	MaxIterations/MaxFunctionCalls are for Minuit2 and GSL respectively
 	fitter->SetMaxIterations(5000);
 	fitter->SetMaxFunctionCalls(5000);
-	fitter->SetTolerance(0.001);
+	fitter->SetTolerance(0.01);
 
 	//	Perform the fit
-	fitter->DoFit("Minuit2","Migrad");
+	fitter->DoFit("Minuit2","Combined");
 
+	//******************************************************************************//
+	//                     REPEAT INTEGRAL AND FIT FINAL YIELDS                     //
+	//******************************************************************************//
+
+	std::vector<double> fittedPar = fitter->GetFitParameters();
+	Nucleus *nuclFitted = nuclreader->GetNucleus();
+	for(size_t me = 0; me < fitter->GetMatrixElements().size(); me++){
+		MatrixElement matrixElement = fitter->GetMatrixElements().at(me);
+		nuclFitted->SetMatrixElement(matrixElement.GetLambda(),
+						matrixElement.GetInitialState(),		
+						matrixElement.GetFinalState(),
+						fittedPar[me]);
+	}
+	for(size_t i = 0; i < fittedPar.size(); i++)
+		std::cout	<< std::setw(12) << std::left << fittedPar[i];
+	std::cout	<< std::endl;
+	Experiments *exptsFitted = new Experiments(nuclFitted,reac);	
+	exptsFitted->FixStep(true);
+	exptsFitted->SetUseSymmetry(true);
+	for(int i=0;i<6;i++)
+		exptsFitted->NewExperimentRange(tmin[i],tmax[i],11,289.7,309.7,5,tarDet[i]);
+
+	exptsFitted->SetStopping(dEdX);		//	Add the stopping powers to the experiment
+	exptsFitted->SetVerbose(false);		//	Set verbocity
+	exptsFitted->SetNthreads(threads);	//	Define the number of threads to be used in the integration process
+
+	exptsFitted->PointCorrections();
+	std::ofstream fittedYields;
+	fittedYields.open("FittedYields.txt");
+
+	for(unsigned int e=0;e<6;e++)
+		GammaYield::WriteYields(exptsFitted->GetExperimentRange(e),*rates,*nuclFitted,fittedYields,fittedPar.at(fittedPar.size()-1));
 
 }
 

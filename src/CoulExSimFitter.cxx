@@ -132,11 +132,11 @@ void CoulExSimFitter::DoFit(const char* method, const char *algorithm){
 		std::string name;
 		if(i < matrixElements_Beam.size()){
 			name = "Beam-ME-"+std::to_string(i);
-			min->SetLimitedVariable(i,name,parameters.at(i),0.01,par_LL.at(i),par_UL.at(i));
+			min->SetLimitedVariable(i,name,parameters.at(i),0.001,par_LL.at(i),par_UL.at(i));
 		}
 		else if(i < matrixElements_Target.size() + matrixElements_Beam.size()){
 			name = "Target-ME-"+std::to_string(i - matrixElements_Beam.size());
-			min->SetLimitedVariable(i,name,parameters.at(i),0.01,par_LL.at(i),par_UL.at(i));
+			min->SetLimitedVariable(i,name,parameters.at(i),0.001,par_LL.at(i),par_UL.at(i));
 		}
 		else{
 			name = "Scaling-"+std::to_string(i-(matrixElements_Beam.size() + matrixElements_Target.size()));

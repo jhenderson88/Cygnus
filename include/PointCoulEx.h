@@ -127,7 +127,6 @@ class PointCoulEx
 
 		std::vector<Substate>	fSubstates;
 		std::vector<State>	fStates;
-		std::vector< std::vector< std::vector <Connection>>> fConnections;
 
 		double			fTheta;
 

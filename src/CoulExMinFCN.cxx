@@ -31,8 +31,9 @@ void CoulExMinFCN::SetupCalculation(){
 
 double CoulExMinFCN::operator()(const double* par){
 
-	double chisq = 0;
-	int NDF = 0;
+	double 	chisq = 0;
+	double	lnL = 0;
+	int 	NDF = 0;
 
 	typedef std::chrono::high_resolution_clock Clock;
 	typedef std::chrono::milliseconds milliseconds;
@@ -51,19 +52,15 @@ double CoulExMinFCN::operator()(const double* par){
 		int	index		= litLifetimes.at(i).GetIndex();
 		double	lifetime	= litLifetimes.at(i).GetLifetime();
 		double	calcLifetime	= rates.GetLifetimes()[index];
-		if(fLikelihood){
-			double	sigma		= litLifetimes.at(i).GetUpUnc() * litLifetimes.at(i).GetDnUnc();
-			double	sigma_prime	= (litLifetimes.at(i).GetUpUnc() - litLifetimes.at(i).GetDnUnc());
-			chisq 			+= 0.5 * TMath::Power((calcLifetime - lifetime),2)/(sigma + sigma_prime * (calcLifetime - lifetime));
-		}
-		else{
-			if(calcLifetime > lifetime)
-				tmp = (calcLifetime - lifetime) / litLifetimes.at(i).GetUpUnc();
-			else
-				tmp = (calcLifetime - lifetime) / litLifetimes.at(i).GetDnUnc();
-			chisq += tmp * tmp;
-			lifetime_chisq += tmp*tmp;
-		}
+		double	sigma		= litLifetimes.at(i).GetUpUnc() * litLifetimes.at(i).GetDnUnc();
+		double	sigma_prime	= (litLifetimes.at(i).GetUpUnc() - litLifetimes.at(i).GetDnUnc());
+		lnL 			+= 0.5 * TMath::Power((calcLifetime - lifetime),2)/(sigma + sigma_prime * (calcLifetime - lifetime));
+		if(calcLifetime > lifetime)
+			tmp = (calcLifetime - lifetime) / litLifetimes.at(i).GetUpUnc();
+		else
+			tmp = (calcLifetime - lifetime) / litLifetimes.at(i).GetDnUnc();
+		chisq += tmp * tmp;
+		lifetime_chisq += tmp*tmp;
 		NDF++;
 	}
 	double br_chisq = 0;
@@ -74,19 +71,15 @@ double CoulExMinFCN::operator()(const double* par){
 		int	index_final2	= litBranchingRatios.at(i).GetFinalIndex_2();
 		double	BR		= litBranchingRatios.at(i).GetBranchingRatio();
 		double  calcBR		= rates.GetBranchingRatios()[index_final1][index_init] / rates.GetBranchingRatios()[index_final2][index_init];
-		if(fLikelihood){
-			double	sigma		= litBranchingRatios.at(i).GetUpUnc() * litBranchingRatios.at(i).GetDnUnc();
-			double	sigma_prime	= (litBranchingRatios.at(i).GetUpUnc() - litBranchingRatios.at(i).GetDnUnc());
-			chisq 			+= 0.5 * TMath::Power((calcBR - BR),2)/(sigma + sigma_prime * (calcBR - BR));
-		}
-		else{
-			if(calcBR > BR)
-				tmp = (BR - calcBR) / litBranchingRatios.at(i).GetUpUnc();
-			else
-				tmp = (BR - calcBR) / litBranchingRatios.at(i).GetDnUnc();
-			chisq += tmp * tmp;
-			br_chisq += tmp*tmp;
-		}
+		double	sigma		= litBranchingRatios.at(i).GetUpUnc() * litBranchingRatios.at(i).GetDnUnc();
+		double	sigma_prime	= (litBranchingRatios.at(i).GetUpUnc() - litBranchingRatios.at(i).GetDnUnc());
+		lnL 			+= 0.5 * TMath::Power((calcBR - BR),2)/(sigma + sigma_prime * (calcBR - BR));
+		if(calcBR > BR)
+			tmp = (BR - calcBR) / litBranchingRatios.at(i).GetUpUnc();
+		else
+			tmp = (BR - calcBR) / litBranchingRatios.at(i).GetDnUnc();
+		chisq += tmp * tmp;
+		br_chisq += tmp*tmp;
 		NDF++;
 	}
 	double mr_chisq = 0;
@@ -96,19 +89,15 @@ double CoulExMinFCN::operator()(const double* par){
 		int	index_final	= litMixingRatios.at(i).GetFinalIndex();
 		double	delta		= litMixingRatios.at(i).GetMixingRatio();
 		double	calcDelta	= rates.GetMixingRatios()[index_final][index_init];
-		if(fLikelihood){
-			double	sigma		= litMixingRatios.at(i).GetUpUnc() * litMixingRatios.at(i).GetDnUnc();
-			double	sigma_prime	= (litMixingRatios.at(i).GetUpUnc() - litMixingRatios.at(i).GetDnUnc());
-			chisq 			+= 0.5 * TMath::Power((calcDelta - delta),2)/(sigma + sigma_prime * (calcDelta - delta));
-		}
-		else{
-			if(calcDelta > delta)
-				tmp = (delta - calcDelta) / litMixingRatios.at(i).GetUpUnc();
-			else
-				tmp = (delta - calcDelta) / litMixingRatios.at(i).GetDnUnc();
-			chisq += tmp * tmp;		
-			mr_chisq += tmp*tmp;
-		}
+		double	sigma		= litMixingRatios.at(i).GetUpUnc() * litMixingRatios.at(i).GetDnUnc();
+		double	sigma_prime	= (litMixingRatios.at(i).GetUpUnc() - litMixingRatios.at(i).GetDnUnc());
+		lnL 			+= 0.5 * TMath::Power((calcDelta - delta),2)/(sigma + sigma_prime * (calcDelta - delta));
+		if(calcDelta > delta)
+			tmp = (delta - calcDelta) / litMixingRatios.at(i).GetUpUnc();
+		else
+			tmp = (delta - calcDelta) / litMixingRatios.at(i).GetDnUnc();
+		chisq += tmp * tmp;		
+		mr_chisq += tmp*tmp;
 		NDF++;
 	}
 	double me_chisq = 0;
@@ -119,25 +108,21 @@ double CoulExMinFCN::operator()(const double* par){
 		int	index_final	= litMatrixElements.at(i).GetFinalIndex();
 		double	ME		= litMatrixElements.at(i).GetMatrixElement();
 		double	calcME		= nucl.GetMatrixElements().at(mult)[index_init][index_final];
-		if(fLikelihood){
-			double	sigma		= litMatrixElements.at(i).GetUpUnc() * litMatrixElements.at(i).GetDnUnc();
-			double	sigma_prime	= (litMatrixElements.at(i).GetUpUnc() - litMatrixElements.at(i).GetDnUnc());
-			chisq 			+= 0.5 * TMath::Power((calcME - ME),2)/(sigma + sigma_prime * (calcME - ME));
-		}
-		else{
-			if(calcME > ME)
-				tmp = (ME - calcME) / litMatrixElements.at(i).GetUpUnc();
-			else
-				tmp = (ME - calcME) / litMatrixElements.at(i).GetDnUnc();
-			chisq += tmp * tmp;		
-			me_chisq += tmp*tmp;
-		}
+		double	sigma		= litMatrixElements.at(i).GetUpUnc() * litMatrixElements.at(i).GetDnUnc();
+		double	sigma_prime	= (litMatrixElements.at(i).GetUpUnc() - litMatrixElements.at(i).GetDnUnc());
+		chisq 			+= 0.5 * TMath::Power((calcME - ME),2)/(sigma + sigma_prime * (calcME - ME));
+		if(calcME > ME)
+			tmp = (ME - calcME) / litMatrixElements.at(i).GetUpUnc();
+		else
+			tmp = (ME - calcME) / litMatrixElements.at(i).GetDnUnc();
+		chisq += tmp * tmp;		
+		me_chisq += tmp*tmp;
 		NDF++;
 	}
 	if(verbose && !fLikelihood)
 		std::cout << "Literature chi-squared: " << chisq << std::endl;
 	else{
-		if(!verbose)
+		if(verbose)
 			std::cout << "Literature likelihood contribution: " << chisq << std::endl;
 	}
 	double litchisq = chisq;
@@ -282,17 +267,13 @@ double CoulExMinFCN::operator()(const double* par){
 				double effCounts = exptData.at(i).GetData().at(t).GetEfficiency() * calcCounts;
 				if(exptCounts > 0){
 					chisq += 2*(effCounts - exptCounts + exptCounts * TMath::Log(exptCounts / effCounts));
-					NDF++;
 				}
-			}
-			else if(fLikelihood){
-				chisq		+= 0.5 * TMath::Power((exptCounts - calcCounts),2)/(sigma + sigma_prime * (exptCounts - calcCounts));
-				NDF++;
 			}
 			else{
 				chisq		+= tmp * tmp;
-				NDF++;
 			}
+			lnL	+= 0.5 * TMath::Power((exptCounts - calcCounts),2)/(sigma + sigma_prime * (exptCounts - calcCounts));
+			NDF++;
 		}
 		if(verbose)
 			std::cout << std::endl;
@@ -310,9 +291,28 @@ double CoulExMinFCN::operator()(const double* par){
 
 	iter++;
 
+	if( iter % 10 == 0 && !verbose){
+		std::cout	<< "Iteration " 
+				<< std::setw(8) << std::left << iter;
+		if(fLikelihood)
+			std::cout	<< "Ln(L): "
+					<< std::setw(10) << std::left << lnL
+					<< "Chisq: "
+					<< std::setw(10) << std::left << chisq
+					<< "Chisq/DoF: "
+					<< std::setw(10) << std::left << chisq/(double)NDF
+					<< std::endl;
+		else	
+			std::cout	<< "Chisq: "
+					<< std::setw(10) << std::left << chisq
+					<< std::endl;
+	}
+
 	Clock::time_point t1 = Clock::now();
 	milliseconds ms = std::chrono::duration_cast<milliseconds>(t1-t0);
 
+	if(fLikelihood)
+		return lnL;
 	return chisq;	
 
 }
@@ -330,7 +330,7 @@ void CoulExMinFCN::ClearAll(){
 
 }
 
-void CoulExMinFCN::PrintParameters(const double *par){
+void CoulExMinFCN::PrintParameters(const double *par) const {
 
 	for(size_t i = 0; i < parameters.size(); i++)
 		std::cout	<< std::setw(10) << std::left << par[i];
