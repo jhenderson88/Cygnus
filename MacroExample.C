@@ -11,5 +11,7 @@ void MacroExample(){
 	point_mg->SetProjectileExcitation(true);
 	point_mg->SetAccuracy(1e-8);
 	point_mg->CalculatePointProbabilities(reac_mg->ConvertThetaLabToCm(26.2270 * TMath::DegToRad(),2) * TMath::RadToDeg());
+
+	point_mg->Print();
 	
 }

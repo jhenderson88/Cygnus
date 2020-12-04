@@ -16,7 +16,7 @@
 #include <thread>
 #include <iostream>
 
-#define NWalkers 20
+#define NWalkers 2
 #define NSteps 10000
 
 void TaskWalker(MCMCWalker &m){
@@ -105,8 +105,6 @@ void RunFitter(const char* nuclfile = "NucleusFile.txt", const char* datafile = 
 	//expts->PrintPointCorrections();							//	Print the corrections
 	expts->WriteIntegralFits("CrossSections.root","RECREATE");			//	Write the TGraph2D objects containing the cross-section surfaces to file for user inspection
 
-	return;
-
 	//******************************************************************************//
 	//                         BEGIN THE FITTING PROCEDURE                          //
 	//******************************************************************************//
@@ -125,7 +123,7 @@ void RunFitter(const char* nuclfile = "NucleusFile.txt", const char* datafile = 
 		walker[i]->SetData(exptVec);							//	Give the walker[i] the experimental data
 		for(size_t i = 0;i<poinVec.size();i++)
 			poinVec.at(i).SetVerbose(false);					//	Set the point calculation verbocity (recommended false, unless you like spam)
-		walker[i]->SetPointCalcs(poinVec);							//	Pass the PointCoulEx objects to the walker[i]
+		walker[i]->SetPointCalcs(poinVec);						//	Pass the PointCoulEx objects to the walker[i]
 	
 		//	Define literature data for use in constraining the fits
 		walker[i]->AddLifetime(1,17.745,0.289);
@@ -146,7 +144,7 @@ void RunFitter(const char* nuclfile = "NucleusFile.txt", const char* datafile = 
 		for(unsigned int e=0;e<6;e++)
 			tmpVec.push_back((int)e);
 		// 	Arguments: vector containing experiments to be scaled with this parameter, starting value, lower limit, upper limit
-		walker[i]->CreateScalingParameter(tmpVec,0.0017,0.00,0.003,(0.003-0.001)/100.);	
+		walker[i]->CreateScalingParameter(tmpVec);	
 		//walker[i]->CreateScalingParameter(tmpVec,0.01,0.0001,0.1,0.0001);	
 		
 		//	Define the number of threads the walker[i] can use

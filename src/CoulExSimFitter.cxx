@@ -75,11 +75,6 @@ void CoulExSimFitter::DoFit(const char* method, const char *algorithm){
 		par_LL.push_back(matrixElements_Target.at(i).GetMatrixElementLowerLimit());
 		par_UL.push_back(matrixElements_Target.at(i).GetMatrixElementUpperLimit());
 	}
-	for(unsigned int i=0;i<scalingParameters.size();i++){
-		parameters.push_back(scalingParameters.at(i).GetScalingParameter());
-		par_LL.push_back(scalingParameters.at(i).GetScalingLowerLimit());
-		par_UL.push_back(scalingParameters.at(i).GetScalingUpperLimit());
-	}	
 
 	std::cout 	<< std::setw(12) << std::left << "Parameters:" 
 			<< std::endl;
@@ -89,10 +84,6 @@ void CoulExSimFitter::DoFit(const char* method, const char *algorithm){
 	}
 	for(unsigned int i=0;i<matrixElements_Target.size();i++){
 		std::cout	<< std::setw(11) << std::left << "Target ME:" 
-				<< std::setw(4) << std::left << i+1;
-	}
-	for(unsigned int i=0;i<scalingParameters.size();i++){
-		std::cout	<< std::setw(11) << std::left << "Scaling " 
 				<< std::setw(4) << std::left << i+1;
 	}
 	std::cout	<< std::endl;
@@ -133,14 +124,17 @@ void CoulExSimFitter::DoFit(const char* method, const char *algorithm){
 		if(i < matrixElements_Beam.size()){
 			name = "Beam-ME-"+std::to_string(i);
 			min->SetLimitedVariable(i,name,parameters.at(i),0.001,par_LL.at(i),par_UL.at(i));
+			std::cout	<< name << std::endl;
 		}
 		else if(i < matrixElements_Target.size() + matrixElements_Beam.size()){
 			name = "Target-ME-"+std::to_string(i - matrixElements_Beam.size());
 			min->SetLimitedVariable(i,name,parameters.at(i),0.001,par_LL.at(i),par_UL.at(i));
+			std::cout	<< name << std::endl;
 		}
 		else{
 			name = "Scaling-"+std::to_string(i-(matrixElements_Beam.size() + matrixElements_Target.size()));
 			min->SetLowerLimitedVariable(i,name,parameters.at(i),0.01,0);
+			std::cout	<< name << std::endl;
 		}
 	}
 
@@ -229,11 +223,10 @@ void CoulExSimFitter::DoFit(const char* method, const char *algorithm){
 
 }
 
-void CoulExSimFitter::CreateScalingParameter(std::vector<int> expnum, double scaling, double scaling_LL, double scaling_UL){
+void CoulExSimFitter::CreateScalingParameter(std::vector<int> expnum){
 
 	ScalingParameter tmpScaling;
 	tmpScaling.SetExperimentVector(expnum);
-	tmpScaling.SetScalingValue(scaling,scaling_LL,scaling_UL);
 
 	scalingParameters.push_back(tmpScaling);
 

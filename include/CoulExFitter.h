@@ -82,7 +82,7 @@ class CoulExFitter {
 		void	AddMatrixElement(int,int,int,double,double);		/*!< Add literature matrix element data */
 
 		void	AddFittingMatrixElement(int,int,int,double,double,double);	/*!< Add a fitting matrix element */
-		void	CreateScalingParameter(std::vector<int>,double,double,double);	/*!< Add a scaling parameter, with common scaling experiments defined by their indices in a vector of int */
+		void	CreateScalingParameter(std::vector<int>);			/*!< Add a scaling parameter, with common scaling experiments defined by their indices in a vector of int */
 
 		void	SetMatrixElements(std::vector<MatrixElement> m)		   	{ matrixElements = m;			}	/*!< Define vector of fitting MatrixElements */
 		std::vector<MatrixElement>	GetMatrixElements() 			{ return matrixElements;		}	/*!< Return vector of fitting MatrixElements */

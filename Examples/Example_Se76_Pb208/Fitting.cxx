@@ -125,7 +125,7 @@ void RunFitter(const char* nuclfile = "NucleusFile.txt", const char* datafile = 
 	for(unsigned int e=0;e<6;e++)
 		tmpVec.push_back((int)e);
 	// 	Arguments: vector containing experiments to be scaled with this parameter, starting value, lower limit, upper limit
-	fitter->CreateScalingParameter(tmpVec,0.002,1e-6,1e9);	
+	fitter->CreateScalingParameter(tmpVec);	
 	
 	//	Define the number of threads the fitter can use
 	fitter->SetNthreads(threads);

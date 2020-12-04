@@ -20,14 +20,10 @@ MCMCWalker::MCMCWalker()
 
 }
 
-void MCMCWalker::CreateScalingParameter(std::vector<int> expnum, double scaling, double scaling_LL, double scaling_UL, double sigma){
+void MCMCWalker::CreateScalingParameter(std::vector<int> expnum){
 
 	ScalingParameter tmpScaling;
 	tmpScaling.SetExperimentVector(expnum);
-	tmpScaling.SetScalingValue(scaling,scaling_LL,scaling_UL);
-
-	AddScalingParameter(tmpScaling);
-	ScalingSigma.push_back(sigma);
 
 }
 
@@ -44,11 +40,6 @@ void MCMCWalker::RandomizeStarting(){
 	for(size_t m = 0; m < ME.size(); m++)
 		ME.at(m).SetMatrixElement(r.Rndm()*(ME.at(m).GetMatrixElementUpperLimit() - ME.at(m).GetMatrixElementLowerLimit() - 2*MatrixElementSigma.at(m)) + ME.at(m).GetMatrixElementLowerLimit() + MatrixElementSigma.at(m));
 	SetMatrixElements(ME);
-
-	std::vector<ScalingParameter> SP = GetScalingParameters();
-	for(size_t s = 0; s < SP.size(); s++)
-		SP.at(s).SetScalingParameter(r.Rndm()*(SP.at(s).GetScalingUpperLimit() - SP.at(s).GetScalingLowerLimit() - 2*ScalingSigma.at(s)) + SP.at(s).GetScalingLowerLimit() + ScalingSigma.at(s));
-	SetScalingParameters(SP);
 
 }
 
@@ -97,12 +88,6 @@ void MCMCWalker::DoMCMCFit(){
 		fitLL.push_back(GetMatrixElements().at(i).GetMatrixElementLowerLimit());
 		fitUL.push_back(GetMatrixElements().at(i).GetMatrixElementUpperLimit());
 		fitSigma.push_back(MatrixElementSigma.at(i));
-	}
-	for(unsigned int i=0;i<GetScalingParameters().size();i++){
-		fitPar.push_back(GetScalingParameters().at(i).GetScalingParameter());
-		fitLL.push_back(GetScalingParameters().at(i).GetScalingLowerLimit());
-		fitUL.push_back(GetScalingParameters().at(i).GetScalingUpperLimit());
-		fitSigma.push_back(ScalingSigma.at(i));
 	}
 
 	SetFitParameters(fitPar);

@@ -65,20 +65,11 @@ void CoulExFitter::DoFit(const char* method, const char *algorithm){
 		par_LL.push_back(matrixElements.at(i).GetMatrixElementLowerLimit());
 		par_UL.push_back(matrixElements.at(i).GetMatrixElementUpperLimit());
 	}
-	for(unsigned int i=0;i<scalingParameters.size();i++){
-		parameters.push_back(scalingParameters.at(i).GetScalingParameter());
-		par_LL.push_back(scalingParameters.at(i).GetScalingLowerLimit());
-		par_UL.push_back(scalingParameters.at(i).GetScalingUpperLimit());
-	}	
 
 	std::cout 	<< std::setw(12) << std::left << "Parameters:" 
 			<< std::endl;
 	for(unsigned int i=0;i<matrixElements.size();i++){
 		std::cout	<< std::setw(11) << std::left << "Matrix El." 
-				<< std::setw(4) << std::left << i+1;
-	}
-	for(unsigned int i=0;i<scalingParameters.size();i++){
-		std::cout	<< std::setw(11) << std::left << "Scaling " 
 				<< std::setw(4) << std::left << i+1;
 	}
 	std::cout	<< std::endl;
@@ -211,11 +202,10 @@ void CoulExFitter::DoFit(const char* method, const char *algorithm){
 
 }
 
-void CoulExFitter::CreateScalingParameter(std::vector<int> expnum, double scaling, double scaling_LL, double scaling_UL){
+void CoulExFitter::CreateScalingParameter(std::vector<int> expnum){
 
 	ScalingParameter tmpScaling;
 	tmpScaling.SetExperimentVector(expnum);
-	tmpScaling.SetScalingValue(scaling,scaling_LL,scaling_UL);
 
 	scalingParameters.push_back(tmpScaling);
 

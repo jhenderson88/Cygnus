@@ -25,7 +25,7 @@ class MCMCWalker : public CoulExFitter {
 		virtual ~MCMCWalker()	{;}							/*!< Destructor */
 
 		void	AddFittingMatrixElement(int,int,int,double,double,double,double);	/*!< Add a fitting matrix element */
-		void	CreateScalingParameter(std::vector<int>,double,double,double,double);	/*!< Add a scaling parameter, with common scaling experiments defined by their indices in a vector of int */
+		void	CreateScalingParameter(std::vector<int>);				/*!< Add a scaling parameter, with common scaling experiments defined by their indices in a vector of int */
 
 		void	DoMCMCFit();								/*!< Perform the MCMC walk through parameter space */
 

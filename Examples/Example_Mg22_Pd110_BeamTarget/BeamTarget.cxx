@@ -184,7 +184,7 @@ void RunFitter(const char* beamfile, const char* targfile, int threads = 1){
 	std::vector<int> tmpVec;
 	for(unsigned int e=0;e<6;e++)
 		tmpVec.push_back((int)e);
-	fitter->CreateScalingParameter(tmpVec,1000,0.01,1e8);	//	Set the scaling parameters and their allowed range
+	fitter->CreateScalingParameter(tmpVec);	//	Set the scaling parameters and their allowed range
 	fitter->SetNthreads(threads);				//	Define the number of threads to be used
 	fitter->SetVerbose(true);				//	Make the fit verbose
 

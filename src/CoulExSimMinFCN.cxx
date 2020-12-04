@@ -18,7 +18,6 @@ void CoulExSimMinFCN::SetupCalculation(){
 
 	std::cout	<< std::setw(13) << std::left << "Experiment: "
 			<< std::setw(14) << std::left << "Scaling index: "
-			<< std::setw(14) << std::left << "Starting scaling:"
 			<< std::endl;
 	for(unsigned int i=0;i<exptIndex.size();i++){
 		std::cout	<< std::setw(13) << std::left << i+1
@@ -329,15 +328,6 @@ double CoulExSimMinFCN::operator()(const double* par){
 	if(verbose)
 		std::cout << std::endl;
 
-	//	Scaling is common for both beam and target, so no need to duplicate this:
-	std::vector<double>	scaling;
-	scaling.resize(exptData_Beam.size()); 
-	// Number of experiments better be the same for target and beam, or we're in trouble
-	for(unsigned int i=0;i<exptData_Beam.size();i++)
-		scaling.at(i) = par[ME_Beam.size() + ME_Target.size() + exptIndex.at(i)];
-
-	if(verbose)
-		std::cout << "Experiment scaling: " << scaling.at(0) << std::endl;
 	//	Everything needs printing for both beam and target...
 	if(verbose && !fLikelihood){
 		std::cout 	<< std::setw(7) << std::left << "Expt:";
@@ -363,6 +353,46 @@ double CoulExSimMinFCN::operator()(const double* par){
 		}
 		std::cout 	<< std::endl;
 	}
+
+	std::vector<double>	scaling;
+	scaling.resize(exptData_Beam.size());
+	for(unsigned int s=0;s<scalingParameters.size();s++){
+		double	calScaling 	= 0;
+		double	weightSum	= 0;
+		for(unsigned int ss=0;ss<scalingParameters.at(s).GetExperimentNumbers().size();ss++){
+			unsigned int i = scalingParameters.at(s).GetExperimentNumbers().at(ss);
+			for(unsigned int t=0;t<exptData_Beam.at(i).GetData().size();++t){
+				int	index_init 	= exptData_Beam.at(i).GetData().at(t).GetInitialIndex();
+				int	index_final 	= exptData_Beam.at(i).GetData().at(t).GetFinalIndex();
+				double 	calcCounts 	= EffectiveCrossSection_Beam.at(i)[index_final][index_init];
+				double 	exptCounts 	= exptData_Beam.at(i).GetData().at(t).GetCounts();
+				double	sigma		= (exptData_Beam.at(i).GetData().at(t).GetUpUnc() + exptData_Beam.at(i).GetData().at(t).GetDnUnc())/2.;  // Average uncertainty
+				double	ratio		= exptCounts / calcCounts;
+				double	r_sigma		= ratio * sigma / exptCounts;
+				double	weight		= 1 / pow(r_sigma,2);
+				calScaling 		+= weight * ratio;
+				weightSum		+= weight; 
+			}
+			for(unsigned int t=0;t<exptData_Target.at(i).GetData().size();++t){
+				int	index_init 	= exptData_Target.at(i).GetData().at(t).GetInitialIndex();
+				int	index_final 	= exptData_Target.at(i).GetData().at(t).GetFinalIndex();
+				double 	calcCounts 	= EffectiveCrossSection_Target.at(i)[index_final][index_init];
+				double 	exptCounts 	= exptData_Target.at(i).GetData().at(t).GetCounts();
+				double	sigma		= (exptData_Target.at(i).GetData().at(t).GetUpUnc() + exptData_Target.at(i).GetData().at(t).GetDnUnc())/2.;  // Average uncertainty
+				double	ratio		= exptCounts / calcCounts;
+				double	r_sigma		= ratio * sigma / exptCounts;
+				double	weight		= 1 / pow(r_sigma,2);
+				calScaling 		+= weight * ratio;
+				weightSum		+= weight; 
+			}
+		}
+		calScaling /= weightSum;
+		for(unsigned int ss=0;ss<scalingParameters.at(s).GetExperimentNumbers().size();ss++){
+			unsigned int i 	= scalingParameters.at(s).GetExperimentNumbers().at(ss);
+			scaling[i]	= calScaling;
+		}
+	}
+
 	for(unsigned int i=0;i<exptData_Beam.size();i++){
 		if(verbose)
 			std::cout	<< std::setw(7) << std::left << i+1;

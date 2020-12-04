@@ -7,6 +7,7 @@
 #include "TVectorD.h"
 #include "TMatrixD.h"
 #include <vector>
+#include <array>
 #include <algorithm>
 #include <complex>
 #include <iostream>
@@ -172,6 +173,10 @@ class PointCoulEx
 
 		StatisticalTensor	fTensorsB;
 		StatisticalTensor	fTensors;
+
+		double			GetATS(int Ne = 41);	
+		void			XSTATIC(int, double, int&, int&, double&, double&, double&);	
+		std::array<double,7>	GKK(const int, const int, const double, const double, const double);
 
 		bool 					fTrack;
 		double					fEpsilon;

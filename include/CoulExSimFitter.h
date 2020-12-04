@@ -84,7 +84,7 @@ class CoulExSimFitter {
 
 		void	AddBeamFittingMatrixElement(int,int,int,double,double,double);		/*!< Add a fitting matrix element for the beam */
 		void	AddTargetFittingMatrixElement(int,int,int,double,double,double);	/*!< Add a fitting matrix element for the target */
-		void	CreateScalingParameter(std::vector<int>,double,double,double);		/*!< Add a scaling parameter, with common scaling experiments defined by their indices in a vector of int */
+		void	CreateScalingParameter(std::vector<int>);				/*!< Add a scaling parameter, with common scaling experiments defined by their indices in a vector of int */
 
 		// Scaling parameters are common to both target and beam
 		std::vector<ScalingParameter>	GetScalingParameters()		const	{ return scalingParameters;		}	/*!< Return vector of ScalingParameter objects */

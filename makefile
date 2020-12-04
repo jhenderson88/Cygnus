@@ -3,12 +3,12 @@ SRCDIR = $(CURDIR)/src
 INCDIR = $(CURDIR)/include
 BINDIR = $(CURDIR)/bin
 
-ROOT_LIBS = `root-config --glibs` -lSpectrum -lTreePlayer
+ROOT_LIBS = `root-config --glibs` -lSpectrum -lTreePlayer -lMathMore
 
 LIBRS = -L$(INCDIR) $(ROOT_LIBS)# $(MINSRC) 
 INCLUDE = $(INCDIR)# $(MINDIR)
 
-CFLAGS = -std=c++11 -g -fPIC -Wall `root-config --cflags` `gsl-config --cflags` -I$(INCDIR) $(ROOT_LIBS) $(GSLLIBS)
+CFLAGS = -std=c++11 -g -fPIC `root-config --cflags` `gsl-config --cflags` -I$(INCDIR) $(ROOT_LIBS) $(GSLLIBS) -Qunused-arguments
 
 CPP=g++
 
