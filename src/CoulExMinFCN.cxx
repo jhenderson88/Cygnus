@@ -215,12 +215,14 @@ double CoulExMinFCN::operator()(const double* par){
 				int	index_final 	= exptData.at(i).GetData().at(t).GetFinalIndex();
 				double 	calcCounts 	= EffectiveCrossSection.at(i)[index_final][index_init];
 				double 	exptCounts 	= exptData.at(i).GetData().at(t).GetCounts();
-				double	sigma		= (exptData.at(i).GetData().at(t).GetUpUnc() + exptData.at(i).GetData().at(t).GetDnUnc())/2.;  // Average uncertainty
-				double	ratio		= exptCounts / calcCounts;
-				double	r_sigma		= ratio * sigma / exptCounts;
-				double	weight		= 1 / pow(r_sigma,2);
-				calScaling 		+= weight * ratio;
-				weightSum		+= weight; 
+				if(exptCounts > 0 && calcCounts > 0){
+					double	sigma		= (exptData.at(i).GetData().at(t).GetUpUnc() + exptData.at(i).GetData().at(t).GetDnUnc())/2.;  // Average uncertainty
+					double	ratio		= exptCounts / calcCounts;
+					double	r_sigma		= ratio * sigma / exptCounts;
+					double	weight		= 1. / pow(r_sigma,2);
+					calScaling 		+= weight * ratio;
+					weightSum		+= weight; 
+				}
 			}
 		}
 		calScaling /= weightSum;

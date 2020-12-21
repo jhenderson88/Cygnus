@@ -20,13 +20,6 @@ MCMCWalker::MCMCWalker()
 
 }
 
-void MCMCWalker::CreateScalingParameter(std::vector<int> expnum){
-
-	ScalingParameter tmpScaling;
-	tmpScaling.SetExperimentVector(expnum);
-
-}
-
 void MCMCWalker::AddFittingMatrixElement(int lambda, int init, int fin, double ME, double LL, double UL, double sigma){
 	MatrixElement tmpME(GetMatrixElements().size(),lambda,init,fin,ME,LL,UL);
 	AddMatrixElement(tmpME);

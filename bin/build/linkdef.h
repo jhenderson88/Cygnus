@@ -35,6 +35,10 @@
 #pragma link C++ defined_in "include/AngularDistribution.h";
 #pragma link C++ defined_in "include/Plotting.h";
 #pragma link C++ defined_in "include/MCMCWalker.h";
+#pragma link C++ defined_in "include/MCMCSimWalker.h";
+#pragma link C++ defined_in "include/GOSIAReader.h";
+#pragma link C++ defined_in "include/GOSIASimFitter.h";
+#pragma link C++ defined_in "include/GOSIASimMinFCN.h";
 
 #endif
 

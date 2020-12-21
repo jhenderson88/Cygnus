@@ -1,7 +1,8 @@
-#ifndef CoulExSimFitter_h
-#define CoulExSimFitter_h
+#ifndef GOSIASimFitter_h
+#define GOSIASimFitter_h
 
-#include "CoulExSimMinFCN.h"
+
+#include "GOSIASimMinFCN.h"
 #include "ScalingParameter.h"
 #include <chrono>
 
@@ -18,7 +19,7 @@
 
 #include <iostream>
 
-class CoulExSimMinFCN;
+class GOSIASimMinFCN;
 
 ///
 ///	\class CoulExSimFitter
@@ -59,13 +60,44 @@ class CoulExSimMinFCN;
 ///	Genetic		|
 ///
 
-class CoulExSimFitter {
+class GOSIASimFitter {
 
 	public:
-		CoulExSimFitter();
-		virtual	~CoulExSimFitter()	{;}
+		GOSIASimFitter();
+		virtual	~GOSIASimFitter()	{;}
 		
 		void	DoFit(const char* method = "Minuit2", const char* algorithm = "Combined" );	/*!< Perform fitting routine with a user defined method and algorithm (default: Minuit2, Combined) */
+
+		void	SetBeamGOSIAInput(std::string s)				{ beamGOSIAFile_inp = s;		}
+		void	SetTargetGOSIAInput(std::string s)				{ targetGOSIAFile_inp = s;		}
+
+		std::string	GetBeamGOSIAInput()				const	{ return beamGOSIAFile_inp;		}
+		std::string	GetTargetGOSIAInput()				const	{ return targetGOSIAFile_inp;		}
+
+		void	SetBeamGOSIAOutput(std::string s)				{ beamGOSIAFile_out = s;		}
+		void	SetTargetGOSIAOutput(std::string s)				{ targetGOSIAFile_out = s;		}
+
+		std::string	GetBeamGOSIAOutput()				const	{ return beamGOSIAFile_out;		}
+		std::string	GetTargetGOSIAOutput()				const	{ return targetGOSIAFile_out;		}
+
+		void	SetBeamBST(std::string s)					{ beamBSTFile = s;			}
+		void	SetTargetBST(std::string s)					{ targetBSTFile = s;			}
+
+		std::string	GetBeamBST()					const	{ return beamBSTFile;			}
+		std::string	GetTargetBST()					const	{ return targetBSTFile;			}
+
+		void	SetBeamMapping(std::vector<int> i, std::vector<int> f, std::vector<int> l)
+		{
+			beamMapping_i	= i;
+			beamMapping_f	= f;
+			beamMapping_l	= l;
+		}
+		void	SetTargetMapping(std::vector<int> i, std::vector<int> f, std::vector<int> l)
+		{
+			targetMapping_i	= i;
+			targetMapping_f	= f;
+			targetMapping_l	= l;
+		}
 		
 		virtual	void	ClearAll();			/*!< Completely clear all previous input */
 		
@@ -100,13 +132,6 @@ class CoulExSimFitter {
 		std::vector<MatrixElement>	GetTargetMatrixElements() 	const	{ return matrixElements_Target;		}	/*!< Return vector of fitting MatrixElements for the target */
 		void	ClearTargetMatrixElements()					{ matrixElements_Target.clear();	}	/*!< Clear vector of fitting MatrixElements for the target*/
 		void	AddTargetMatrixElement(MatrixElement m)				{ matrixElements_Target.push_back(m);	}	/*!< Add a matrix element for the target nucleus */
-
-		void	AddBeamPointCalc(PointCoulEx p)					{ pointCalcs_Beam.push_back(p);		}	/*!< Append beam PointCoulEx calculation object */	
-		void	SetBeamPointCalcs(std::vector<PointCoulEx> p)		   	{ pointCalcs_Beam = p;			}	/*!< Define vector of beam PointCoulEx calculation objects */
-		std::vector<PointCoulEx>	GetBeamPointCalcs() 		const	{ return pointCalcs_Beam;		}	/*!< Return vector of beam PointCoulEx calculation objects */
-		void	AddTargetPointCalc(PointCoulEx p)				{ pointCalcs_Target.push_back(p);	}	/*!< Append target PointCoulEx calculation object */	
-		void	SetTargetPointCalcs(std::vector<PointCoulEx> p)		   	{ pointCalcs_Target = p;		}	/*!< Define vector of target PointCoulEx calculation objects */
-		std::vector<PointCoulEx>	GetTargetPointCalcs() 		const	{ return pointCalcs_Target;		}	/*!< Return vector of target PointCoulEx calculation objects */
 
 		void	SetBeamData(std::vector<ExperimentData> d)		   	{ exptData_Beam = d;			}	/*!< Define vector of beam ExperimentData */
 		std::vector<ExperimentData>	GetBeamData() 			const	{ return exptData_Beam;			}	/*!< Return vector of beam ExperimentData */
@@ -246,6 +271,22 @@ class CoulExSimFitter {
 
 		bool				fLikelihood;
 
-};
+		std::string			beamGOSIAFile_inp;
+		std::string			targetGOSIAFile_inp;
 
+		std::string			beamGOSIAFile_out;
+		std::string			targetGOSIAFile_out;
+
+		std::string			beamBSTFile;
+		std::string			targetBSTFile;
+
+		std::vector<int>		beamMapping_i;
+		std::vector<int>		beamMapping_f;
+		std::vector<int>		beamMapping_l;
+
+		std::vector<int>		targetMapping_i;
+		std::vector<int>		targetMapping_f;
+		std::vector<int>		targetMapping_l;
+
+};
 #endif
