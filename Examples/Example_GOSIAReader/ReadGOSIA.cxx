@@ -25,18 +25,33 @@
 ///	The goal of this script is to use the traditional GOSIA code to perform the Coulomb
 ///	excitation analysis, but with a Minuit-based minimization algorithm.
 ///
-
+///	In order for the minimizer to work, GOSIA needs to print its calculated yields with much
+///	higher precision than is standard. This can be done by modifying the GOSIA write statement 99049 to:  
+///	"99049 FORMAT (4X,1I3,4X,1I3,3X,1F4.1,3X,1F4.1,3X,F60.50,8X,1E11.5)"
+///
+///	This will make the formatting look pretty hideous, but gives the minimizer access to all of the precision
+///	it needs.
+///
+///	The example below has comments describing the process. This code is a GOSIA in, GOSIA out
+///	example. It uses GOSIA to calculate some yields, applies a typical poisson smearing to the data,
+///	and then fits it. So everything should be ideal.
+///
 
 void Run(){
 
 	//	Set up the Krypton GOSIA calculation
-
 	const char* krfile = "NucleusFile_Kr80.txt";
 	
 	// 	Define the nucleus of interest
 	NucleusReader *kr_nuclreader = new NucleusReader(krfile);	//	Read from the nucleus file
 	Nucleus *kr_nucl = kr_nuclreader->GetNucleus();			//	Construct a nucleus based on the input file
-	//kr_nucl->PrintNucleus();
+
+	///
+	///	We use the GOSIA OP,REST option to reset the matrix elements easily
+	///	This requires us to know the ordering of the matrix elements, as provided in the 
+	///	GOSIA file. The vectors below are used to specify this ordering so that the correct
+	///	matrix elements are modified.
+	///
 	std::ofstream		kr_bst("kr80_pt.bst");
 	std::vector<int>	kr_i, kr_f, kr_l;	// Initial, final, lambda
 	kr_i.resize(8); kr_f.resize(8); kr_l.resize(8);
@@ -48,6 +63,9 @@ void Run(){
 	kr_i[5]	= 4;	kr_f[5] = 1; kr_l[5] = 1;
 	kr_i[6]	= 4;	kr_f[6] = 4; kr_l[6] = 1;
 	kr_i[7]	= 2;	kr_f[7] = 1; kr_l[7] = 6;
+
+	///	Write the initial matrix elements to the .bst file, as specified in the Nucleus file and
+	///	with an ordering defined by the above vectors
 	for(size_t i=0;i<kr_i.size();i++)
 		kr_bst << kr_nucl->GetMatrixElements().at(kr_l.at(i))[kr_f.at(i)][kr_i.at(i)] << "\n";
 	kr_bst.close();
@@ -59,7 +77,13 @@ void Run(){
 	// 	Define the nucleus of interest
 	NucleusReader *pt_nuclreader = new NucleusReader(ptfile);	//	Read from the nucleus file
 	Nucleus *pt_nucl = pt_nuclreader->GetNucleus();			//	Construct a nucleus based on the input file
-	//pt_nucl->PrintNucleus();
+
+	///
+	///	We use the GOSIA OP,REST option to reset the matrix elements easily
+	///	This requires us to know the ordering of the matrix elements, as provided in the 
+	///	GOSIA file. The vectors below are used to specify this ordering so that the correct
+	///	matrix elements are modified.
+	///
 	std::ofstream		pt_bst("pt196_kr.bst");
 	std::vector<int>	pt_i, pt_f, pt_l;	// Initial, final, lambda
 	pt_i.resize(8); pt_f.resize(8); pt_l.resize(8);
@@ -71,18 +95,27 @@ void Run(){
 	pt_i[5]	= 2;	pt_f[5] = 2; pt_l[5] = 1;
 	pt_i[6]	= 5;	pt_f[6] = 2; pt_l[6] = 1;
 	pt_i[7]	= 2;	pt_f[7] = 1; pt_l[7] = 6;
+
+	///	Write the initial matrix elements to the .bst file, as specified in the Nucleus file and
+	///	with an ordering defined by the above vectors
 	for(size_t i=0;i<pt_i.size();i++)
 		pt_bst << pt_nucl->GetMatrixElements().at(pt_l.at(i))[pt_f.at(i)][pt_i.at(i)] << "\n";
 	pt_bst.close();
 
-	if(true){	// If we want to simulate some fake yields firs
+	///
+	///	If we want to fake up some yields using GOSIA first.
+	///	Otherwise, we can just format existing yields correctly and feed them
+	///	directly into the minimizer.
+	///
+	if(true){	
 
-		system("./gosia < kr80_pt.inp.INTI > /dev/null");	
-		system("./gosia < pt196_kr.inp.INTI > /dev/null");
+		system("./gosia < kr80_pt.inp.INTI > /dev/null");	// 	Run the beam-like GOSIA integration	
+		system("./gosia < pt196_kr.inp.INTI > /dev/null");	//	Run the target-like GOSIA integration
 		
-		GOSIAReader	kr_gosiaReader_yield(kr_nucl,"kr80_pt.out.INTI");
-		GOSIAReader	pt_gosiaReader_yield(pt_nucl,"pt196_kr.out.INTI");
+		GOSIAReader	kr_gosiaReader_yield(kr_nucl,"kr80_pt.out.INTI");	//	Read in the results
+		GOSIAReader	pt_gosiaReader_yield(pt_nucl,"pt196_kr.out.INTI");	//	Read in the results
 	
+		//	Here we define the "experiment":
 		double 	YieldFactor = 0.00000756746 / 196.;	//	6.022E23 * 1E-30 * 4pi (NA * barns * solid angle)
 		double 	runningSeconds = 6 * 60 * 60;		//	Length of the experiment in seconds
 		double 	beamIntensity = 1e5;			//	Beam intensity in pps
@@ -178,15 +211,29 @@ void Run(){
 
 	}
 
-	system("./gosia < kr80_pt.inp > /dev/null");	
-	system("./gosia < kr80_pt.inp.INTI > /dev/null");	
+	///
+	///	Now we have our yields (simulated or real) we need to calculate the point
+	///	to integrated correction factors
+	///
 
+
+	///
+	///	First, the beam
+	///
+
+	system("./gosia < kr80_pt.inp > /dev/null");		//	Run the point, beam-like calculations
+	system("./gosia < kr80_pt.inp.INTI > /dev/null");	//	Run the integrated, beam-like calculations
+	
 	GOSIAReader	kr_gosiaReader_point(kr_nucl,"kr80_pt.out");
 	GOSIAReader	kr_gosiaReader_inti(kr_nucl,"kr80_pt.out.INTI");
 
+	//	Copy the output, for later comparison
 	system("cp kr80_pt.out kr80_pt.out.init");
 
-	//std::vector<std::vector<double>>	kr_Corr;	// Krykron point corrections
+	///
+	///	Here we loop over the yields and calculate the correction factor, before passing it
+	///	to a vector to be used in the minimization
+	///
 	std::vector<TVectorD>	kr_Corr;
 	for(size_t e=0; e < kr_gosiaReader_point.GetGOSIAData().size(); e++){	// Loop over experiments
 		size_t	len = kr_gosiaReader_point.GetGOSIAData().at(e).GetData().size();
@@ -203,15 +250,23 @@ void Run(){
 		kr_Corr.push_back(tmpVec);
 	}
 
-	system("./gosia < pt196_kr.inp > /dev/null");	
-	system("./gosia < pt196_kr.inp.INTI > /dev/null");	
+	///
+	///	Repeat the process for the target
+	///
+
+	system("./gosia < pt196_kr.inp > /dev/null");		//	Run the point, target-like calculations
+	system("./gosia < pt196_kr.inp.INTI > /dev/null");	//	Run the integrated, beam-like calculations
 
 	GOSIAReader	pt_gosiaReader_point(pt_nucl,"pt196_kr.out");
 	GOSIAReader	pt_gosiaReader_inti(pt_nucl,"pt196_kr.out.INTI");
 
+	//	Copy the output, for later comparison
 	system("cp pt196_kr.out pt196_kr.out.init");
 
-	//std::vector<std::vector<double>>	pt_Corr;	// Krypton point corrections
+	///
+	///	Here we loop over the yields and calculate the correction factor, before passing it
+	///	to a vector to be used in the minimization
+	///
 	std::vector<TVectorD>	pt_Corr;
 	for(size_t e=0; e < pt_gosiaReader_point.GetGOSIAData().size(); e++){	// Loop over experiments
 		size_t	len = pt_gosiaReader_point.GetGOSIAData().at(e).GetData().size();
@@ -228,25 +283,35 @@ void Run(){
 		pt_Corr.push_back(tmpVec);
 	}
 
-	//	Now, proceed to fit the data
+	///
+	///	Now we read in our experimental data
+	///
+	///	If you want to use other data than simulated, here's where you include it
+	///
 	DataReader *dataReader_t = new DataReader(pt_nucl,"SimulatedData_Pt196.txt");
 	DataReader *dataReader_b = new DataReader(kr_nucl,"SimulatedData_Kr80.txt");
 
-	//DataReader *dataReader_t = new DataReader(pt_nucl,"PtYields.yld");
-	//DataReader *dataReader_b = new DataReader(kr_nucl,"KrYields.yld");
-
+	///	
+	///	First read in the target data
+	///
 	std::vector<ExperimentData> exptVec_t;
-		for(unsigned int e=0;e<dataReader_t->GetExperimentData().size();e++){
+	for(unsigned int e=0;e<dataReader_t->GetExperimentData().size();e++){
 		ExperimentData tmpExpt = dataReader_t->GetExperimentData().at(e);
 		exptVec_t.push_back(tmpExpt);
 	}
 
-	//	Now, proceed to fit the simulated data
+	///
+	///	Then the beam
+	///
 	std::vector<ExperimentData> exptVec_b;
 	for(unsigned int e=0;e<dataReader_b->GetExperimentData().size();e++){
 		ExperimentData tmpExpt = dataReader_b->GetExperimentData().at(e);
 		exptVec_b.push_back(tmpExpt);
 	}
+
+	///
+	///	Now we have everything we need to begin the fitting procedure
+	///
 
 	std::cout	<< "Begin fitting routines"
 			<< std::endl;
@@ -255,44 +320,50 @@ void Run(){
 	//                         BEGIN THE FITTING PROCEDURE                          //
 	//******************************************************************************//
 
-	//	Create a simultaneous fitter (similar to CoulExFitter, but allows for beam and target)
+	///	Create a simultaneous fitter, designed to use external GOSIA yields
 	GOSIASimFitter *fitter = new GOSIASimFitter();
-	fitter->SetBeamNucleus(kr_nucl);		//	Pass the fitter the beam nucleus
+	fitter->SetBeamNucleus(kr_nucl);		//	Pass the fitter the beam nucleus...
 	fitter->SetTargetNucleus(pt_nucl);		//	... and the target nucleus
+	///
+	///	Now we need to tell the fitter about the correction factors for the beam...
+	///
 	for(unsigned int e=0;e<13;e++)
 		fitter->AddBeamCorrectionFactor(kr_Corr.at(e));
+	///
+	///	... and the target
+	///
 	for(unsigned int e=0;e<13;e++)
 		fitter->AddTargetCorrectionFactor(pt_Corr.at(e));
-	fitter->SetBeamData(exptVec_b);			//	Give the fitter the beam data
+	fitter->SetBeamData(exptVec_b);			//	Give the fitter the beam data...
 	fitter->SetTargetData(exptVec_t);		//	... and the target data
 
+	///
+	///	We also need to tell the fitter about the matrix-element ordering in the GOSIA
+	///	file. So we pass the vector objects here.
+	///
 	fitter->SetBeamMapping(kr_i,kr_f,kr_l);
 	fitter->SetTargetMapping(pt_i,pt_f,pt_l);
 
-	fitter->SetBeamGOSIAInput("kr80_pt.inp");
-	fitter->SetTargetGOSIAInput("pt196_kr.inp");
+	///
+	///	... and the fitter needs to know the various filenames to run, read and modify with
+	///	new matrix elements.
+	///
+	fitter->SetBeamGOSIAInput("kr80_pt.inp");	// 	Input file
+	fitter->SetTargetGOSIAInput("pt196_kr.inp");	// 	Input file
+	fitter->SetBeamGOSIAOutput("kr80_pt.out");	//	Output file
+	fitter->SetTargetGOSIAOutput("pt196_kr.out");	// 	Output file
+	fitter->SetBeamBST("kr80_pt.bst");		//	Matrix element file
+	fitter->SetTargetBST("pt196_kr.bst");		//	Matrix element file
 
-	fitter->SetBeamGOSIAOutput("kr80_pt.out");
-	fitter->SetTargetGOSIAOutput("pt196_kr.out");
-
-	fitter->SetBeamBST("kr80_pt.bst");
-	fitter->SetTargetBST("pt196_kr.bst");
-
-	fitter->AddBeamMixingRatio(2,1,6,1);
-	fitter->AddBeamBranchingRatio(2,1,0,3.096,0.245);
-
-	//	Define literature limits for some of the target data (first excited state lifetime)
+	///
+	///	Give the fitter some literature data to play with
+	///
 	fitter->AddTargetMatrixElement(1,0,1,1.172,0.005);
 	fitter->AddTargetMatrixElement(1,1,1,0.83,0.09);
-	fitter->AddTargetMatrixElement(1,1,2,1.36,0.03);
-	fitter->AddTargetMatrixElement(1,1,3,1.91,0.03);
-	fitter->AddTargetMatrixElement(1,2,2,-0.51,0.21);
-	fitter->AddTargetMatrixElement(6,1,2,0.376,0.03);
 
-	//	Define literature data for use in constraining the fits
-	// 	fitter->AddBeamLifetime(1,0.909,0.245);
-
-	//	Tell the fitter which matrix elements we will be fitting in the beam
+	///
+	///	Tell the fitter which matrix elements we're fitting in the beam...
+	///
 	fitter->AddBeamFittingMatrixElement(1,0,1,0.675428,0.1,3);
 	fitter->AddBeamFittingMatrixElement(1,0,2,0.0860115,-3,3);
 	fitter->AddBeamFittingMatrixElement(1,1,1,-0.648803,-3,3);
@@ -301,65 +372,45 @@ void Run(){
 	fitter->AddBeamFittingMatrixElement(1,1,4,0.932593,-3,3);
 	fitter->AddBeamFittingMatrixElement(1,4,4,0.431781,-3,3);
 	fitter->AddBeamFittingMatrixElement(6,1,2,0.166004,-3,3);
-	//	fitter->AddBeamFittingMatrixElement(1,0,1,0.65,0.4,1.2);
-	//	fitter->AddBeamFittingMatrixElement(1,0,2,0.16305,0,2);
-	//	fitter->AddBeamFittingMatrixElement(1,1,1,0.1000,-2,2);
-	//	fitter->AddBeamFittingMatrixElement(1,1,2,0.49529,-2,2);
-	//	fitter->AddBeamFittingMatrixElement(1,1,3,0.27565,0,2);
-	//	fitter->AddBeamFittingMatrixElement(1,1,4,0.66796,-2,2);
-	//	fitter->AddBeamFittingMatrixElement(1,4,4,-0.3052,-2,2);
-	//	fitter->AddBeamFittingMatrixElement(6,1,2,0.01342,-2,2);
-	//	... and in the target
+	///
+	///	... and in the target
+	///
 	fitter->AddTargetFittingMatrixElement(1,0,1,1.17241,0.1,2);
 	fitter->AddTargetFittingMatrixElement(1,1,1,0.83,0,3);
-	//fitter->AddTargetFittingMatrixElement(1,1,2,1.35997,-3,3);
-	//fitter->AddTargetFittingMatrixElement(1,1,3,1.90993,-3,3);
-	//fitter->AddTargetFittingMatrixElement(1,1,5,0.288,-3,3);
-	//fitter->AddTargetFittingMatrixElement(1,2,2,-0.51,-3,3);
-	//fitter->AddTargetFittingMatrixElement(1,2,5,1.13,-2,3);
-	//fitter->AddTargetFittingMatrixElement(6,1,2,0.376,-2,3);
-	//	Define a vector of integers to define common scaling
-	/*std::vector<int> tmpVec;
-	tmpVec.push_back(0);
-	tmpVec.push_back(6);
-	fitter->CreateScalingParameter(tmpVec);	//	Set the scaling parameters and their allowed range
-	tmpVec.push_back(1);	
-	tmpVec.push_back(2);
-	tmpVec.push_back(3);
-	tmpVec.push_back(4);
-	tmpVec.push_back(7);	
-	tmpVec.push_back(8);
-	tmpVec.push_back(9);
-	tmpVec.push_back(10);
-	fitter->CreateScalingParameter(tmpVec);	//	Set the scaling parameters and their allowed range
-	tmpVec.clear();
-	tmpVec.push_back(5);
-	tmpVec.push_back(11);
-	fitter->CreateScalingParameter(tmpVec);	//	Set the scaling parameters and their allowed range
-	tmpVec.clear();
-	tmpVec.push_back(12);
-	fitter->CreateScalingParameter(tmpVec);*/
+
+	///	
+	///	We're going to scale each angular range independently in this case. So we create
+	///	N vectors, containing a single integer n, where N is the number of angular ranges
+	///	(experiments, in the GOSIA nomenclature) and n is the number of the experiment.
+	///
 	std::vector<int> tmpVec;
 	for(int i=0;i<13;i++){
 		tmpVec.clear();
 		tmpVec.push_back(i);
-//	}
 		fitter->CreateScalingParameter(tmpVec);
 	}
 	fitter->SetLikelihoodFit(false);
 
-	//	MaxIterations/MaxFunctionCalls are for Minuit2 and GSL respectively
+	///
+	///	Pass some fitter formatting information.
+	///
+	///	MaxIterations/MaxFunctionCalls are for Minuit2 and GSL respectively.
+	///
 	fitter->SetMaxIterations(50000);
 	fitter->SetMaxFunctionCalls(50000);
 	fitter->SetVerbose(true);
-	//fitter->SetTolerance(0.001);
 
-	//fitter->SetDoFullUncertainty(true);
+	///
+	///	... and let's do a full uncertainty analysis, allowing for assymmetric errors
+	///
+	fitter->SetDoFullUncertainty(true);
 
-	//	Perform the fit
+	///
+	///	Nowe we're all set up
+	///
+	///	Perform the fit
+	///
 	fitter->DoFit("Minuit2","Migrad");
-	//fitter->DoFit("Minuit2","Combined");
-	//fitter->DoFit("GSLMultiMin", "ConjugateFR");
 
 
 }
