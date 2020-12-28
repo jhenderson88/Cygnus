@@ -183,7 +183,7 @@ void GOSIASimFitter::DoFit(const char* method, const char *algorithm){
 	int 	counter = 0;
 	int	status = min->Status();
 
-	while(counter < 5 && status == 3){
+	while(counter < 5){// && status == 3){
 		min->Minimize();
 		status	= min->Status();
 		counter++;
@@ -270,19 +270,38 @@ void GOSIASimFitter::AddTargetFittingMatrixElement(int lambda, int init, int fin
 	matrixElements_Target.push_back(tmpME);
 }
 
-void GOSIASimFitter::AddBeamCorrectionFactor(TVectorD corrFac){
+//void GOSIASimFitter::AddBeamCorrectionFactor(TVectorD corrFac){
+//	correctionFactors_Beam.push_back(corrFac);
+//}
+//void GOSIASimFitter::SetBeamCorrectionFactor(int i, TVectorD corrFac){
+//	if((i < (int)correctionFactors_Beam.size()))
+//		correctionFactors_Beam.at(i) = corrFac;
+//	else
+//		std::cout << "Outside vector range" << std::endl;
+//}
+//void GOSIASimFitter::AddTargetCorrectionFactor(TVectorD corrFac){
+//	correctionFactors_Target.push_back(corrFac);
+//}
+//void GOSIASimFitter::SetTargetCorrectionFactor(int i, TVectorD corrFac){
+//	if((i < (int)correctionFactors_Target.size()))
+//		correctionFactors_Target.at(i) = corrFac;
+//	else
+//		std::cout << "Outside vector range" << std::endl;
+//}
+
+void GOSIASimFitter::AddBeamCorrectionFactor(TMatrixD corrFac){
 	correctionFactors_Beam.push_back(corrFac);
 }
-void GOSIASimFitter::SetBeamCorrectionFactor(int i, TVectorD corrFac){
+void GOSIASimFitter::SetBeamCorrectionFactor(int i, TMatrixD corrFac){
 	if((i < (int)correctionFactors_Beam.size()))
 		correctionFactors_Beam.at(i) = corrFac;
 	else
 		std::cout << "Outside vector range" << std::endl;
 }
-void GOSIASimFitter::AddTargetCorrectionFactor(TVectorD corrFac){
+void GOSIASimFitter::AddTargetCorrectionFactor(TMatrixD corrFac){
 	correctionFactors_Target.push_back(corrFac);
 }
-void GOSIASimFitter::SetTargetCorrectionFactor(int i, TVectorD corrFac){
+void GOSIASimFitter::SetTargetCorrectionFactor(int i, TMatrixD corrFac){
 	if((i < (int)correctionFactors_Target.size()))
 		correctionFactors_Target.at(i) = corrFac;
 	else

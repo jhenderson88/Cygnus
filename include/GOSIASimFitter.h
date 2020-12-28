@@ -171,12 +171,19 @@ class GOSIASimFitter {
 		void	SetTargetNucleus(Nucleus *nucl)					{ fNucleus_Target = *nucl;		}	/*!< Define the fitting target nucleus (varied in fitting) */
 		Nucleus				GetTargetNucleus() 		const	{ return fNucleus_Target;		}	/*!< Return the fitting target nucleus (varied in fitting) */
 
-		void	AddBeamCorrectionFactor(TVectorD);										/*!< Add beam point calculation correction factors (append) */
-		void	SetBeamCorrectionFactor(int i, TVectorD);									/*!< Define beam point calculation correction factors for experiment i */
-		std::vector<TVectorD> GetBeamCorrectionFactors()		const	{ return correctionFactors_Beam;	}	/*!< Return beam point calculation correction factors */
-		void	AddTargetCorrectionFactor(TVectorD);										/*!< Add beam point calculation correction factors (append) */
-		void	SetTargetCorrectionFactor(int i, TVectorD);									/*!< Define beam point calculation correction factors for experiment i */
-		std::vector<TVectorD> GetTargetCorrectionFactors()		const	{ return correctionFactors_Target;	}	/*!< Return beam point calculation correction factors */
+		//void	AddBeamCorrectionFactor(TVectorD);										/*!< Add beam point calculation correction factors (append) */
+		//void	SetBeamCorrectionFactor(int i, TVectorD);									/*!< Define beam point calculation correction factors for experiment i */
+		//std::vector<TVectorD> GetBeamCorrectionFactors()		const	{ return correctionFactors_Beam;	}	/*!< Return beam point calculation correction factors */
+		//void	AddTargetCorrectionFactor(TVectorD);										/*!< Add beam point calculation correction factors (append) */
+		//void	SetTargetCorrectionFactor(int i, TVectorD);									/*!< Define beam point calculation correction factors for experiment i */
+		//std::vector<TVectorD> GetTargetCorrectionFactors()		const	{ return correctionFactors_Target;	}	/*!< Return beam point calculation correction factors */
+
+		void	AddBeamCorrectionFactor(TMatrixD);										/*!< Add beam point calculation correction factors (append) */
+		void	SetBeamCorrectionFactor(int i, TMatrixD);									/*!< Define beam point calculation correction factors for experiment i */
+		std::vector<TMatrixD> GetBeamCorrectionFactors()		const	{ return correctionFactors_Beam;	}	/*!< Return beam point calculation correction factors */
+		void	AddTargetCorrectionFactor(TMatrixD);										/*!< Add beam point calculation correction factors (append) */
+		void	SetTargetCorrectionFactor(int i, TMatrixD);									/*!< Define beam point calculation correction factors for experiment i */
+		std::vector<TMatrixD> GetTargetCorrectionFactors()		const	{ return correctionFactors_Target;	}	/*!< Return beam point calculation correction factors */
 
 		void	Print() const;	/*!< Print fitting details (formatted) */
 
@@ -224,8 +231,11 @@ class GOSIASimFitter {
 		std::vector<MatrixElement>	matrixElements_Target;		/*!< Preset to related parameters to matrix elements (target) */
 		std::vector<ScalingParameter>	scalingParameters;		/*!< Common scaling parameters */
 
-		std::vector<TVectorD>		correctionFactors_Beam;		/*!< Point corrections for the beam nucleus excitation */
-		std::vector<TVectorD>		correctionFactors_Target;	/*!< Point corrections for the target nucleus excitation*/
+		//std::vector<TVectorD>		correctionFactors_Beam;		/*!< Point corrections for the beam nucleus excitation */
+		//std::vector<TVectorD>		correctionFactors_Target;	/*!< Point corrections for the target nucleus excitation*/
+
+		std::vector<TMatrixD>		correctionFactors_Beam;		/*!< Point corrections for the beam nucleus excitation */
+		std::vector<TMatrixD>		correctionFactors_Target;	/*!< Point corrections for the target nucleus excitation*/
 
 		std::vector<PointCoulEx>	pointCalcs_Beam;		/*!< Point calculations for beam excitation */
 		std::vector<PointCoulEx>	pointCalcs_Target;		/*!< Point calculations for target excitation */

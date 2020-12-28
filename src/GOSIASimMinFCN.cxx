@@ -277,12 +277,12 @@ double GOSIASimMinFCN::operator()(const double* par){
 				std::cout	<< std::setw( 6) << std::left << init
 						<< std::setw( 6) << std::left << fina
 						<< std::setw(12) << std::left << counts	
-						<< std::setw(12) << std::left << correctionFactors_Beam.at(i)[j]
-						<< std::setw(12) << std::left << correctionFactors_Beam.at(i)[j] * counts
+						<< std::setw(12) << std::left << correctionFactors_Beam.at(i)[init][fina]
+						<< std::setw(12) << std::left << correctionFactors_Beam.at(i)[init][fina] * counts
 						<< std::endl;
 			}
-			tmpMat[fina][init]	= counts * correctionFactors_Beam.at(i)[j];
-			tmpMat[init][fina]	= counts * correctionFactors_Beam.at(i)[j];
+			tmpMat[fina][init]	= counts * correctionFactors_Beam.at(i)[init][fina];
+			tmpMat[init][fina]	= counts * correctionFactors_Beam.at(i)[init][fina];
 		}
 		EffectiveCrossSection_Beam.push_back(tmpMat);
 	}
@@ -299,12 +299,12 @@ double GOSIASimMinFCN::operator()(const double* par){
 				std::cout	<< std::setw( 6) << std::left << init
 						<< std::setw( 6) << std::left << fina
 						<< std::setw(12) << std::left << counts	
-						<< std::setw(12) << std::left << correctionFactors_Target.at(i)[j]
-						<< std::setw(12) << std::left << correctionFactors_Target.at(i)[j] * counts
+						<< std::setw(12) << std::left << correctionFactors_Target.at(i)[init][fina]
+						<< std::setw(12) << std::left << correctionFactors_Target.at(i)[init][fina] * counts
 						<< std::endl;
 			}
-			tmpMat[fina][init]	= counts * correctionFactors_Target.at(i)[j];
-			tmpMat[init][fina]	= counts * correctionFactors_Target.at(i)[j];
+			tmpMat[fina][init]	= counts * correctionFactors_Target.at(i)[init][fina];
+			tmpMat[init][fina]	= counts * correctionFactors_Target.at(i)[init][fina];
 		}
 		EffectiveCrossSection_Target.push_back(tmpMat);
 	}
@@ -344,7 +344,54 @@ double GOSIASimMinFCN::operator()(const double* par){
 
 	std::vector<double>	scaling;
 	scaling.resize(exptData_Beam.size());
-	for(unsigned int s=0;s<scalingParameters.size();s++){
+	for(size_t s=0;s<scalingParameters.size();s++){
+		std::vector<double>	sc_expt;
+		std::vector<double>	sc_expt_unc;
+		std::vector<double>	sc_calc;
+		for(size_t ss=0;ss<scalingParameters.at(s).GetExperimentNumbers().size();ss++){
+			size_t i = scalingParameters.at(s).GetExperimentNumbers().at(ss);
+			for(size_t t=0;t<exptData_Beam.at(i).GetData().size();++t){
+				int	index_init 	= exptData_Beam.at(i).GetData().at(t).GetInitialIndex();
+				int	index_final 	= exptData_Beam.at(i).GetData().at(t).GetFinalIndex();
+				double 	calcCounts 	= EffectiveCrossSection_Beam.at(i)[index_final][index_init];
+				double 	exptCounts 	= exptData_Beam.at(i).GetData().at(t).GetCounts();
+				double	sigma		= (exptData_Beam.at(i).GetData().at(t).GetUpUnc() + exptData_Beam.at(i).GetData().at(t).GetDnUnc())/2.;  // Average uncertainty
+				sc_expt.push_back(exptCounts);
+				sc_expt_unc.push_back(sigma);
+				sc_calc.push_back(calcCounts);
+			}
+			for(size_t t=0;t<exptData_Target.at(i).GetData().size();++t){
+				int	index_init 	= exptData_Target.at(i).GetData().at(t).GetInitialIndex();
+				int	index_final 	= exptData_Target.at(i).GetData().at(t).GetFinalIndex();
+				double 	calcCounts 	= EffectiveCrossSection_Target.at(i)[index_final][index_init];
+				double 	exptCounts 	= exptData_Target.at(i).GetData().at(t).GetCounts();
+				double	sigma		= (exptData_Target.at(i).GetData().at(t).GetUpUnc() + exptData_Target.at(i).GetData().at(t).GetDnUnc())/2.;  // Average uncertainty
+				sc_expt.push_back(exptCounts);
+				sc_expt_unc.push_back(sigma);
+				sc_calc.push_back(calcCounts);
+			}
+		}
+
+		ScalingFitFCN theFCN;
+
+		theFCN.SetData(sc_expt,sc_expt_unc,sc_calc);
+	
+		ROOT::Math::Minimizer *min =
+			ROOT::Math::Factory::CreateMinimizer("Minuit2","Combined");
+		ROOT::Math::Functor f_init(theFCN,1);
+		min->SetFunction(f_init);
+		min->SetVariable(0,"Scaling",1,0.0001);
+		min->Minimize();
+
+		
+		for(size_t ss=0;ss<scalingParameters.at(s).GetExperimentNumbers().size();ss++){
+			size_t i 	= scalingParameters.at(s).GetExperimentNumbers().at(ss);
+			scaling[i]	= min->X()[0];
+		}
+
+	}
+
+	/*for(unsigned int s=0;s<scalingParameters.size();s++){
 		double	calScaling 	= 0;
 		double	weightSum	= 0;
 		for(unsigned int ss=0;ss<scalingParameters.at(s).GetExperimentNumbers().size();ss++){
@@ -354,7 +401,7 @@ double GOSIASimMinFCN::operator()(const double* par){
 				int	index_final 	= exptData_Beam.at(i).GetData().at(t).GetFinalIndex();
 				double 	calcCounts 	= EffectiveCrossSection_Beam.at(i)[index_final][index_init];
 				double 	exptCounts 	= exptData_Beam.at(i).GetData().at(t).GetCounts();
-				if(exptCounts > 0 && calcCounts > 0){
+				if(exptCounts > 0 && calcCounts > 0 && index_init == 1 && index_final == 0){
 					double	sigma		= (exptData_Beam.at(i).GetData().at(t).GetUpUnc() + exptData_Beam.at(i).GetData().at(t).GetDnUnc())/2.;  // Average uncertainty
 					double	ratio		= exptCounts / calcCounts;
 					double	r_sigma		= ratio * sigma / exptCounts;
@@ -368,7 +415,7 @@ double GOSIASimMinFCN::operator()(const double* par){
 				int	index_final 	= exptData_Target.at(i).GetData().at(t).GetFinalIndex();
 				double 	calcCounts 	= EffectiveCrossSection_Target.at(i)[index_final][index_init];
 				double 	exptCounts 	= exptData_Target.at(i).GetData().at(t).GetCounts();
-				if(exptCounts > 0 && calcCounts > 0){
+				if(exptCounts > 0 && calcCounts > 0 && index_init == 1 && index_final == 0){
 					double	sigma		= (exptData_Target.at(i).GetData().at(t).GetUpUnc() + exptData_Target.at(i).GetData().at(t).GetDnUnc())/2.;  // Average uncertainty
 					double	ratio		= exptCounts / calcCounts;
 					double	r_sigma		= ratio * sigma / exptCounts;
@@ -383,7 +430,7 @@ double GOSIASimMinFCN::operator()(const double* par){
 			unsigned int i 	= scalingParameters.at(s).GetExperimentNumbers().at(ss);
 			scaling[i]	= calScaling;
 		}
-	}
+	}*/
 
 	for(unsigned int i=0;i<exptData_Beam.size();i++){
 		if(verbose)
@@ -516,6 +563,11 @@ double GOSIASimMinFCN::operator()(const double* par){
 				<< std::setw(26) << std::left << "Chisq / NDF: " 
 				<< std::setw(12) << std::left << std::setprecision(6) << chisq / (float)NDF
 				<< std::endl;
+		std::cout	<< std::setw(12) << std::left << "Scaling: ";
+		for(size_t s=0;s<scaling.size();s++){
+			std::cout	<< std::setw(8) << std::left << scaling.at(s);
+		}
+		std::cout	<< std::endl;
 	}
 
 	iter++;

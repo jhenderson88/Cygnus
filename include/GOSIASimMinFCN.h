@@ -12,6 +12,18 @@
 #include "Reaction.h"
 #include "GammaYield.h"
 #include "GOSIAReader.h"
+#include "ScalingFitFCN.h"
+
+#include "Minuit2/Minuit2Minimizer.h"
+#include "Math/Functor.h"
+#include "Math/Factory.h"
+#include "Math/Minimizer.h"
+#include "Minuit2/FunctionMinimum.h"
+#include "Minuit2/MnUserParameterState.h"
+#include "Minuit2/MnMigrad.h" 
+#include "Minuit2/MnMinos.h"
+#include "Minuit2/MnContours.h"
+#include "Minuit2/MnPlot.h"
 
 #include <ctime>
 #include <thread>
@@ -97,9 +109,9 @@ class GOSIASimMinFCN { // : public ROOT::Minuit2::FCNBase{
 		void	AddScalingParameter(ScalingParameter s)				{ scalingParameters.push_back(s);	}	/*!< Append a new ScalingParameter to the vector */
 		void	ClearScalingParameters()					{ scalingParameters.clear();		}	/*!< Clear the vector of ScalingParameter objects */
 
-		double up() const	 						{ return theErrorDef;			}	/*!< Required by ROOT::Minimizer */
-		double operator()(const double*);											/*!< Required by ROOT::Minimizer */
-		void	setErrorDef(double def)						{ theErrorDef = def;			}	/*!< Required by ROOT::Minimizer */
+		double 	up() const	 						{ return theErrorDef;			}	/*!< Required by ROOT::Minimizer */
+		double 	operator()(const double*);											/*!< Required by ROOT::Minimizer */
+		void	SetErrorDef(double def)						{ theErrorDef = def;			}	/*!< Required by ROOT::Minimizer */
 
 		// The below are duplicated for beam and target excitation:
 		void	SetBeamMatrixElements(std::vector<MatrixElement> m)		{ ME_Beam = m;				}	/*!< Define the vector of beam MatrixElement objects to be fitted */
@@ -145,10 +157,15 @@ class GOSIASimMinFCN { // : public ROOT::Minuit2::FCNBase{
 		void	SetTargetNucleus(Nucleus *nucl)					{ fNucleus_Target = *nucl;		}	/*!< Define the fitting target nucleus (varied in fitting) */
 		Nucleus				GetTargetNucleus() 		const	{ return fNucleus_Target;		}	/*!< Return the fitting target nucleus (varied in fitting) */
 
-		void	SetBeamCorrectionFactors(std::vector<TVectorD> v)		{ correctionFactors_Beam = v;		}	/*!< Define the vector of correction factors between point and integrated cross sections for the beam */
-		std::vector<TVectorD> GetBeamCorrectionFactors()		const	{ return correctionFactors_Beam;	}	/*!< Return the vector of correciton factors between point and integrated cross sections for the beam */
-		void	SetTargetCorrectionFactors(std::vector<TVectorD> v)		{ correctionFactors_Target = v;		}	/*!< Define the vector of correction factors between point and integrated cross sections for the target */
-		std::vector<TVectorD> GetTargetCorrectionFactors()		const	{ return correctionFactors_Target;	}	/*!< Return the vector of correciton factors between point and integrated cross sections for the target */
+		//void	SetBeamCorrectionFactors(std::vector<TVectorD> v)		{ correctionFactors_Beam = v;		}	/*!< Define the vector of correction factors between point and integrated cross sections for the beam */
+		//std::vector<TVectorD> GetBeamCorrectionFactors()		const	{ return correctionFactors_Beam;	}	/*!< Return the vector of correciton factors between point and integrated cross sections for the beam */
+		//void	SetTargetCorrectionFactors(std::vector<TVectorD> v)		{ correctionFactors_Target = v;		}	/*!< Define the vector of correction factors between point and integrated cross sections for the target */
+		//std::vector<TVectorD> GetTargetCorrectionFactors()		const	{ return correctionFactors_Target;	}	/*!< Return the vector of correciton factors between point and integrated cross sections for the target */
+
+		void	SetBeamCorrectionFactors(std::vector<TMatrixD> v)		{ correctionFactors_Beam = v;		}	/*!< Define the vector of correction factors between point and integrated cross sections for the beam */
+		std::vector<TMatrixD> GetBeamCorrectionFactors()		const	{ return correctionFactors_Beam;	}	/*!< Return the vector of correciton factors between point and integrated cross sections for the beam */
+		void	SetTargetCorrectionFactors(std::vector<TMatrixD> v)		{ correctionFactors_Target = v;		}	/*!< Define the vector of correction factors between point and integrated cross sections for the target */
+		std::vector<TMatrixD> GetTargetCorrectionFactors()		const	{ return correctionFactors_Target;	}	/*!< Return the vector of correciton factors between point and integrated cross sections for the target */
 
 		// The following is unchanged from CoulExMinFCN:
 		void	SetNpar(int n)							{ nPar = n;				}	/*!< Define the number of fitting parameters (fitting matrix elements + scaling parameters) */
@@ -178,8 +195,11 @@ class GOSIASimMinFCN { // : public ROOT::Minuit2::FCNBase{
 		std::vector<MatrixElement>	ME_Target;			/*!< Target matrix elements - Preset to relate parameters to target matrix elements */
 		std::vector<ScalingParameter>	scalingParameters;		/*!< Scaling parameters - common to both target and beam excitations */
 
-		std::vector<TVectorD>		correctionFactors_Beam;		/*!< Point correction factor for the beam (accounts for the angular distribution of the cross section) */
-		std::vector<TVectorD>		correctionFactors_Target;	/*!< Point correction factor for the target (accounts for the angular distribution of the cross section) */
+		//std::vector<TVectorD>		correctionFactors_Beam;		/*!< Point correction factor for the beam (accounts for the angular distribution of the cross section) */
+		//std::vector<TVectorD>		correctionFactors_Target;	/*!< Point correction factor for the target (accounts for the angular distribution of the cross section) */
+
+		std::vector<TMatrixD>		correctionFactors_Beam;		/*!< Point correction factor for the beam (accounts for the angular distribution of the cross section) */
+		std::vector<TMatrixD>		correctionFactors_Target;	/*!< Point correction factor for the target (accounts for the angular distribution of the cross section) */
 
 		std::vector<ExperimentData>	exptData_Beam;			/*!< Beam excitation experimental data (one vector entry for each data subset) */
 		std::vector<ExperimentData>	exptData_Target;		/*!< Target excitation experimental data (one vector entry for each data subset) */
