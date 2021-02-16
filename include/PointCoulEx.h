@@ -96,6 +96,8 @@ class PointCoulEx
 		void			WriteDetailsToFile(const char* outfilename = "CoulEx_CalculationDetails.txt");	/*!< Write the calculation details to a text file for debugging purposes  */
 		void			WriteMatrix(std::ofstream&, TMatrixD);				/*!< Write a well formatted TMatrixD */
 		void			WriteConnections(std::ofstream&);				/*!< Write the connections between substates in a well formatted manner */
+		void                    WriteTensorsToFile(const char* outfilename, std::ios_base::openmode mode = std::ios_base::out);                    /*!< Write LAB frame tensors to a text file  */
+		void                    WriteTensorsBToFile(const char* outfilename, std::ios_base::openmode mode = std::ios_base::out);                   /*!< Write Excitation frame tensors to a text file  */
 
 		TMatrixD		GetFinalRealAmplitude()	const	{ return FinalRealAmplitude;	}	/*!< Return the real components of the final amplitudes  */
 		TMatrixD		GetFinalImagAmplitude()	const	{ return FinalImagAmplitude;	}	/*!< Return the imaginary components of the final amplitudes */

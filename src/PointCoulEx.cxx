@@ -1674,6 +1674,68 @@ void PointCoulEx::WriteDetailsToFile(const char* outfilename){
 }
 
 //****************************************************************************************************//
+//	Sub-function specifically to write statistical tensor to file in a vaguely
+//	sensible format.	
+//****************************************************************************************************//
+void PointCoulEx::WriteTensorsToFile(const char* outfilename, std::ios_base::openmode mode) {
+
+  std::ofstream outfile;
+  outfile.open(outfilename,mode);	
+
+  outfile << "Theta [CM]: " << fTheta*TMath::DegToRad() << " rad\n" << "STATISTICAL TENSORS: LAB FRAME\n";
+  outfile << std::setw(10) << std::left << "INDEX:"
+	  << std::setw(10) << std::left << "KA:"
+	  << std::setw(10) << std::left << "KAPPA:"
+	  << std::setw(14) << std::left << "RHOC:"
+	  << std::endl;
+  
+  for(int i=0;i<fTensors.GetNstates();i++){	
+    StateTensor tmpTensor = fTensors.GetStateTensor(i);
+    for(int j=0;j<tmpTensor.GetNelements();j++){
+      outfile 	<< std::setw(10) << std::left << tmpTensor.GetState()
+		<< std::setw(10) << std::left << tmpTensor.GetK(j)
+		<< std::setw(10) << std::left << tmpTensor.GetKappa(j)
+		<< std::setw(14) << std::left << tmpTensor.GetTensor(j)
+		<< std::endl;
+    }
+  }
+  outfile << std::endl;
+  outfile.close();
+
+}
+
+//****************************************************************************************************//
+//	Sub-function specifically to write statistical tensor to file in a vaguely
+//	sensible format.	
+//****************************************************************************************************//
+void PointCoulEx::WriteTensorsBToFile(const char* outfilename, std::ios_base::openmode mode) {
+
+  std::ofstream outfile;
+  outfile.open(outfilename,mode);	
+
+  outfile << "Theta [CM]: " << fTheta*TMath::DegToRad() << " rad\n" << "STATISTICAL TENSORS: Excitation FRAME\n";
+  outfile << std::setw(10) << std::left << "INDEX:"
+	  << std::setw(10) << std::left << "KA:"
+	  << std::setw(10) << std::left << "KAPPA:"
+	  << std::setw(14) << std::left << "RHOC:"
+	  << std::endl;
+  
+  for(int i=0;i<fTensorsB.GetNstates();i++){	
+    StateTensor tmpTensor = fTensorsB.GetStateTensor(i);
+    for(int j=0;j<tmpTensor.GetNelements();j++){
+      outfile 	<< std::setw(10) << std::left << tmpTensor.GetState()
+		<< std::setw(10) << std::left << tmpTensor.GetK(j)
+		<< std::setw(10) << std::left << tmpTensor.GetKappa(j)
+		<< std::setw(14) << std::left << tmpTensor.GetTensor(j)
+		<< std::endl;
+    }
+  }
+  outfile << std::endl;
+  outfile.close();
+
+}
+
+//****************************************************************************************************//
 //	Sub-function specifically to write connection information to file in a vaguely
 //	sensible format.	
 //****************************************************************************************************//
