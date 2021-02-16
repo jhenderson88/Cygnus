@@ -221,66 +221,90 @@ void Run(){
 	///	First, the beam
 	///
 
-	system("./gosia < kr80_pt.inp > /dev/null");		//	Run the point, beam-like calculations
-	system("./gosia < kr80_pt.inp.INTI > /dev/null");	//	Run the integrated, beam-like calculations
-	
+
+
+	system("./gosia < kr80_pt.inp > /dev/null");	
+	system("./gosia < kr80_pt.inp.INTI > /dev/null");	
+
 	GOSIAReader	kr_gosiaReader_point(kr_nucl,"kr80_pt.out");
 	GOSIAReader	kr_gosiaReader_inti(kr_nucl,"kr80_pt.out.INTI");
 
-	//	Copy the output, for later comparison
 	system("cp kr80_pt.out kr80_pt.out.init");
 
-	///
-	///	Here we loop over the yields and calculate the correction factor, before passing it
-	///	to a vector to be used in the minimization
-	///
-	std::vector<TVectorD>	kr_Corr;
+	//std::vector<std::vector<double>>	kr_Corr;	// Krykron point corrections
+	std::vector<TMatrixD>	kr_Corr;
 	for(size_t e=0; e < kr_gosiaReader_point.GetGOSIAData().size(); e++){	// Loop over experiments
-		size_t	len = kr_gosiaReader_point.GetGOSIAData().at(e).GetData().size();
-		TVectorD	tmpVec;
-		tmpVec.ResizeTo(len);	
+		//size_t	len = kr_gosiaReader_point.GetGOSIAData().at(e).GetData().size();
+		size_t 		len = kr_nucl->GetNstates();
+		//TVectorD	tmpVec;
+		TMatrixD	tmpMat;
+		tmpMat.ResizeTo(len,len);
+		//tmpVec.ResizeTo(len);	
+		std::cout	<< "Pt196 " << e+1 
+				<< std::endl;
 		for(size_t ee=0; ee<kr_gosiaReader_point.GetGOSIAData().at(e).GetData().size();ee++){
+			int	init = kr_gosiaReader_inti.GetGOSIAData().at(e).GetDataPoint(ee).GetInitialIndex();
+			int	fina = kr_gosiaReader_inti.GetGOSIAData().at(e).GetDataPoint(ee).GetFinalIndex();
 			double	point = kr_gosiaReader_point.GetGOSIAData().at(e).GetDataPoint(ee).GetCounts();
 			double	inti = kr_gosiaReader_inti.GetGOSIAData().at(e).GetDataPoint(ee).GetCounts();
-			if(point > 1e-8)
-				tmpVec[ee] = inti/point;
-			else
-				tmpVec[ee] = 0;
+			std::cout	<< std::setw(10) << std::left << kr_gosiaReader_inti.GetGOSIAData().at(e).GetDataPoint(ee).GetInitialIndex() + 1
+					<< std::setw(10) << std::left << kr_gosiaReader_inti.GetGOSIAData().at(e).GetDataPoint(ee).GetFinalIndex() + 1 
+					<< std::setw(10) << std::left << point 
+					<< std::setw(10) << std::left << inti
+					<< std::setw(10) << std::left << inti/point
+					<< std::endl;
+			if(point > 1e-8){
+				tmpMat[init][fina] = inti/point;
+				tmpMat[fina][init] = inti/point;
+			}
+			else{
+				tmpMat[init][fina] = 0;
+				tmpMat[fina][init] = 0;
+			}
 		}
-		kr_Corr.push_back(tmpVec);
+		kr_Corr.push_back(tmpMat);
 	}
 
-	///
-	///	Repeat the process for the target
-	///
-
-	system("./gosia < pt196_kr.inp > /dev/null");		//	Run the point, target-like calculations
-	system("./gosia < pt196_kr.inp.INTI > /dev/null");	//	Run the integrated, beam-like calculations
+	system("./gosia < pt196_kr.inp > /dev/null");	
+	system("./gosia < pt196_kr.inp.INTI > /dev/null");	
 
 	GOSIAReader	pt_gosiaReader_point(pt_nucl,"pt196_kr.out");
 	GOSIAReader	pt_gosiaReader_inti(pt_nucl,"pt196_kr.out.INTI");
 
-	//	Copy the output, for later comparison
 	system("cp pt196_kr.out pt196_kr.out.init");
 
-	///
-	///	Here we loop over the yields and calculate the correction factor, before passing it
-	///	to a vector to be used in the minimization
-	///
-	std::vector<TVectorD>	pt_Corr;
+	//std::vector<std::vector<double>>	pt_Corr;	// Krypton point corrections
+	std::vector<TMatrixD>	pt_Corr;
 	for(size_t e=0; e < pt_gosiaReader_point.GetGOSIAData().size(); e++){	// Loop over experiments
-		size_t	len = pt_gosiaReader_point.GetGOSIAData().at(e).GetData().size();
-		TVectorD	tmpVec;
-		tmpVec.ResizeTo(len);	
+		//size_t	len = pt_gosiaReader_point.GetGOSIAData().at(e).GetData().size();
+		size_t 		len = pt_nucl->GetNstates();
+		//TVectorD	tmpVec;
+		TMatrixD	tmpMat;
+		tmpMat.ResizeTo(len,len);
+		//tmpVec.ResizeTo(len);	
+		std::cout	<< "Pt196 " << e+1 
+				<< std::endl;
 		for(size_t ee=0; ee<pt_gosiaReader_point.GetGOSIAData().at(e).GetData().size();ee++){
+			int	init = pt_gosiaReader_inti.GetGOSIAData().at(e).GetDataPoint(ee).GetInitialIndex();
+			int	fina = pt_gosiaReader_inti.GetGOSIAData().at(e).GetDataPoint(ee).GetFinalIndex();
 			double	point = pt_gosiaReader_point.GetGOSIAData().at(e).GetDataPoint(ee).GetCounts();
 			double	inti = pt_gosiaReader_inti.GetGOSIAData().at(e).GetDataPoint(ee).GetCounts();
-			if(point > 1e-8)
-				tmpVec[ee] = inti/point;
-			else
-				tmpVec[ee] = 0;
+			std::cout	<< std::setw(10) << std::left << pt_gosiaReader_inti.GetGOSIAData().at(e).GetDataPoint(ee).GetInitialIndex() + 1
+					<< std::setw(10) << std::left << pt_gosiaReader_inti.GetGOSIAData().at(e).GetDataPoint(ee).GetFinalIndex() + 1 
+					<< std::setw(10) << std::left << point 
+					<< std::setw(10) << std::left << inti
+					<< std::setw(10) << std::left << inti/point
+					<< std::endl;
+			if(point > 1e-8){
+				tmpMat[init][fina] = inti/point;
+				tmpMat[fina][init] = inti/point;
+			}
+			else{
+				tmpMat[init][fina] = 0;
+				tmpMat[fina][init] = 0;
+			}
 		}
-		pt_Corr.push_back(tmpVec);
+		pt_Corr.push_back(tmpMat);
 	}
 
 	///
@@ -365,13 +389,13 @@ void Run(){
 	///	Tell the fitter which matrix elements we're fitting in the beam...
 	///
 	fitter->AddBeamFittingMatrixElement(1,0,1,0.675428,0.1,3);
-	fitter->AddBeamFittingMatrixElement(1,0,2,0.0860115,-3,3);
+	//fitter->AddBeamFittingMatrixElement(1,0,2,0.0860115,-3,3);
 	fitter->AddBeamFittingMatrixElement(1,1,1,-0.648803,-3,3);
-	fitter->AddBeamFittingMatrixElement(1,1,2,0.766345,-3,3);
-	fitter->AddBeamFittingMatrixElement(1,1,3,0.207623,-3,3);
-	fitter->AddBeamFittingMatrixElement(1,1,4,0.932593,-3,3);
-	fitter->AddBeamFittingMatrixElement(1,4,4,0.431781,-3,3);
-	fitter->AddBeamFittingMatrixElement(6,1,2,0.166004,-3,3);
+	//fitter->AddBeamFittingMatrixElement(1,1,2,0.766345,-3,3);
+	//fitter->AddBeamFittingMatrixElement(1,1,3,0.207623,-3,3);
+	//fitter->AddBeamFittingMatrixElement(1,1,4,0.932593,-3,3);
+	//fitter->AddBeamFittingMatrixElement(1,4,4,0.431781,-3,3);
+	//fitter->AddBeamFittingMatrixElement(6,1,2,0.166004,-3,3);
 	///
 	///	... and in the target
 	///
@@ -384,11 +408,11 @@ void Run(){
 	///	(experiments, in the GOSIA nomenclature) and n is the number of the experiment.
 	///
 	std::vector<int> tmpVec;
+	tmpVec.clear();
 	for(int i=0;i<13;i++){
-		tmpVec.clear();
 		tmpVec.push_back(i);
-		fitter->CreateScalingParameter(tmpVec);
 	}
+	fitter->CreateScalingParameter(tmpVec);
 	fitter->SetLikelihoodFit(false);
 
 	///
@@ -410,7 +434,7 @@ void Run(){
 	///
 	///	Perform the fit
 	///
-	fitter->DoFit("Minuit2","Migrad");
+	fitter->DoFit("Minuit2","Combined");
 
 
 }

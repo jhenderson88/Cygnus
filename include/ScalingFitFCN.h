@@ -1,6 +1,7 @@
 #ifndef ScalingFitFCN_h
 #define ScalingFitFCN_h
 
+#include <ctime>
 #include <vector>
 
 class ScalingFitFCN{ // : public ROOT::Minuit2::FCNBase{

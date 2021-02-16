@@ -356,9 +356,11 @@ double GOSIASimMinFCN::operator()(const double* par){
 				double 	calcCounts 	= EffectiveCrossSection_Beam.at(i)[index_final][index_init];
 				double 	exptCounts 	= exptData_Beam.at(i).GetData().at(t).GetCounts();
 				double	sigma		= (exptData_Beam.at(i).GetData().at(t).GetUpUnc() + exptData_Beam.at(i).GetData().at(t).GetDnUnc())/2.;  // Average uncertainty
-				sc_expt.push_back(exptCounts);
-				sc_expt_unc.push_back(sigma);
-				sc_calc.push_back(calcCounts);
+				if(sigma > 0 && calcCounts > 0 && exptCounts > 0){
+					sc_expt.push_back(exptCounts);
+					sc_expt_unc.push_back(sigma);
+					sc_calc.push_back(calcCounts);
+				}				
 			}
 			for(size_t t=0;t<exptData_Target.at(i).GetData().size();++t){
 				int	index_init 	= exptData_Target.at(i).GetData().at(t).GetInitialIndex();
@@ -366,9 +368,11 @@ double GOSIASimMinFCN::operator()(const double* par){
 				double 	calcCounts 	= EffectiveCrossSection_Target.at(i)[index_final][index_init];
 				double 	exptCounts 	= exptData_Target.at(i).GetData().at(t).GetCounts();
 				double	sigma		= (exptData_Target.at(i).GetData().at(t).GetUpUnc() + exptData_Target.at(i).GetData().at(t).GetDnUnc())/2.;  // Average uncertainty
-				sc_expt.push_back(exptCounts);
-				sc_expt_unc.push_back(sigma);
-				sc_calc.push_back(calcCounts);
+				if(sigma > 0 && calcCounts > 0 && exptCounts > 0){
+					sc_expt.push_back(exptCounts);
+					sc_expt_unc.push_back(sigma);
+					sc_calc.push_back(calcCounts);
+				}
 			}
 		}
 

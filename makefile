@@ -8,9 +8,19 @@ ROOT_LIBS = `root-config --glibs` -lSpectrum -lTreePlayer -lMathMore
 LIBRS = -L$(INCDIR) $(ROOT_LIBS)# $(MINSRC) 
 INCLUDE = $(INCDIR)# $(MINDIR)
 
-CFLAGS = -std=c++11 -g -fPIC `root-config --cflags` `gsl-config --cflags` -I$(INCDIR) $(ROOT_LIBS) $(GSLLIBS) -Qunused-arguments
+CFLAGS = -std=c++11 -g -fPIC `root-config --cflags` `gsl-config --cflags` -I$(INCDIR) $(ROOT_LIBS) $(GSLLIBS) -Wno-unused-parameter
 
-CPP=g++
+PLATFORM:=$(shell uname)
+$(info PLATFORM: $(PLATFORM))
+ 
+ifeq ($(PLATFORM),Darwin)
+export __APPLE__:= 1
+CFLAGS     += -Qunused-arguments
+CPP        = clang++
+else
+export __LINUX__:= 1
+CPP        = g++
+endif
 
 HEAD = $(wildcard include/*.h)
 OBJECTS = $(patsubst include/%.h,bin/build/%.o,$(HEAD))
