@@ -53,5 +53,5 @@ clean:
 	@printf "Tidying up...\n"
 	@rm $(OBJECTS)
 	@rm lib/DictOutput*
-	@rm bin/*
+	@rm -r bin/*
 	
