@@ -23,31 +23,35 @@ CPP        = g++
 endif
 
 HEAD = $(wildcard include/*.h)
-OBJECTS = $(patsubst include/%.h,bin/build/%.o,$(HEAD))
+OBJECTS = $(patsubst include/%.h,lib/%.so,$(HEAD))
 
 TARGET = bin/libCygnus.so
 
 main: $(TARGET)
 	@printf "Make complete\n"
 
-$(TARGET): $(OBJECTS) bin/DictOutput.cxx 
-	@printf "Now compiling shared library$@\n"
-	@$(CPP) $(CFLAGS) -I$(INCDIR) -I. -L$(LIBRS) -o $@ -shared bin/DictOutput.cxx $(OBJECTS) 
+$(TARGET): $(OBJECTS) lib/DictOutput.cxx lib bin
+	@printf "Now compiling shared library $@\n"
+	@$(CPP) $(CFLAGS) -I$(INCDIR) -I. -L$(LIBRS) -o $@ -shared lib/DictOutput.cxx $(OBJECTS) 
 
-bin/DictOutput.cxx: $(HEAD)
+lib/DictOutput.cxx: $(HEAD)
 	@printf "Linking libraries\n"
-	@rootcint -f $@ -c -p $(HEAD) bin/build/linkdef.h
+	@rootcint -f $@ -c -p $(HEAD) lib/linkdef.h
 
-bin/build/%.o: src/%.cxx include/%.h
+lib bin:
+	@mkdir -p bin lib
+
+lib/%.so: src/%.cxx include/%.h
 	@printf "Now compiling library $@\n"
-	@$(CPP) $(CFLAGS) -I$(INCDIR) -L$(LIBRS) -o $@ -c $<
+	@$(CPP) $(CFLAGS) -I$(INCDIR) -L$(LIBRS) -o $@ -shared -c $<
  
-bin/build/%.o: src/*/%.cxx include/%.h	
+lib/%.so: src/*/%.cxx include/%.h	
 	@printf "Now compiling library $@\n"
-	@$(CPP) $(CFLAGS) -I$(INCDIR) -L$(LIBRS) -o $@ -c $< 
+	@$(CPP) $(CFLAGS) -I$(INCDIR) -L$(LIBRS) -o $@ -share -c $< 
 
 clean:  
 	@printf "Tidying up...\n"
 	@rm $(OBJECTS)
-	@rm bin/*.*
+	@rm lib/DictOutput*
+	@rm bin/*
 	
