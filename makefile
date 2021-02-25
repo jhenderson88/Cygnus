@@ -30,11 +30,11 @@ TARGET = bin/libCygnus.so
 main: $(TARGET)
 	@printf "Make complete\n"
 
-$(TARGET): $(OBJECTS) lib/DictOutput.cxx lib bin
+$(TARGET): $(OBJECTS) bin/DictOutput.cxx lib bin
 	@printf "Now compiling shared library $@\n"
-	@$(CPP) $(CFLAGS) -I$(INCDIR) -I. -L$(LIBRS) -o $@ -shared lib/DictOutput.cxx $(OBJECTS) 
+	@$(CPP) $(CFLAGS) -I$(INCDIR) -I. -L$(LIBRS) -o $@ -shared bin/DictOutput.cxx $(OBJECTS) 
 
-lib/DictOutput.cxx: $(HEAD)
+bin/DictOutput.cxx: $(HEAD)
 	@printf "Linking libraries\n"
 	@rootcint -f $@ -c -p $(HEAD) lib/linkdef.h
 
@@ -52,6 +52,5 @@ lib/%.so: src/*/%.cxx include/%.h
 clean:  
 	@printf "Tidying up...\n"
 	@rm $(OBJECTS)
-	@rm lib/DictOutput*
 	@rm -r bin/*
 	
