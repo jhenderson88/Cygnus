@@ -5,10 +5,10 @@ BINDIR = $(CURDIR)/bin
 
 ROOT_LIBS = `root-config --glibs` -lSpectrum -lTreePlayer -lMathMore
 
-LIBRS = -L$(INCDIR) $(ROOT_LIBS)# $(MINSRC) 
-INCLUDE = $(INCDIR)# $(MINDIR)
+LIBRS = $(INCDIR) $(ROOT_LIBS) $(GSLLIBS)
+INCLUDE = $(INCDIR)
 
-CFLAGS = -std=c++11 -g -fPIC `root-config --cflags` `gsl-config --cflags` -I$(INCDIR) $(ROOT_LIBS) $(GSLLIBS) -Wno-unused-parameter
+CFLAGS = -std=c++11 -g -fPIC `root-config --cflags` `gsl-config --cflags` -Wno-unused-parameter
 
 PLATFORM:=$(shell uname)
 $(info PLATFORM: $(PLATFORM))
@@ -32,7 +32,7 @@ main: $(TARGET)
 
 $(TARGET): $(OBJECTS) bin/DictOutput.cxx 
 	@printf "Now compiling shared library$@\n"
-	@$(CPP) $(CFLAGS) -o $@ -shared bin/DictOutput.cxx $(OBJECTS) -I. $(LIBRS) $(GSLLIBS)
+	@$(CPP) $(CFLAGS) -I$(INCDIR) -I. -L$(LIBRS) -o $@ -shared bin/DictOutput.cxx $(OBJECTS) 
 
 bin/DictOutput.cxx: $(HEAD)
 	@printf "Linking libraries\n"
@@ -40,11 +40,11 @@ bin/DictOutput.cxx: $(HEAD)
 
 bin/build/%.o: src/%.cxx include/%.h
 	@printf "Now compiling library $@\n"
-	@$(CPP) $(CFLAGS) -o $@ -c $< $(LIBRS) $(GSLLIBS)
+	@$(CPP) $(CFLAGS) -I$(INCDIR) -L$(LIBRS) -o $@ -c $<
  
 bin/build/%.o: src/*/%.cxx include/%.h	
 	@printf "Now compiling library $@\n"
-	@$(CPP) $(CFLAGS) -o $@ -c $< $(LIBRS) $(GSLLIBS)
+	@$(CPP) $(CFLAGS) -I$(INCDIR) -L$(LIBRS) -o $@ -c $< 
 
 clean:  
 	@printf "Tidying up...\n"
