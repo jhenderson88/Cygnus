@@ -30,7 +30,7 @@ TARGET = bin/libCygnus.so
 main: $(TARGET)
 	@printf "Make complete\n"
 
-$(TARGET): $(OBJECTS) bin/DictOutput.cxx lib bin
+$(TARGET): lib bin $(OBJECTS) bin/DictOutput.cxx
 	@printf "Now compiling shared library $@\n"
 	@$(CPP) $(CFLAGS) -I$(INCDIR) -I. -L$(LIBRS) -o $@ -shared bin/DictOutput.cxx $(OBJECTS) 
 
